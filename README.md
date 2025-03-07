@@ -24,4 +24,4 @@ https://envpolech.ru/
 ## AUTHOR 
 # TimQwees -> https://github.com/artemon36
 # TimQwees -> https://t.me/timqwees
-# TimQwees -> Nersisyan Artem 241-321
+# TimQwees -> Nersisyan Artem 241-321# mandomemori
