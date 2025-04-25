@@ -157,6 +157,451 @@ if (isset($user['id']) or !empty($user['id'])) {
   <meta data-n-head="ssr" name="google-site-verification" content="VXEoKSTw5NC5h4JqxJuqH8y_9oM941-MSdzcTGhKHHk">
   <link data-n-head="ssr" rel="icon" type="image/png" href="/images/logo/logo.png">
   <!-- End Google Tag Manager -->
+
+  <!-- SEO -->
+
+  <!--  #### Быстрые ссылки ##### -->
+
+  <!-- description:
+- @context — контекст для структурированных данных.
+- @type — тип объекта (в данном случае сайт).
+- url — основной URL сайта.
+- potentialAction — описывает, как пользователи могут выполнять 
+поиск на сайте -->
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://mandomemori.ru/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://mandomemori.ru/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+  <!--  #### Изображения ##### -->
+
+<!-- 
+Объяснение:
+- @type — тип объекта (изображение).
+- url — ссылка на изображение.
+- name — название изображения.
+- description — описание изображения. -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "ImageObject",
+      "url": "https://mandomemori.ru/images/baner/baner.jpg",
+      "name": "Банер MandoMemori",
+      "description": "Только высококачественная работа"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://mandomemori.ru/images/baner/baner.png",
+      "name": "Банер MandoMemori - машина",
+      "description": "Мы везде"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://mandomemori.ru/images/baner/baner1.png",
+      "name": "Банер MandoMemori - туфли",
+      "description": "Лучшие изделия"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://mandomemori.ru/images/baner/baner2.jpg",
+      "name": "Банер MandoMemori - эксклюзив",
+      "description": "Эксклюзивные работы"
+    },
+        {
+      "@type": "ImageObject",
+      "url": "https://mandomemori.ru/images/baner/baner7.jpg",
+      "name": "Банер MandoMemori - лучшие мастера своего дела",
+      "description": "Лучшие мастера, которые позаботяться о ваших вещях"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://mandomemori.ru/images/baner/baner9.jpg",
+      "name": "Банер MandoMemori - если за качеством, то к нам!",
+      "description": "MandoMemori - забирет и довезет вашу вещь прям вам домой!"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://mandomemori.ru/images/services/ (7).PNG",
+      "name": "Аксессуар MandoMemori",
+      "description": "Аксесуары"
+    }
+  ]
+}
+</script>
+
+
+  <!--  #### Изображения ##### -->
+
+  <!-- Объяснение:
+- @type — тип объекта (товар).
+- name — название товара или услуги.
+- aggregateRating — содержит информацию о рейтинге и количестве отзывов. -->
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "Product",
+      "name": "Чистка",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "reviewCount": "155"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "5,990",
+        "priceCurrency": "RUB",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Профилактика",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "2900"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "3,490",
+        "priceCurrency": "RUB",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Чистка и замена подощвы loro Piano",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "3.6",
+        "reviewCount": "23"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "23,990",
+        "priceCurrency": "RUB",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Реставрация",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.0",
+        "reviewCount": "3900"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "6,490",
+        "priceCurrency": "RUB",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Чистка Loro Piano",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "195"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "6,490",
+        "priceCurrency": "RUB",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Чистка и отбеливание Loro Piano",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "3.5",
+        "reviewCount": "100"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "10,990",
+        "priceCurrency": "RUB",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Замена подошвы loro Piano",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "3.9",
+        "reviewCount": "734"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "18,990",
+        "priceCurrency": "RUB",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Набойки мужские (Резина)",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "reviewCount": "123"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "1,990",
+        "priceCurrency": "RUB",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Набойки мужские (Комбинированные)",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.6",
+        "reviewCount": "129"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "2,990",
+        "priceCurrency": "RUB",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Набойки женские (Шпилька)",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.0",
+        "reviewCount": "456"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "1,490",
+        "priceCurrency": "RUB",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Задники",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "reviewCount": "123"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "3,490",
+        "priceCurrency": "RUB",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Реставрация сумок",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "456"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "7,990",
+        "priceCurrency": "RUB",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Ручная роспись сумок",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": 4.8",
+        "reviewCount": "5975"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "49,000",
+        "priceCurrency": "RUB",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+  ]
+}
+</script>
+
+  <!--  #### FAQ ##### -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Предварительная подготовка",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Производится с использованием специализированного оборудования и профессиональных импортных средств."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Зона ремонта",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Мы предлагаем услуги по ремонту набойок, профилактике для защиты обуви, укорочению и перетяжке каблуков, а также установке фликов. Сколько стоит ремонт?"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Мастерская реставрации",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Мы предлагаем услуги по полной перекраске изделий, устранению царапин, перекраске замши и подошвы, а также подклейке подошвы. Сколько стоит реставрация?"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Финишная зона отделки",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "После чистки изделия подвергаются тепловой обработке на гладильных столах и в сушильном шкафу, что помогает вернуть им первоначальную форму и безупречный внешний вид. Мы используем профессиональное оборудование, которое обеспечивает результаты, недоступные в домашних условиях."
+      }
+    }
+  ]
+}
+</script>
+
+  <!--  #### VIDEO ##### -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+  "@type": "VideoObject",
+  "name": "Видео банер MandoMemori",
+  "description": "Водопад и Loro Piano.",
+  "thumbnailUrl": "https://mandomemori.ru/img/favicon.png",
+  "uploadDate": "2025-03-04",
+  "duration": "PT2M30S",
+  "contentUrl": "https://mandomemori.ru/images/slides/1.mp4",
+  "embedUrl": "https://mandomemori.ru/images/slides/1.mp4"
+    },
+    {
+  "@type": "VideoObject",
+  "name": "Видео банер MandoMemori",
+  "description": "Водопад и Loro Piano.",
+  "thumbnailUrl": "https://mandomemori.ru/img/favicon.png",
+  "uploadDate": "2025-03-04",
+  "duration": "PT2M30S",
+  "contentUrl": "https://mandomemori.ru/images/slides/2.mp4",
+  "embedUrl": "https://mandomemori.ru/images/slides/2.mp4"
+    },
+    {
+  "@type": "VideoObject",
+  "name": "Видео банер MandoMemori",
+  "description": "Водопад и Loro Piano.",
+  "thumbnailUrl": "https://mandomemori.ru/img/favicon.png",
+  "uploadDate": "2025-03-04",
+  "duration": "PT2M30S",
+  "contentUrl": "https://mandomemori.ru/images/slides/3.mp4",
+  "embedUrl": "https://mandomemori.ru/images/slides/3.mp4"
+    },
+    {
+  "@type": "VideoObject",
+  "name": "Видео банер MandoMemori",
+  "description": "Водопад и Loro Piano.",
+  "thumbnailUrl": "https://mandomemori.ru/img/favicon.png",
+  "uploadDate": "2025-03-04",
+  "duration": "PT2M30S",
+  "contentUrl": "https://mandomemori.ru/images/slides/4.mp4",
+  "embedUrl": "https://mandomemori.ru/images/slides/4.mp4"
+    },
+    {
+  "@type": "VideoObject",
+  "name": "Видео банер MandoMemori",
+  "description": "Водопад и Loro Piano.",
+  "thumbnailUrl": "https://mandomemori.ru/img/favicon.png",
+  "uploadDate": "2025-03-04",
+  "duration": "PT2M30S",
+  "contentUrl": "https://mandomemori.ru/images/slides/5.mp4",
+  "embedUrl": "https://mandomemori.ru/images/slides/5.mp4"
+    },
+    {
+  "@type": "VideoObject",
+  "name": "Видео банер MandoMemori",
+  "description": "Водопад и Loro Piano.",
+  "thumbnailUrl": "https://mandomemori.ru/img/favicon.png",
+  "uploadDate": "2025-03-04",
+  "duration": "PT2M30S",
+  "contentUrl": "https://mandomemori.ru/images/slides/6.MP4",
+  "embedUrl": "https://mandomemori.ru/images/slides/6.MP4"
+    }
+  ]
+}
+</script>
+
+  <!--  #### PERSONAL DATE ##### -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "MandoMemori",
+  "image": "https://mandomemori.ru/images/logo/logo.PNG",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "улица Петровка, 15/13 с5",
+    "addressLocality": "Москва",
+    "postalCode": "107031",
+    "addressCountry": "Россия"
+  },
+  "telephone": "+7 (915) 252-75-75",
+  "openingHours": "Mo,Tu,We,Th,Fr 10:00-20:00"
+}
+</script>
+
 </head>
 
 <body>
