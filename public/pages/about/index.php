@@ -636,7 +636,7 @@ html, body { background: #121212; margin: 0; }
       </svg>
     </div>
 
-    <div class="anp-hero__card" style="background-image:url('/public/assets/images/solefresh/1771414715131-7643.gif')">
+    <div class="anp-hero__card" style="background-image:url('/public/assets/images/solefresh/bg.gif')">
       <div class="anp-hero__card-overlay" style="background:rgba(0, 0, 0, 0.52)"></div>
       <div class="anp-hero__spacer"></div>
       <div class="anp-hero__bottom">
