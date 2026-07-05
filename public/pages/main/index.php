@@ -106,12 +106,26 @@ require __DIR__ . '/../../partials/header.php';
     <div class="cards-slider" id="cards-slider">
       <div class="cards">
         <?php
-        $services = [
-          ['slug' => 'sole-fresh', 'img' => '1771325109170-5912.jpg', 'title' => 'Базовый уход', 'desc' => 'Чистка, пропитка, питание и кондиционирование — всё для ежедневного ухода за обувью из кожи, замши и текстиля.', 'price' => 'от 1 990', 'duration' => '1-6 дней'],
-          ['slug' => 'premium', 'img' => '1771579097991-627.jpg', 'title' => 'Премиум-уход', 'desc' => 'Глубокая чистка люксовых брендов, покраска, реставрация цвета и полный комплекс для безупречного вида.', 'price' => 'от 3 990', 'duration' => '1-6 дней'],
-          ['slug' => 'wipes', 'img' => '1771329486969-2642.jpg', 'title' => 'Специальная обработка', 'desc' => 'Отбеливание подошвы, растяжка, восстановление формы, глубокая чистка микрофиброй и защитное вощение.', 'price' => 'от 990', 'duration' => '1-3 дней'],
-          ['slug' => 'soft', 'img' => '1771578995760-1226.png', 'title' => 'Уход за материалами', 'desc' => 'Деликатная чистка замши и нубука, восстановление ворса, чистка спортивной обуви и экипировки.', 'price' => 'от 2 990', 'duration' => '1-6 дней'],
+        $allServices = Functions::getServices();
+        // Category cards (4 groups)
+        $catGroups = [
+          ['slug' => 'sole-fresh', 'title' => 'Базовый уход', 'desc' => 'Чистка, пропитка, питание и кондиционирование — всё для ежедневного ухода за обувью из кожи, замши и текстиля.', 'price' => 'от 1 990', 'duration' => '1-6 дней', 'ids' => [1,2,3,4]],
+          ['slug' => 'premium', 'title' => 'Премиум-уход', 'desc' => 'Глубокая чистка люксовых брендов, покраска, реставрация цвета и полный комплекс для безупречного вида.', 'price' => 'от 3 990', 'duration' => '1-6 дней', 'ids' => [12,13,15]],
+          ['slug' => 'wipes', 'title' => 'Специальная обработка', 'desc' => 'Отбеливание подошвы, растяжка, восстановление формы, глубокая чистка микрофиброй и защитное вощение.', 'price' => 'от 990', 'duration' => '1-3 дней', 'ids' => [5,6,8,9,10]],
+          ['slug' => 'soft', 'title' => 'Уход за материалами', 'desc' => 'Деликатная чистка замши и нубука, восстановление ворса, чистка спортивной обуви и экипировки.', 'price' => 'от 2 990', 'duration' => '1-6 дней', 'ids' => [7,14,16]],
         ];
+        $services = [];
+        foreach ($catGroups as $g) {
+          $first = $allServices[$g['ids'][0]];
+          $services[] = [
+            'slug' => $g['slug'],
+            'img' => $first['img'],
+            'title' => $g['title'],
+            'desc' => $g['desc'],
+            'price' => $g['price'],
+            'duration' => $g['duration'],
+          ];
+        }
         foreach ($services as $s): ?>
         <a href="/product/<?= $s['slug'] ?>" class="card" data-slug="<?= $s['slug'] ?>">
           <div class="card-image">
@@ -249,25 +263,8 @@ require __DIR__ . '/../../partials/header.php';
     <div class="cards-slider" id="products-slider">
       <div class="cards">
         <?php
-        $allServices = [
-          ['slug' => 'sole-fresh', 'img' => '1771325109170-5912.jpg', 'title' => 'Базовая химчистка', 'price' => '3 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'repel', 'img' => '1771675668922-443.jpg', 'title' => 'Водоотталкивающая пропитка', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'foam', 'img' => '1771014250625-3789.webp', 'title' => 'Экспресс-чистка', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'oil', 'img' => '1771326480456-1968.jpg', 'title' => 'Питание и кондиционирование кожи', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'resize', 'img' => '1771327434678-8059.jpg', 'title' => 'Растяжка обуви', 'price' => '1 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'trees', 'img' => '1771329486969-2642.jpg', 'title' => 'Восстановление формы обуви', 'price' => '1 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'brushes', 'img' => '1771329597854-9744.jpg', 'title' => 'Чистка спортивной обуви', 'price' => '2 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'wipes', 'img' => '1771329753698-5386.jpg', 'title' => 'Отбеливание подошвы', 'price' => '1 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'towel', 'img' => '1771329961198-4780.jpg', 'title' => 'Глубокая чистка микрофиброй', 'price' => '2 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'wax', 'img' => '1771334464237-4257.png', 'title' => 'Защитная пропитка и вощение', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'fresh', 'img' => '1771334546823-1997.jpg', 'title' => 'Дезодорация и свежесть', 'price' => '990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'paint', 'img' => '1771334585255-3781.jpg', 'title' => 'Покраска и реставрация цвета', 'price' => '3 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'premium', 'img' => '1771579097991-627.jpg', 'title' => 'Премиум-чистка', 'price' => '5 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'soft', 'img' => '1771578995760-1226.png', 'title' => 'Чистка замши и нубука', 'price' => '4 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'standard', 'img' => '1771334763273-3808.jpg', 'title' => 'Полный комплекс ухода', 'price' => '8 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'travel', 'img' => '1771334893250-1313.jpg', 'title' => 'Химчистка экипировки', 'price' => '4 990', 'bg' => '#1C1512', 'dark' => true],
-        ];
-        foreach ($allServices as $p): ?>
+        $allServices = Functions::getServices();
+        foreach ($allServices as $id => $p): ?>
         <article class="product-card<?= $p['dark'] ? ' dark-bg' : '' ?>" style="background:<?= $p['bg'] ?>">
           <div class="product-card-text">
             <h2 class="product-card-title"><?= $p['title'] ?></h2>

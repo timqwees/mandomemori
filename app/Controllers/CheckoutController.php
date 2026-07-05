@@ -4,27 +4,22 @@ namespace App\Controllers;
 
 use App\Config\Session;
 use Dompdf\Dompdf;
+use Setting\Route\Function\Functions;
 
 class CheckoutController
 {
-  private const PRODUCTS = [
-    1  => ['title' => 'Базовая химчистка', 'price' => 3490],
-    2  => ['title' => 'Водоотталкивающая пропитка', 'price' => 1990],
-    3  => ['title' => 'Экспресс-чистка', 'price' => 1990],
-    4  => ['title' => 'Питание и кондиционирование кожи', 'price' => 1990],
-    5  => ['title' => 'Растяжка обуви', 'price' => 1490],
-    6  => ['title' => 'Восстановление формы обуви', 'price' => 1490],
-    7  => ['title' => 'Чистка спортивной обуви', 'price' => 2990],
-    8  => ['title' => 'Отбеливание подошвы', 'price' => 1490],
-    9  => ['title' => 'Глубокая чистка микрофиброй', 'price' => 2490],
-    10 => ['title' => 'Защитная пропитка и вощение', 'price' => 1990],
-    11 => ['title' => 'Дезодорация и свежесть', 'price' => 990],
-    12 => ['title' => 'Покраска и реставрация цвета', 'price' => 3990],
-    13 => ['title' => 'Премиум-чистка', 'price' => 5990],
-    14 => ['title' => 'Чистка замши и нубука', 'price' => 4490],
-    15 => ['title' => 'Полный комплекс ухода', 'price' => 8990],
-    16 => ['title' => 'Химчистка экипировки', 'price' => 4990],
-  ];
+  private static function products(): array
+  {
+    $all = Functions::getServices();
+    $result = [];
+    foreach ($all as $id => $p) {
+      $result[$id] = [
+        'title' => $p['title'],
+        'price' => $p['price'],
+      ];
+    }
+    return $result;
+  }
 
   public function onGenerate(): void
   {
@@ -36,8 +31,8 @@ class CheckoutController
     foreach ($cartItems as $item) {
       $pid = (int)($item['product_id'] ?? 0);
       $qty = (int)($item['qty'] ?? 0);
-      if ($pid < 1 || $qty < 1 || !isset(self::PRODUCTS[$pid])) continue;
-      $p = self::PRODUCTS[$pid];
+      if ($pid < 1 || $qty < 1 || !isset(self::products()[$pid])) continue;
+      $p = self::products()[$pid];
       $resolvedItems[] = [
         'title' => $p['title'],
         'price' => $p['price'],
