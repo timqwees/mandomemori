@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Router\Routes;
+use Setting\Route\Function\Functions;
 use App\Controllers\HomeController;
 use App\Controllers\LeadController;
 use App\Controllers\SeoController;
@@ -20,7 +21,7 @@ Routes::get('/order', [HomeController::class, 'onOrder']);
 //==================================================================================================// LEADS
 Routes::post('/api/lead', [LeadController::class, 'onSubmit']);
 
-Routes::post('/send/mail', 'onMail');
+Routes::post('/send/mail', [Functions::class, 'onMail']);
 Routes::post('/courier/request', [CourierController::class, 'onRequest']);
 
 Routes::get('/cart', [HomeController::class, 'onCart']);
