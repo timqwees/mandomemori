@@ -1056,6 +1056,7 @@ img {
   transition: all var(--transition);
   font-family: var(--font);
   letter-spacing: -0.01em;
+  text-align: center;
 }
 
 .card-btn:hover {
@@ -1210,7 +1211,7 @@ img {
 }
 
 .product-card-btn {
-  display: inline-block;
+  display: block;
   width: 100%;
   padding: 14px 24px;
   background: var(--accent);
@@ -1223,6 +1224,7 @@ img {
   font-family: var(--font);
   letter-spacing: -0.01em;
   border: 1.5px solid transparent;
+  text-align: center;
 }
 
 .product-card-btn:hover {
