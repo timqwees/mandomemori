@@ -1,0 +1,109 @@
+<?php
+$currentSlug = $currentSlug ?? '';
+$canonical = $canonical ?? ($_SERVER['REQUEST_URI'] ?? '/');
+
+$scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'] ?? 'mandomemori.ru';
+$siteUrl = "$scheme://$host";
+$cityBase = $currentSlug ? "/product/$currentSlug" : '/';
+$cityLinks = [
+  ['href' => $cityBase, 'label' => 'Москва', 'active' => true],
+  ['href' => 'https://spb.mandomemori.ru' . $cityBase, 'label' => 'Санкт-Петербург'],
+  ['href' => 'https://sochi.mandomemori.ru' . $cityBase, 'label' => 'Сочи'],
+  ['href' => 'https://tyumen.mandomemori.ru' . $cityBase, 'label' => 'Тюмень'],
+  ['href' => 'https://vld.mandomemori.ru' . $cityBase, 'label' => 'Владивосток'],
+  ['href' => 'https://ekb.mandomemori.ru' . $cityBase, 'label' => 'Екатеринбург'],
+  ['href' => 'https://irkutsk.mandomemori.ru' . $cityBase, 'label' => 'Иркутск'],
+  ['href' => 'https://voronezh.mandomemori.ru' . $cityBase, 'label' => 'Воронеж'],
+  ['href' => 'https://klg.mandomemori.ru' . $cityBase, 'label' => 'Калининград'],
+  ['href' => 'https://sakh.mandomemori.ru' . $cityBase, 'label' => 'Южно-Сахалинск'],
+  ['href' => 'https://rnd.mandomemori.ru' . $cityBase, 'label' => 'Ростов-на-Дону'],
+  ['href' => 'https://chl.mandomemori.ru' . $cityBase, 'label' => 'Челябинск'],
+  ['href' => 'https://nsk.mandomemori.ru' . $cityBase, 'label' => 'Новосибирск'],
+  ['href' => 'https://kazan.mandomemori.ru' . $cityBase, 'label' => 'Казань'],
+  ['href' => $siteUrl, 'label' => 'Лимассол (Кипр) ↗', 'target' => '_blank'],
+  ['href' => $siteUrl, 'label' => 'Тбилиси (Грузия) ↗', 'target' => '_blank'],
+];
+?>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <?= \App\Services\Seo\SeoMeta::head([
+    'title' => $pageTitle ?? null,
+    'desc' => $pageDesc ?? null,
+    'keywords' => $pageKeywords ?? null,
+    'canonical' => $canonical,
+    'siteUrl' => $siteUrl,
+    'image' => $ogImage ?? null,
+    'robots' => $robots ?? null,
+  ]) ?>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="preload" href="/public/assets/css/mandomemori.min.css" as="style" fetchpriority="high">
+  <link rel="stylesheet" href="/public/assets/css/mandomemori.min.css" media="print" onload="this.media='all'">
+  <link rel="icon" href="/public/assets/images/favicon.svg" sizes="48x48" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/public/assets/images/favicon.svg">
+  <meta name="csrf-token" content="3bd5a1ea01eec4cc5fac232d54cfe19be1beb147477f69e057180030166a8e04">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <a href="/" class="logo">
+        <img src="/public/assets/images/logo-mandomemori.svg" alt="MANDO MEMORI — химчистка обуви Москва" class="logo-img">
+      </a>
+      <nav class="nav" id="main-nav">
+        <a href="/#services" class="nav-link">Услуги</a>
+        <a href="/products" class="nav-link">Цены</a>
+        <a href="/about" class="nav-link">О нас</a>
+        <a href="/before-after" class="nav-link">До/После</a>
+        <a href="/order" class="nav-link">Передать обувь</a>
+        <a href="/contacts" class="nav-link">Контакты</a>
+        <div class="city-selector city-selector-mobile">
+          <button class="city-selector-btn" id="city-selector-btn-mobile">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1C5.24 1 3 3.24 3 6c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="currentColor"/></svg>
+            Москва
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="city-dropdown" id="city-dropdown-mobile">
+            <?php foreach ($cityLinks as $cl): ?>
+            <a href="<?= $cl['href'] ?>" class="city-dropdown-item<?= !empty($cl['active']) ? ' active' : '' ?>"<?= !empty($cl['target']) ? ' target="'.$cl['target'].'" rel="noopener"' : '' ?>><?= $cl['label'] ?></a>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </nav>
+      <div class="header-right">
+          <div class="city-selector city-selector-desktop">
+            <button class="city-selector-btn" id="city-selector-btn">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1C5.24 1 3 3.24 3 6c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="currentColor"/></svg>
+              Москва
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="city-dropdown" id="city-dropdown">
+              <?php foreach ($cityLinks as $cl): ?>
+              <a href="<?= $cl['href'] ?>" class="city-dropdown-item<?= !empty($cl['active']) ? ' active' : '' ?>"<?= !empty($cl['target']) ? ' target="'.$cl['target'].'" rel="noopener"' : '' ?>><?= $cl['label'] ?></a>
+              <?php endforeach; ?>
+            </div>
+          </div>
+        <a href="/cart" class="cart-icon-btn cart-icon-btn--hidden" aria-label="Корзина" id="cart-icon-btn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="cart-badge" id="cart-badge-count" style="display:none">0</span>
+        </a>
+        <script>window.__cartCount = <?= array_sum(array_column((\App\Config\Session::init())['sf_cart'] ?? [], 'qty')) ?>;</script>
+        <button class="burger" id="burger-btn" aria-label="Меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>

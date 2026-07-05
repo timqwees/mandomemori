@@ -1,0 +1,293 @@
+<?php
+use Setting\Route\Function\Functions;
+$seo = Functions::seo();
+$notify = Functions::notify();
+
+$siteINFO = ['canonical' => '/', 'priority' => '1.0', 'changefreq' => 'daily', 'index' => 'main'];
+
+$pageTitle = $pageTitle ?? 'MANDO MEMORI — химчистка обуви в Москве, чистка кроссовок и премиальный уход';
+$pageDesc = $pageDesc ?? 'MANDO MEMORI — профессиональная химчистка обуви в Москве. Чистка кроссовок, замши, нубука, кожи. Отбеливание подошвы, покраска, реставрация. Бесплатная доставка.';
+$pageKeywords = $pageKeywords ?? 'химчистка обуви Москва, чистка кроссовок, отбеливание подошвы, химчистка замши, реставрация обуви, MANDO MEMORI';
+$canonical = $_SERVER['REQUEST_URI'] ?? '/';
+require __DIR__ . '/../../partials/header.php';
+?>
+
+<main class="main">
+  <section class="scroll-hero" id="scroll-hero">
+    <div class="scroll-hero__sticky">
+      <video class="scroll-hero__video" id="scroll-hero-video" src="/public/assets/images/solefresh/1771852645662-3825.mp4" data-src-desktop="/public/assets/images/solefresh/1771852645662-3825.mp4" data-src-mobile="/public/assets/images/solefresh/1771852645662-3825.mp4" muted playsinline webkit-playsinline preload="none"></video>
+      <div class="scroll-hero__overlay"></div>
+      <div class="scroll-hero__loader" id="scroll-hero-loader">
+        <div class="scroll-hero__spinner"></div>
+      </div>
+      <div class="scroll-hero__content">
+        <h1 class="scroll-hero__heading">
+          <span class="scroll-hero__word" id="scroll-hero-word">Кроссовки</span>
+          <span class="scroll-hero__rest">достойны безупречной чистки</span>
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="counter-section" style="background: linear-gradient(135deg, #D4562A 0%, #E87A3E 100%); color: #ffffff; min-height: 40vh;">
+    <div class="counter-inner">
+      <span class="counter-number" data-target="1105603">0</span>
+      <p class="counter-caption">ОЧИЩЕНО ПАР ОБУВИ</p>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </div>
+      <div class="trust-text">
+        <span class="trust-value">10 000+</span>
+        <span class="trust-label">Довольных клиентов</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <div class="trust-text">
+        <span class="trust-value">9 лет</span>
+        <span class="trust-label">На рынке</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 6 6 .5-4.5 4.5L18 20l-6-3-6 3 1.5-7L3 8.5 9 8z"/></svg>
+      </div>
+      <div class="trust-text">
+        <span class="trust-value">4.9 ★</span>
+        <span class="trust-label">Средняя оценка</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7l-8 9-4-4"/></svg>
+      </div>
+      <div class="trust-text">
+        <span class="trust-value">100%</span>
+        <span class="trust-label">Гарантия качества</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="about-steps">
+    <div class="about-steps__content">
+      <h2 class="about-steps__heading">Как мы работаем</h2>
+      <div class="about-steps__list">
+        <div class="about-step">
+          <span class="about-step__num">01</span>
+          <div class="about-step__body">
+            <h3 class="about-step__title">Оставьте пару нам</h3>
+            <p class="about-step__desc">Приносите обувь в любой пункт приёма без предварительной записи или вызывайте курьера.</p>
+          </div>
+        </div>
+        <div class="about-step">
+          <span class="about-step__num">02</span>
+          <div class="about-step__body">
+            <h3 class="about-step__title">Заберите результат</h3>
+            <p class="about-step__desc">Мы оповестим вас о готовности. Забрать можно в удобное время. Оплата — до или после очистки, как вам удобнее.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-grid" id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Услуги</h2>
+      </div>
+    </div>
+    <div class="cards-slider" id="cards-slider">
+      <div class="cards">
+        <?php
+        $services = [
+          ['slug' => 'sole-fresh', 'img' => '1771658911567-5599.jpg', 'title' => 'Базовая химчистка', 'desc' => 'Чистка повседневной обуви из гладкой кожи, замши, нубука и текстиля. С защитной пропиткой.', 'price' => '3 490', 'duration' => '1-6 дней'],
+          ['slug' => 'premium', 'img' => '1771602419874-9009.jpg', 'title' => 'Премиум-чистка', 'desc' => 'Глубокая очистка обуви люксовых брендов (Loro Piana, Gucci, Prada). Особый подход.', 'price' => '5 990', 'duration' => '1-6 дней'],
+          ['slug' => 'wipes', 'img' => '1771658902373-8032.jpg', 'title' => 'Отбеливание подошвы', 'desc' => 'Вернём белизну пожелтевшей подошве кроссовок и туфель. Профессиональные составы.', 'price' => '1 490', 'duration' => '1-3 дней'],
+          ['slug' => 'soft', 'img' => '1771658750798-5571.jpg', 'title' => 'Чистка замши и нубука', 'desc' => 'Деликатная чистка замшевой обуви, восстановление ворса и цвета, защита от влаги.', 'price' => '4 490', 'duration' => '1-6 дней'],
+        ];
+        foreach ($services as $s): ?>
+        <a href="/product/<?= $s['slug'] ?>" class="card" data-slug="<?= $s['slug'] ?>">
+          <div class="card-image">
+            <img src="/public/assets/images/solefresh/<?= $s['img'] ?>" alt="<?= $s['title'] ?> | MANDO MEMORI" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h2 class="card-title"><?= $s['title'] ?></h2>
+            <p class="card-description"><?= $s['desc'] ?></p>
+            <div class="card-meta">
+              <div class="card-price">
+                <span class="price-value"><?= $s['price'] ?> ₽</span>
+              </div>
+              <div class="card-duration">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 4v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <span><?= $s['duration'] ?></span>
+              </div>
+            </div>
+            <span class="card-btn">Подробнее</span>
+          </div>
+        </a>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio-slider-section">
+    <div class="portfolio-slider-header">
+      <h2 class="portfolio-slider-title">Наши работы</h2>
+    </div>
+    <div class="portfolio-slider-track" id="portfolio-slider">
+      <?php
+      $portfolio = [
+        '1771097097388-7471.jpg','1771097152965-3145.jpg','1771097203961-4246.jpg','1771097300404-3436.jpg',
+      ];
+      foreach ($portfolio as $img): ?>
+      <div class="portfolio-slide">
+        <img src="/public/assets/images/solefresh/<?= $img ?>" alt="MANDO MEMORI — до и после химчистки" loading="lazy" draggable="false">
+      </div>
+      <?php endforeach;
+      // Duplicate for seamless loop
+      foreach ($portfolio as $img): ?>
+      <div class="portfolio-slide">
+        <img src="/public/assets/images/solefresh/<?= $img ?>" alt="MANDO MEMORI — до и после химчистки" loading="lazy" draggable="false">
+      </div>
+      <?php endforeach; ?>
+    </div>
+  </section>
+
+  <section class="home-faq-section">
+    <div class="home-faq-header">
+      <h2 class="home-faq-title">Часто задаваемые вопросы</h2>
+      <p class="home-faq-subtitle">Всё, что важно знать о нашем сервисе</p>
+    </div>
+    <div class="home-faq-grid">
+      <div class="home-faq-card">
+        <h3 class="home-faq-question">Сколько стоит химчистка обуви?</h3>
+        <div class="home-faq-answer">Цена зависит от типа обуви и сложности загрязнения. Базовая химчистка — от 3 490 ₽, премиум-чистка — от 5 990 ₽. Пришлите фото в Telegram — оценим бесплатно.</div>
+      </div>
+      <div class="home-faq-card">
+        <h3 class="home-faq-question">Как отбелить пожелтевшую подошву?</h3>
+        <div class="home-faq-answer">Мы используем профессиональные составы для отбеливания подошвы. Результат — белоснежная подошва без разводов. Услуга доступна отдельно от 1 490 ₽.</div>
+      </div>
+      <div class="home-faq-card">
+        <h3 class="home-faq-question">Вы принимаете обувь после зимы с реагентами?</h3>
+        <div class="home-faq-answer">Да, наши мастера выводят солевые разводы и следы реагентов. В стоимость чистки входит обработка подошвы и выведение пятен любой сложности.</div>
+      </div>
+      <div class="home-faq-card">
+        <h3 class="home-faq-question">Есть ли доставка и курьер?</h3>
+        <div class="home-faq-answer">Да, курьер бесплатно заберёт обувь и привезёт обратно после чистки. Также работают пункты приёма и постаматы 24/7 в Москве и МО.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hstack-section">
+    <div class="hstack-track">
+      <?php
+      $hcards = [
+        ['img' => '1771316683329-7345.jpg', 'title1' => 'Бережная чистка', 'desc1' => 'Индивидуальный подбор составов и технологии обработки для каждого типа материала.', 'title2' => 'Уход за кожей и замшей', 'desc2' => 'Натуральные материалы проходят щадящую очистку с питанием и восстановлением структуры.'],
+        ['img' => '1771853240254-1436.jpg', 'title1' => 'Удаление загрязнений', 'desc1' => 'Эффективно справляемся с застарелыми пятнами, следами реагентов и стойкими разводами.', 'title2' => 'Формовка и силуэт', 'desc2' => 'Возвращаем обуви аккуратную форму, расправляем заломы и складки.'],
+        ['img' => '1771316752860-7572.jpg', 'title1' => 'Обновление подошвы', 'desc1' => 'Восстанавливаем белизну и цвет подошвы с помощью профессиональных составов.', 'title2' => 'Реставрация покрытия', 'desc2' => 'Маскируем потёртости, царапины и обновляем цвет кожаных поверхностей.'],
+        ['img' => '1771852823803-2426.jpg', 'title1' => 'Деликатная сушка', 'desc1' => 'Сушим обувь при низких температурах с сохранением формы и свойств материалов.', 'title2' => 'Финальный контроль', 'desc2' => 'Проверяем каждую пару перед выдачей: чистота, цвет, состояние — всё соответствует стандарту.'],
+      ];
+      foreach ($hcards as $hc): ?>
+      <div class="hstack-item" style="--card-bg: #1C1512; --card-text: #fff;">
+        <div class="hstack-card">
+          <div class="hstack-inner">
+            <div class="hstack-img">
+              <img src="/public/assets/images/solefresh/<?= $hc['img'] ?>" alt="" loading="lazy">
+            </div>
+            <div class="hstack-text">
+              <div class="hstack-utp">
+                <h2 class="hstack-title"><?= $hc['title1'] ?></h2>
+                <div class="hstack-desc"><?= $hc['desc1'] ?></div>
+              </div>
+              <div class="hstack-utp hstack-utp--next">
+                <h2 class="hstack-title"><?= $hc['title2'] ?></h2>
+                <div class="hstack-desc"><?= $hc['desc2'] ?></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php endforeach; ?>
+    </div>
+    <div class="hstack-dots">
+      <button class="hstack-dot active" data-index="0"></button>
+      <button class="hstack-dot" data-index="1"></button>
+      <button class="hstack-dot" data-index="2"></button>
+      <button class="hstack-dot" data-index="3"></button>
+    </div>
+  </section>
+
+  <section class="home-products-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Все услуги</h2>
+      </div>
+    </div>
+    <div class="cards-slider" id="products-slider">
+      <div class="cards">
+        <?php
+        $allServices = [
+          ['slug' => 'sole-fresh', 'img' => '1771325109170-5912.jpg', 'title' => 'Базовая химчистка', 'price' => '3 490', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'repel', 'img' => '1771675668922-443.jpg', 'title' => 'Водоотталкивающая пропитка', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'foam', 'img' => '1771014250625-3789.webp', 'title' => 'Экспресс-чистка', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'oil', 'img' => '1771326480456-1968.jpg', 'title' => 'Питание и кондиционирование кожи', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'resize', 'img' => '1771327434678-8059.jpg', 'title' => 'Растяжка обуви', 'price' => '1 490', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'trees', 'img' => '1771329486969-2642.jpg', 'title' => 'Восстановление формы обуви', 'price' => '1 490', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'brushes', 'img' => '1771329597854-9744.jpg', 'title' => 'Чистка спортивной обуви', 'price' => '2 990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'wipes', 'img' => '1771329753698-5386.jpg', 'title' => 'Отбеливание подошвы', 'price' => '1 490', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'towel', 'img' => '1771329961198-4780.jpg', 'title' => 'Глубокая чистка микрофиброй', 'price' => '2 490', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'wax', 'img' => '1771334464237-4257.png', 'title' => 'Защитная пропитка и вощение', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'fresh', 'img' => '1771334546823-1997.jpg', 'title' => 'Дезодорация и свежесть', 'price' => '990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'paint', 'img' => '1771334585255-3781.jpg', 'title' => 'Покраска и реставрация цвета', 'price' => '3 990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'premium', 'img' => '1771579097991-627.jpg', 'title' => 'Премиум-чистка', 'price' => '5 990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'soft', 'img' => '1771578995760-1226.png', 'title' => 'Чистка замши и нубука', 'price' => '4 490', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'standard', 'img' => '1771334763273-3808.jpg', 'title' => 'Полный комплекс ухода', 'price' => '8 990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'travel', 'img' => '1771334893250-1313.jpg', 'title' => 'Химчистка экипировки', 'price' => '4 990', 'bg' => '#1C1512', 'dark' => true],
+        ];
+        foreach ($allServices as $p): ?>
+        <article class="product-card<?= $p['dark'] ? ' dark-bg' : '' ?>" style="background:<?= $p['bg'] ?>">
+          <div class="product-card-text">
+            <h2 class="product-card-title"><?= $p['title'] ?></h2>
+            <p class="product-card-desc">от <?= $p['price'] ?> ₽ за пару</p>
+          </div>
+          <div class="product-card-image">
+            <img src="/public/assets/images/solefresh/<?= $p['img'] ?>" alt="<?= $p['title'] ?>" loading="lazy">
+          </div>
+          <div class="product-card-action">
+            <a href="/product/<?= $p['slug'] ?>" class="product-card-btn product-card-btn-detail">Подробнее</a>
+          </div>
+        </article>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modal-close">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="modal-content" id="modal-content"></div>
+  </div>
+</div>
+
+<script>
+  window.__services = [];
+  window.__serviceGroups = [];
+</script>
+
+<script src="/public/assets/js/solefresh/scroll-hero.js" defer></script>
+<script src="/public/assets/js/solefresh/counter.js" defer></script>
+<script src="/public/assets/js/solefresh/home-cards.js" defer></script>
+<script src="/public/assets/js/solefresh/cards-slider.js" defer></script>
+<script src="/public/assets/js/solefresh/portfolio-slider.js" defer></script>
+
+<?php require __DIR__ . '/../../partials/footer.php'; ?>
