@@ -631,7 +631,7 @@ html, body { background: #121212; margin: 0; }
             </text>
           </mask>
         </defs>
-          <image href="/public/assets/images/solefresh/1771414715131-7643.gif" x="0" y="0" width="100" height="30" preserveAspectRatio="xMidYMid slice"/>
+          <image href="/public/assets/images/solefresh/bg.gif" x="0" y="0" width="100" height="30" preserveAspectRatio="xMidYMid slice"/>
         <rect x="-1" y="-1" width="102" height="32" fill="#121212" mask="url(#anp-hero-cut)"/>
       </svg>
     </div>
