@@ -62,14 +62,44 @@ require __DIR__ . '/../../partials/header.php';
 
   <section class="ba-stack">
       <?php
-      $baFiles = glob(__DIR__ . '/../../../public/assets/images/mandomemori/beforeafter*');
-      sort($baFiles);
-      foreach ($baFiles as $i => $file):
-        $name = basename($file);
+      $baItems = [
+        ['file' => 'beforeafter1.jpg',  'bg' => '#e9cfb6'],
+        ['file' => 'beforeafter2.png',  'bg' => '#ffffff'],
+        ['file' => 'beforeafter3.png',  'bg' => '#fef7ef'],
+        ['file' => 'beforeafter4.png',  'bg' => '#eeeced'],
+        ['file' => 'beforeafter5.png',  'bg' => '#ede7d7'],
+        ['file' => 'beforeafter6.png',  'bg' => '#dab109'],
+        ['file' => 'beforeafter7.png',  'bg' => '#f0f0f0'],
+        ['file' => 'beforeafter8.png',  'bg' => '#911b1c'],
+        ['file' => 'beforeafter9.png',  'bg' => '#3e718c'],
+        ['file' => 'beforeafter10.jpg', 'bg' => '#e8e8e8'],
+        ['file' => 'beforeafter11.webp','bg' => '#94c2f6'],
+        ['file' => 'beforeafter12.jpg', 'bg' => '#f2b27d'],
+        ['file' => 'beforeafter13.jpg', 'bg' => '#473424'],
+        ['file' => 'beforeafter14.jpg', 'bg' => '#d4c5a9'],
+        ['file' => 'beforeafter15.jpg', 'bg' => '#c9d9d2'],
+        ['file' => 'beforeafter16.jpg', 'bg' => '#e6d5c3'],
+        ['file' => 'beforeafter17.jpg', 'bg' => '#f5e6d3'],
+        ['file' => 'beforeafter18.jpg', 'bg' => '#d9d0c7'],
+        ['file' => 'beforeafter19.png', 'bg' => '#e8ddd4'],
+        ['file' => 'beforeafter20.png', 'bg' => '#cfd8d0'],
+        ['file' => 'beforeafter21.jpg', 'bg' => '#e0d3c0'],
+        ['file' => 'beforeafter22.jpg', 'bg' => '#f0ebe0'],
+        ['file' => 'beforeafter23.jpg', 'bg' => '#d5c4b3'],
+        ['file' => 'beforeafter24.jpg', 'bg' => '#c4b7a6'],
+        ['file' => 'beforeafter25.jpg', 'bg' => '#e8ddd4'],
+        ['file' => 'beforeafter26.jpg', 'bg' => '#d4c5b5'],
+        ['file' => 'beforeafter27.jpg', 'bg' => '#f5ede3'],
+        ['file' => 'beforeafter28.jpg', 'bg' => '#e0d5c8'],
+        ['file' => 'beforeafter29.jpg', 'bg' => '#cdc0b0'],
+      ];
+      foreach ($baItems as $i => $item):
+        $name = $item['file'];
+        $color = $item['bg'];
       ?>
       <div class="ba-stack-item" style="--i: <?= $i ?>;">
         <div class="ba-stack-card">
-          <div class="ba-stack-inner">
+          <div class="ba-stack-inner" style="background:<?= $color ?>">
             <div class="ba-stack-img">
               <img src="/public/assets/images/mandomemori/<?= $name ?>" alt="До и после химчистки | MANDO MEMORI Москва" loading="lazy">
             </div>
