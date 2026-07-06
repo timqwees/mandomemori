@@ -65,8 +65,8 @@ require __DIR__ . '/../../partials/header.php';
       $baItems = [
         ['file' => 'beforeafter1.png',  'bg' => '#efa468'],
         ['file' => 'beforeafter2.png',  'bg' => '#473424'],
-        ['file' => 'beforeafter3.png',  'bg' => '#7b0001'],
-        ['file' => 'beforeafter4.png',  'bg' => '#030619'],
+        ['file' => 'beforeafter3.png',  'bg' => '#8f0203'],
+        ['file' => 'beforeafter4.png',  'bg' => '#21243a'],
         ['file' => 'beforeafter5.jpg',  'bg' => '#e4e4e4'],
         ['file' => 'beforeafter6.jpg',  'bg' => '#eeeeee'],
         ['file' => 'beforeafter7.jpg',  'bg' => '#e5e5e5'],
