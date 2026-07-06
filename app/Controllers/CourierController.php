@@ -39,27 +39,29 @@ class CourierController
         $body .= '</table>';
 
         $pdfSent = true;
+        $pdfPath = null;
         if ($orderNum) {
             $orderData = Session::init('sf_order_data');
             if ($orderData && !empty($orderData['items'])) {
                 $pdfPath = $this->generatePdf($orderNum, $orderData);
-                if ($pdfPath) {
-                    try {
-                        $mailer = new MailController();
-                        $pdfSent = $mailer->onMail('order@mandomemori.ru', 'Чек заказа ' . $orderNum . ' — MANDO MEMORI', 'Чек во вложении.', $pdfPath);
-                    } catch (\Exception $e) {
-                        $pdfSent = false;
-                    }
-                    unlink($pdfPath);
-                }
             }
         }
 
         try {
             $mailer = new MailController();
-            $sent = $mailer->onMail('artemnersisyan777@gmail.com', $subject, $body);
+            $sent = $mailer->onMail('artemnersisyan777@gmail.com', $subject, $body, $pdfPath);
         } catch (\Exception $e) {
             $sent = false;
+        }
+
+        if ($pdfPath) {
+            try {
+                $mailer = new MailController();
+                $pdfSent = $mailer->onMail('order@mandomemori.ru', 'Чек заказа ' . $orderNum . ' — MANDO MEMORI', 'Чек во вложении.', $pdfPath);
+            } catch (\Exception $e) {
+                $pdfSent = false;
+            }
+            unlink($pdfPath);
         }
 
         if ($sent && $pdfSent) {
