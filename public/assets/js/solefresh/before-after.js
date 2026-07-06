@@ -39,11 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (progress > 1) progress = 1;
 
         if (progress > 0.01) {
-          var ease = progress * progress;
-          var slide = ease * 300;
-          var scale = 1 - ease * 0.22;
-          card.style.transform = 'translateX(-' + slide + 'px) scale3d(' + scale + ',' + scale + ',1)';
-          card.style.opacity = 1 - ease;
+          var slide = progress * 280;
+          card.style.transform = 'translateX(-' + slide + 'px)';
+          card.style.opacity = '';
         } else {
           card.style.transform = '';
           card.style.opacity = '';
