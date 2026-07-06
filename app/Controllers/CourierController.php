@@ -2,6 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Config\Session;
+use Dompdf\Dompdf;
+use Setting\Route\Function\Functions;
+
 class CourierController
 {
     public function onRequest(): void
@@ -22,8 +26,14 @@ class CourierController
             return;
         }
 
-        $subject = 'Новая заявка на вызов курьера — MANDO MEMORI';
+        $snapshot = $orderNum ? Session::init('sf_order_snapshot') : null;
 
+        $pdfPath = null;
+        if ($snapshot && !empty($snapshot['items'])) {
+            $pdfPath = $this->generatePdf($snapshot);
+        }
+
+        $subject = 'Новая заявка на вызов курьера — MANDO MEMORI';
         $body = '<h2>Новая заявка на вызов курьера</h2>'
             . '<table style="border-collapse:collapse;width:100%;max-width:600px;font-family:sans-serif">'
             . '<tr><td style="padding:8px 12px;background:#f5f5f5;font-weight:600;border:1px solid #ddd">Имя</td><td style="padding:8px 12px;border:1px solid #ddd">' . htmlspecialchars($name) . '</td></tr>'
@@ -33,31 +43,137 @@ class CourierController
         if ($orderNum) {
             $body .= '<tr><td style="padding:8px 12px;background:#f5f5f5;font-weight:600;border:1px solid #ddd">Номер заказа</td><td style="padding:8px 12px;border:1px solid #ddd">' . htmlspecialchars($orderNum) . '</td></tr>';
         }
-
         $body .= '</table>';
 
         try {
             $mailer = new MailController();
-            $sent = $mailer->onMail('artemnersisyan777@gmail.com', $subject, $body);
+            $sent = $mailer->onMail('artemnersisyan777@gmail.com', $subject, $body, $pdfPath);
         } catch (\Exception $e) {
             $sent = false;
         }
 
         if ($email && $orderNum) {
             $clientSubject = 'Ваш заказ ' . $orderNum . ' — MANDO MEMORI';
-            $clientBody = '<p>Здравствуйте!</p><p>Спасибо за заказ <strong>' . htmlspecialchars($orderNum) . '</strong>.</p><p>Чек был скачан при оформлении. Курьер уже получил уведомление.</p><p>— MANDO MEMORI</p>';
             try {
                 $mailer = new MailController();
-                $mailer->onMail($email, $clientSubject, $clientBody);
+                $mailer->onMail($email, $clientSubject, 'Здравствуйте! Ваш чек во вложении. Спасибо за заказ!', $pdfPath);
             } catch (\Exception $e) {
             }
         }
+
+        if ($pdfPath) {
+            unlink($pdfPath);
+        }
+
+        Session::init('sf_order_snapshot', null);
+        Session::init('sf_order_num', null);
 
         if ($sent) {
             echo json_encode(['success' => true, 'message' => 'Заявка отправлена']);
         } else {
             http_response_code(500);
             echo json_encode(['success' => false, 'message' => 'Ошибка отправки. Попробуйте позже.']);
+        }
+    }
+
+    private function generatePdf(array $snapshot): ?string
+    {
+        $all = Functions::getServices();
+        $resolvedItems = [];
+        $totalSum = 0;
+        foreach ($snapshot['items'] as $item) {
+            $pid = (int)($item['product_id'] ?? 0);
+            $qty = (int)($item['qty'] ?? 0);
+            if ($pid < 1 || $qty < 1 || !isset($all[$pid])) continue;
+            $p = $all[$pid];
+            $title = $p['title'];
+            $price = $p['price'];
+            $resolvedItems[] = [
+                'title' => $title,
+                'price' => $price,
+                'qty' => $qty,
+                'total' => $price * $qty,
+            ];
+            $totalSum += $price * $qty;
+        }
+        if (empty($resolvedItems)) return null;
+
+        $orderNum = $snapshot['order_num'] ?? '—';
+        $dateRu = $snapshot['date'] ?? date('d.m.Y H:i');
+        $phone = $snapshot['phone'] ?? '';
+        $comment = $snapshot['comment'] ?? '';
+
+        $rowsHtml = '';
+        foreach ($resolvedItems as $ri) {
+            $rowsHtml .= '<tr>
+                <td>' . htmlspecialchars($ri['title']) . '</td>
+                <td style="text-align:center">' . $ri['qty'] . '</td>
+                <td style="text-align:right">' . number_format($ri['price'], 0, '', ' ') . ' ₽</td>
+                <td style="text-align:right">' . number_format($ri['total'], 0, '', ' ') . ' ₽</td>
+            </tr>';
+        }
+
+        $html = '<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8">
+<style>
+  @page { margin: 20mm; }
+  body { font-family: DejaVu Sans, sans-serif; font-size: 12pt; color: #222; }
+  .header { text-align: center; margin-bottom: 24px; }
+  .header h1 { font-size: 18pt; margin: 0 0 4px; text-transform: uppercase; letter-spacing: 2px; }
+  .header p { margin: 0; color: #666; font-size: 10pt; }
+  .order-meta { margin-bottom: 20px; }
+  .order-meta td { padding: 2px 0; font-size: 10pt; }
+  table.items { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  table.items th { background: #1C1512; color: #fff; padding: 8px 10px; font-size: 10pt; text-align:left; }
+  table.items td { padding: 8px 10px; border-bottom: 1px solid #ddd; font-size: 10pt; }
+  .total-row td { font-weight: bold; font-size: 12pt; border-top: 2px solid #1C1512; }
+  .footer { text-align: center; font-size: 9pt; color: #999; margin-top: 30px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>MANDO MEMORI</h1>
+  <p>Чистка обуви в Москве</p>
+</div>
+<table class="order-meta">
+  <tr><td><strong>Заказ:</strong> ' . $orderNum . '</td></tr>
+  <tr><td><strong>Дата:</strong> ' . $dateRu . '</td></tr>
+  ' . ($phone ? '<tr><td><strong>Телефон:</strong> ' . htmlspecialchars($phone) . '</td></tr>' : '') . '
+</table>
+<table class="items">
+  <thead>
+    <tr>
+      <th>Услуга</th>
+      <th style="text-align:center">Кол-во</th>
+      <th style="text-align:right">Цена</th>
+      <th style="text-align:right">Сумма</th>
+    </tr>
+  </thead>
+  <tbody>
+    ' . $rowsHtml . '
+    <tr class="total-row">
+      <td colspan="3" style="text-align:right">Итого:</td>
+      <td style="text-align:right">' . number_format($totalSum, 0, '', ' ') . ' ₽</td>
+    </tr>
+  </tbody>
+</table>
+<p style="font-size:10pt;color:#666">Спасибо, что выбираете MANDO MEMORI!<br>По всем вопросам: @mandomemori (Telegram) или +7 495 198-04-95</p>
+' . ($comment ? '<p style="font-size:10pt;color:#333;border-top:1px solid #ddd;padding-top:12px"><strong>Комментарий к заказу:</strong></p><div style="font-size:10pt;color:#333;line-height:1.5">' . strip_tags($comment, '<strong><em><b><i><u><s><ol><ul><li><br><p><span>') . '</div>' : '') . '
+<div class="footer">Данный чек является подтверждением заказа.</div>
+</body>
+</html>';
+
+        try {
+            $dompdf = new Dompdf();
+            $dompdf->loadHtml($html);
+            $dompdf->setPaper('A4', 'portrait');
+            $dompdf->render();
+            $tmpPath = sys_get_temp_dir() . '/check-' . preg_replace('/[^A-Za-z0-9_\-]/', '', $orderNum) . '.pdf';
+            file_put_contents($tmpPath, $dompdf->output());
+            return $tmpPath;
+        } catch (\Exception $e) {
+            return null;
         }
     }
 }
