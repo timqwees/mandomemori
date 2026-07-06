@@ -97,59 +97,6 @@ require __DIR__ . '/../../partials/header.php';
     </div>
   </section>
 
-  <section class="services-grid" id="services">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Услуги</h2>
-      </div>
-    </div>
-    <div class="cards-slider" id="cards-slider">
-      <div class="cards">
-        <?php
-        $allServices = Functions::getServices();
-        // Category cards (4 groups)
-        $catGroups = [
-          ['slug' => 'sole-fresh', 'title' => 'Базовый уход', 'desc' => 'Чистка, пропитка, питание и кондиционирование — всё для ежедневного ухода за обувью из кожи, замши и текстиля.', 'price' => 'от 1 990', 'duration' => '1-6 дней', 'ids' => [1,2,3,4]],
-          ['slug' => 'premium', 'title' => 'Премиум-уход', 'desc' => 'Глубокая чистка люксовых брендов, покраска, реставрация цвета и полный комплекс для безупречного вида.', 'price' => 'от 3 990', 'duration' => '1-6 дней', 'ids' => [12,13,15]],
-          ['slug' => 'wipes', 'title' => 'Специальная обработка', 'desc' => 'Отбеливание подошвы, растяжка, восстановление формы, глубокая чистка микрофиброй и защитное вощение.', 'price' => 'от 990', 'duration' => '1-3 дней', 'ids' => [5,6,8,9,10]],
-          ['slug' => 'soft', 'title' => 'Уход за материалами', 'desc' => 'Деликатная чистка замши и нубука, восстановление ворса, чистка спортивной обуви и экипировки.', 'price' => 'от 2 990', 'duration' => '1-6 дней', 'ids' => [7,14,16]],
-        ];
-        $services = [];
-        foreach ($catGroups as $g) {
-          $first = $allServices[$g['ids'][0]];
-          $services[] = [
-            'slug' => $g['slug'],
-            'img' => $first['img'],
-            'title' => $g['title'],
-            'desc' => $g['desc'],
-            'price' => $g['price'],
-            'duration' => $g['duration'],
-          ];
-        }
-        foreach ($services as $s): ?>
-        <a href="/product/<?= $s['slug'] ?>" class="card" data-slug="<?= $s['slug'] ?>">
-          <div class="card-image">
-            <img src="/public/assets/images/mandomemori/<?= $s['img'] ?>" alt="<?= $s['title'] ?> | MANDO MEMORI" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h2 class="card-title"><?= $s['title'] ?></h2>
-            <p class="card-description"><?= $s['desc'] ?></p>
-            <div class="card-meta">
-              <div class="card-price">
-                <span class="price-value"><?= $s['price'] ?> ₽</span>
-              </div>
-              <div class="card-duration">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 4v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                <span><?= $s['duration'] ?></span>
-              </div>
-            </div>
-            <span class="card-btn">Подробнее</span>
-          </div>
-        </a>
-        <?php endforeach; ?>
-      </div>
-    </div>
-  </section>
 
   <section class="portfolio-slider-section">
     <div class="portfolio-slider-header">

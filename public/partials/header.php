@@ -42,8 +42,7 @@ $siteUrl = "$scheme://$host";
         <img src="/public/assets/images/logo-mandomemori.svg" alt="MANDO MEMORI — химчистка обуви Москва" class="logo-img">
       </a>
       <nav class="nav" id="main-nav">
-        <a href="/#services" class="nav-link">Услуги</a>
-        <a href="/products" class="nav-link">Цены</a>
+        <a href="/products" class="nav-link">Услуги</a>
         <a href="/about" class="nav-link">О нас</a>
         <a href="/before-after" class="nav-link">До/После</a>
         <a href="/order" class="nav-link">Передать обувь</a>
