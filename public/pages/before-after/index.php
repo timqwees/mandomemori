@@ -63,18 +63,18 @@ require __DIR__ . '/../../partials/header.php';
   <section class="ba-stack">
       <?php
       $baItems = [
-        ['file' => 'beforeafter1.png',  'bg' => '#f1b17c'],
+        ['file' => 'beforeafter1.png',  'bg' => '#efa468'],
         ['file' => 'beforeafter2.png',  'bg' => '#473424'],
-        ['file' => 'beforeafter3.png',  'bg' => '#960f16'],
-        ['file' => 'beforeafter4.png',  'bg' => '#1c2132'],
-        ['file' => 'beforeafter5.jpg',  'bg' => '#e5e5e5'],
-        ['file' => 'beforeafter6.jpg',  'bg' => '#efefef'],
+        ['file' => 'beforeafter3.png',  'bg' => '#7b0001'],
+        ['file' => 'beforeafter4.png',  'bg' => '#030619'],
+        ['file' => 'beforeafter5.jpg',  'bg' => '#e4e4e4'],
+        ['file' => 'beforeafter6.jpg',  'bg' => '#eeeeee'],
         ['file' => 'beforeafter7.jpg',  'bg' => '#e5e5e5'],
         ['file' => 'beforeafter8.jpg',  'bg' => '#e8e8ea'],
-        ['file' => 'beforeafter9.png',  'bg' => '#67070e'],
-        ['file' => 'beforeafter10.png', 'bg' => '#181e2c'],
-        ['file' => 'beforeafter11.png', 'bg' => '#2c1f16'],
-        ['file' => 'beforeafter12.png', 'bg' => '#37261c'],
+        ['file' => 'beforeafter9.png',  'bg' => '#680202'],
+        ['file' => 'beforeafter10.png', 'bg' => '#1c1f30'],
+        ['file' => 'beforeafter11.png', 'bg' => '#281c17'],
+        ['file' => 'beforeafter12.png', 'bg' => '#281c17'],
       ];
       foreach ($baItems as $i => $item):
         $name = $item['file'];
