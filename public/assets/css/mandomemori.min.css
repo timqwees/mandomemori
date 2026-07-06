@@ -3742,6 +3742,7 @@ a.location-type-badge:hover {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 8px;
+  color: #000;
 }
 
 .courier-form-success p {
