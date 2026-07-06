@@ -517,10 +517,12 @@ html, body { background: #121212; margin: 0; }
             <input type="text" id="cf-address" name="address" required placeholder="Улица и номер дома" autocomplete="off">
             <div class="dadata-suggestions" id="cf-address-suggestions"></div>
           </div>
+          <?php if ($orderNum): ?>
           <div class="form-field" style="margin-top:20px">
             <label for="cf-email">Email (на него придёт PDF-чек)</label>
             <input type="email" id="cf-email" name="email" placeholder="example@mail.ru">
           </div>
+          <?php endif; ?>
           <?php if ($orderNum): ?>
           <div class="courier-order-note">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
