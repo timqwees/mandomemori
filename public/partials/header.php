@@ -5,25 +5,7 @@ $canonical = $canonical ?? ($_SERVER['REQUEST_URI'] ?? '/');
 $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
 $host = $_SERVER['HTTP_HOST'] ?? 'mandomemori.ru';
 $siteUrl = "$scheme://$host";
-$cityBase = $currentSlug ? "/product/$currentSlug" : '/';
-$cityLinks = [
-  ['href' => $cityBase, 'label' => 'Москва', 'active' => true],
-  ['href' => 'https://spb.mandomemori.ru' . $cityBase, 'label' => 'Санкт-Петербург'],
-  ['href' => 'https://sochi.mandomemori.ru' . $cityBase, 'label' => 'Сочи'],
-  ['href' => 'https://tyumen.mandomemori.ru' . $cityBase, 'label' => 'Тюмень'],
-  ['href' => 'https://vld.mandomemori.ru' . $cityBase, 'label' => 'Владивосток'],
-  ['href' => 'https://ekb.mandomemori.ru' . $cityBase, 'label' => 'Екатеринбург'],
-  ['href' => 'https://irkutsk.mandomemori.ru' . $cityBase, 'label' => 'Иркутск'],
-  ['href' => 'https://voronezh.mandomemori.ru' . $cityBase, 'label' => 'Воронеж'],
-  ['href' => 'https://klg.mandomemori.ru' . $cityBase, 'label' => 'Калининград'],
-  ['href' => 'https://sakh.mandomemori.ru' . $cityBase, 'label' => 'Южно-Сахалинск'],
-  ['href' => 'https://rnd.mandomemori.ru' . $cityBase, 'label' => 'Ростов-на-Дону'],
-  ['href' => 'https://chl.mandomemori.ru' . $cityBase, 'label' => 'Челябинск'],
-  ['href' => 'https://nsk.mandomemori.ru' . $cityBase, 'label' => 'Новосибирск'],
-  ['href' => 'https://kazan.mandomemori.ru' . $cityBase, 'label' => 'Казань'],
-  ['href' => $siteUrl, 'label' => 'Лимассол (Кипр) ↗', 'target' => '_blank'],
-  ['href' => $siteUrl, 'label' => 'Тбилиси (Грузия) ↗', 'target' => '_blank'],
-];
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -67,30 +49,18 @@ $cityLinks = [
         <a href="/order" class="nav-link">Передать обувь</a>
         <a href="/contacts" class="nav-link">Контакты</a>
         <div class="city-selector city-selector-mobile">
-          <button class="city-selector-btn" id="city-selector-btn-mobile">
+          <span class="city-selector-btn">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1C5.24 1 3 3.24 3 6c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="currentColor"/></svg>
             Москва
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="city-dropdown" id="city-dropdown-mobile">
-            <?php foreach ($cityLinks as $cl): ?>
-            <a href="<?= $cl['href'] ?>" class="city-dropdown-item<?= !empty($cl['active']) ? ' active' : '' ?>"<?= !empty($cl['target']) ? ' target="'.$cl['target'].'" rel="noopener"' : '' ?>><?= $cl['label'] ?></a>
-            <?php endforeach; ?>
-          </div>
+          </span>
         </div>
       </nav>
       <div class="header-right">
           <div class="city-selector city-selector-desktop">
-            <button class="city-selector-btn" id="city-selector-btn">
+            <span class="city-selector-btn">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1C5.24 1 3 3.24 3 6c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="currentColor"/></svg>
               Москва
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="city-dropdown" id="city-dropdown">
-              <?php foreach ($cityLinks as $cl): ?>
-              <a href="<?= $cl['href'] ?>" class="city-dropdown-item<?= !empty($cl['active']) ? ' active' : '' ?>"<?= !empty($cl['target']) ? ' target="'.$cl['target'].'" rel="noopener"' : '' ?>><?= $cl['label'] ?></a>
-              <?php endforeach; ?>
-            </div>
+            </span>
           </div>
         <a href="/cart" class="cart-icon-btn cart-icon-btn--hidden" aria-label="Корзина" id="cart-icon-btn">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">

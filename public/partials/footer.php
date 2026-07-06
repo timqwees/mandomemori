@@ -94,19 +94,7 @@
           document.body.style.overflow = '';
         });
       });
-      [['city-selector-btn', 'city-dropdown'], ['city-selector-btn-mobile', 'city-dropdown-mobile']].forEach(function(pair) {
-        var cBtn = document.getElementById(pair[0]);
-        var cDrop = document.getElementById(pair[1]);
-        if (cBtn && cDrop) {
-          cBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            cDrop.classList.toggle('open');
-          });
-          document.addEventListener('click', function() {
-            cDrop.classList.remove('open');
-          });
-        }
-      });
+
     })();
   </script>
   <div id="cart-toast" class="cart-toast" aria-live="polite" style="display:none">
