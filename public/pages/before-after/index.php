@@ -65,7 +65,7 @@ require __DIR__ . '/../../partials/header.php';
         <div class="ba-stack-card">
           <div class="ba-stack-inner" style="background:#e9cfb6">
             <div class="ba-stack-img">
-              <img src="/public/assets/images/solefresh/1771842593762-4886.jpg" alt="Чистка Loro Piana — до и после | MANDO MEMORI Москва" loading="lazy">
+              <img src="/public/assets/images/mandomemori/1771842593762-4886.jpg" alt="Чистка Loro Piana — до и после | MANDO MEMORI Москва" loading="lazy">
             </div>
           </div>
         </div>
@@ -74,70 +74,70 @@ require __DIR__ . '/../../partials/header.php';
         <div class="ba-stack-card">
           <div class="ba-stack-inner" style="background:#ffffff">
             <div class="ba-stack-img">
-              <img src="/public/assets/images/solefresh/1771050988188-9843.png" alt="Чистка Timberland — до и после | MANDO MEMORI Москва" loading="lazy">
+              <img src="/public/assets/images/mandomemori/1771050988188-9843.png" alt="Чистка Timberland — до и после | MANDO MEMORI Москва" loading="lazy">
             </div>
           </div>
         </div>
       </div>
-      <div class="ba-stack-item" style="--i: 2;">
+      <!--<div class="ba-stack-item" style="--i: 2;">
         <div class="ba-stack-card">
           <div class="ba-stack-inner" style="background:#e8e8e8">
             <div class="ba-stack-img">
-              <img src="/public/assets/images/solefresh/1771843830706-6066.jpg" alt="Чистка Bottega Veneta — до и после | MANDO MEMORI Москва" loading="lazy">
+              <img src="/public/assets/images/mandomemori/1771843830706-6066.jpg" alt="Чистка Bottega Veneta — до и после | MANDO MEMORI Москва" loading="lazy">
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
       <div class="ba-stack-item" style="--i: 3;">
         <div class="ba-stack-card">
           <div class="ba-stack-inner" style="background:#fef7ef">
             <div class="ba-stack-img">
-              <img src="/public/assets/images/solefresh/1771017395227-3941.jpg" alt="Чистка 2Mood — до и после | MANDO MEMORI Москва" loading="lazy">
+              <img src="/public/assets/images/mandomemori/1771017395227-3941.jpg" alt="Чистка 2Mood — до и после | MANDO MEMORI Москва" loading="lazy">
             </div>
           </div>
         </div>
       </div>
-      <div class="ba-stack-item" style="--i: 4;">
+      <!--<div class="ba-stack-item" style="--i: 4;">
         <div class="ba-stack-card">
           <div class="ba-stack-inner" style="background:#94c2f6">
             <div class="ba-stack-img">
-              <img src="/public/assets/images/solefresh/1771842677597-9305.jpg" alt="Чистка Giuseppe Zanotti — до и после | MANDO MEMORI Москва" loading="lazy">
+              <img src="/public/assets/images/mandomemori/1771842677597-9305.jpg" alt="Чистка Giuseppe Zanotti — до и после | MANDO MEMORI Москва" loading="lazy">
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
       <div class="ba-stack-item" style="--i: 5;">
         <div class="ba-stack-card">
           <div class="ba-stack-inner" style="background:#eeeced">
             <div class="ba-stack-img">
-              <img src="/public/assets/images/solefresh/1771016409059-8295.png" alt="Чистка Saint Laurent — до и после | MANDO MEMORI Москва" loading="lazy">
+              <img src="/public/assets/images/mandomemori/1771016409059-8295.png" alt="Чистка Saint Laurent — до и после | MANDO MEMORI Москва" loading="lazy">
             </div>
           </div>
         </div>
       </div>
-      <div class="ba-stack-item" style="--i: 6;">
+      <!--<div class="ba-stack-item" style="--i: 6;">
         <div class="ba-stack-card">
           <div class="ba-stack-inner" style="background:#f2b27d">
             <div class="ba-stack-img">
-              <img src="/public/assets/images/solefresh/1771050497402-6684.png" alt="Чистка Balenciaga — до и после | MANDO MEMORI Москва" loading="lazy">
+              <img src="/public/assets/images/mandomemori/1771050497402-6684.png" alt="Чистка Balenciaga — до и после | MANDO MEMORI Москва" loading="lazy">
             </div>
           </div>
         </div>
-      </div>
-      <div class="ba-stack-item" style="--i: 7;">
+      </div>-->
+      <!--<div class="ba-stack-item" style="--i: 7;">
         <div class="ba-stack-card">
           <div class="ba-stack-inner" style="background:#473424">
             <div class="ba-stack-img">
-              <img src="/public/assets/images/solefresh/1771050734059-8998.png" alt="Чистка Alexander McQueen — до и после | MANDO MEMORI Москва" loading="lazy">
+              <img src="/public/assets/images/mandomemori/1771050734059-8998.png" alt="Чистка Alexander McQueen — до и после | MANDO MEMORI Москва" loading="lazy">
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
       <div class="ba-stack-item" style="--i: 8;">
         <div class="ba-stack-card">
           <div class="ba-stack-inner" style="background:#ede7d7">
             <div class="ba-stack-img">
-              <img src="/public/assets/images/solefresh/1771842655489-498.jpg" alt="Чистка Premiata — до и после | MANDO MEMORI Москва" loading="lazy">
+              <img src="/public/assets/images/mandomemori/1771842655489-498.jpg" alt="Чистка Premiata — до и после | MANDO MEMORI Москва" loading="lazy">
             </div>
           </div>
         </div>
@@ -146,7 +146,7 @@ require __DIR__ . '/../../partials/header.php';
         <div class="ba-stack-card">
           <div class="ba-stack-inner" style="background:#dab109">
             <div class="ba-stack-img">
-              <img src="/public/assets/images/solefresh/1771050919897-7180.png" alt="Чистка Valentino — до и после | MANDO MEMORI Москва" loading="lazy">
+              <img src="/public/assets/images/mandomemori/1771050919897-7180.png" alt="Чистка Valentino — до и после | MANDO MEMORI Москва" loading="lazy">
             </div>
           </div>
         </div>
@@ -155,7 +155,7 @@ require __DIR__ . '/../../partials/header.php';
         <div class="ba-stack-card">
           <div class="ba-stack-inner" style="background:#f0f0f0">
             <div class="ba-stack-img">
-              <img src="/public/assets/images/solefresh/1771050580327-4572.png" alt="Чистка Raf Simons — до и после | MANDO MEMORI Москва" loading="lazy">
+              <img src="/public/assets/images/mandomemori/1771050580327-4572.png" alt="Чистка Raf Simons — до и после | MANDO MEMORI Москва" loading="lazy">
             </div>
           </div>
         </div>
@@ -164,7 +164,7 @@ require __DIR__ . '/../../partials/header.php';
         <div class="ba-stack-card">
           <div class="ba-stack-inner" style="background:#911b1c">
             <div class="ba-stack-img">
-              <img src="/public/assets/images/solefresh/1771842625962-7902.jpg" alt="Чистка Maison Margiela — до и после | MANDO MEMORI Москва" loading="lazy">
+              <img src="/public/assets/images/mandomemori/1771842625962-7902.jpg" alt="Чистка Maison Margiela — до и после | MANDO MEMORI Москва" loading="lazy">
             </div>
           </div>
         </div>
@@ -173,7 +173,7 @@ require __DIR__ . '/../../partials/header.php';
         <div class="ba-stack-card">
           <div class="ba-stack-inner" style="background:#3e718c">
             <div class="ba-stack-img">
-              <img src="/public/assets/images/solefresh/1771050867716-5351.png" alt="Чистка Givenchy — до и после | MANDO MEMORI Москва" loading="lazy">
+              <img src="/public/assets/images/mandomemori/1771050867716-5351.png" alt="Чистка Givenchy — до и после | MANDO MEMORI Москва" loading="lazy">
             </div>
           </div>
         </div>

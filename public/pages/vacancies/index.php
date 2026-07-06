@@ -16,7 +16,7 @@ require __DIR__ . '/../../partials/header.php';
 <main class="vacancies-page">
 
   <section class="vacancies-hero" style="background-color: #f5f5f7; color: #ffffff; min-height: 70vh">
-      <div class="vacancies-hero-bg has-mobile" style="background-image: url('/public/assets/images/solefresh/1771699312935-3355.jpg')" data-mobile-bg="/public/assets/images/solefresh/1771699312935-3355.jpg"></div>
+      <div class="vacancies-hero-bg has-mobile" style="background-image: url('/public/assets/images/mandomemori/1771699312935-3355.jpg')" data-mobile-bg="/public/assets/images/mandomemori/1771699312935-3355.jpg"></div>
       <div class="vacancies-hero-overlay" style="background:rgba(0,0,0,0.77)"></div>
     <div class="container vacancies-hero-content">
       <h1 class="vacancies-title">Вакансии</h1>

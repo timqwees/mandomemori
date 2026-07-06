@@ -5,9 +5,9 @@ $notify = Functions::notify();
 
 $siteINFO = ['canonical' => '/contacts', 'priority' => '0.7', 'changefreq' => 'monthly', 'index' => 'main'];
 
-$pageTitle = 'Контакты — MANDO MEMORI, химчистка обуви в Москве, адреса пунктов приёма';
-$pageDesc = 'Контакты MANDO MEMORI в Москве. Адреса пунктов приёма, постаматы 24/7, телефон +7 495 198-04-95, Telegram. Химчистка обуви с доставкой.';
-$pageKeywords = 'контакты MANDO MEMORI, химчистка обуви Москва адрес, пункт приёма обуви, постамат';
+$pageTitle = 'Контакты — MANDO MEMORI, химчистка обуви в Москве с бесплатной доставкой';
+$pageDesc = 'Контакты MANDO MEMORI в Москве. Телефон +7 495 198-04-95, Telegram. Химчистка обуви с бесплатной доставкой курьером.';
+$pageKeywords = 'контакты MANDO MEMORI, химчистка обуви Москва, курьерская доставка';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/contacts';
 require __DIR__ . '/../../partials/header.php';
 ?>
@@ -64,7 +64,7 @@ require __DIR__ . '/../../partials/header.php';
       <div class="container">
         <div class="contacts-duo-grid">
           <div class="contacts-duo-card contacts-duo-photo">
-            <img src="/public/assets/images/solefresh/1772183654955-9859.jpg" alt="MANDO MEMORI — мастерская" loading="lazy">
+            <img src="/public/assets/images/mandomemori/1772183654955-9859.jpg" alt="MANDO MEMORI — мастерская" loading="lazy">
           </div>
 
           <div class="contacts-duo-card contacts-duo-info">

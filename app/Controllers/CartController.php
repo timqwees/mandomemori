@@ -15,7 +15,7 @@ class CartController
       $result[$id] = [
         'title' => $p['title'],
         'price' => $p['price'],
-        'image_url' => '/public/assets/images/solefresh/' . $p['img'],
+        'image_url' => '/public/assets/images/mandomemori/' . $p['img'],
         'bg_color' => $p['bg'],
       ];
     }

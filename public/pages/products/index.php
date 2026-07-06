@@ -87,7 +87,7 @@ require __DIR__ . '/../../partials/header.php';
             <p class="product-card-desc">от <?= $svc['price'] ?> ₽ за пару</p>
           </div>
           <div class="product-card-image">
-            <img src="/public/assets/images/solefresh/<?= $svc['img'] ?>" alt="<?= $svc['title'] ?>" loading="lazy">
+            <img src="/public/assets/images/mandomemori/<?= $svc['img'] ?>" alt="<?= $svc['title'] ?>" loading="lazy">
           </div>
           <div class="product-card-action">
             <a href="/product/<?= $svc['slug'] ?>" class="product-card-btn product-card-btn-detail">Подробнее</a>

@@ -5,7 +5,7 @@
           <a href="/" class="footer-logo">
             <img src="/public/assets/images/logo-mandomemori-white.svg" alt="MANDO MEMORI" class="footer-logo-img">
           </a>
-          <p class="footer-brand-desc">Профессиональная химчистка обуви в Москве. Чистка кроссовок, отбеливание подошвы, покраска, реставрация. Бесплатная доставка и постаматы 24/7.</p>
+          <p class="footer-brand-desc">Профессиональная химчистка обуви в Москве. Чистка кроссовок, отбеливание подошвы, покраска, реставрация. Бесплатная доставка курьером.</p>
           <div class="footer-social">
             <a href="https://t.me/mandomemori" target="_blank" rel="noopener" class="footer-social-link" title="Telegram">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>

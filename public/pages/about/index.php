@@ -631,12 +631,12 @@ html, body { background: #121212; margin: 0; }
             </text>
           </mask>
         </defs>
-          <image href="/public/assets/images/solefresh/bg.gif" x="0" y="0" width="100" height="30" preserveAspectRatio="xMidYMid slice"/>
+          <image href="/public/assets/images/mandomemori/bg.gif" x="0" y="0" width="100" height="30" preserveAspectRatio="xMidYMid slice"/>
         <rect x="-1" y="-1" width="102" height="32" fill="#121212" mask="url(#anp-hero-cut)"/>
       </svg>
     </div>
 
-    <div class="anp-hero__card" style="background-image:url('/public/assets/images/solefresh/bg.gif')">
+    <div class="anp-hero__card" style="background-image:url('/public/assets/images/mandomemori/bg.gif')">
       <div class="anp-hero__card-overlay" style="background:rgba(0, 0, 0, 0.52)"></div>
       <div class="anp-hero__spacer"></div>
       <div class="anp-hero__bottom">
@@ -698,17 +698,17 @@ html, body { background: #121212; margin: 0; }
         <section class="anp-cards">
           <div class="anp-cards__grid">
               <article class="anp-card" id="s-priemnye-punkty">
-                  <div class="anp-card__media"><img src="/public/assets/images/solefresh/1774613690178-995.gif" alt="Пункты приёма MANDO MEMORI" loading="lazy"></div>
+                  <div class="anp-card__media"><img src="/public/assets/images/mandomemori/1774613690178-995.gif" alt="Пункты приёма MANDO MEMORI" loading="lazy"></div>
                 <div class="anp-card__body">
                   <h2 class="anp-card__title" data-blur-title>Пункты приёма</h2>
                   <div class="anp-card__content" data-blur-content><p>В наших точках можно проконсультироваться со специалистом, приобрести средства по уходу за обувью, сдать пару на чистку или забрать готовый заказ.</p></div>
                 </div>
               </article>
-              <article class="anp-card" id="s-sneaker-point">
-                  <div class="anp-card__media"><img src="/public/assets/images/solefresh/1774535953957-4614.gif" alt="Постаматы MANDO MEMORI" loading="lazy"></div>
+              <article class="anp-card" id="s-kurer">
+                  <div class="anp-card__media"><img src="/public/assets/images/mandomemori/1774535953957-4614.gif" alt="Курьерская доставка MANDO MEMORI" loading="lazy"></div>
                 <div class="anp-card__body">
-                  <h2 class="anp-card__title" data-blur-title>Постаматы</h2>
-                  <div class="anp-card__content" data-blur-content><p>С 2019 года мы запустили сеть автоматических пунктов приёма — Постаматы. Они расположены в удобных местах Москвы и работают в формате 24/7. Просто оставьте обувь в ближайшем постамате, мы заберём её в работу и вернём обратно в ту же ячейку после чистки.</p></div>
+                  <h2 class="anp-card__title" data-blur-title>Курьер</h2>
+                  <div class="anp-card__content" data-blur-content><p>Бесплатно забираем обувь курьером и привозим обратно после чистки. Курьер приезжает в удобное время — вы называете номер заказа, и он забирает обувь для передачи мастерам.</p></div>
                 </div>
               </article>
           </div>
@@ -729,21 +729,21 @@ html, body { background: #121212; margin: 0; }
         <div class="anp-partners__grid">
             <div class="anp-partner">
                 <div class="anp-partner__logo">
-                  <img src="/public/assets/images/solefresh/1774540200552-5494.png" alt="Логотип Lamoda Sport" loading="lazy">
+                  <img src="/public/assets/images/mandomemori/1774540200552-5494.png" alt="Логотип Lamoda Sport" loading="lazy">
                 </div>
               <h3 class="anp-partner__name">Lamoda Sport</h3>
               <p class="anp-partner__desc">Пункты приёма обуви на базе розничных магазинов сети</p>
             </div>
             <div class="anp-partner">
                 <div class="anp-partner__logo">
-                  <img src="/public/assets/images/solefresh/1774540318759-9740.png" alt="Логотип HOVERS" loading="lazy">
+                  <img src="/public/assets/images/mandomemori/1774540318759-9740.png" alt="Логотип HOVERS" loading="lazy">
                 </div>
               <h3 class="anp-partner__name">HOVERS</h3>
               <p class="anp-partner__desc">Специальные условия обслуживания для обуви ручной работы</p>
             </div>
             <div class="anp-partner">
                 <div class="anp-partner__logo">
-                  <img src="/public/assets/images/solefresh/1774540527400-2473.png" alt="Логотип Time Up" loading="lazy">
+                  <img src="/public/assets/images/mandomemori/1774540527400-2473.png" alt="Логотип Time Up" loading="lazy">
                 </div>
               <h3 class="anp-partner__name">Time Up</h3>
               <p class="anp-partner__desc">Профессиональный уход за гоночной экипировкой команды</p>

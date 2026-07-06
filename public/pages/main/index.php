@@ -15,7 +15,7 @@ require __DIR__ . '/../../partials/header.php';
 <main class="main">
   <section class="scroll-hero" id="scroll-hero">
     <div class="scroll-hero__sticky">
-      <video class="scroll-hero__video" id="scroll-hero-video" src="/public/assets/images/solefresh/1771852645662-3825.mp4" data-src-desktop="/public/assets/images/solefresh/1771852645662-3825.mp4" data-src-mobile="/public/assets/images/solefresh/1771852645662-3825.mp4" muted playsinline webkit-playsinline preload="none"></video>
+      <video class="scroll-hero__video" id="scroll-hero-video" src="/public/assets/images/mandomemori/1771852645662-3825.mp4" data-src-desktop="/public/assets/images/mandomemori/1771852645662-3825.mp4" data-src-mobile="/public/assets/images/mandomemori/1771852645662-3825.mp4" muted playsinline webkit-playsinline preload="none"></video>
       <div class="scroll-hero__overlay"></div>
       <div class="scroll-hero__loader" id="scroll-hero-loader">
         <div class="scroll-hero__spinner"></div>
@@ -83,7 +83,7 @@ require __DIR__ . '/../../partials/header.php';
           <span class="about-step__num">01</span>
           <div class="about-step__body">
             <h3 class="about-step__title">Оставьте пару нам</h3>
-            <p class="about-step__desc">Приносите обувь в любой пункт приёма без предварительной записи или вызывайте курьера.</p>
+            <p class="about-step__desc">Вызывайте курьера для бесплатного забора обуви — или приносите в любой пункт приёма без предварительной записи.</p>
           </div>
         </div>
         <div class="about-step">
@@ -129,7 +129,7 @@ require __DIR__ . '/../../partials/header.php';
         foreach ($services as $s): ?>
         <a href="/product/<?= $s['slug'] ?>" class="card" data-slug="<?= $s['slug'] ?>">
           <div class="card-image">
-            <img src="/public/assets/images/solefresh/<?= $s['img'] ?>" alt="<?= $s['title'] ?> | MANDO MEMORI" loading="lazy">
+            <img src="/public/assets/images/mandomemori/<?= $s['img'] ?>" alt="<?= $s['title'] ?> | MANDO MEMORI" loading="lazy">
           </div>
           <div class="card-body">
             <h2 class="card-title"><?= $s['title'] ?></h2>
@@ -162,13 +162,13 @@ require __DIR__ . '/../../partials/header.php';
       ];
       foreach ($portfolio as $img): ?>
       <div class="portfolio-slide">
-        <img src="/public/assets/images/solefresh/<?= $img ?>" alt="MANDO MEMORI — до и после химчистки" loading="lazy" draggable="false">
+        <img src="/public/assets/images/mandomemori/<?= $img ?>" alt="MANDO MEMORI — до и после химчистки" loading="lazy" draggable="false">
       </div>
       <?php endforeach;
       // Duplicate for seamless loop
       foreach ($portfolio as $img): ?>
       <div class="portfolio-slide">
-        <img src="/public/assets/images/solefresh/<?= $img ?>" alt="MANDO MEMORI — до и после химчистки" loading="lazy" draggable="false">
+        <img src="/public/assets/images/mandomemori/<?= $img ?>" alt="MANDO MEMORI — до и после химчистки" loading="lazy" draggable="false">
       </div>
       <?php endforeach; ?>
     </div>
@@ -210,7 +210,7 @@ require __DIR__ . '/../../partials/header.php';
       </div>
       <div class="home-faq-card">
         <h3 class="home-faq-question">Есть ли доставка и курьер?</h3>
-        <div class="home-faq-answer">Да, курьер бесплатно заберёт обувь и привезёт обратно после чистки. Также работают пункты приёма и постаматы 24/7 в Москве и МО.</div>
+        <div class="home-faq-answer">Да, курьер бесплатно заберёт обувь и привезёт обратно после чистки. Это удобно и быстро — вы никуда не едете.</div>
       </div>
     </div>
   </section>
@@ -229,7 +229,7 @@ require __DIR__ . '/../../partials/header.php';
         <div class="hstack-card">
           <div class="hstack-inner">
             <div class="hstack-img">
-              <img src="/public/assets/images/solefresh/<?= $hc['img'] ?>" alt="" loading="lazy">
+              <img src="/public/assets/images/mandomemori/<?= $hc['img'] ?>" alt="" loading="lazy">
             </div>
             <div class="hstack-text">
               <div class="hstack-utp">
@@ -271,7 +271,7 @@ require __DIR__ . '/../../partials/header.php';
             <p class="product-card-desc">от <?= $p['price'] ?> ₽ за пару</p>
           </div>
           <div class="product-card-image">
-            <img src="/public/assets/images/solefresh/<?= $p['img'] ?>" alt="<?= $p['title'] ?>" loading="lazy">
+            <img src="/public/assets/images/mandomemori/<?= $p['img'] ?>" alt="<?= $p['title'] ?>" loading="lazy">
           </div>
           <div class="product-card-action">
             <a href="/product/<?= $p['slug'] ?>" class="product-card-btn product-card-btn-detail">Подробнее</a>

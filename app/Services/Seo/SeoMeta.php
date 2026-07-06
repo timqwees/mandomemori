@@ -11,7 +11,7 @@ class SeoMeta
     $desc    = $p['desc'] ?? 'MANDO MEMORI — профессиональная химчистка обуви в Москве. Чистка кроссовок, замши, нубука, кожи. Отбеливание подошвы, покраска, реставрация. Бесплатная доставка.';
     $kw      = $p['keywords'] ?? '';
     $canon   = $p['canonical'] ?? '/';
-    $img     = $p['image'] ?? '/public/assets/images/solefresh/og-image.jpg';
+    $img     = $p['image'] ?? '/public/assets/images/mandomemori/og-image.jpg';
     $type    = $p['type'] ?? 'website';
     $locale  = $p['locale'] ?? 'ru_RU';
     $robots  = $p['robots'] ?? 'index, follow';
