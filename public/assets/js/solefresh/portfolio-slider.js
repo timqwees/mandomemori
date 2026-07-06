@@ -3,10 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!track) return;
 
   var slides = track.querySelectorAll('.portfolio-slide');
-  if (slides.length < 2) return;
+  var origCount = 12;
+  if (slides.length < 2 || slides.length <= origCount) return;
 
   var pos = 0;
-  var speed = 0.5; // px per frame
+  var speed = 1;
   var dragging = false;
   var startX = 0;
   var dragStartPos = 0;
@@ -14,47 +15,39 @@ document.addEventListener('DOMContentLoaded', function() {
   var lastX = 0;
   var lastTime = 0;
   var raf = null;
-  var totalWidth = 0;
-  var halfWidth = 0;
+  var slideWidth = 0;
+  var jumpWidth = 0;
 
   function measure() {
-    // Reset transform to get accurate scrollWidth
     track.style.transform = 'translate3d(0, 0, 0)';
-    totalWidth = track.scrollWidth;
-    halfWidth = totalWidth / 2;
+    var total = track.scrollWidth;
+    slideWidth = slides[0].offsetWidth + 12;
+    jumpWidth = slideWidth * origCount;
     render();
   }
   measure();
-
-  // Infinite loop: when we scroll past half, jump back
-  function wrapPos() {
-    if (halfWidth <= 0) return;
-    while (pos >= halfWidth) pos -= halfWidth;
-    while (pos < 0) pos += halfWidth;
-  }
 
   function render() {
     track.style.transform = 'translate3d(' + (-pos) + 'px, 0, 0)';
   }
 
-  // Autoplay + momentum loop
   function tick() {
     if (!dragging) {
       if (Math.abs(velocity) > 0.5) {
         pos += velocity;
-        velocity *= 0.95;
+        velocity *= 0.92;
       } else {
         velocity = 0;
         pos += speed;
       }
+      if (pos >= jumpWidth) pos -= jumpWidth;
+      if (pos < 0) pos += jumpWidth;
     }
-    wrapPos();
     render();
     raf = requestAnimationFrame(tick);
   }
   raf = requestAnimationFrame(tick);
 
-  // Mouse drag
   track.addEventListener('mousedown', function(e) {
     dragging = true;
     track.classList.add('dragging');
@@ -63,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
     lastX = e.clientX;
     lastTime = Date.now();
     velocity = 0;
-    e.preventDefault();
   });
 
   window.addEventListener('mousemove', function(e) {
@@ -75,7 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
     lastX = e.clientX;
     lastTime = now;
     pos = dragStartPos - (e.clientX - startX);
-    wrapPos();
+    if (pos >= jumpWidth) pos -= jumpWidth;
+    if (pos < 0) pos += jumpWidth;
   });
 
   window.addEventListener('mouseup', function() {
@@ -84,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
     track.classList.remove('dragging');
   });
 
-  // Touch drag
   track.addEventListener('touchstart', function(e) {
     if (e.touches.length !== 1) return;
     dragging = true;
@@ -105,22 +97,21 @@ document.addEventListener('DOMContentLoaded', function() {
     lastX = tx;
     lastTime = now;
     pos = dragStartPos - (tx - startX);
-    wrapPos();
+    if (pos >= jumpWidth) pos -= jumpWidth;
+    if (pos < 0) pos += jumpWidth;
   }, { passive: true });
 
   track.addEventListener('touchend', function() {
     dragging = false;
   }, { passive: true });
 
-  // Pause autoplay when not visible
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
-      speed = entry.isIntersecting ? 0.5 : 0;
+      speed = entry.isIntersecting ? 1 : 0;
     });
   }, { threshold: 0.1 });
   observer.observe(track.parentElement);
 
-  // Re-measure on resize
   var resizeTimer;
   window.addEventListener('resize', function() {
     clearTimeout(resizeTimer);

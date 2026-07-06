@@ -162,13 +162,8 @@ require __DIR__ . '/../../partials/header.php';
         'beforeafter5.jpg','beforeafter6.jpg','beforeafter7.jpg','beforeafter8.jpg',
         'beforeafter9.png','beforeafter10.png','beforeafter11.png','beforeafter12.png',
       ];
-      foreach ($portfolio as $img): ?>
-      <div class="portfolio-slide">
-        <img src="/public/assets/images/mandomemori/<?= $img ?>" alt="MANDO MEMORI — до и после химчистки" loading="lazy" draggable="false">
-      </div>
-      <?php endforeach;
-      // Duplicate for seamless loop
-      foreach ($portfolio as $img): ?>
+      // Original + first 4 appended for seamless loop
+      foreach (array_merge($portfolio, array_slice($portfolio, 0, 4)) as $img): ?>
       <div class="portfolio-slide">
         <img src="/public/assets/images/mandomemori/<?= $img ?>" alt="MANDO MEMORI — до и после химчистки" loading="lazy" draggable="false">
       </div>
