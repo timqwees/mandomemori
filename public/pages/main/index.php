@@ -158,7 +158,9 @@ require __DIR__ . '/../../partials/header.php';
     <div class="portfolio-slider-track" id="portfolio-slider">
       <?php
       $portfolio = [
-        'beforeafter1.jpg','beforeafter2.png','beforeafter3.png','beforeafter4.png',
+        'beforeafter1.png','beforeafter2.png','beforeafter3.png','beforeafter4.png',
+        'beforeafter5.jpg','beforeafter6.jpg','beforeafter7.jpg','beforeafter8.jpg',
+        'beforeafter9.png','beforeafter10.png','beforeafter11.png','beforeafter12.png',
       ];
       foreach ($portfolio as $img): ?>
       <div class="portfolio-slide">
