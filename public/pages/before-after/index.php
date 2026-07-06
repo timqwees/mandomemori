@@ -62,16 +62,14 @@ require __DIR__ . '/../../partials/header.php';
 
   <section class="ba-stack">
       <?php
-      $baColors = ['#e9cfb6','#ffffff','#fef7ef','#eeeced','#ede7d7','#dab109','#f0f0f0','#911b1c','#3e718c','#94c2f6','#f2b27d','#473424','#e8e8e8'];
       $baFiles = glob(__DIR__ . '/../../../public/assets/images/mandomemori/beforeafter*');
       sort($baFiles);
       foreach ($baFiles as $i => $file):
         $name = basename($file);
-        $color = $baColors[$i % count($baColors)];
       ?>
       <div class="ba-stack-item" style="--i: <?= $i ?>;">
         <div class="ba-stack-card">
-          <div class="ba-stack-inner" style="background:<?= $color ?>">
+          <div class="ba-stack-inner">
             <div class="ba-stack-img">
               <img src="/public/assets/images/mandomemori/<?= $name ?>" alt="До и после химчистки | MANDO MEMORI Москва" loading="lazy">
             </div>
