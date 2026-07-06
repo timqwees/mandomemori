@@ -497,7 +497,7 @@ html, body { background: #121212; margin: 0; }
     <div class="courier-form-wrapper" id="courier-form">
       <div class="courier-form-card">
         <h2 class="courier-form-title" style="color: black;">Вызов курьера</h2>
-        <p class="courier-form-subtitle">Оставьте контакты — PDF-чек с деталями заказа придёт вам на почту</p>
+        <p class="courier-form-subtitle"><?= $orderNum ? 'Оставьте контакты — PDF-чек с деталями заказа придёт вам на почту' : 'Оставьте контакты — курьер приедет за обувью' ?></p>
         <form id="courier-request-form" class="courier-form">
           <input type="hidden" name="_csrf" value="3bd5a1ea01eec4cc5fac232d54cfe19be1beb147477f69e057180030166a8e04">
           <input type="hidden" name="city_slug" value="moscow">
