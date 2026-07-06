@@ -698,14 +698,14 @@ html, body { background: #121212; margin: 0; }
         <section class="anp-cards">
           <div class="anp-cards__grid">
               <article class="anp-card" id="s-priemnye-punkty">
-                  <div class="anp-card__media"><img src="/public/assets/images/mandomemori/1774613690178-995.gif" alt="Пункты приёма MANDO MEMORI" loading="lazy"></div>
+                  <div class="anp-card__media"><img src="/public/assets/images/mandomemori/офис.jpg" alt="Пункты приёма MANDO MEMORI" loading="lazy"></div>
                 <div class="anp-card__body">
                   <h2 class="anp-card__title" data-blur-title>Пункты приёма</h2>
                   <div class="anp-card__content" data-blur-content><p>В наших точках можно проконсультироваться со специалистом, приобрести средства по уходу за обувью, сдать пару на чистку или забрать готовый заказ.</p></div>
                 </div>
               </article>
               <article class="anp-card" id="s-kurer">
-                  <div class="anp-card__media"><img src="/public/assets/images/mandomemori/1774535953957-4614.gif" alt="Курьерская доставка MANDO MEMORI" loading="lazy"></div>
+                  <div class="anp-card__media"><img src="/public/assets/images/mandomemori/сравнение1.jpg" alt="Курьерская доставка MANDO MEMORI" loading="lazy"></div>
                 <div class="anp-card__body">
                   <h2 class="anp-card__title" data-blur-title>Курьер</h2>
                   <div class="anp-card__content" data-blur-content><p>Бесплатно забираем обувь курьером и привозим обратно после чистки. Курьер приезжает в удобное время — вы называете номер заказа, и он забирает обувь для передачи мастерам.</p></div>
@@ -729,21 +729,21 @@ html, body { background: #121212; margin: 0; }
         <div class="anp-partners__grid">
             <div class="anp-partner">
                 <div class="anp-partner__logo">
-                  <img src="/public/assets/images/mandomemori/1774540200552-5494.png" alt="Логотип Lamoda Sport" loading="lazy">
+                  <img src="/public/assets/images/mandomemori/бренд1.png" alt="Логотип Lamoda Sport" loading="lazy">
                 </div>
               <h3 class="anp-partner__name">Lamoda Sport</h3>
               <p class="anp-partner__desc">Пункты приёма обуви на базе розничных магазинов сети</p>
             </div>
             <div class="anp-partner">
                 <div class="anp-partner__logo">
-                  <img src="/public/assets/images/mandomemori/1774540318759-9740.png" alt="Логотип HOVERS" loading="lazy">
+                  <img src="/public/assets/images/mandomemori/бренд2.png" alt="Логотип HOVERS" loading="lazy">
                 </div>
               <h3 class="anp-partner__name">HOVERS</h3>
               <p class="anp-partner__desc">Специальные условия обслуживания для обуви ручной работы</p>
             </div>
             <div class="anp-partner">
                 <div class="anp-partner__logo">
-                  <img src="/public/assets/images/mandomemori/1774540527400-2473.png" alt="Логотип Time Up" loading="lazy">
+                  <img src="/public/assets/images/mandomemori/бренд3.png" alt="Логотип Time Up" loading="lazy">
                 </div>
               <h3 class="anp-partner__name">Time Up</h3>
               <p class="anp-partner__desc">Профессиональный уход за гоночной экипировкой команды</p>

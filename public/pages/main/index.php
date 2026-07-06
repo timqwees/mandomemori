@@ -15,7 +15,7 @@ require __DIR__ . '/../../partials/header.php';
 <main class="main">
   <section class="scroll-hero" id="scroll-hero">
     <div class="scroll-hero__sticky">
-      <video class="scroll-hero__video" id="scroll-hero-video" src="/public/assets/images/mandomemori/1771852645662-3825.mp4" data-src-desktop="/public/assets/images/mandomemori/1771852645662-3825.mp4" data-src-mobile="/public/assets/images/mandomemori/1771852645662-3825.mp4" muted playsinline webkit-playsinline preload="none"></video>
+      <video class="scroll-hero__video" id="scroll-hero-video" src="/public/assets/images/mandomemori/heroBG.mp4" data-src-desktop="/public/assets/images/mandomemori/heroBG.mp4" data-src-mobile="/public/assets/images/mandomemori/heroBG.mp4" muted playsinline webkit-playsinline preload="none"></video>
       <div class="scroll-hero__overlay"></div>
       <div class="scroll-hero__loader" id="scroll-hero-loader">
         <div class="scroll-hero__spinner"></div>
@@ -158,7 +158,7 @@ require __DIR__ . '/../../partials/header.php';
     <div class="portfolio-slider-track" id="portfolio-slider">
       <?php
       $portfolio = [
-        '1771097097388-7471.jpg','1771097152965-3145.jpg','1771097203961-4246.jpg','1771097300404-3436.jpg',
+        'чистка4.jpg','чистка5.jpg','чистка6.jpg','чистка6.webp',
       ];
       foreach ($portfolio as $img): ?>
       <div class="portfolio-slide">
@@ -219,10 +219,10 @@ require __DIR__ . '/../../partials/header.php';
     <div class="hstack-track">
       <?php
       $hcards = [
-        ['img' => '1771316683329-7345.jpg', 'title1' => 'Бережная чистка', 'desc1' => 'Индивидуальный подбор составов и технологии обработки для каждого типа материала.', 'title2' => 'Уход за кожей и замшей', 'desc2' => 'Натуральные материалы проходят щадящую очистку с питанием и восстановлением структуры.'],
-        ['img' => '1771853240254-1436.jpg', 'title1' => 'Удаление загрязнений', 'desc1' => 'Эффективно справляемся с застарелыми пятнами, следами реагентов и стойкими разводами.', 'title2' => 'Формовка и силуэт', 'desc2' => 'Возвращаем обуви аккуратную форму, расправляем заломы и складки.'],
-        ['img' => '1771316752860-7572.jpg', 'title1' => 'Обновление подошвы', 'desc1' => 'Восстанавливаем белизну и цвет подошвы с помощью профессиональных составов.', 'title2' => 'Реставрация покрытия', 'desc2' => 'Маскируем потёртости, царапины и обновляем цвет кожаных поверхностей.'],
-        ['img' => '1771852823803-2426.jpg', 'title1' => 'Деликатная сушка', 'desc1' => 'Сушим обувь при низких температурах с сохранением формы и свойств материалов.', 'title2' => 'Финальный контроль', 'desc2' => 'Проверяем каждую пару перед выдачей: чистота, цвет, состояние — всё соответствует стандарту.'],
+        ['img' => 'мастер чистка.jpg', 'title1' => 'Бережная чистка', 'desc1' => 'Индивидуальный подбор составов и технологии обработки для каждого типа материала.', 'title2' => 'Уход за кожей и замшей', 'desc2' => 'Натуральные материалы проходят щадящую очистку с питанием и восстановлением структуры.'],
+        ['img' => 'средства.jpg', 'title1' => 'Удаление загрязнений', 'desc1' => 'Эффективно справляемся с застарелыми пятнами, следами реагентов и стойкими разводами.', 'title2' => 'Формовка и силуэт', 'desc2' => 'Возвращаем обуви аккуратную форму, расправляем заломы и складки.'],
+        ['img' => 'обувь.jpg', 'title1' => 'Обновление подошвы', 'desc1' => 'Восстанавливаем белизну и цвет подошвы с помощью профессиональных составов.', 'title2' => 'Реставрация покрытия', 'desc2' => 'Маскируем потёртости, царапины и обновляем цвет кожаных поверхностей.'],
+        ['img' => 'чистка со спреем.jpg', 'title1' => 'Деликатная сушка', 'desc1' => 'Сушим обувь при низких температурах с сохранением формы и свойств материалов.', 'title2' => 'Финальный контроль', 'desc2' => 'Проверяем каждую пару перед выдачей: чистота, цвет, состояние — всё соответствует стандарту.'],
       ];
       foreach ($hcards as $hc): ?>
       <div class="hstack-item" style="--card-bg: #1C1512; --card-text: #fff;">

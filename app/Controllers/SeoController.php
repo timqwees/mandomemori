@@ -299,9 +299,9 @@ class SeoController
       'background_color' => '#FDFBF9',
       'theme_color' => '#1C1512',
       'icons' => [
-        ['src' => '/public/assets/images/logo-mandomemori-icon.svg', 'sizes' => '48x48', 'type' => 'image/svg+xml'],
-        ['src' => '/public/assets/images/logo-mandomemori-icon.svg', 'sizes' => '192x192', 'type' => 'image/svg+xml'],
-        ['src' => '/public/assets/images/logo-mandomemori-icon.svg', 'sizes' => '512x512', 'type' => 'image/svg+xml'],
+        ['src' => '/public/assets/images/favicon.svg', 'sizes' => '48x48', 'type' => 'image/svg+xml'],
+        ['src' => '/public/assets/images/favicon.svg', 'sizes' => '192x192', 'type' => 'image/svg+xml'],
+        ['src' => '/public/assets/images/favicon.svg', 'sizes' => '512x512', 'type' => 'image/svg+xml'],
       ],
     ], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
   }
@@ -359,7 +359,7 @@ class SeoController
 <browserconfig>
   <msapplication>
     <tile>
-      <square150x150logo src="/public/assets/images/logo-mandomemori-icon.svg"/>
+      <square150x150logo src="/public/assets/images/favicon.svg"/>
       <TileColor>#1C1512</TileColor>
     </tile>
   </msapplication>

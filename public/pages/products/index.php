@@ -62,22 +62,22 @@ require __DIR__ . '/../../partials/header.php';
       <div class="product-cards">
         <?php
         $allSvcs = [
-          ['slug' => 'sole-fresh', 'img' => '1771325109170-5912.jpg', 'title' => 'Базовая химчистка', 'price' => '3 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'repel', 'img' => '1771675668922-443.jpg', 'title' => 'Водоотталкивающая пропитка', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'foam', 'img' => '1771014250625-3789.webp', 'title' => 'Экспресс-чистка', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'oil', 'img' => '1771326480456-1968.jpg', 'title' => 'Питание и кондиционирование кожи', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'resize', 'img' => '1771327434678-8059.jpg', 'title' => 'Растяжка обуви', 'price' => '1 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'trees', 'img' => '1771329486969-2642.jpg', 'title' => 'Восстановление формы обуви', 'price' => '1 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'brushes', 'img' => '1771329597854-9744.jpg', 'title' => 'Чистка спортивной обуви', 'price' => '2 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'wipes', 'img' => '1771329753698-5386.jpg', 'title' => 'Отбеливание подошвы', 'price' => '1 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'towel', 'img' => '1771329961198-4780.jpg', 'title' => 'Глубокая чистка микрофиброй', 'price' => '2 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'wax', 'img' => '1771334464237-4257.png', 'title' => 'Защитная пропитка и вощение', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'fresh', 'img' => '1771334546823-1997.jpg', 'title' => 'Дезодорация и свежесть', 'price' => '990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'paint', 'img' => '1771334585255-3781.jpg', 'title' => 'Покраска и реставрация цвета', 'price' => '3 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'premium', 'img' => '1771579097991-627.jpg', 'title' => 'Премиум-чистка', 'price' => '5 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'soft', 'img' => '1771578995760-1226.png', 'title' => 'Чистка замши и нубука', 'price' => '4 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'standard', 'img' => '1771334763273-3808.jpg', 'title' => 'Полный комплекс ухода', 'price' => '8 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'travel', 'img' => '1771334893250-1313.jpg', 'title' => 'Химчистка экипировки', 'price' => '4 990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'sole-fresh', 'img' => 'чистка.jpg', 'title' => 'Базовая химчистка', 'price' => '3 490', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'repel', 'img' => 'спрей.jpg', 'title' => 'Водоотталкивающая пропитка', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'foam', 'img' => 'пена.webp', 'title' => 'Экспресс-чистка', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'oil', 'img' => 'средство.jpg', 'title' => 'Питание и кондиционирование кожи', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'resize', 'img' => 'подклдаки.jpg', 'title' => 'Растяжка обуви', 'price' => '1 490', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'trees', 'img' => 'набор2.jpg', 'title' => 'Восстановление формы обуви', 'price' => '1 490', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'brushes', 'img' => 'чистка2.jpg', 'title' => 'Чистка спортивной обуви', 'price' => '2 990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'wipes', 'img' => 'отбеливание.jpg', 'title' => 'Отбеливание подошвы', 'price' => '1 490', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'towel', 'img' => 'тряпка.jpg', 'title' => 'Глубокая чистка микрофиброй', 'price' => '2 490', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'wax', 'img' => 'спрей2.jpg', 'title' => 'Защитная пропитка и вощение', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'fresh', 'img' => 'салфетки.jpg', 'title' => 'Дезодорация и свежесть', 'price' => '990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'paint', 'img' => 'починка.jpg', 'title' => 'Покраска и реставрация цвета', 'price' => '3 990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'premium', 'img' => 'прей3.jpg', 'title' => 'Премиум-чистка', 'price' => '5 990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'soft', 'img' => 'чистка3.jpg', 'title' => 'Чистка замши и нубука', 'price' => '4 490', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'standard', 'img' => 'набор.jpg', 'title' => 'Полный комплекс ухода', 'price' => '8 990', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'travel', 'img' => 'шлем.jpg', 'title' => 'Химчистка экипировки', 'price' => '4 990', 'bg' => '#1C1512', 'dark' => true],
         ];
         foreach ($allSvcs as $svc):
         ?>

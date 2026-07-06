@@ -64,7 +64,7 @@ require __DIR__ . '/../../partials/header.php';
       <div class="container">
         <div class="contacts-duo-grid">
           <div class="contacts-duo-card contacts-duo-photo">
-            <img src="/public/assets/images/mandomemori/1772183654955-9859.jpg" alt="MANDO MEMORI — мастерская" loading="lazy">
+            <img src="/public/assets/images/mandomemori/фон чистки.jpg" alt="MANDO MEMORI — мастерская" loading="lazy">
           </div>
 
           <div class="contacts-duo-card contacts-duo-info">

@@ -16,22 +16,22 @@ $cartItems = $data['sf_cart'] ?? [];
 $savedPhone = $data['sf_phone'] ?? '';
 
 $products = [
-  1  => ['title' => 'Базовая химчистка', 'price' => 3490, 'image_url' => '/public/assets/images/mandomemori/1771325109170-5912.jpg', 'bg_color' => '#1C1512'],
-  2  => ['title' => 'Водоотталкивающая пропитка', 'price' => 1990, 'image_url' => '/public/assets/images/mandomemori/1771675668922-443.jpg', 'bg_color' => '#1C1512'],
-  3  => ['title' => 'Экспресс-чистка', 'price' => 1990, 'image_url' => '/public/assets/images/mandomemori/1771014250625-3789.webp', 'bg_color' => '#1C1512'],
-  4  => ['title' => 'Питание и кондиционирование кожи', 'price' => 1990, 'image_url' => '/public/assets/images/mandomemori/1771326480456-1968.jpg', 'bg_color' => '#1C1512'],
-  5  => ['title' => 'Растяжка обуви', 'price' => 1490, 'image_url' => '/public/assets/images/mandomemori/1771327434678-8059.jpg', 'bg_color' => '#1C1512'],
-  6  => ['title' => 'Восстановление формы обуви', 'price' => 1490, 'image_url' => '/public/assets/images/mandomemori/1771329486969-2642.jpg', 'bg_color' => '#1C1512'],
-  7  => ['title' => 'Чистка спортивной обуви', 'price' => 2990, 'image_url' => '/public/assets/images/mandomemori/1771329597854-9744.jpg', 'bg_color' => '#1C1512'],
-  8  => ['title' => 'Отбеливание подошвы', 'price' => 1490, 'image_url' => '/public/assets/images/mandomemori/1771329753698-5386.jpg', 'bg_color' => '#1C1512'],
-  9  => ['title' => 'Глубокая чистка микрофиброй', 'price' => 2490, 'image_url' => '/public/assets/images/mandomemori/1771329961198-4780.jpg', 'bg_color' => '#1C1512'],
-  10 => ['title' => 'Защитная пропитка и вощение', 'price' => 1990, 'image_url' => '/public/assets/images/mandomemori/1771334464237-4257.png', 'bg_color' => '#1C1512'],
-  11 => ['title' => 'Дезодорация и свежесть', 'price' => 990, 'image_url' => '/public/assets/images/mandomemori/1771334546823-1997.jpg', 'bg_color' => '#1C1512'],
-  12 => ['title' => 'Покраска и реставрация цвета', 'price' => 3990, 'image_url' => '/public/assets/images/mandomemori/1771334585255-3781.jpg', 'bg_color' => '#1C1512'],
-  13 => ['title' => 'Премиум-чистка', 'price' => 5990, 'image_url' => '/public/assets/images/mandomemori/1771579097991-627.jpg', 'bg_color' => '#1C1512'],
-  14 => ['title' => 'Чистка замши и нубука', 'price' => 4490, 'image_url' => '/public/assets/images/mandomemori/1771578995760-1226.png', 'bg_color' => '#1C1512'],
-  15 => ['title' => 'Полный комплекс ухода', 'price' => 8990, 'image_url' => '/public/assets/images/mandomemori/1771334763273-3808.jpg', 'bg_color' => '#1C1512'],
-  16 => ['title' => 'Химчистка экипировки', 'price' => 4990, 'image_url' => '/public/assets/images/mandomemori/1771334893250-1313.jpg', 'bg_color' => '#1C1512'],
+  1  => ['title' => 'Базовая химчистка', 'price' => 3490, 'image_url' => '/public/assets/images/mandomemori/чистка.jpg', 'bg_color' => '#1C1512'],
+  2  => ['title' => 'Водоотталкивающая пропитка', 'price' => 1990, 'image_url' => '/public/assets/images/mandomemori/спрей.jpg', 'bg_color' => '#1C1512'],
+  3  => ['title' => 'Экспресс-чистка', 'price' => 1990, 'image_url' => '/public/assets/images/mandomemori/пена.webp', 'bg_color' => '#1C1512'],
+  4  => ['title' => 'Питание и кондиционирование кожи', 'price' => 1990, 'image_url' => '/public/assets/images/mandomemori/средство.jpg', 'bg_color' => '#1C1512'],
+  5  => ['title' => 'Растяжка обуви', 'price' => 1490, 'image_url' => '/public/assets/images/mandomemori/подклдаки.jpg', 'bg_color' => '#1C1512'],
+  6  => ['title' => 'Восстановление формы обуви', 'price' => 1490, 'image_url' => '/public/assets/images/mandomemori/набор2.jpg', 'bg_color' => '#1C1512'],
+  7  => ['title' => 'Чистка спортивной обуви', 'price' => 2990, 'image_url' => '/public/assets/images/mandomemori/чистка2.jpg', 'bg_color' => '#1C1512'],
+  8  => ['title' => 'Отбеливание подошвы', 'price' => 1490, 'image_url' => '/public/assets/images/mandomemori/отбеливание.jpg', 'bg_color' => '#1C1512'],
+  9  => ['title' => 'Глубокая чистка микрофиброй', 'price' => 2490, 'image_url' => '/public/assets/images/mandomemori/тряпка.jpg', 'bg_color' => '#1C1512'],
+  10 => ['title' => 'Защитная пропитка и вощение', 'price' => 1990, 'image_url' => '/public/assets/images/mandomemori/спрей2.jpg', 'bg_color' => '#1C1512'],
+  11 => ['title' => 'Дезодорация и свежесть', 'price' => 990, 'image_url' => '/public/assets/images/mandomemori/салфетки.jpg', 'bg_color' => '#1C1512'],
+  12 => ['title' => 'Покраска и реставрация цвета', 'price' => 3990, 'image_url' => '/public/assets/images/mandomemori/починка.jpg', 'bg_color' => '#1C1512'],
+  13 => ['title' => 'Премиум-чистка', 'price' => 5990, 'image_url' => '/public/assets/images/mandomemori/прей3.jpg', 'bg_color' => '#1C1512'],
+  14 => ['title' => 'Чистка замши и нубука', 'price' => 4490, 'image_url' => '/public/assets/images/mandomemori/чистка3.jpg', 'bg_color' => '#1C1512'],
+  15 => ['title' => 'Полный комплекс ухода', 'price' => 8990, 'image_url' => '/public/assets/images/mandomemori/набор.jpg', 'bg_color' => '#1C1512'],
+  16 => ['title' => 'Химчистка экипировки', 'price' => 4990, 'image_url' => '/public/assets/images/mandomemori/шлем.jpg', 'bg_color' => '#1C1512'],
 ];
 
 $resolvedItems = [];

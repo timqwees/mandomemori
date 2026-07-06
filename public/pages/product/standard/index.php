@@ -36,7 +36,7 @@ require __DIR__ . '/../../../partials/header.php';
     "@type": "Product",
     "name": "Полный комплекс ухода",
     "description": "Полный комплекс ухода за обувью в Москве — химчистка, отбеливание подошвы, пропитка, покраска от 8 990 ₽.",
-    "image": "<?= \App\Services\Seo\SeoMeta::siteUrl() ?>/public/assets/images/mandomemori/1771334763273-3808.jpg",
+    "image": "<?= \App\Services\Seo\SeoMeta::siteUrl() ?>/public/assets/images/mandomemori/набор.jpg",
     "category": "Всё включено",
     "offers": {
       "@type": "Offer",
@@ -49,7 +49,7 @@ require __DIR__ . '/../../../partials/header.php';
 
   <!-- ═══ HERO ═══ -->
   <section class="svc-hero">
-    <div class="svc-hero-bg" style="background-image:url('/public/assets/images/mandomemori/1771334763273-3808.jpg')"></div>
+    <div class="svc-hero-bg" style="background-image:url('/public/assets/images/mandomemori/набор.jpg')"></div>
     <div class="svc-hero-overlay"></div>
     <div class="container svc-hero-content">
       <div class="svc-hero-badge">Всё включено</div>
@@ -67,7 +67,7 @@ require __DIR__ . '/../../../partials/header.php';
     <div class="container">
       <div class="svc-order-card">
         <div class="svc-order-img">
-          <img src="/public/assets/images/mandomemori/1771334763273-3808.jpg" alt="Полный комплекс ухода | MANDO MEMORI" loading="lazy">
+          <img src="/public/assets/images/mandomemori/набор.jpg" alt="Полный комплекс ухода | MANDO MEMORI" loading="lazy">
         </div>
         <div class="svc-order-body">
           <h2 class="svc-order-name">Полный комплекс ухода</h2>
@@ -178,7 +178,7 @@ require __DIR__ . '/../../../partials/header.php';
       <div class="svc-rel-grid">
                   <a href="/product/premium" class="svc-rel-card">
             <div class="svc-rel-img">
-              <img src="/public/assets/images/mandomemori/1771579097991-627.jpg" alt="Премиум-чистка" loading="lazy">
+              <img src="/public/assets/images/mandomemori/прей3.jpg" alt="Премиум-чистка" loading="lazy">
             </div>
             <div class="svc-rel-body">
               <h4>Премиум-чистка</h4>
@@ -186,7 +186,7 @@ require __DIR__ . '/../../../partials/header.php';
             </div>
           </a>          <a href="/product/paint" class="svc-rel-card">
             <div class="svc-rel-img">
-              <img src="/public/assets/images/mandomemori/1771334585255-3781.jpg" alt="Покраска и реставрация цвета" loading="lazy">
+              <img src="/public/assets/images/mandomemori/починка.jpg" alt="Покраска и реставрация цвета" loading="lazy">
             </div>
             <div class="svc-rel-body">
               <h4>Покраска и реставрация цвета</h4>
@@ -194,7 +194,7 @@ require __DIR__ . '/../../../partials/header.php';
             </div>
           </a>          <a href="/product/soft" class="svc-rel-card">
             <div class="svc-rel-img">
-              <img src="/public/assets/images/mandomemori/1771578995760-1226.png" alt="Чистка замши и нубука" loading="lazy">
+              <img src="/public/assets/images/mandomemori/чистка3.jpg" alt="Чистка замши и нубука" loading="lazy">
             </div>
             <div class="svc-rel-body">
               <h4>Чистка замши и нубука</h4>
@@ -202,7 +202,7 @@ require __DIR__ . '/../../../partials/header.php';
             </div>
           </a>          <a href="/product/wax" class="svc-rel-card">
             <div class="svc-rel-img">
-              <img src="/public/assets/images/mandomemori/1771334464237-4257.png" alt="Защитная пропитка и вощение" loading="lazy">
+              <img src="/public/assets/images/mandomemori/спрей2.jpg" alt="Защитная пропитка и вощение" loading="lazy">
             </div>
             <div class="svc-rel-body">
               <h4>Защитная пропитка и вощение</h4>

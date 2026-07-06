@@ -15,7 +15,7 @@ require __DIR__ . '/../../partials/header.php';
 
 <main class="main franchise-page">
 
-  <section class="fr-intro" style="background-color:#1d1d1f;background-image:url('/public/assets/images/mandomemori/1771144161104-8609.png');color:#ffffff">
+  <section class="fr-intro" style="background-color:#1d1d1f;background-image:url('/public/assets/images/mandomemori/фон чистки2.jpg');color:#ffffff">
     <div class="container fr-intro-content">
         <h1 class="fr-intro-title">26 городов в 8 странах</h1>
         <p class="fr-intro-desc">Точки MANDO MEMORI работают по всему миру —
@@ -81,7 +81,7 @@ require __DIR__ . '/../../partials/header.php';
     </div>
   </section>
 
-  <section class="fr-desc-section" style="min-height:80vh;background-color:#371a94;background-image:url('/public/assets/images/mandomemori/1771144353893-5926.png');color:#ffffff">
+  <section class="fr-desc-section" style="min-height:80vh;background-color:#371a94;background-image:url('/public/assets/images/mandomemori/фон6.jpg');color:#ffffff">
     <div class="container fr-desc-content">
         <h2 class="fr-desc-title">Что такое MANDO MEMORI</h2>
         <div class="fr-desc-usp-grid">
