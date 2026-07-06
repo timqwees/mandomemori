@@ -97,6 +97,33 @@ require __DIR__ . '/../../partials/header.php';
     </div>
   </section>
 
+  <section class="home-products-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Все услуги</h2>
+      </div>
+    </div>
+    <div class="cards-slider" id="products-slider">
+      <div class="cards">
+        <?php
+        $allServices = Functions::getServices();
+        foreach ($allServices as $id => $p): ?>
+        <article class="product-card<?= $p['dark'] ? ' dark-bg' : '' ?>" style="background:<?= $p['bg'] ?>">
+          <div class="product-card-text">
+            <h2 class="product-card-title"><?= $p['title'] ?></h2>
+            <p class="product-card-desc">от <?= $p['price'] ?> ₽ за пару</p>
+          </div>
+          <div class="product-card-image">
+            <img src="/public/assets/images/mandomemori/<?= $p['img'] ?>" alt="<?= $p['title'] ?>" loading="lazy">
+          </div>
+          <div class="product-card-action">
+            <a href="/product/<?= $p['slug'] ?>" class="product-card-btn product-card-btn-detail">Подробнее</a>
+          </div>
+        </article>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
 
   <section class="portfolio-slider-section">
     <div class="portfolio-slider-header">
@@ -200,33 +227,6 @@ require __DIR__ . '/../../partials/header.php';
     </div>
   </section>
 
-  <section class="home-products-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Все услуги</h2>
-      </div>
-    </div>
-    <div class="cards-slider" id="products-slider">
-      <div class="cards">
-        <?php
-        $allServices = Functions::getServices();
-        foreach ($allServices as $id => $p): ?>
-        <article class="product-card<?= $p['dark'] ? ' dark-bg' : '' ?>" style="background:<?= $p['bg'] ?>">
-          <div class="product-card-text">
-            <h2 class="product-card-title"><?= $p['title'] ?></h2>
-            <p class="product-card-desc">от <?= $p['price'] ?> ₽ за пару</p>
-          </div>
-          <div class="product-card-image">
-            <img src="/public/assets/images/mandomemori/<?= $p['img'] ?>" alt="<?= $p['title'] ?>" loading="lazy">
-          </div>
-          <div class="product-card-action">
-            <a href="/product/<?= $p['slug'] ?>" class="product-card-btn product-card-btn-detail">Подробнее</a>
-          </div>
-        </article>
-        <?php endforeach; ?>
-      </div>
-    </div>
-  </section>
 </main>
 
 <div class="modal-overlay" id="modal-overlay">
