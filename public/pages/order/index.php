@@ -517,7 +517,7 @@ html, body { background: #121212; margin: 0; }
             <input type="text" id="cf-address" name="address" required placeholder="Улица и номер дома" autocomplete="off">
             <div class="dadata-suggestions" id="cf-address-suggestions"></div>
           </div>
-          <div class="form-field">
+          <div class="form-field" style="margin-top:20px">
             <label for="cf-email">Email (на него придёт PDF-чек)</label>
             <input type="email" id="cf-email" name="email" placeholder="example@mail.ru">
           </div>
