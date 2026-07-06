@@ -180,7 +180,7 @@ require __DIR__ . '/../../partials/header.php';
             </svg>
           </div>
           <h3 class="cart-flow-step-title">Передаёте обувь</h3>
-          <p class="cart-flow-step-desc">Вызываете курьера — называете номер чека или показываете его на телефоне. Сотрудник находит заказ и забирает обувь сразу</p>
+          <p class="cart-flow-step-desc">Вызываете курьера — у него уже есть чек с данными вашего заказа, остаётся только отдать обувь</p>
         </div>
 
         <div class="cart-flow-arrow">
