@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!track) return;
 
   var slides = track.querySelectorAll('.portfolio-slide');
-  var origCount = 12;
+  var origCount = 18;
   if (slides.length < 2 || slides.length <= origCount) return;
 
   var pos = 0;

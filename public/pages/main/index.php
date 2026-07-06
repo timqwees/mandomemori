@@ -161,6 +161,8 @@ require __DIR__ . '/../../partials/header.php';
         'beforeafter1.png','beforeafter2.png','beforeafter3.png','beforeafter4.png',
         'beforeafter5.jpg','beforeafter6.jpg','beforeafter7.jpg','beforeafter8.jpg',
         'beforeafter9.png','beforeafter10.png','beforeafter11.png','beforeafter12.png',
+        'beforeafter13.png','beforeafter14.png','beforeafter15.png',
+        'beforeafter16.png','beforeafter17.png','beforeafter18.png',
       ];
       // Original + first 4 appended for seamless loop
       foreach (array_merge($portfolio, array_slice($portfolio, 0, 4)) as $img): ?>
