@@ -54,9 +54,10 @@ class CourierController
 
         if ($email && $orderNum) {
             $clientSubject = 'Ваш заказ ' . $orderNum . ' — MANDO MEMORI';
+            $clientBody = $pdfPath ? 'Здравствуйте! Ваш чек во вложении. Спасибо за заказ!' : 'Здравствуйте! Ваш заказ принят, курьер уже получил уведомление.';
             try {
                 $mailer = new MailController();
-                $mailer->onMail($email, $clientSubject, 'Здравствуйте! Ваш чек во вложении. Спасибо за заказ!', $pdfPath);
+                $mailer->onMail($email, $clientSubject, $clientBody, $pdfPath);
             } catch (\Exception $e) {
             }
         }
