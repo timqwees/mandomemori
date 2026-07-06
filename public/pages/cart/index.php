@@ -162,7 +162,7 @@ require __DIR__ . '/../../partials/header.php';
             </svg>
           </div>
           <h3 class="cart-flow-step-title">Получаете чек</h3>
-          <p class="cart-flow-step-desc">Система формирует PDF-чек с номером заказа, услугами и ценами — копия отправляется на order@mandomemori.ru, PDF скачивается к вам</p>
+          <p class="cart-flow-step-desc">Система формирует PDF-чек с номером заказа — после вызова курьера PDF придёт на order@mandomemori.ru, сейчас вы просто скачиваете копию</p>
         </div>
 
         <div class="cart-flow-arrow">

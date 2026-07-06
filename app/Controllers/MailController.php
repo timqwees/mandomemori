@@ -73,7 +73,7 @@ class MailController
    * );
    * ```
    */
-  public function onMail(string $to_mail, string $subject, string $body)
+  public function onMail(string $to_mail, string $subject, string $body, ?string $attachmentPath = null)
   {
     if (empty($to_mail)) {
       message::set('error', "Пустой email получателя!");
@@ -87,13 +87,17 @@ class MailController
     }
 
     $mailer = [
-      "to_email" => $to_mail,//Получатель
-      "subject" => $subject,//заголовок
-      "body" => $body,//сообщение
+      "to_email" => $to_mail,
+      "subject" => $subject,
+      "body" => $body,
     ];
 
+    if ($attachmentPath) {
+      $mailer['attachment_path'] = $attachmentPath;
+    }
+
     try {
-      return (new Network())->onPHPMailer($mailer);//отправка запроса/send request;
+      return (new Network())->onPHPMailer($mailer);
     } catch (\Exception $e) {
       message::set('error', "Ошибка отправки письма: " . $e->getMessage());
       return false;

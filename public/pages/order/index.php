@@ -455,7 +455,7 @@ html, body { background: #121212; margin: 0; }
     </div>
 
     <h1 class="ord-hero__title">Всё готово</h1>
-    <p class="ord-hero__desc">Чек уже сформирован — копия отправлена на <strong>order@mandomemori.ru</strong>. Ничего распечатывать не нужно. Просто назовите номер&nbsp;заказа:</p>
+    <p class="ord-hero__desc">Заказ создан. Вызовите курьера ниже — PDF-чек с деталями придёт на <strong>order@mandomemori.ru</strong> после вызова. Ничего распечатывать не нужно. Просто назовите номер&nbsp;заказа:</p>
 
     <div class="ord-steps">
       <div class="ord-step">

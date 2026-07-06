@@ -493,8 +493,9 @@ class Network extends Session
 
       $mail->msgHTML($data['body']);
 
-      // Прикрепить файл
-      //$mail->addAttachment('path_to_file.jpg');
+      if (!empty($data['attachment_path']) && file_exists($data['attachment_path'])) {
+        $mail->addAttachment($data['attachment_path']);
+      }
 
       //Отправка
       $mail->send();
