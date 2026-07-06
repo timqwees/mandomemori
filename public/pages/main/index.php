@@ -257,10 +257,10 @@ require __DIR__ . '/../../partials/header.php';
   window.__serviceGroups = [];
 </script>
 
-<script src="/public/assets/js/solefresh/scroll-hero.js" defer></script>
-<script src="/public/assets/js/solefresh/counter.js" defer></script>
-<script src="/public/assets/js/solefresh/home-cards.js" defer></script>
-<script src="/public/assets/js/solefresh/cards-slider.js" defer></script>
-<script src="/public/assets/js/solefresh/portfolio-slider.js" defer></script>
+<script src="/public/assets/js/mandomemori/scroll-hero.js" defer></script>
+<script src="/public/assets/js/mandomemori/counter.js" defer></script>
+<script src="/public/assets/js/mandomemori/home-cards.js" defer></script>
+<script src="/public/assets/js/mandomemori/cards-slider.js" defer></script>
+<script src="/public/assets/js/mandomemori/portfolio-slider.js" defer></script>
 
 <?php require __DIR__ . '/../../partials/footer.php'; ?>

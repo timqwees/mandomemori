@@ -148,7 +148,7 @@
     })();
   </script>
 
-  <script src="/public/assets/js/solefresh/main.js" defer></script>
-  <script src="/public/assets/js/solefresh/cart.js" defer></script>
+  <script src="/public/assets/js/mandomemori/main.js" defer></script>
+  <script src="/public/assets/js/mandomemori/cart.js" defer></script>
 </body>
 </html>

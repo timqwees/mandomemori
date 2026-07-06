@@ -192,7 +192,7 @@ require __DIR__ . '/../../partials/header.php';
 
 </main>
 
-<script src="/public/assets/js/solefresh/phone-mask.js" defer></script>
+<script src="/public/assets/js/mandomemori/phone-mask.js" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var phoneInput = document.getElementById('fr-phone');

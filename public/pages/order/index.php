@@ -558,7 +558,7 @@ html, body { background: #121212; margin: 0; }
   </section>
 
 </main>
-<script src="/public/assets/js/solefresh/phone-mask.js" defer></script>
-<script src="/public/assets/js/solefresh/contacts.js" defer></script>
+<script src="/public/assets/js/mandomemori/phone-mask.js" defer></script>
+<script src="/public/assets/js/mandomemori/contacts.js" defer></script>
 
 <?php require __DIR__ . '/../../partials/footer.php'; ?>

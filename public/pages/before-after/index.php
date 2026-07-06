@@ -93,6 +93,6 @@ require __DIR__ . '/../../partials/header.php';
   </section>
 </main>
 
-<script src="/public/assets/js/solefresh/before-after.js" defer></script>
+<script src="/public/assets/js/mandomemori/before-after.js" defer></script>
 
   <?php require __DIR__ . '/../../partials/footer.php'; ?>
