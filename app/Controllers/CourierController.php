@@ -16,6 +16,7 @@ class CourierController
         $name = trim($input['name'] ?? '');
         $phone = trim($input['phone'] ?? '');
         $address = trim($input['address'] ?? '');
+        $email = trim($input['email'] ?? '');
         $orderNum = trim($input['order_num'] ?? '');
 
         if (!$name || !$phone || !$address) {
@@ -55,11 +56,12 @@ class CourierController
         }
 
         if ($pdfPath) {
-            try {
-                $mailer = new MailController();
-                $pdfSent = $mailer->onMail('order@mandomemori.ru', 'Чек заказа ' . $orderNum . ' — MANDO MEMORI', 'Чек во вложении.', $pdfPath);
-            } catch (\Exception $e) {
-                $pdfSent = false;
+            if ($email) {
+                try {
+                    $mailer = new MailController();
+                    $mailer->onMail($email, 'Ваш чек заказа ' . $orderNum . ' — MANDO MEMORI', 'Здравствуйте! Спасибо за заказ. Во вложении PDF-чек с деталями.', $pdfPath);
+                } catch (\Exception $e) {
+                }
             }
             unlink($pdfPath);
         }

@@ -455,7 +455,7 @@ html, body { background: #121212; margin: 0; }
     </div>
 
     <h1 class="ord-hero__title">Всё готово</h1>
-    <p class="ord-hero__desc">Заказ создан. Вызовите курьера ниже — PDF-чек с деталями придёт на <strong>order@mandomemori.ru</strong> после вызова. Ничего распечатывать не нужно.</p>
+    <p class="ord-hero__desc">Заказ создан. Вызовите курьера ниже — PDF-чек с деталями придёт на вашу почту после вызова. Ничего распечатывать не нужно.</p>
 
     <div class="ord-steps">
       <div class="ord-step">
@@ -497,7 +497,7 @@ html, body { background: #121212; margin: 0; }
     <div class="courier-form-wrapper" id="courier-form">
       <div class="courier-form-card">
         <h2 class="courier-form-title" style="color: black;">Вызов курьера</h2>
-        <p class="courier-form-subtitle">Оставьте контакты — курьер приедет, вы называете номер заказа и отдаёте обувь</p>
+        <p class="courier-form-subtitle">Оставьте контакты — PDF-чек с деталями заказа придёт вам на почту</p>
         <form id="courier-request-form" class="courier-form">
           <input type="hidden" name="_csrf" value="3bd5a1ea01eec4cc5fac232d54cfe19be1beb147477f69e057180030166a8e04">
           <input type="hidden" name="city_slug" value="moscow">
@@ -516,6 +516,10 @@ html, body { background: #121212; margin: 0; }
             <label for="cf-address">Адрес *</label>
             <input type="text" id="cf-address" name="address" required placeholder="Улица и номер дома" autocomplete="off">
             <div class="dadata-suggestions" id="cf-address-suggestions"></div>
+          </div>
+          <div class="form-field">
+            <label for="cf-email">Email (на него придёт PDF-чек)</label>
+            <input type="email" id="cf-email" name="email" placeholder="example@mail.ru">
           </div>
           <?php if ($orderNum): ?>
           <div class="courier-order-note">

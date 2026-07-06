@@ -472,7 +472,6 @@ class Network extends Session
    */
   public function onPHPMailer(array $data)
   {
-
     try {
       $mail = new PHPMailer();
       $mail->CharSet = 'UTF-8';
