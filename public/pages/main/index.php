@@ -83,14 +83,14 @@ require __DIR__ . '/../../partials/header.php';
           <span class="about-step__num">01</span>
           <div class="about-step__body">
             <h3 class="about-step__title">Оставьте пару нам</h3>
-            <p class="about-step__desc">Вызывайте курьера для бесплатного забора обуви — или приносите в любой пункт приёма без предварительной записи.</p>
+            <p class="about-step__desc">Закажите бесплатный вызов курьера — он сам заберёт обувь и привезёт обратно после чистки.</p>
           </div>
         </div>
         <div class="about-step">
           <span class="about-step__num">02</span>
           <div class="about-step__body">
-            <h3 class="about-step__title">Заберите результат</h3>
-            <p class="about-step__desc">Мы оповестим вас о готовности. Забрать можно в удобное время. Оплата — до или после очистки, как вам удобнее.</p>
+            <h3 class="about-step__title">Получите чек</h3>
+            <p class="about-step__desc">После оформления PDF-чек с деталями заказа приходит на вашу почту — ничего распечатывать не нужно.</p>
           </div>
         </div>
       </div>
