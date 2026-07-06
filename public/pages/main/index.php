@@ -104,7 +104,7 @@ require __DIR__ . '/../../partials/header.php';
           <span class="about-step__num">04</span>
           <div class="about-step__body">
             <h3 class="about-step__title">Мы выполняем работу</h3>
-            <p class="about-step__desc">Мастер приступает к чистке по вашему заказу — готовую обувь привозит курьер обратно.</p>
+            <p class="about-step__desc">Мастер приступает к чистке по вашему заказу — оплата только после выполнения работы, по факту.</p>
           </div>
         </div>
       </div>
