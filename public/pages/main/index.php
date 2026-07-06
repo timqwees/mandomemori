@@ -82,15 +82,29 @@ require __DIR__ . '/../../partials/header.php';
         <div class="about-step">
           <span class="about-step__num">01</span>
           <div class="about-step__body">
-            <h3 class="about-step__title">Оставьте пару нам</h3>
-            <p class="about-step__desc">Закажите бесплатный вызов курьера — он сам заберёт обувь и привезёт обратно после чистки.</p>
+            <h3 class="about-step__title">Собираете заказ</h3>
+            <p class="about-step__desc">Выбираете услуги, указываете количество пар — добавляете в корзину на сайте.</p>
           </div>
         </div>
         <div class="about-step">
           <span class="about-step__num">02</span>
           <div class="about-step__body">
-            <h3 class="about-step__title">Получите чек</h3>
-            <p class="about-step__desc">После оформления PDF-чек с деталями заказа приходит на вашу почту — ничего распечатывать не нужно.</p>
+            <h3 class="about-step__title">Получаете чек</h3>
+            <p class="about-step__desc">Система формирует PDF-чек с деталями заказа — после вызова курьера он придёт вам на почту.</p>
+          </div>
+        </div>
+        <div class="about-step">
+          <span class="about-step__num">03</span>
+          <div class="about-step__body">
+            <h3 class="about-step__title">Передаёте обувь</h3>
+            <p class="about-step__desc">Вызываете бесплатного курьера — у него уже есть данные заказа, остаётся только отдать обувь.</p>
+          </div>
+        </div>
+        <div class="about-step">
+          <span class="about-step__num">04</span>
+          <div class="about-step__body">
+            <h3 class="about-step__title">Мы выполняем работу</h3>
+            <p class="about-step__desc">Мастер приступает к чистке по вашему заказу — готовую обувь привозит курьер обратно.</p>
           </div>
         </div>
       </div>
