@@ -20,9 +20,11 @@ class CourierController
         $email = trim($input['email'] ?? '');
         $orderNum = trim($input['order_num'] ?? '');
 
-        if (!$name || !$phone || !$address) {
+        $consent = !empty($input['consent']);
+
+        if (!$name || !$phone || !$address || !$consent) {
             http_response_code(400);
-            echo json_encode(['success' => false, 'message' => 'Заполните все обязательные поля']);
+            echo json_encode(['success' => false, 'message' => !$consent ? 'Необходимо согласие на обработку данных' : 'Заполните все обязательные поля']);
             return;
         }
 
