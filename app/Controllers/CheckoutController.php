@@ -116,17 +116,6 @@ class CheckoutController
 </body>
 </html>';
 
-    Session::init('sf_order_data', [
-      'items' => $resolvedItems,
-      'total' => $totalSum,
-      'phone' => $phone,
-      'comment' => $comment,
-      'date' => $dateRu,
-    ]);
-    Session::init('sf_cart', []);
-    Session::init('sf_comment', null);
-    Session::init('sf_phone', null);
-
     $dompdf = new Dompdf();
     $dompdf->loadHtml($html);
     $dompdf->setPaper('A4', 'portrait');
@@ -137,5 +126,9 @@ class CheckoutController
     header('Content-Type: application/pdf');
     header('Content-Disposition: attachment; filename="' . $filename . '"');
     echo $dompdf->output();
+
+    Session::init('sf_cart', []);
+    Session::init('sf_comment', null);
+    Session::init('sf_phone', null);
   }
 }
