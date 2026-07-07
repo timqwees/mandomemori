@@ -65,8 +65,8 @@ class SeoMeta
       'description' => 'Профессиональная химчистка обуви в Москве. Чистка кроссовок, отбеливание подошвы, премиальный уход.',
       'image' => $siteUrl . '/public/assets/images/logo-mandomemori.svg',
       'url' => $siteUrl,
-      'telephone' => '+7 495 198-04-95',
-      'email' => 'hello@mandomemori.ru',
+      'telephone' => '+7 (915) 252-75-75',
+      'email' => 'MandoMemori@list.ru',
       'address' => [
         '@type' => 'PostalAddress',
         'addressLocality' => 'Москва',

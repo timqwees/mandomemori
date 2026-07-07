@@ -68,8 +68,12 @@ class SeoController
       $indexFile = $dir . '/index.php';
       if (!file_exists($indexFile)) continue;
 
+      $slug = basename($dir);
       $info = $this->extractSiteINFO($indexFile);
-      if (empty($info['canonical'])) continue;
+      $info['canonical'] = '/product/' . $slug;
+      if (empty($info['priority'])) $info['priority'] = '0.7';
+      if (empty($info['changefreq'])) $info['changefreq'] = 'weekly';
+      if (empty($info['index'])) $info['index'] = 'products';
       $info['__file'] = $indexFile;
       $pages[] = $info;
     }
@@ -163,33 +167,17 @@ class SeoController
       . "> Профессиональная химчистка и уход за обувью.\n"
       . "> Сайт: $s\n"
       . "> Telegram: @mandomemori\n"
-      . "> Телефон: +7 495 198-04-95\n\n"
+      . "> Телефон: +7 (915) 252-75-75\n\n"
       . "## Услуги\n";
 
     $pages = $this->extractAllPages();
+    $services = \Setting\Route\Function\Functions::getServices();
     foreach ($pages as $p) {
       $route = $p['canonical'];
       if (str_starts_with($route, '/product/')) {
         $slug = substr($route, 9);
-        $label = match ($slug) {
-          'standard'   => 'Базовая химчистка — 3 300₽',
-          'premium'    => 'Премиум-чистка — 3 900₽',
-          'basic' => 'Экспресс-чистка — 1 800₽',
-          'repel'      => 'Водоотталкивающая пропитка — 1 500₽',
-          'foam'       => 'Чистка подошвы — 800₽',
-          'soft'       => 'Глубокая чистка микрофиброй — 1 200₽',
-          'oil'        => 'Питание и кондиционирование — 1 500₽',
-          'wax'        => 'Вощение и защита — 1 500₽',
-          'towel'      => 'Чистка спортивной обуви — 2 800₽',
-          'wipes'      => 'Дезодорация и свежесть — 800₽',
-          'brushes'    => 'Чистка замши и нубука — 2 500₽',
-          'travel'     => 'Растяжка обуви — 1 500₽',
-          'paint'      => 'Покраска и реставрация цвета — 3 000₽',
-          'resize'     => 'Восстановление формы — 1 000₽',
-          'fresh'      => 'Полный комплекс ухода — 4 500₽',
-          'trees'      => 'Химчистка экипировки — 4 100₽',
-          default     => $slug,
-        };
+        $svc = current(array_filter($services, fn($s) => $s['slug'] === $slug));
+        $label = $svc ? $svc['title'] . ' — ' . $svc['price_formatted'] . '₽' : $slug;
         echo "- $label\n";
       }
     }
@@ -210,42 +198,26 @@ class SeoController
       . "9 лет на рынке, более 10 000 довольных клиентов, средняя оценка 4.9★. "
       . "Бесплатная доставка курьером по Москве и МО.\n\n"
       . "## Контакты\n"
-      . "- Телефон: +7 495 198-04-95\n"
+      . "- Телефон: +7 (915) 252-75-75\n"
       . "- Telegram: @mandomemori\n"
-      . "- Email: hello@mandomemori.ru\n"
-      . "- Адрес: Москва, Цветной бульвар, 15с1, -1 этаж\n\n"
+      . "- Email: MandoMemori@list.ru\n"
+      . "- Адрес: Москва, Петровка 15/13 стр.5, -1 этаж\n\n"
       . "## Все услуги и цены\n";
 
     $pages = $this->extractAllPages();
+    $services = \Setting\Route\Function\Functions::getServices();
     foreach ($pages as $p) {
       $route = $p['canonical'];
       if (str_starts_with($route, '/product/')) {
         $slug = substr($route, 9);
-        $label = match ($slug) {
-          'standard'   => 'Базовая химчистка — 3 300₽',
-          'premium'    => 'Премиум-чистка — 3 900₽',
-          'basic' => 'Экспресс-чистка — 1 800₽',
-          'repel'      => 'Водоотталкивающая пропитка — 1 500₽',
-          'foam'       => 'Чистка подошвы — 800₽',
-          'soft'       => 'Глубокая чистка микрофиброй — 1 200₽',
-          'oil'        => 'Питание и кондиционирование — 1 500₽',
-          'wax'        => 'Вощение и защита — 1 500₽',
-          'towel'      => 'Чистка спортивной обуви — 2 800₽',
-          'wipes'      => 'Дезодорация и свежесть — 800₽',
-          'brushes'    => 'Чистка замши и нубука — 2 500₽',
-          'travel'     => 'Растяжка обуви — 1 500₽',
-          'paint'      => 'Покраска и реставрация цвета — 3 000₽',
-          'resize'     => 'Восстановление формы — 1 000₽',
-          'fresh'      => 'Полный комплекс ухода — 4 500₽',
-          'trees'      => 'Химчистка экипировки — 4 100₽',
-          default     => $slug,
-        };
+        $svc = current(array_filter($services, fn($s) => $s['slug'] === $slug));
+        $label = $svc ? $svc['title'] . ' — ' . $svc['price_formatted'] . '₽' : $slug;
         echo "- $label — " . $s . "$route\n";
       }
     }
 
     echo "\n## Пункты приёма\n"
-      . "- Универмаг «Цветной», Цветной бульвар 15с1\n"
+      . "- Москва, Петровка 15/13 стр.5\n"
       . "- ТЦ «Авиапарк», Ходынский бульвар 4\n"
       . "- ТЦ «Океания», Кутузовский проспект 57\n"
       . "- ТЦ «Ривьера», ул. Автозаводская 18\n"
@@ -345,7 +317,7 @@ class SeoController
     header('Content-Type: text/plain; charset=utf-8');
     echo implode("\n", [
       '# security.txt — MANDO MEMORI',
-      'Contact: mailto:hello@mandomemori.ru',
+      'Contact: mailto:MandoMemori@list.ru',
       'Preferred-Languages: ru, en',
       "Policy: " . $s . "/privacy-policy",
       '',

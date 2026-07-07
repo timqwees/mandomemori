@@ -1,0 +1,82 @@
+<?php
+use Setting\Route\Function\Functions;
+$seo = Functions::seo();
+$notify = Functions::notify();
+$slug = basename(__DIR__);
+$all = Functions::getServices();
+$svc = current(array_filter($all, fn($s) => $s['slug'] === $slug));
+$sid = $svc ? array_search($svc, $all, true) : null;
+if (!$svc) { http_response_code(404); echo '404'; return; }
+$title = $svc['title'];
+$price = $svc['price_formatted'];
+$id = $sid;
+$siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
+$pageTitle = "MANDO MEMORI — $title";
+$pageDesc = $svc['desc'];
+$pageKeywords = "$title, MANDO MEMORI, химчистка обуви Москва";
+$currentSlug = $slug;
+$canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
+require __DIR__ . '/../../../partials/header.php';
+?>
+<main class="main svc-page">
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="/"><span itemprop="name">Главная</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="/products"><span itemprop="name">Услуги</span></a>
+        <meta itemprop="position" content="2">
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name"><?= $title ?></span>
+        <meta itemprop="position" content="3">
+      </li>
+    </ol>
+  </nav>
+  <section class="svc-hero">
+    <div class="svc-hero-bg" style="background-image:url('/public/assets/images/mandomemori/<?= $svc['img'] ?>')"></div>
+    <div class="svc-hero-overlay"></div>
+    <div class="container svc-hero-content">
+      <h1 class="svc-hero-title"><?= $title ?></h1>
+      <p class="svc-hero-desc"><?= $svc['desc'] ?></p>
+      <div class="svc-hero-actions">
+        <span class="svc-hero-price"><?= $price ?> ₽ <small>за пару</small></span>
+        <a href="#svc-order" class="svc-hero-btn">Заказать услугу</a>
+      </div>
+    </div>
+  </section>
+  <section class="svc-order" id="svc-order">
+    <div class="container">
+      <div class="svc-order-card">
+        <div class="svc-order-img">
+          <img src="/public/assets/images/mandomemori/<?= $svc['img'] ?>" alt="<?= $title ?> | MANDO MEMORI" loading="lazy">
+        </div>
+        <div class="svc-order-body">
+          <h2 class="svc-order-name"><?= $title ?></h2>
+          <div class="svc-order-price-row">
+            <span class="svc-order-price"><?= $price ?> ₽</span>
+            <span class="svc-order-unit">за пару</span>
+          </div>
+          <label class="svc-order-qty-label">Количество пар</label>
+          <div class="svc-order-qty">
+            <button type="button" class="product-qty-btn" data-id="<?= $id ?>" data-action="dec">−</button>
+            <input type="number" class="product-qty-input" id="qty-<?= $id ?>" value="1" min="1" max="10">
+            <button type="button" class="product-qty-btn" data-id="<?= $id ?>" data-action="inc">+</button>
+          </div>
+          <button type="button" class="svc-order-cart-btn product-add-to-cart" data-id="<?= $id ?>">Добавить в корзину</button>
+          <a href="/order" class="svc-order-link">Заказать услугу →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="svc-cta-section">
+    <div class="container">
+      <h2>Готовы доверить обувь профессионалам?</h2>
+      <p>Оставьте заявку, и мы свяжемся с вами в ближайшее время</p>
+      <a href="/order" class="svc-cta-btn">Передать обувь</a>
+    </div>
+  </section>
+</main>
+<?php require __DIR__ . '/../../../partials/footer.php'; ?>

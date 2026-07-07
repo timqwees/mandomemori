@@ -61,30 +61,13 @@ require __DIR__ . '/../../partials/header.php';
     <div class="container">
       <div class="product-cards">
         <?php
-        $allSvcs = [
-          ['slug' => 'basic', 'img' => 'чистка.jpg', 'title' => 'Базовая химчистка', 'price' => '3 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'repel', 'img' => 'спрей.jpg', 'title' => 'Водоотталкивающая пропитка', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'foam', 'img' => 'пена.webp', 'title' => 'Экспресс-чистка', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'oil', 'img' => 'средство.jpg', 'title' => 'Питание и кондиционирование кожи', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'resize', 'img' => 'подклдаки.jpg', 'title' => 'Растяжка обуви', 'price' => '1 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'trees', 'img' => 'набор2.jpg', 'title' => 'Восстановление формы обуви', 'price' => '1 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'brushes', 'img' => 'чистка2.jpg', 'title' => 'Чистка спортивной обуви', 'price' => '2 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'wipes', 'img' => 'отбеливание.jpg', 'title' => 'Отбеливание подошвы', 'price' => '1 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'towel', 'img' => 'тряпка.jpg', 'title' => 'Глубокая чистка микрофиброй', 'price' => '2 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'wax', 'img' => 'спрей2.jpg', 'title' => 'Защитная пропитка и вощение', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'fresh', 'img' => 'салфетки.jpg', 'title' => 'Дезодорация и свежесть', 'price' => '990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'paint', 'img' => 'починка.jpg', 'title' => 'Покраска и реставрация цвета', 'price' => '3 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'premium', 'img' => 'прей3.jpg', 'title' => 'Премиум-чистка', 'price' => '5 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'soft', 'img' => 'чистка3.jpg', 'title' => 'Чистка замши и нубука', 'price' => '4 490', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'standard', 'img' => 'набор.jpg', 'title' => 'Полный комплекс ухода', 'price' => '8 990', 'bg' => '#1C1512', 'dark' => true],
-          ['slug' => 'travel', 'img' => 'шлем.jpg', 'title' => 'Химчистка экипировки', 'price' => '4 990', 'bg' => '#1C1512', 'dark' => true],
-        ];
+        $allSvcs = Functions::getServices();
         foreach ($allSvcs as $svc):
         ?>
         <article class="product-card<?= $svc['dark'] ? ' dark-bg' : '' ?>" style="background:<?= $svc['bg'] ?>">
           <div class="product-card-text">
             <h2 class="product-card-title"><?= $svc['title'] ?></h2>
-            <p class="product-card-desc">от <?= $svc['price'] ?> ₽ за пару</p>
+            <p class="product-card-desc">от <?= $svc['price_formatted'] ?> ₽ за пару</p>
           </div>
           <div class="product-card-image">
             <img src="/public/assets/images/mandomemori/<?= $svc['img'] ?>" alt="<?= $svc['title'] ?>" loading="lazy">

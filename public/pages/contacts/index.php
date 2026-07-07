@@ -6,7 +6,7 @@ $notify = Functions::notify();
 $siteINFO = ['canonical' => '/contacts', 'priority' => '0.7', 'changefreq' => 'monthly', 'index' => 'main'];
 
 $pageTitle = 'Контакты — MANDO MEMORI, химчистка обуви в Москве с бесплатной доставкой';
-$pageDesc = 'Контакты MANDO MEMORI в Москве. Телефон +7 495 198-04-95, Telegram. Химчистка обуви с бесплатной доставкой курьером.';
+$pageDesc = 'Контакты MANDO MEMORI в Москве. Телефон +7 (915) 252-75-75, Telegram. Химчистка обуви с бесплатной доставкой курьером.';
 $pageKeywords = 'контакты MANDO MEMORI, химчистка обуви Москва, курьерская доставка';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/contacts';
 require __DIR__ . '/../../partials/header.php';
@@ -78,7 +78,7 @@ require __DIR__ . '/../../partials/header.php';
                 </a>
                 <a href="tel:+74951980495" class="contact-btn contact-btn-phone">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                  +7 495 198-04-95
+                  +7 (915) 252-75-75
                 </a>
             </div>
 
@@ -89,7 +89,7 @@ require __DIR__ . '/../../partials/header.php';
                 </div>
                 <div class="contacts-duo-link">
                   <span>Сотрудничество</span>
-                  <a href="mailto:hello@mandomemori.ru">hello@mandomemori.ru</a>
+                  <a href="mailto:MandoMemori@list.ru">MandoMemori@list.ru</a>
                 </div>
                 <div class="contacts-duo-link">
                   <span>Telegram канал</span>

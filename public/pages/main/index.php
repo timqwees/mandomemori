@@ -125,7 +125,7 @@ require __DIR__ . '/../../partials/header.php';
         <article class="product-card<?= $p['dark'] ? ' dark-bg' : '' ?>" style="background:<?= $p['bg'] ?>">
           <div class="product-card-text">
             <h2 class="product-card-title"><?= $p['title'] ?></h2>
-            <p class="product-card-desc">от <?= $p['price'] ?> ₽ за пару</p>
+            <p class="product-card-desc">от <?= $p['price_formatted'] ?> ₽ за пару</p>
           </div>
           <div class="product-card-image">
             <img src="/public/assets/images/mandomemori/<?= $p['img'] ?>" alt="<?= $p['title'] ?>" loading="lazy">
