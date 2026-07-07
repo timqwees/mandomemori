@@ -46,6 +46,7 @@ body {
 
 .header {
   background: #fff;
+  padding-block: 10px;
   border-bottom: 1px solid var(--border);
 }
 
