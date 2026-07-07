@@ -36,7 +36,7 @@ $siteUrl = "$scheme://$host";
 </head>
 <body>
 
-  <header class="header">
+  <header class="header" style="padding-block: 10px">
     <div class="container">
       <a href="/" class="logo">
         <img src="/public/assets/images/favicon_full_black.svg" alt="MANDO MEMORI — химчистка обуви Москва" class="logo-img">
