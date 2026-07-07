@@ -128,7 +128,7 @@ require __DIR__ . '/../../partials/header.php';
             <p class="product-card-desc">от <?= $p['price_formatted'] ?> ₽ за пару</p>
           </div>
           <div class="product-card-image">
-            <img src="/public/assets/images/mandomemori/<?= $p['img'] ?>" alt="<?= $p['title'] ?>" loading="lazy">
+            <img src="/public/assets/images/<?= $p['img'] ?>" alt="<?= $p['title'] ?>" loading="lazy">
           </div>
           <div class="product-card-action">
             <a href="/product/<?= $p['slug'] ?>" class="product-card-btn product-card-btn-detail">Подробнее</a>

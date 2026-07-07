@@ -36,7 +36,7 @@ require __DIR__ . '/../../../partials/header.php';
     </ol>
   </nav>
   <section class="svc-hero">
-    <div class="svc-hero-bg" style="background-image:url('/public/assets/images/mandomemori/<?= $svc['img'] ?>')"></div>
+    <div class="svc-hero-bg" style="background-image:url('/public/assets/images/<?= $svc['img'] ?>')"></div>
     <div class="svc-hero-overlay"></div>
     <div class="container svc-hero-content">
       <h1 class="svc-hero-title"><?= $title ?></h1>
@@ -51,7 +51,7 @@ require __DIR__ . '/../../../partials/header.php';
     <div class="container">
       <div class="svc-order-card">
         <div class="svc-order-img">
-          <img src="/public/assets/images/mandomemori/<?= $svc['img'] ?>" alt="<?= $title ?> | MANDO MEMORI" loading="lazy">
+          <img src="/public/assets/images/<?= $svc['img'] ?>" alt="<?= $title ?> | MANDO MEMORI" loading="lazy">
         </div>
         <div class="svc-order-body">
           <h2 class="svc-order-name"><?= $title ?></h2>
