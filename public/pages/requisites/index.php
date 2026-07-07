@@ -17,7 +17,7 @@ require __DIR__ . '/../../partials/header.php';
   <div class="container">
     <h1 class="page-title">Реквизиты</h1>
     <div class="page-body" id="page-body">
-      <p><strong style="color: rgb(0, 0, 0);">Общество с ограниченной ответственностью «СОЛФРЕШ»</strong></p><p><span style="color: rgb(0, 0, 0);">Юридический адрес: 127051, Москва г., Переулок Колобовский 2-й, дом 9/2, строение 1, этаж 3, ком. Г, пом. I, комната 15</span></p><p><span style="color: rgb(0, 0, 0);">ИНН 7723432492, ОГРН 1167746184110</span></p><p><span style="color: rgb(0, 0, 0);">+7 495 198-04-95</span></p><p><a href="mailto:hello@mandomemori.ru" rel="noopener noreferrer" target="_blank" style="color: rgb(0, 0, 0);">hello@mandomemori.ru</a></p><p><br></p>
+      <p><strong style="color: rgb(0, 0, 0);">Общество с ограниченной ответственностью MANDO MEMORI</strong></p><p><span style="color: rgb(0, 0, 0);">Юридический адрес: 127051, Москва г., Переулок Колобовский 2-й, дом 9/2, строение 1, этаж 3, ком. Г, пом. I, комната 15</span></p><p><span style="color: rgb(0, 0, 0);">ИНН 7723432492, ОГРН 1167746184110</span></p><p><span style="color: rgb(0, 0, 0);">+7 495 198-04-95</span></p><p><a href="mailto:hello@mandomemori.ru" rel="noopener noreferrer" target="_blank" style="color: rgb(0, 0, 0);">hello@mandomemori.ru</a></p><p><br></p>
     </div>
   </div>
 </main>

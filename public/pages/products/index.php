@@ -62,7 +62,7 @@ require __DIR__ . '/../../partials/header.php';
       <div class="product-cards">
         <?php
         $allSvcs = [
-          ['slug' => 'sole-fresh', 'img' => 'чистка.jpg', 'title' => 'Базовая химчистка', 'price' => '3 490', 'bg' => '#1C1512', 'dark' => true],
+          ['slug' => 'basic', 'img' => 'чистка.jpg', 'title' => 'Базовая химчистка', 'price' => '3 490', 'bg' => '#1C1512', 'dark' => true],
           ['slug' => 'repel', 'img' => 'спрей.jpg', 'title' => 'Водоотталкивающая пропитка', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
           ['slug' => 'foam', 'img' => 'пена.webp', 'title' => 'Экспресс-чистка', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],
           ['slug' => 'oil', 'img' => 'средство.jpg', 'title' => 'Питание и кондиционирование кожи', 'price' => '1 990', 'bg' => '#1C1512', 'dark' => true],

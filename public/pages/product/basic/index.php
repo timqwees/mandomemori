@@ -3,13 +3,13 @@ use Setting\Route\Function\Functions;
 $seo = Functions::seo();
 $notify = Functions::notify();
 
-$siteINFO = ['canonical' => '/product/sole-fresh', 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
+$siteINFO = ['canonical' => '/product/basic', 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
 
 $pageTitle = 'MANDO MEMORI - Базовая химчистка обуви';
 $pageDesc = 'Базовая химчистка обуви в Москве — чистка кроссовок, кожи, замши, нубука от 3 490 ₽. Защитная пропитка.';
 $pageKeywords = 'Базовая химчистка, MANDO MEMORI, химчистка обуви, чистка обуви Москва';
-$currentSlug = 'sole-fresh';
-$canonical = $_SERVER['REQUEST_URI'] ?? '/product/sole-fresh';
+$currentSlug = 'basic';
+$canonical = $_SERVER['REQUEST_URI'] ?? '/product/basic';
 require __DIR__ . '/../../../partials/header.php';
 ?>
 <main class="main svc-page">

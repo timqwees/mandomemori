@@ -163,7 +163,7 @@ require __DIR__ . '/../../partials/header.php';
     <div class="container">
       <h2 class="fr-section-title">Оставьте заявку</h2>
 
-      <form method="POST" action="https://solefresh.ru/franchise/apply" class="fr-apply-form">
+      <form method="POST" action="https://mandomemori.ru/franchise/apply" class="fr-apply-form">
       <input type="hidden" name="_csrf" value="3bd5a1ea01eec4cc5fac232d54cfe19be1beb147477f69e057180030166a8e04">
         <div class="fr-form-grid">
           <div class="form-group">

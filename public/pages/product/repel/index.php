@@ -176,7 +176,7 @@ require __DIR__ . '/../../../partials/header.php';
     <div class="container">
       <h2 class="svc-section-title">Другие услуги</h2>
       <div class="svc-rel-grid">
-                  <a href="/product/sole-fresh" class="svc-rel-card">
+                  <a href="/product/basic" class="svc-rel-card">
             <div class="svc-rel-img">
               <img src="/public/assets/images/mandomemori/чистка.jpg" alt="Базовая химчистка" loading="lazy">
             </div>

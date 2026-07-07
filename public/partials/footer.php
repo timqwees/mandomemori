@@ -19,7 +19,7 @@
         <div class="footer-col footer-col--nav">
           <h4 class="footer-col-title">Услуги</h4>
           <nav class="footer-nav">
-            <a href="/product/sole-fresh">Базовая химчистка</a>
+            <a href="/product/basic">Базовая химчистка</a>
             <a href="/product/premium">Премиум-чистка</a>
             <a href="/product/wipes">Отбеливание подошвы</a>
             <a href="/product/paint">Покраска и реставрация</a>

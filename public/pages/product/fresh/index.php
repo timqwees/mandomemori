@@ -181,7 +181,7 @@ require __DIR__ . '/../../../partials/header.php';
               <h4>Экспресс-чистка</h4>
               <span class="svc-rel-price">от 1 990 ₽</span>
             </div>
-          </a>          <a href="/product/sole-fresh" class="svc-rel-card">
+          </a>          <a href="/product/basic" class="svc-rel-card">
             <div class="svc-rel-img">
               <img src="/public/assets/images/mandomemori/чистка.jpg" alt="Базовая химчистка" loading="lazy">
             </div>
