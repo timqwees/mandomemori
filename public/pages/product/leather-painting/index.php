@@ -71,6 +71,26 @@ require __DIR__ . '/../../../partials/header.php';
       </div>
     </div>
   </section>
+  <section class="svc-brands-section">
+    <div class="container">
+      <h2 class="svc-section-title">С какими брендами работаем</h2>
+      <div class="svc-tags">
+        <span class="svc-tag">Loro Piana</span>
+        <span class="svc-tag">Gucci</span>
+        <span class="svc-tag">Prada</span>
+        <span class="svc-tag">Louis Vuitton</span>
+        <span class="svc-tag">Hermès</span>
+        <span class="svc-tag">Balenciaga</span>
+        <span class="svc-tag">Saint Laurent</span>
+        <span class="svc-tag">Bottega Veneta</span>
+        <span class="svc-tag">Valentino</span>
+        <span class="svc-tag">Christian Louboutin</span>
+        <span class="svc-tag">Manolo Blahnik</span>
+        <span class="svc-tag">Jimmy Choo</span>
+        <span class="svc-tag">и любые другие</span>
+      </div>
+    </div>
+  </section>
   <section class="svc-cta-section">
     <div class="container">
       <h2>Готовы доверить обувь профессионалам?</h2>
