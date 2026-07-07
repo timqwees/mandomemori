@@ -3,7 +3,7 @@
       <div class="footer-grid">
         <div class="footer-col footer-col--brand">
           <a href="/" class="footer-logo">
-            <img src="/public/assets/images/favicon_full_black.svg" alt="MANDO MEMORI" class="footer-logo-img">
+            <img src="/public/assets/images/favicon_full_white.svg" alt="MANDO MEMORI" class="footer-logo-img">
           </a>
           <p class="footer-brand-desc">Профессиональная химчистка обуви в Москве. Чистка кроссовок, отбеливание подошвы, покраска, реставрация. Бесплатная доставка курьером.</p>
           <div class="footer-social">
