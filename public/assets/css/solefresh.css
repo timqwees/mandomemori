@@ -104,7 +104,7 @@ img {
   display: flex;
   align-items: center;
   gap: 20px;
-  padding-block: 2px;
+  padding-block: 10px;
 }
 
 .header-right {
