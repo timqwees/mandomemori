@@ -697,13 +697,6 @@ html, body { background: #121212; margin: 0; }
 
         <section class="anp-cards">
           <div class="anp-cards__grid">
-              <article class="anp-card" id="s-priemnye-punkty">
-                  <div class="anp-card__media"><img src="/public/assets/images/mandomemori/офис.jpg" alt="Пункты приёма MANDO MEMORI" loading="lazy"></div>
-                <div class="anp-card__body">
-                  <h2 class="anp-card__title" data-blur-title>Пункты приёма</h2>
-                  <div class="anp-card__content" data-blur-content><p>В наших точках можно проконсультироваться со специалистом, приобрести средства по уходу за обувью, сдать пару на чистку или забрать готовый заказ.</p></div>
-                </div>
-              </article>
               <article class="anp-card" id="s-kurer">
                   <div class="anp-card__media"><img src="/public/assets/images/mandomemori/сравнение1.jpg" alt="Курьерская доставка MANDO MEMORI" loading="lazy"></div>
                 <div class="anp-card__body">
@@ -732,7 +725,7 @@ html, body { background: #121212; margin: 0; }
                   <img src="/public/assets/images/mandomemori/бренд1.png" alt="Логотип Lamoda Sport" loading="lazy">
                 </div>
               <h3 class="anp-partner__name">Lamoda Sport</h3>
-              <p class="anp-partner__desc">Пункты приёма обуви на базе розничных магазинов сети</p>
+              <p class="anp-partner__desc">Специальные условия обслуживания для клиентов сети</p>
             </div>
             <div class="anp-partner">
                 <div class="anp-partner__logo">
