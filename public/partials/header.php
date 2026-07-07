@@ -39,7 +39,7 @@ $siteUrl = "$scheme://$host";
   <header class="header">
     <div class="container">
       <a href="/" class="logo">
-        <img src="/public/assets/images/logo-mandomemori.svg" alt="MANDO MEMORI — химчистка обуви Москва" class="logo-img">
+        <img src="/public/assets/images/favicon_full_white.svg" alt="MANDO MEMORI — химчистка обуви Москва" class="logo-img">
       </a>
       <nav class="nav" id="main-nav">
         <a href="/products" class="nav-link">Услуги</a>

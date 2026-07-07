@@ -48,7 +48,7 @@ class SeoService
         '@type' => 'Organization',
         'name' => 'MandoMemori',
         'url' => $s,
-        'logo' => $s . '/public/assets/images/logo-mandomemori.svg',
+        'logo' => $s . '/public/assets/images/favicon_full_black.svg',
             'contactPoint' => [
                 '@type' => 'ContactPoint',
                 'telephone' => '+7 (915) 252-75-75',

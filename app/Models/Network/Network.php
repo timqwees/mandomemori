@@ -550,7 +550,7 @@ class Network extends Session
 
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-lg flex items-center justify-center">
-            <img src="/public/assets/images/logo-mandomemori.svg" alt="logo">
+            <img src="/public/assets/images/favicon_full_black.svg" alt="logo">
           </div>
           <span class="text-black text-2xl font-bold">QweesCore</span>
         </div>
