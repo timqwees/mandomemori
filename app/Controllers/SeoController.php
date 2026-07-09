@@ -261,7 +261,7 @@ class SeoController
       'start_url' => '/',
       'display' => 'standalone',
       'background_color' => '#FDFBF9',
-      'theme_color' => '#1C1512',
+      'theme_color' => '#D4562A',
       'icons' => [
         ['src' => '/public/assets/images/favicon.svg', 'sizes' => '48x48', 'type' => 'image/svg+xml'],
         ['src' => '/public/assets/images/favicon.svg', 'sizes' => '192x192', 'type' => 'image/svg+xml'],

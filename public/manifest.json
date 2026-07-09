@@ -1,0 +1,25 @@
+{
+  "name": "MANDO MEMORI — химчистка обуви в Москве",
+  "short_name": "MANDO MEMORI",
+  "description": "Профессиональная химчистка и реставрация обуви в Москве",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#D4562A",
+  "theme_color": "#D4562A",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "/public/assets/images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon",
+      "purpose": "any"
+    }
+  ]
+}
