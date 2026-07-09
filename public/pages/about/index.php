@@ -640,7 +640,7 @@ html, body { background: #121212; margin: 0; }
       <div class="anp-hero__card-overlay" style="background:rgba(0, 0, 0, 0.52)"></div>
       <div class="anp-hero__spacer"></div>
       <div class="anp-hero__bottom">
-          <p class="anp-hero__tagline">Химчистка обуви с 2015 года</p>
+          <h1 class="anp-hero__tagline">Химчистка обуви с 2015 года</h1>
           <p class="anp-hero__desc">MANDO MEMORI — профессиональный сервис химчистки обуви в Москве. Чистим кроссовки, ботинки, туфли, замшу, нубук и премиальные бренды. Отбеливание подошвы, покраска, реставрация — полный цикл ухода.</p>
       </div>
     </div>

@@ -1177,6 +1177,10 @@ img {
   box-shadow: 0 8px 32px rgba(212,86,42,0.3);
 }
 
+.svc-page section {
+  padding-bottom: 20px;
+}
+
 /* Responsive */
 @media (max-width: 860px) {
   .svc-about-grid {
@@ -1381,9 +1385,10 @@ img {
 }
 
 .breadcrumbs {
-  padding: 16px 0 0;
+  padding: 16px 0;
   font-size: 0.8125rem;
   color: var(--text-muted);
+  text-align: center;
 }
 
 .breadcrumbs ol {
@@ -1393,6 +1398,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
+  justify-content: center;
 }
 
 .breadcrumbs li {
@@ -1422,6 +1428,13 @@ img {
 .breadcrumbs li:last-child span {
   color: var(--text-primary);
   font-weight: 500;
+}
+
+.cart-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 24px;
+  color: var(--text-primary);
 }
 
 .cart-comment {

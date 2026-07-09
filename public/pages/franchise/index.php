@@ -6,177 +6,108 @@ $notify = Functions::notify();
 $siteINFO = ['canonical' => '/franchise', 'priority' => '0.6', 'changefreq' => 'monthly', 'index' => 'main'];
 
 $pageTitle = 'Франшиза — MANDO MEMORI, химчистка обуви';
-$pageDesc = 'Франшиза MANDO MEMORI — откройте собственную химчистку обуви по нашей модели.';
+$pageDesc = 'Франшиза MANDO MEMORI — откройте собственную химчистку обуви по проверенной модели. Обучение, оборудование, поддержка.';
 $pageKeywords = 'франшиза химчистки обуви, MANDO MEMORI франшиза';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/franchise';
 require __DIR__ . '/../../partials/header.php';
 ?>
 
-
 <main class="main franchise-page">
 
   <section class="fr-intro" style="background-color:#1d1d1f;background-image:url('/public/assets/images/mandomemori/фон чистки2.jpg');color:#ffffff">
     <div class="container fr-intro-content">
-        <h1 class="fr-intro-title">26 городов в 8 странах</h1>
-        <p class="fr-intro-desc">Точки MANDO MEMORI работают по всему миру —
-от Дубая до Южно-Сахалинска.</p>
-        <div class="fr-geo-list">
-            <div class="fr-geo-country">
-              <h3 class="fr-geo-country-name">Россия</h3>
-              <ul class="fr-geo-cities">
-                  <li>Москва</li>
-                  <li>Санкт-Петербург</li>
-                  <li>Новосибирск</li>
-                  <li>Екатеринбург</li>
-                  <li>Казань</li>
-                  <li>Челябинск</li>
-                  <li>Ростов-на-Дону</li>
-                  <li>Воронеж</li>
-                  <li>Тюмень</li>
-                  <li>Иркутск</li>
-                  <li>Владивосток</li>
-                  <li>Калининград</li>
-                  <li>Сочи</li>
-                  <li>Южно-Сахалинск</li>
-              </ul>
-            </div>
-            <div class="fr-geo-country">
-              <h3 class="fr-geo-country-name">Казахстан</h3>
-              <ul class="fr-geo-cities">
-                  <li>Алматы</li>
-                  <li>Астана</li>
-                  <li>Караганда</li>
-                  <li>Атырау</li>
-                  <li>Шымкент</li>
-                  <li>Актау</li>
-              </ul>
-            </div>
-            <div class="fr-geo-singles">
-                <div class="fr-geo-single">
-                  <span class="fr-geo-single-country">ОАЭ</span>
-                  <span class="fr-geo-single-city">Дубай</span>
-                </div>
-                <div class="fr-geo-single">
-                  <span class="fr-geo-single-country">Узбекистан</span>
-                  <span class="fr-geo-single-city">Ташкент</span>
-                </div>
-                <div class="fr-geo-single">
-                  <span class="fr-geo-single-country">Кувейт</span>
-                  <span class="fr-geo-single-city">Эль-Кувейт</span>
-                </div>
-                <div class="fr-geo-single">
-                  <span class="fr-geo-single-country">Киргизия</span>
-                  <span class="fr-geo-single-city">Бишкек</span>
-                </div>
-                <div class="fr-geo-single">
-                  <span class="fr-geo-single-country">Грузия</span>
-                  <span class="fr-geo-single-city">Тбилиси</span>
-                </div>
-                <div class="fr-geo-single">
-                  <span class="fr-geo-single-country">Кипр</span>
-                  <span class="fr-geo-single-city">Лимассол</span>
-                </div>
-            </div>
-        </div>
+      <p class="fr-intro-label" style="font-size:13px;text-transform:uppercase;letter-spacing:2px;opacity:0.6;margin-bottom:12px">Франшиза</p>
+      <h1 class="fr-intro-title">Откройте химчистку обуви<br>по франшизе MANDO MEMORI</h1>
+      <p class="fr-intro-desc">11 лет на рынке, 1 100 000+ пар обуви, 26 городов в 8 странах.<br>Готовый бизнес под ключ с обучением и сопровождением.</p>
     </div>
   </section>
 
-  <section class="fr-desc-section" style="min-height:80vh;background-color:#371a94;background-image:url('/public/assets/images/mandomemori/фон6.jpg');color:#ffffff">
-    <div class="container fr-desc-content">
-        <h2 class="fr-desc-title">Что такое MANDO MEMORI</h2>
-        <div class="fr-desc-usp-grid">
-            <div class="fr-desc-usp-item">
-              <h4 class="fr-desc-usp-title">10 лет</h4>
-                <p class="fr-desc-usp-text">С 2015 года мы задаём стандарты профессиональной чистки обуви в промышленных объёмах.</p>
-            </div>
-            <div class="fr-desc-usp-item">
-              <h4 class="fr-desc-usp-title">1 105 603</h4>
-                <p class="fr-desc-usp-text">Пар обуви прошли через руки наших мастеров. Опыт, которому можно доверять.</p>
-            </div>
-            <div class="fr-desc-usp-item">
-              <h4 class="fr-desc-usp-title">Готовый комплект бизнеса</h4>
-                <p class="fr-desc-usp-text">Предлагаем комплексное решение для старта: технология чистки и реставрации, оборудование, материалы, бизнес-инструкции и сопровождение на всех этапах запуска</p>
-            </div>
-        </div>
-    </div>
-  </section>
-
-  <section class="fr-section fr-usp-section">
+  <section class="fr-section" style="padding:80px 0">
     <div class="container">
-        <h2 class="fr-section-title">Что входит в комплект</h2>
-        <p class="fr-usp-subtitle">На старте вы получаете всё необходимое для запуска</p>
-      <div class="fr-usp-list">
-          <div class="fr-usp-row">
-            <span class="fr-usp-num">01</span>
-            <div class="fr-usp-body">
-              <h3 class="fr-usp-row-title">Оборудование</h3>
-                <p class="fr-usp-row-desc">Полный комплект оборудования для чистки обуви</p>
-            </div>
-          </div>
-          <div class="fr-usp-row">
-            <span class="fr-usp-num">02</span>
-            <div class="fr-usp-body">
-              <h3 class="fr-usp-row-title">Химия</h3>
-                <p class="fr-usp-row-desc">Профессиональная химия на первые 6 месяцев</p>
-            </div>
-          </div>
-          <div class="fr-usp-row">
-            <span class="fr-usp-num">03</span>
-            <div class="fr-usp-body">
-              <h3 class="fr-usp-row-title">Технология</h3>
-                <p class="fr-usp-row-desc">Очное обучение и отработка навыков</p>
-            </div>
-          </div>
-          <div class="fr-usp-row">
-            <span class="fr-usp-num">04</span>
-            <div class="fr-usp-body">
-              <h3 class="fr-usp-row-title">Дизайн</h3>
-                <p class="fr-usp-row-desc">Дизайн-проект приёмного пункта</p>
-            </div>
-          </div>
-          <div class="fr-usp-row">
-            <span class="fr-usp-num">05</span>
-            <div class="fr-usp-body">
-              <h3 class="fr-usp-row-title">Цех</h3>
-                <p class="fr-usp-row-desc">Готовая планировка производственного цеха</p>
-            </div>
-          </div>
-          <div class="fr-usp-row">
-            <span class="fr-usp-num">06</span>
-            <div class="fr-usp-body">
-              <h3 class="fr-usp-row-title">Подключение</h3>
-                <p class="fr-usp-row-desc">Настройка и интеграция всех систем</p>
-            </div>
-          </div>
-          <div class="fr-usp-row">
-            <span class="fr-usp-num">07</span>
-            <div class="fr-usp-body">
-              <h3 class="fr-usp-row-title">И все остальное</h3>
-                <p class="fr-usp-row-desc">Документация, поддержка, сайт и соцсети</p>
-            </div>
-          </div>
+      <h2 class="fr-section-title">Почему MANDO MEMORI</h2>
+      <div class="fr-desc-usp-grid">
+        <div class="fr-desc-usp-item" style="background:#f5f5f7;border-radius:16px;padding:40px 32px">
+          <h4 style="color:#C8A46F">11 лет</h4>
+          <p style="color:#333">С 2015 года задаём стандарты профессиональной чистки обуви. Отработанная технология, которая приносит результат.</p>
+        </div>
+        <div class="fr-desc-usp-item" style="background:#f5f5f7;border-radius:16px;padding:40px 32px">
+          <h4 style="color:#C8A46F">1 100 000+ пар</h4>
+          <p style="color:#333">Обуви прошло через руки наших мастеров. Мы знаем об уходе за обувью всё.</p>
+        </div>
+        <div class="fr-desc-usp-item" style="background:#f5f5f7;border-radius:16px;padding:40px 32px">
+          <h4 style="color:#C8A46F">Премиальные бренды</h4>
+          <p style="color:#333">Работаем с Loro Piana, Gucci, Prada, Hermès и другими люксовыми марками. Доверие клиентов высокого уровня.</p>
+        </div>
+        <div class="fr-desc-usp-item" style="background:#f5f5f7;border-radius:16px;padding:40px 32px">
+          <h4 style="color:#C8A46F">26 городов</h4>
+          <p style="color:#333">Точки в России, Казахстане, ОАЭ, Узбекистане, Кувейте и других странах. Международный опыт и узнаваемость.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="fr-section fr-form-section">
+  <section class="fr-section" style="background:#1d1d1f;color:#fff;padding:80px 0">
+    <div class="container">
+      <h2 class="fr-section-title" style="color:#fff">Что вы получаете</h2>
+      <p style="text-align:center;color:rgba(255,255,255,0.6);margin-bottom:48px">Всё необходимое для запуска и стабильной работы</p>
+      <div class="fr-usp-list">
+        <div class="fr-usp-row" style="border-bottom:1px solid rgba(255,255,255,0.08)">
+          <span class="fr-usp-num" style="color:#C8A46F">01</span>
+          <div class="fr-usp-body">
+            <h3 class="fr-usp-row-title" style="color:#fff">Оборудование и материалы</h3>
+            <p class="fr-usp-row-desc" style="color:rgba(255,255,255,0.6)">Полный комплект профессионального оборудования и химии для чистки и реставрации обуви.</p>
+          </div>
+        </div>
+        <div class="fr-usp-row" style="border-bottom:1px solid rgba(255,255,255,0.08)">
+          <span class="fr-usp-num" style="color:#C8A46F">02</span>
+          <div class="fr-usp-body">
+            <h3 class="fr-usp-row-title" style="color:#fff">Обучение и технология</h3>
+            <p class="fr-usp-row-desc" style="color:rgba(255,255,255,0.6)">Очное обучение в Москве, пошаговые инструкции, доступ к технологии чистки и реставрации.</p>
+          </div>
+        </div>
+        <div class="fr-usp-row" style="border-bottom:1px solid rgba(255,255,255,0.08)">
+          <span class="fr-usp-num" style="color:#C8A46F">03</span>
+          <div class="fr-usp-body">
+            <h3 class="fr-usp-row-title" style="color:#fff">Сайт и маркетинг</h3>
+            <p class="fr-usp-row-desc" style="color:rgba(255,255,255,0.6)">Готовый сайт с вашим брендом, настройка рекламы, шаблоны для соцсетей и печатных материалов.</p>
+          </div>
+        </div>
+        <div class="fr-usp-row" style="border-bottom:1px solid rgba(255,255,255,0.08)">
+          <span class="fr-usp-num" style="color:#C8A46F">04</span>
+          <div class="fr-usp-body">
+            <h3 class="fr-usp-row-title" style="color:#fff">Дизайн и планировка</h3>
+            <p class="fr-usp-row-desc" style="color:rgba(255,255,255,0.6)">Готовый дизайн-проект приёмного пункта и планировка производственного цеха.</p>
+          </div>
+        </div>
+        <div class="fr-usp-row">
+          <span class="fr-usp-num" style="color:#C8A46F">05</span>
+          <div class="fr-usp-body">
+            <h3 class="fr-usp-row-title" style="color:#fff">Постоянная поддержка</h3>
+            <p class="fr-usp-row-desc" style="color:rgba(255,255,255,0.6)">Сопровождение на всех этапах: от запуска до текущей работы, чат с основателями, обновление технологий.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fr-section fr-form-section" style="padding:80px 0">
     <div class="container">
       <h2 class="fr-section-title">Оставьте заявку</h2>
+      <p style="text-align:center;color:rgba(255,255,255,0.6);margin-bottom:40px">Мы свяжемся с вами в ближайшее время</p>
 
-      <form method="POST" action="https://mandomemori.ru/franchise/apply" class="fr-apply-form">
-      <input type="hidden" name="_csrf" value="3bd5a1ea01eec4cc5fac232d54cfe19be1beb147477f69e057180030166a8e04">
+      <form id="fr-form" class="fr-apply-form" style="max-width:560px;margin:0 auto">
         <div class="fr-form-grid">
-          <div class="form-group">
+          <div class="form-group" style="grid-column:span 2">
             <input type="text" name="name" required placeholder="Ваше имя">
           </div>
           <div class="form-group">
             <input type="text" name="city" required placeholder="Ваш город">
           </div>
           <div class="form-group">
-            <input type="email" name="email" required placeholder="Ваш Email">
-          </div>
-          <div class="form-group">
             <input type="tel" name="phone" id="fr-phone" required placeholder="+7 (___) ___-__-__">
+          </div>
+          <div class="form-group" style="grid-column:span 2">
+            <input type="email" name="email" required placeholder="Ваш Email">
           </div>
         </div>
         <div style="text-align:center;margin-top:20px">
@@ -184,8 +115,9 @@ require __DIR__ . '/../../partials/header.php';
             <input type="checkbox" name="consent" required style="width:16px;height:16px;accent-color:#C8A46F">
             <span>Я даю согласие на <a href="/privacy-policy" target="_blank" style="color:#C8A46F">обработку персональных данных</a></span>
           </label>
-          <button type="submit" class="btn-franchise-submit">Отправить</button>
+          <button type="submit" class="btn-franchise-submit">Отправить заявку</button>
         </div>
+        <div id="fr-form-success" style="display:none;text-align:center;color:#4CAF50;padding:24px;font-size:18px;font-weight:600">Спасибо! Мы свяжемся с вами в ближайшее время.</div>
       </form>
     </div>
   </section>
@@ -197,6 +129,39 @@ require __DIR__ . '/../../partials/header.php';
 document.addEventListener('DOMContentLoaded', function() {
   var phoneInput = document.getElementById('fr-phone');
   if (phoneInput && typeof initPhoneMask === 'function') initPhoneMask(phoneInput);
+
+  var form = document.getElementById('fr-form');
+  var success = document.getElementById('fr-form-success');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = form.querySelector('.btn-franchise-submit');
+    btn.disabled = true;
+    btn.textContent = 'Отправка...';
+
+    var data = new URLSearchParams();
+    data.append('name', form.querySelector('[name="name"]').value);
+    data.append('city', form.querySelector('[name="city"]').value);
+    data.append('phone', form.querySelector('[name="phone"]').value);
+    data.append('email', form.querySelector('[name="email"]').value);
+
+    fetch('/franchise/apply', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: data
+    }).then(function(r) {
+      if (!r.ok) throw new Error('Error');
+      return r.json();
+    }).then(function() {
+      form.style.display = 'none';
+      success.style.display = '';
+      if (typeof gtag === 'function') { gtag('event', 'submit_franchise_lead'); }
+      if (typeof ym === 'function') { ym('reachGoal', 'franchise_lead'); }
+    }).catch(function() {
+      btn.disabled = false;
+      btn.textContent = 'Отправить заявку';
+      alert('Ошибка отправки. Попробуйте позже.');
+    });
+  });
 });
 </script>
 

@@ -7,7 +7,7 @@
           </a>
           <p class="footer-brand-desc">Профессиональная химчистка обуви в Москве. Чистка кроссовок, отбеливание подошвы, покраска, реставрация. Бесплатная доставка курьером.</p>
           <div class="footer-social">
-            <a href="https://t.me/mandomemori" target="_blank" rel="noopener" class="footer-social-link" title="Telegram">
+            <a href="https://t.me/mandomemori_bot" target="_blank" rel="noopener" class="footer-social-link" title="Telegram">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
             </a>
             <a href="https://wa.me/74951980495" target="_blank" rel="noopener" class="footer-social-link" title="WhatsApp">
@@ -19,12 +19,12 @@
         <div class="footer-col footer-col--nav">
           <h4 class="footer-col-title">Услуги</h4>
           <nav class="footer-nav">
-            <a href="/product/basic">Базовая химчистка</a>
-            <a href="/product/premium">Премиум-чистка</a>
-            <a href="/product/wipes">Отбеливание подошвы</a>
-            <a href="/product/paint">Покраска и реставрация</a>
-            <a href="/product/soft">Чистка замши и нубука</a>
-            <a href="/product/standard">Полный комплекс ухода</a>
+            <a href="/product/cleaning">Чистка</a>
+            <a href="/product/whitening">Отбеливание подошвы</a>
+            <a href="/product/restoration">Реставрация</a>
+            <a href="/product/sole-replacement">Замена подошвы</a>
+            <a href="/product/heel-taps-rubber">Набойки (резина)</a>
+            <a href="/product/bag-restoration">Реставрация сумок</a>
             <a href="/products">Все услуги</a>
           </nav>
         </div>
@@ -35,7 +35,6 @@
             <a href="/about">О нас</a>
             <a href="/before-after">До / После</a>
             <a href="/contacts">Контакты</a>
-            <a href="/vacancies">Вакансии</a>
             <a href="/franchise">Франшиза</a>
             <a href="/requisites">Реквизиты</a>
           </nav>
@@ -44,13 +43,14 @@
         <div class="footer-col footer-col--contact">
           <h4 class="footer-col-title">Контакты</h4>
           <div class="footer-contact-list">
+
             <a href="tel:+74951980495" class="footer-contact-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
               <span>+7 (915) 252-75-75</span>
             </a>
-            <a href="https://t.me/mandomemori" target="_blank" class="footer-contact-item">
+            <a href="https://t.me/mandomemori_bot" target="_blank" class="footer-contact-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
-              <span>@mandomemori</span>
+              <span>mandomemori_bot</span>
             </a>
             <div class="footer-contact-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -70,7 +70,6 @@
         <div class="footer-legal">
           <a href="/privacy-policy">Политика конфиденциальности</a>
           <a href="/requisites">Реквизиты</a>
-          <a href="/vacancies">Вакансии</a>
           <a href="/franchise">Франшиза</a>
         </div>
         <p class="footer-copy">&copy; <?= date('Y') ?> MANDO MEMORI. Все права защищены.</p>
@@ -148,6 +147,22 @@
     })();
   </script>
 
+  <script>
+    window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":""};
+    (function(d,t) {
+      var BASE_URL="https://app.chatwoot.com";
+      var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=BASE_URL+"/packs/js/sdk.js";
+      g.async = true;
+      s.parentNode.insertBefore(g,s);
+      g.onload=function(){
+        window.chatwootSDK.run({
+          websiteToken: 'pTmipPDsScmgdWfdxNwFimow',
+          baseUrl: BASE_URL
+        })
+      }
+    })(document,"script");
+  </script>
   <script src="/public/assets/js/mandomemori/main.js" defer></script>
   <script src="/public/assets/js/mandomemori/cart.js" defer></script>
 </body>

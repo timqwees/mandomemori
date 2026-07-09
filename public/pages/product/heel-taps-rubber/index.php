@@ -11,7 +11,8 @@ $title = $svc['title'];
 $price = $svc['price_formatted'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
-$pageTitle = "MANDO MEMORI — $title";
+$pageTitle = "$title — MANDO MEMORI, химчистка обуви в Москве";
+$ogImage = '/public/assets/images/' . $svc['img'];
 $pageDesc = $svc['desc'];
 $pageKeywords = "$title, MANDO MEMORI, химчистка обуви Москва";
 $currentSlug = $slug;
@@ -19,6 +20,7 @@ $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
 ?>
 <main class="main svc-page">
+  <div class="container">
   <nav class="breadcrumbs" aria-label="Breadcrumb">
     <ol itemscope itemtype="https://schema.org/BreadcrumbList">
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
@@ -30,11 +32,12 @@ require __DIR__ . '/../../../partials/header.php';
         <meta itemprop="position" content="2">
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <span itemprop="name"><?= $title ?></span>
+        <a itemprop="item" href="<?= $canonical ?>"><span itemprop="name"><?= $title ?></span></a>
         <meta itemprop="position" content="3">
       </li>
     </ol>
   </nav>
+  </div>
   <section class="svc-hero">
     <div class="svc-hero-bg" style="background-image:url('/public/assets/images/<?= $svc['img'] ?>')"></div>
     <div class="svc-hero-overlay"></div>

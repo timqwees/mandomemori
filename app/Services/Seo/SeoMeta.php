@@ -11,12 +11,12 @@ class SeoMeta
     $desc    = $p['desc'] ?? 'MANDO MEMORI — профессиональная химчистка обуви в Москве. Чистка кроссовок, замши, нубука, кожи. Отбеливание подошвы, покраска, реставрация. Бесплатная доставка.';
     $kw      = $p['keywords'] ?? '';
     $canon   = $p['canonical'] ?? '/';
-    $img     = $p['image'] ?? '/public/assets/images/services/чистка.png';
+    $img     = $p['image'] ?? '/public/assets/images/services/default.webp';
     $type    = $p['type'] ?? 'website';
     $locale  = $p['locale'] ?? 'ru_RU';
     $robots  = $p['robots'] ?? 'index, follow';
     $author  = $p['author'] ?? 'MANDO MEMORI';
-    $hreflang = $p['hreflang'] ?? $siteUrl;
+    $hreflang = $p['hreflang'] ?? ($siteUrl . $canon);
 
     $h = '';
 
@@ -66,7 +66,7 @@ class SeoMeta
       'image' => $siteUrl . '/public/assets/images/favicon_full_black.svg',
       'url' => $siteUrl,
       'telephone' => '+7 (915) 252-75-75',
-      'email' => 'MandoMemori@list.ru',
+      'email' => 'info@mmclean.ru',
       'address' => [
         '@type' => 'PostalAddress',
         'addressLocality' => 'Москва',

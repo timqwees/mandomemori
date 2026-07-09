@@ -49,7 +49,7 @@ class CourierController
 
         try {
             $mailer = new MailController();
-            $sent = $mailer->onMail('artemnersisyan777@gmail.com', $subject, $body, $pdfPath);
+            $sent = $mailer->onMail('info@mmclean.ru', $subject, $body, $pdfPath);
         } catch (\Exception $e) {
             $sent = false;
         }
@@ -161,7 +161,7 @@ class CourierController
     </tr>
   </tbody>
 </table>
-<p style="font-size:10pt;color:#666">Спасибо, что выбираете MANDO MEMORI!<br>По всем вопросам: @mandomemori (Telegram) или +7 (915) 252-75-75</p>
+<p style="font-size:10pt;color:#666">Спасибо, что выбираете MANDO MEMORI!<br>По всем вопросам: mandomemori_bot (Telegram) или +7 (915) 252-75-75</p>
 ' . ($comment ? '<p style="font-size:10pt;color:#333;border-top:1px solid #ddd;padding-top:12px"><strong>Комментарий к заказу:</strong></p><div style="font-size:10pt;color:#333;line-height:1.5">' . strip_tags($comment, '<strong><em><b><i><u><s><ol><ul><li><br><p><span>') . '</div>' : '') . '
 <div class="footer">Данный чек является подтверждением заказа.</div>
 </body>

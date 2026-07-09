@@ -166,7 +166,7 @@ class SeoController
     echo "# MANDO MEMORI — химчистка обуви в Москве\n"
       . "> Профессиональная химчистка и уход за обувью.\n"
       . "> Сайт: $s\n"
-      . "> Telegram: @mandomemori\n"
+      . "> Telegram: mandomemori_bot\n"
       . "> Телефон: +7 (915) 252-75-75\n\n"
       . "## Услуги\n";
 
@@ -199,8 +199,8 @@ class SeoController
       . "Бесплатная доставка курьером по Москве и МО.\n\n"
       . "## Контакты\n"
       . "- Телефон: +7 (915) 252-75-75\n"
-      . "- Telegram: @mandomemori\n"
-      . "- Email: MandoMemori@list.ru\n"
+      . "- Telegram: mandomemori_bot\n"
+      . "- Email: info@mmclean.ru\n"
       . "- Адрес: Москва, Петровка 15/13 стр.5, -1 этаж\n\n"
       . "## Все услуги и цены\n";
 
@@ -309,7 +309,7 @@ class SeoController
     header('Content-Type: text/plain; charset=utf-8');
     echo implode("\n", [
       '# security.txt — MANDO MEMORI',
-      'Contact: mailto:MandoMemori@list.ru',
+      'Contact: mailto:info@mmclean.ru',
       'Preferred-Languages: ru, en',
       "Policy: " . $s . "/privacy-policy",
       '',

@@ -5,8 +5,9 @@ $seo = Functions::seo();
 $notify = Functions::notify();
 
 $siteINFO = ['canonical' => '/cart', 'priority' => '0.2', 'changefreq' => 'never', 'index' => 'main'];
+$robots = 'noindex, nofollow';
 
-$pageTitle = $pageTitle ?? 'Корзина — MANDO MEMORI, чистка обуви в Москве';
+$pageTitle = $pageTitle ?? 'Корзина — MANDO MEMORI, химчистка обуви в Москве';
 $pageDesc = $pageDesc ?? 'Ваша корзина в MANDO MEMORI — чистка обуви в Москве.';
 $pageKeywords = $pageKeywords ?? 'корзина MANDO MEMORI, чистка обуви Москва';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/cart';
@@ -51,6 +52,7 @@ require __DIR__ . '/../../partials/header.php';
 <main class="main">
   <section class="cart-section">
     <div class="container">
+      <h1 class="cart-title">Корзина</h1>
 
       <?php if (empty($resolvedItems)): ?>
         <div class="cart-empty">

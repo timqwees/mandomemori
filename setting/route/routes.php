@@ -21,6 +21,7 @@ Routes::get('/order', [HomeController::class, 'onOrder']);
 //==================================================================================================// LEADS
 Routes::post('/api/lead', [LeadController::class, 'onSubmit']);
 
+Routes::post('/franchise/apply', [HomeController::class, 'onFranchiseSubmit']);
 Routes::post('/send/mail', [Functions::class, 'onMail']);
 Routes::post('/courier/request', [CourierController::class, 'onRequest']);
 
@@ -32,7 +33,6 @@ Routes::post('/cart/get', [CartController::class, 'onGet']);
 Routes::post('/cart/comment', [CartController::class, 'onComment']);
 Routes::get('/checkout', [CheckoutController::class, 'onGenerate']);
 Routes::get('/franchise', [HomeController::class, 'onFranchise']);
-Routes::get('/vacancies', [HomeController::class, 'onVacancies']);
 Routes::get('/requisites', [HomeController::class, 'onRequisites']);
 Routes::get('/product/{slug}', [HomeController::class, 'onProductDetail']);
 Routes::get('/product', [HomeController::class, 'onProducts']);

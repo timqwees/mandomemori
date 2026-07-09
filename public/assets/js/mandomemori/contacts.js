@@ -173,6 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       } catch (_) {}
       courierForm.innerHTML = '<div class="courier-form-success"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="var(--accent)" opacity="0.1"/><path d="M16 24l6 6L32 18" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>Заявка отправлена</h3><p>Мы свяжемся с вами в ближайшее время</p></div>';
+      if (typeof gtag === 'function') { gtag('event', 'submit_courier_request'); }
+      if (typeof ym === 'function') { ym('reachGoal', 'courier_request'); }
     });
   }
 
