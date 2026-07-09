@@ -151,29 +151,19 @@
 
   <script>
     window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":""};
-    let chatwootLoaded = false;
-    function loadChatwoot() {
-      if (chatwootLoaded) return;
-      chatwootLoaded = true;
-      (function(d,t) {
-        var BASE_URL="https://app.chatwoot.com";
-        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=BASE_URL+"/packs/js/sdk.js";
-        g.async = true;
-        s.parentNode.insertBefore(g,s);
-        g.onload=function(){
-          window.chatwootSDK.run({
-            websiteToken: 'pTmipPDsScmgdWfdxNwFimow',
-            baseUrl: BASE_URL
-          })
-        }
-      })(document,"script");
-    }
-    // Load Chatwoot on first user interaction (scroll, click, or after 3s)
-    ['scroll', 'click', 'keydown', 'touchstart'].forEach(function(evt) {
-      window.addEventListener(evt, loadChatwoot, { once: true, passive: true });
-    });
-    setTimeout(loadChatwoot, 3000);
+    (function(d,t) {
+      var BASE_URL="https://app.chatwoot.com";
+      var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=BASE_URL+"/packs/js/sdk.js";
+      g.async = true;
+      s.parentNode.insertBefore(g,s);
+      g.onload=function(){
+        window.chatwootSDK.run({
+          websiteToken: 'pTmipPDsScmgdWfdxNwFimow',
+          baseUrl: BASE_URL
+        })
+      }
+    })(document,"script");
   </script>
   <script src="/public/assets/js/mandomemori/main.js" defer></script>
   <script src="/public/assets/js/mandomemori/cart.js" defer></script>

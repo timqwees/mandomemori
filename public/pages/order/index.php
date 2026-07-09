@@ -533,10 +533,6 @@ html, body { background: #121212; margin: 0; }
             <input type="email" id="cf-email" name="email" placeholder="example@mail.ru">
           </div>
           <?php endif; ?>
-          <div class="form-field form-field--comment" style="margin-top:20px">
-            <label for="cf-comment">Комментарий к заказу</label>
-            <textarea id="cf-comment" name="comment" rows="4" placeholder="Пожелания по чистке, особенности обуви, предпочтительное время звонка курьера..."></textarea>
-          </div>
           <?php if ($orderNum): ?>
           <div class="courier-order-note">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
@@ -572,7 +568,7 @@ html, body { background: #121212; margin: 0; }
   </section>
 
 </main>
-<script src="/public/assets/js/mandomemori/phone-mask.js" defer></script>
-<script src="/public/assets/js/mandomemori/contacts.js" defer></script>
+  <script src="/public/assets/js/mandomemori/phone-mask.js" defer></script>
+  <script src="/public/assets/js/mandomemori/contacts.js" defer></script>
 
 <?php require __DIR__ . '/../../partials/footer.php'; ?>

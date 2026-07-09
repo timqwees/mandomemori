@@ -1446,8 +1446,6 @@ img {
 }
 
 .cart-comment {
-  margin-top: 20px;
-  padding-top: 20px;
   border-top: 1px solid var(--border);
   width: 100%;
 }
@@ -1460,31 +1458,6 @@ img {
   margin-bottom: 10px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-}
-
-#cart-comment-editor .ql-editor {
-  height: 150px !important;
-}
-
-#cart-comment-editor {
-  width: 100%;
-}
-
-#cart-comment-editor .ql-toolbar {
-  border-radius: 12px 12px 0 0;
-  border: 1.5px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-#cart-comment-editor .ql-container.ql-snow {
-  border: 1.5px solid var(--border);
-  border-top: none;
-}
-
-#cart-comment-editor .ql-editor.ql-blank::before {
-  color: var(--text-muted);
-  opacity: 0.7;
-  font-style: normal;
 }
 
 .cart-phone {
@@ -1683,6 +1656,119 @@ button, a, input, select, textarea {
 /* ── Video Poster ─────────────────────────────────────── */
 .scroll-hero__video {
   aspect-ratio: 16/9;
+}
+
+/* ── Quill Editor (Order Page Comment) ─────────────────── */
+#cf-comment-editor {
+  min-height: 150px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  background: var(--bg);
+}
+
+#cf-comment-editor .ql-container {
+  min-height: 120px;
+  font-family: var(--font);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+#cf-comment-editor .ql-toolbar {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid var(--border);
+  border-radius: var(--radius-xs) var(--radius-xs) 0 0;
+  background: var(--bg-secondary);
+}
+
+#cf-comment-editor .ql-container {
+  border: none;
+  border-radius: 0 0 var(--radius-xs) var(--radius-xs);
+}
+
+#cf-comment-editor .ql-editor {
+  min-height: 120px;
+  padding: 12px;
+}
+
+#cf-comment-editor .ql-editor.ql-blank::before {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.9375rem;
+}
+
+#cf-comment-editor .ql-toolbar button,
+#cf-comment-editor .ql-toolbar select {
+  color: var(--text-primary);
+}
+
+#cf-comment-editor .ql-toolbar button:hover,
+#cf-comment-editor .ql-toolbar button.ql-active {
+  color: var(--accent);
+}
+
+#cf-comment-editor .ql-stroke {
+  stroke: var(--text-primary);
+}
+
+#cf-comment-editor .ql-fill {
+  fill: var(--text-primary);
+}
+
+#cf-comment-editor .ql-picker {
+  color: var(--text-primary);
+}
+
+#cf-comment-editor .ql-picker-label {
+  border-color: var(--border);
+}
+
+#cf-comment-editor .ql-picker-options {
+  background: var(--bg);
+  border-color: var(--border);
+}
+
+#cf-comment-editor .ql-picker-item:hover {
+  background: var(--bg-secondary);
+}
+
+/* Dark mode adjustments for Quill */
+@media (prefers-color-scheme: dark) {
+  #cf-comment-editor {
+    border-color: var(--border);
+  }
+  #cf-comment-editor .ql-toolbar {
+    border-color: var(--border);
+    background: var(--bg-secondary);
+  }
+  #cf-comment-editor .ql-container {
+    background: var(--bg);
+  }
+  #cf-comment-editor .ql-editor {
+    color: var(--text-primary);
+  }
+  #cf-comment-editor .ql-toolbar button,
+  #cf-comment-editor .ql-toolbar select {
+    color: var(--text-primary);
+  }
+  #cf-comment-editor .ql-stroke {
+    stroke: var(--text-primary);
+  }
+  #cf-comment-editor .ql-fill {
+    fill: var(--text-primary);
+  }
+  #cf-comment-editor .ql-picker-label {
+    border-color: var(--border);
+  }
+  #cf-comment-editor .ql-picker-options {
+    background: var(--bg);
+    border-color: var(--border);
+  }
+  #cf-comment-editor .ql-picker-item:hover {
+    background: var(--bg-secondary);
+  }
 }
 
 

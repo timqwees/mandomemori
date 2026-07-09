@@ -96,6 +96,12 @@ class CartController
     $items = array_values($items);
     $this->writeCart($items);
     $totalQty = array_sum(array_column($items, 'qty'));
+    
+    // Clear order session if cart is empty
+    if ($totalQty === 0) {
+      Session::init(['sf_order_num', 'sf_comment', 'sf_phone', 'sf_order_snapshot'], null);
+    }
+    
     $this->json(['ok' => true, 'count' => $totalQty]);
   }
 
@@ -117,6 +123,12 @@ class CartController
     $items = array_values($items);
     $this->writeCart($items);
     $totalQty = array_sum(array_column($items, 'qty'));
+    
+    // Clear order session if cart is empty
+    if ($totalQty === 0) {
+      Session::init(['sf_order_num', 'sf_comment', 'sf_phone', 'sf_order_snapshot'], null);
+    }
+    
     $this->json(['ok' => true, 'count' => $totalQty]);
   }
 

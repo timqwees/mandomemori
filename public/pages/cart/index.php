@@ -15,6 +15,7 @@ $canonical = $_SERVER['REQUEST_URI'] ?? '/cart';
 $data = Session::init();
 $cartItems = $data['sf_cart'] ?? [];
 $savedPhone = $data['sf_phone'] ?? '';
+$savedComment = $data['sf_comment'] ?? '';
 
 $allSvcs = Functions::getServices();
 $products = [];
@@ -43,8 +44,13 @@ foreach ($cartItems as $item) {
   $totalSum += $p['item_total'];
 }
 
-$orderNum = 'MM-' . date('ymd') . '-' . strtoupper(substr(md5(uniqid()), 0, 6));
-Session::init('sf_order_num', $orderNum);
+if (empty($resolvedItems)) {
+  Session::init(['sf_order_num', 'sf_comment', 'sf_phone', 'sf_order_snapshot'], null);
+  $orderNum = '';
+} else {
+  $orderNum = 'MM-' . date('ymd') . '-' . strtoupper(substr(md5(uniqid()), 0, 6));
+  Session::init('sf_order_num', $orderNum);
+}
 
 require __DIR__ . '/../../partials/header.php';
 ?>
@@ -108,7 +114,19 @@ require __DIR__ . '/../../partials/header.php';
                 <input type="tel" id="cart-phone-input" class="cart-phone-input" placeholder="+7 (999) 999-99-99" value="<?= htmlspecialchars($savedPhone) ?>">
               </div>
               <div class="cart-comment">
-                <label for="cart-comment-editor" class="cart-comment-label">Комментарий к заказу</label>
+                <label class="cart-phone-label" style="font-size: 1rem;font-weight: 600">Комментарий к заказу</label>
+                <style>
+                  .cart-comment .ql-editor {
+                    border: 1px solid #c6c6c6;
+                    border-top: none;
+                  } 
+                  .ql-toolbar.ql-snow {
+                    border: 1px solid #c6c6c6 !important;
+                  }
+                  .cart-comment .ql-editor {
+                    background-color: #fdfbf9;
+                  }
+                </style>
                 <div id="cart-comment-editor"></div>
               </div>
               <a href="/order" class="btn btn-primary cart-checkout-btn" id="checkout-btn">Получить чек</a>
@@ -201,83 +219,100 @@ require __DIR__ . '/../../partials/header.php';
 
 </main>
 
-<?php require __DIR__ . '/../../partials/footer.php'; ?>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css">
-<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+<link rel="stylesheet" href="/public/assets/vendor/quill/quill.snow.css">
+<script src="/public/assets/vendor/quill/quill.js"></script>
 
 <script>
-var quill = new Quill('#cart-comment-editor', {
-  modules: {
-    toolbar: [
-      [{ 'header': [1, 2, 3, false] }],
-      ['bold', 'italic', 'underline', 'strike'],
-      [{ 'color': [] }, { 'background': [] }],
-      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-      ['clean']
-    ]
-  },
-  placeholder: 'Пожелания, особенности обуви, дефекты — опишите заранее, чтобы мастер учёл все детали',
-  theme: 'snow'
-});
+function getCsrf() {
+  var m = document.querySelector('meta[name="csrf-token"]');
+  return m ? m.content : '';
+}
 
-var phoneInput = document.getElementById('cart-phone-input');
-phoneInput.addEventListener('input', function() {
-  var digits = this.value.replace(/\D/g, '').slice(0, 11);
-  var formatted = '';
-  if (digits.length > 0) {
-    formatted = '+7';
-    if (digits.length > 1) {
-      formatted += ' (' + digits.slice(1, 4);
-    }
-    if (digits.length > 4) {
-      formatted += ') ' + digits.slice(4, 7);
-    }
-    if (digits.length > 7) {
-      formatted += '-' + digits.slice(7, 9);
-    }
-    if (digits.length > 9) {
-      formatted += '-' + digits.slice(9, 11);
-    }
-  }
-  this.value = formatted;
-});
+document.addEventListener('DOMContentLoaded', function () {
+  var quill = new Quill('#cart-comment-editor', {
+    theme: 'snow',
+    placeholder: 'Пожелания, особенности обуви, дефекты — опишите заранее, чтобы мастер учёл все детали'
+  });
 
-document.getElementById('checkout-btn').addEventListener('click', function(e) {
-  e.preventDefault();
-  var btn = this;
-  var html = quill.root.innerHTML;
-  var hasText = html !== '<p><br></p>';
-  btn.textContent = 'Формируем чек…';
-  btn.disabled = true;
-  var phone = document.getElementById('cart-phone-input').value.replace(/\D/g, '');
-  var p = Promise.resolve();
-  if (hasText || phone) {
-    p = fetch('/cart/comment', {
+  <?php if ($savedComment !== ''): ?>
+  quill.clipboard.dangerouslyPasteHTML(<?= json_encode($savedComment) ?>);
+  <?php endif; ?>
+
+  var _commentTimer = null;
+  function saveCartComment() {
+    var html = quill.root.innerHTML;
+    if (html === '<p><br></p>') html = '';
+    var phone = document.getElementById('cart-phone-input').value.replace(/\D/g, '');
+    return fetch('/cart/comment', {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({comment: html, phone: phone})
+      headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': getCsrf() },
+      body: JSON.stringify({ comment: html, phone: phone })
     });
   }
-  p.then(function() {
-    return fetch('/checkout');
-  }).then(function(r) {
-    if (!r.ok) throw new Error('Пустая корзина');
-    return r.blob();
-  }).then(function(blob) {
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = 'check-mandomemori-' + Date.now() + '.pdf';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    window.location.href = '/order';
-  }).catch(function() {
-    btn.textContent = 'Получить чек';
-    btn.disabled = false;
-    window.location.href = '/order';
+  quill.on('text-change', function () {
+    clearTimeout(_commentTimer);
+    _commentTimer = setTimeout(saveCartComment, 800);
   });
+
+  // Phone mask
+  var phoneInput = document.getElementById('cart-phone-input');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function () {
+      var digits = this.value.replace(/\D/g, '').slice(0, 11);
+      var formatted = '';
+      if (digits.length > 0) {
+        formatted = '+7';
+        if (digits.length > 1) formatted += ' (' + digits.slice(1, 4);
+        if (digits.length > 4) formatted += ') ' + digits.slice(4, 7);
+        if (digits.length > 7) formatted += '-' + digits.slice(7, 9);
+        if (digits.length > 9) formatted += '-' + digits.slice(9, 11);
+      }
+      this.value = formatted;
+    });
+  }
+
+  // Checkout
+  var checkoutBtn = document.getElementById('checkout-btn');
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var btn = this;
+      var html = quill.root.innerHTML;
+      var hasText = html !== '<p><br></p>';
+      btn.textContent = 'Формируем чек…';
+      btn.disabled = true;
+      var phone = document.getElementById('cart-phone-input').value.replace(/\D/g, '');
+      var p = Promise.resolve();
+      if (hasText || phone) {
+        p = fetch('/cart/comment', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ comment: html, phone: phone })
+        });
+      }
+      p.then(function () {
+        return fetch('/checkout');
+      }).then(function (r) {
+        if (!r.ok) throw new Error('Пустая корзина');
+        return r.blob();
+      }).then(function (blob) {
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'check-mandomemori-' + Date.now() + '.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        window.location.href = '/order';
+      }).catch(function () {
+        btn.textContent = 'Получить чек';
+        btn.disabled = false;
+        window.location.href = '/order';
+      });
+    });
+  }
 });
 </script>
+
+<?php require __DIR__ . '/../../partials/footer.php'; ?>

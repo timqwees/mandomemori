@@ -7908,47 +7908,7 @@ img {
   color: var(--text-primary);
 }
 
-.cart-comment {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
-  width: 100%;
-}
-
-.cart-comment-label {
-  display: block;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  margin-bottom: 10px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-#cart-comment-editor .ql-editor {
-  height: 150px !important;
-}
-
-#cart-comment-editor {
-  width: 100%;
-}
-
-#cart-comment-editor .ql-toolbar {
-  border-radius: 12px 12px 0 0;
-  border: 1.5px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-#cart-comment-editor .ql-container.ql-snow {
-  border: 1.5px solid var(--border);
-  border-top: none;
-}
-
-#cart-comment-editor .ql-editor.ql-blank::before {
-  color: var(--text-muted);
-  opacity: 0.7;
-  font-style: normal;
-}
+.cart-comment{width:600px;max-width:100%}.cart-comment .ql-toolbar.ql-snow{border:none;border-bottom:1px solid var(--text-primary);background:transparent;padding:8px 10px}.cart-comment .ql-container.ql-snow{border:none;font-family:var(--font);font-size:1rem}.cart-comment .ql-editor{min-height:150px;padding:14px 16px;color:var(--text-primary);line-height:1.6;font-size:1rem}.cart-comment .ql-editor.ql-blank::before{color:var(--text-muted);opacity:.8;font-style:normal;font-family:var(--font);left:16px;right:16px}
 
 .cart-phone {
   margin-top: 20px;
@@ -8376,3 +8336,6 @@ img {
     width: 100%;
   }
 }
+
+/* ── Quill Editor (Order Page Comment) ───────────────── */
+.ql-container{border:none!important}.ql-editor{min-height:120px;font-family:inherit;font-size:.9375rem;line-height:1.6}.ql-toolbar{border:none!important;border-bottom:1px solid var(--border)!important;background:var(--bg-secondary)!important;padding:8px 12px!important}.ql-toolbar .ql-stroke{stroke:var(--text-primary)}.ql-toolbar .ql-fill{fill:var(--text-primary)}.ql-toolbar .ql-picker-label{border-color:var(--border)!important;color:var(--text-primary)!important}.ql-toolbar .ql-picker-options{background:var(--bg)!important;border-color:var(--border)!important}.ql-toolbar .ql-picker-item{color:var(--text-primary)}.ql-snow .ql-stroke{stroke:var(--text-primary)}.ql-snow .ql-fill{fill:var(--text-primary)}.ql-editor.ql-blank::before{color:var(--text-muted);font-style:italic;font-size:.9375rem}

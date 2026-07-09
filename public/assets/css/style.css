@@ -5577,45 +5577,38 @@ a.promo-banner-text:hover {
 }
 
 .cart-comment {
-  margin-top: 24px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
-  width: 100%;
+  width: 600px;
+  max-width: 100%;
 }
 
-.cart-comment-label {
-  display: block;
-  font-size: 0.8125rem;
-  font-weight: 600;
+.cart-comment .ql-toolbar.ql-snow {
+  border: none;
+  border-bottom: 1px solid var(--text-primary);
+  background: transparent;
+  padding: 8px 10px;
+}
+
+.cart-comment .ql-container.ql-snow {
+  border: none;
+  font-family: var(--font);
+  font-size: 1rem;
+}
+
+.cart-comment .ql-editor {
+  min-height: 150px;
+  padding: 14px 16px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.cart-comment .ql-editor.ql-blank::before {
   color: var(--text-muted);
-  margin-bottom: 10px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-#cart-comment-editor .ql-editor {
-  height: 150px !important;
-}
-
-#cart-comment-editor {
-  width: 100%;
-}
-
-#cart-comment-editor .ql-toolbar {
-  border-radius: 12px 12px 0 0;
-  border: 1.5px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-#cart-comment-editor .ql-container.ql-snow {
-  border: 1.5px solid var(--border);
-  border-top: none;
-}
-
-#cart-comment-editor .ql-editor.ql-blank::before {
-  color: var(--text-muted);
-  opacity: 0.7;
+  opacity: 0.8;
   font-style: normal;
+  font-family: var(--font);
+  left: 16px;
+  right: 16px;
 }
 
 .cart-continue-link {
