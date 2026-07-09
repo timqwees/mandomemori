@@ -6265,6 +6265,56 @@ a.promo-banner-text:hover {
   margin-top: 28px;
 }
 
+.bottom-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 900;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  transform: translateY(140%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.bottom-cta--visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bottom-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.bottom-cta__btn--phone {
+  background: rgba(28, 21, 18, 0.55);
+}
+
+.bottom-cta__btn--tg {
+  background: rgba(0, 136, 204, 0.55);
+}
+
+.bottom-cta__btn:hover {
+  transform: translateY(-2px);
+}
+
 /* ── Checkout map: full-width on mobile, no double border ─── */
 @media (max-width: 600px) {
   .checkout-pvz-map {
