@@ -103,7 +103,7 @@ img {
 .nav {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
   padding-block: 10px;
 }
 
@@ -878,7 +878,7 @@ img {
     height: 80vh;
   }
   .scroll-hero__heading {
-    font-size: clamp(1.5rem, 7vw, 2.5rem);
+    font-size: clamp(2rem, 7vw, 2.5rem);
   }
 }
 
@@ -4771,13 +4771,17 @@ a.promo-banner-text:hover {
     -webkit-backdrop-filter: none;
   }
 
+  .header-right {
+    gap: 0;
+  }
+
   .burger {
     display: flex;
   }
 
   .nav {
     position: fixed;
-    top: 52px;
+    top: 74px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -4788,7 +4792,7 @@ a.promo-banner-text:hover {
     align-items: stretch;
     justify-content: flex-start;
     gap: 0;
-    padding: 8px 32px;
+    padding: 8px 0;
     z-index: 9999;
     opacity: 0;
     pointer-events: none;
@@ -4805,7 +4809,7 @@ a.promo-banner-text:hover {
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: -0.01em;
-    padding: 18px 0;
+    padding: 18px 32px;
     color: var(--text-primary);
     border-bottom: 1px solid var(--border);
   }
@@ -4820,7 +4824,7 @@ a.promo-banner-text:hover {
 
   .city-selector-mobile {
     display: block;
-    padding: 12px 0;
+    padding: 12px 32px;
   }
 
   .city-selector-mobile .city-selector-btn {
@@ -6501,12 +6505,20 @@ body {
 }
 
 .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-weight: 500;
   font-size: 0.8125rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--text-secondary);
   transition: color 0.25s ease;
+}
+
+.nav-link svg {
+  display: block;
+  flex-shrink: 0;
 }
 
 .nav-link:hover,
@@ -8291,5 +8303,57 @@ img {
 
   .footer-copy {
     text-align: left;
+  }
+}
+
+.flex { display: flex; }
+.items-center { align-items: center; }
+.gap-3 { gap: 0.75rem; }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu_btn--icon {
+  width: 2.25rem;
+  padding: 0.5rem;
+  justify-content: center;
+}
+
+.burger .burger-icon--close { display: none; }
+.burger.active .burger-icon--open { display: none; }
+.burger.active .burger-icon--close { display: block; }
+
+.burger {
+  background: none;
+  cursor: pointer;
+  z-index: 110;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0.5rem;
+  color: var(--text-primary);
+}
+
+@media (max-width: 767px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-img {
+    padding: 4px;
   }
 }

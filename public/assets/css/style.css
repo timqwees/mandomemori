@@ -103,7 +103,7 @@ img {
 .nav {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
   padding-block: 10px;
 }
 
@@ -878,7 +878,7 @@ img {
     height: 80vh;
   }
   .scroll-hero__heading {
-    font-size: clamp(1.5rem, 7vw, 2.5rem);
+    font-size: clamp(2rem, 7vw, 2.5rem);
   }
 }
 
@@ -4565,13 +4565,17 @@ a.promo-banner-text:hover {
     -webkit-backdrop-filter: none;
   }
 
+  .header-right {
+    gap: 0;
+  }
+
   .burger {
     display: flex;
   }
 
   .nav {
     position: fixed;
-    top: 52px;
+    top: 74px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -4582,7 +4586,7 @@ a.promo-banner-text:hover {
     align-items: stretch;
     justify-content: flex-start;
     gap: 0;
-    padding: 8px 32px;
+    padding: 8px 0;
     z-index: 9999;
     opacity: 0;
     pointer-events: none;
@@ -4599,7 +4603,7 @@ a.promo-banner-text:hover {
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: -0.01em;
-    padding: 18px 0;
+    padding: 18px 32px;
     color: var(--text-primary);
     border-bottom: 1px solid var(--border);
   }
@@ -4614,7 +4618,7 @@ a.promo-banner-text:hover {
 
   .city-selector-mobile {
     display: block;
-    padding: 12px 0;
+    padding: 12px 32px;
   }
 
   .city-selector-mobile .city-selector-btn {
