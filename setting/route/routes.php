@@ -1,5 +1,7 @@
 <?php
 
+namespace Setting\route;
+
 use App\Models\Router\Routes;
 use Setting\Route\Function\Functions;
 use App\Controllers\HomeController;
