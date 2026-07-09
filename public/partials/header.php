@@ -70,7 +70,6 @@ $siteUrl = "$scheme://$host";
   <?php endif; ?>
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Перейти к основному контенту</a>
 
   <header class="header" style="padding-block: 10px">
     <div class="container">
