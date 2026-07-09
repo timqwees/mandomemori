@@ -83,10 +83,10 @@ require __DIR__ . '/../../partials/header.php';
             </div>
 
             <div class="contacts-duo-links">
-                <div class="contacts-duo-link">
+                <!--<div class="contacts-duo-link">
                   <span>Наш адрес</span>
                   <span style="color:rgba(255,255,255,0.8)">Москва, Петровка 15/13 стр.5</span>
-                </div>
+                </div>-->
                 <div class="contacts-duo-link">
                   <span>Telegram</span>
                   <a href="https://t.me/mandomemori_bot" target="_blank">mandomemori_bot</a>
