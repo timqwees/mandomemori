@@ -3,7 +3,7 @@
       <div class="footer-grid">
         <div class="footer-col footer-col--brand">
           <a href="/" class="footer-logo">
-            <img src="/public/assets/images/favicon_full_white.svg" alt="MANDO MEMORI" class="footer-logo-img">
+            <img src="/public/assets/images/favicon_full_white.svg" alt="MANDO MEMORI" class="footer-logo-img" width="90" height="52">
           </a>
           <p class="footer-brand-desc">Профессиональная химчистка обуви в Москве. Чистка кроссовок, отбеливание подошвы, покраска, реставрация. Бесплатная доставка курьером.</p>
           <div class="footer-social">
@@ -17,7 +17,7 @@
         </div>
 
         <div class="footer-col footer-col--nav">
-          <h4 class="footer-col-title">Услуги</h4>
+          <h2 class="footer-col-title">Услуги</h2>
           <nav class="footer-nav">
             <a href="/product/cleaning">Чистка</a>
             <a href="/product/whitening">Отбеливание подошвы</a>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="footer-col footer-col--nav">
-          <h4 class="footer-col-title">О компании</h4>
+          <h2 class="footer-col-title">О компании</h2>
           <nav class="footer-nav">
             <a href="/about">О нас</a>
             <a href="/before-after">До / После</a>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="footer-col footer-col--contact">
-          <h4 class="footer-col-title">Контакты</h4>
+          <h2 class="footer-col-title">Контакты</h2>
           <div class="footer-contact-list">
 
             <a href="tel:+74951980495" class="footer-contact-item">
@@ -151,19 +151,29 @@
 
   <script>
     window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":""};
-    (function(d,t) {
-      var BASE_URL="https://app.chatwoot.com";
-      var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=BASE_URL+"/packs/js/sdk.js";
-      g.async = true;
-      s.parentNode.insertBefore(g,s);
-      g.onload=function(){
-        window.chatwootSDK.run({
-          websiteToken: 'pTmipPDsScmgdWfdxNwFimow',
-          baseUrl: BASE_URL
-        })
-      }
-    })(document,"script");
+    let chatwootLoaded = false;
+    function loadChatwoot() {
+      if (chatwootLoaded) return;
+      chatwootLoaded = true;
+      (function(d,t) {
+        var BASE_URL="https://app.chatwoot.com";
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=BASE_URL+"/packs/js/sdk.js";
+        g.async = true;
+        s.parentNode.insertBefore(g,s);
+        g.onload=function(){
+          window.chatwootSDK.run({
+            websiteToken: 'pTmipPDsScmgdWfdxNwFimow',
+            baseUrl: BASE_URL
+          })
+        }
+      })(document,"script");
+    }
+    // Load Chatwoot on first user interaction (scroll, click, or after 3s)
+    ['scroll', 'click', 'keydown', 'touchstart'].forEach(function(evt) {
+      window.addEventListener(evt, loadChatwoot, { once: true, passive: true });
+    });
+    setTimeout(loadChatwoot, 3000);
   </script>
   <script src="/public/assets/js/mandomemori/main.js" defer></script>
   <script src="/public/assets/js/mandomemori/cart.js" defer></script>

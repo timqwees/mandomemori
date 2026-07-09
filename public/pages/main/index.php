@@ -15,7 +15,9 @@ require __DIR__ . '/../../partials/header.php';
 <main class="main">
   <section class="scroll-hero" id="scroll-hero">
     <div class="scroll-hero__sticky">
-      <video class="scroll-hero__video" id="scroll-hero-video" src="/public/assets/images/mandomemori/heroBG.mp4" data-src-desktop="/public/assets/images/mandomemori/heroBG.mp4" data-src-mobile="/public/assets/images/mandomemori/heroBG.mp4" muted playsinline webkit-playsinline preload="none"></video>
+      <video class="scroll-hero__video" id="scroll-hero-video" src="/public/assets/images/mandomemori/heroBG.mp4" data-src-desktop="/public/assets/images/mandomemori/heroBG.mp4" data-src-mobile="/public/assets/images/mandomemori/heroBG.mp4" muted playsinline webkit-playsinline preload="metadata" poster="/public/assets/images/mandomemori/hero-poster.jpg">
+        <track kind="captions" src="/public/assets/video/hero-captions.vtt" srclang="ru" label="Русский" default>
+      </video>
       <div class="scroll-hero__overlay"></div>
       <div class="scroll-hero__loader" id="scroll-hero-loader">
         <div class="scroll-hero__spinner"></div>
@@ -128,7 +130,7 @@ require __DIR__ . '/../../partials/header.php';
             <p class="product-card-desc">от <?= $p['price_formatted'] ?> ₽ за пару</p>
           </div>
           <div class="product-card-image">
-            <img src="/public/assets/images/<?= $p['img'] ?>" alt="<?= $p['title'] ?>" loading="lazy">
+            <img src="/public/assets/images/<?= $p['img'] ?>" alt="<?= $p['title'] ?>" loading="lazy" width="487" height="324">
           </div>
           <div class="product-card-action">
             <a href="/product/<?= $p['slug'] ?>" class="product-card-btn product-card-btn-detail">Подробнее</a>
@@ -154,7 +156,7 @@ require __DIR__ . '/../../partials/header.php';
       // Original + first 4 appended for seamless loop
       foreach (array_merge($portfolio, array_slice($portfolio, 0, 4)) as $img): ?>
       <div class="portfolio-slide">
-        <img src="/public/assets/images/mandomemori/<?= $img ?>" alt="MANDO MEMORI — до и после химчистки" loading="lazy" draggable="false">
+        <img src="/public/assets/images/mandomemori/<?= $img ?>" alt="MANDO MEMORI — до и после химчистки" loading="lazy" draggable="false" width="595" height="595">
       </div>
       <?php endforeach; ?>
     </div>
@@ -215,7 +217,7 @@ require __DIR__ . '/../../partials/header.php';
         <div class="hstack-card">
           <div class="hstack-inner">
             <div class="hstack-img">
-              <img src="/public/assets/images/mandomemori/<?= $hc['img'] ?>" alt="" loading="lazy">
+              <img src="/public/assets/images/mandomemori/<?= $hc['img'] ?>" alt="" loading="lazy" width="520" height="350">
             </div>
             <div class="hstack-text">
               <div class="hstack-utp">
@@ -233,10 +235,10 @@ require __DIR__ . '/../../partials/header.php';
       <?php endforeach; ?>
     </div>
     <div class="hstack-dots">
-      <button class="hstack-dot active" data-index="0"></button>
-      <button class="hstack-dot" data-index="1"></button>
-      <button class="hstack-dot" data-index="2"></button>
-      <button class="hstack-dot" data-index="3"></button>
+      <button class="hstack-dot active" data-index="0" aria-label="Слайд 1: Доверенная химчистка"></button>
+      <button class="hstack-dot" data-index="1" aria-label="Слайд 2: Профессиональное оборудование"></button>
+      <button class="hstack-dot" data-index="2" aria-label="Слайд 3: Эко-составы"></button>
+      <button class="hstack-dot" data-index="3" aria-label="Слайд 4: Доставка и удобство"></button>
     </div>
   </section>
 

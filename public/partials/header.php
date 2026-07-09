@@ -22,17 +22,24 @@ $siteUrl = "$scheme://$host";
     "image" => $ogImage ?? null,
     "robots" => $robots ?? null,
   ]) ?>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"></noscript>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://unpkg.com" crossorigin>
   <link rel="preload" href="/public/assets/css/mandomemori.min.css" as="style" fetchpriority="high">
+  <link rel="preload" as="image" href="/public/assets/images/mandomemori/hero-poster.jpg" fetchpriority="high">
   <link rel="stylesheet" href="/public/assets/css/mandomemori.min.css" media="print" onload="this.media='all'">
   <link rel="icon" href="/public/assets/images/favicon.svg" sizes="48x48" type="image/svg+xml">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/public/assets/images/favicon.svg">
   <meta name="csrf-token" content="3bd5a1ea01eec4cc5fac232d54cfe19be1beb147477f69e057180030166a8e04">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://mc.yandex.ru https://d3smg0hrzo6i7w.cloudfront.net https://app.chatwoot.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.googletagmanager.com https://mc.yandex.ru https://app.chatwoot.com wss://app.chatwoot.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
   <link rel="manifest" href="/manifest.json">
 
   <?php
@@ -63,11 +70,12 @@ $siteUrl = "$scheme://$host";
   <?php endif; ?>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Перейти к основному контенту</a>
 
   <header class="header" style="padding-block: 10px">
     <div class="container">
       <a href="/" class="logo">
-        <img src="/public/assets/images/favicon_full_black.svg" alt="MANDO MEMORI — химчистка обуви Москва" class="logo-img">
+        <img src="/public/assets/images/favicon_full_black.svg" alt="MANDO MEMORI — химчистка обуви Москва" class="logo-img" width="90" height="52">
       </a>
       <div class="header-right">
         <nav class="nav" id="main-nav">

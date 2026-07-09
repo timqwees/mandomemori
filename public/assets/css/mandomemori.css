@@ -1625,6 +1625,11 @@ img {
   .trust-bar {
     display: none;
   }
+  .ba-stack-item.visible {
+    opacity: 1;
+    transform: translateX(40px);
+    width: 100%;
+  }
 }
 
 .header-actions {
@@ -1667,6 +1672,39 @@ img {
   .logo-img {
     padding: 4px;
   }
+}
+
+/* ── Skip Link ────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.875rem;
+  z-index: 10000;
+  text-decoration: none;
+  transition: top 0.3s ease;
+}
+.skip-link:focus {
+  top: 16px;
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ── Touch Targets ────────────────────────────────────── */
+button, a, input, select, textarea {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* ── Video Poster ─────────────────────────────────────── */
+.scroll-hero__video {
+  aspect-ratio: 16/9;
 }
 
 

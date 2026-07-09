@@ -36,7 +36,7 @@
 
 .footer-brand-desc {
   font-size: 0.8125rem;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.85);
   line-height: 1.6;
   margin: 16px 0;
   max-width: 260px;
@@ -187,7 +187,7 @@
 
 .cookie-banner {
   background: #1C1512;
-  color: rgba(255, 255, 255, 0.85);
+  color: #fff;
 }
 
 .cookie-banner-btn {
