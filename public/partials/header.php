@@ -69,20 +69,20 @@ $siteUrl = "$scheme://$host";
       <a href="/" class="logo">
         <img src="/public/assets/images/favicon_full_black.svg" alt="MANDO MEMORI — химчистка обуви Москва" class="logo-img">
       </a>
-      <nav class="nav" id="main-nav">
-        <a href="/products" class="nav-link">Услуги</a>
-        <a href="/about" class="nav-link">О нас</a>
-        <a href="/before-after" class="nav-link">До/После</a>
-        <a href="/order" class="nav-link">Передать обувь</a>
-        <a href="/contacts" class="nav-link">Контакты</a>
-        <div class="city-selector city-selector-mobile">
-          <span class="city-selector-btn">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1C5.24 1 3 3.24 3 6c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="currentColor"/></svg>
-            Москва
-          </span>
-        </div>
-      </nav>
       <div class="header-right">
+        <nav class="nav" id="main-nav">
+          <a href="/products" class="nav-link">Услуги</a>
+          <a href="/about" class="nav-link">О нас</a>
+          <a href="/before-after" class="nav-link">До/После</a>
+          <a href="/order" class="nav-link">Передать обувь</a>
+          <a href="/contacts" class="nav-link">Контакты</a>
+          <div class="city-selector city-selector-mobile">
+            <span class="city-selector-btn">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1C5.24 1 3 3.24 3 6c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="currentColor"/></svg>
+              Москва
+            </span>
+          </div>
+        </nav>
           <!--phone-->
           <a href="tel:+79152527575" class="menu_btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
