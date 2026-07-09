@@ -12,6 +12,9 @@ class SeoController
   }
 
   // ── Парсинг $siteINFO из файла без выполнения ────────────────
+  /**
+   * @return array<int|string, mixed>
+   */
   private function extractSiteINFO(string $file): array
   {
     $content = @file_get_contents($file);
@@ -32,6 +35,9 @@ class SeoController
   }
 
   // ── Сбор всех страниц с их $siteINFO ─────────────────────────
+  /**
+   * @return array<int, array<string, mixed>>
+   */
   private function extractAllPages(): array
   {
     static $pages = null;
