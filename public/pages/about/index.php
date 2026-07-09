@@ -698,7 +698,7 @@ html, body { background: #121212; margin: 0; }
         <section class="anp-cards">
           <div class="anp-cards__grid">
               <article class="anp-card" id="s-kurer">
-                  <div class="anp-card__media"><img src="/public/assets/images/mandomemori/сравнение1.jpg" alt="Курьерская доставка MANDO MEMORI" loading="lazy"></div>
+                  <div class="anp-card__media"><img src="/public/assets/images/mandomemori/curier.png" alt="Курьерская доставка MANDO MEMORI" loading="lazy"></div>
                 <div class="anp-card__body">
                   <h2 class="anp-card__title" data-blur-title>Курьер</h2>
                   <div class="anp-card__content" data-blur-content><p>Бесплатно забираем обувь курьером и привозим обратно после чистки. Курьер приезжает в удобное время — вы называете номер заказа, и он забирает обувь для передачи мастерам.</p></div>
