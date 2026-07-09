@@ -6355,6 +6355,7 @@ a.promo-banner-text:hover {
 /* ── Generic button (used in cart, etc.) ──────────────────── */
 .menu_btn {
   display: inline-flex;
+  color: black;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
