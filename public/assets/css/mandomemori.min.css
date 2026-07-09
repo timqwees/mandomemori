@@ -8356,4 +8356,7 @@ img {
   .logo-img {
     padding: 4px;
   }
+  .trust-bar {
+    display: none;
+  }
 }
