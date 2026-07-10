@@ -14,7 +14,6 @@ $canonical = $_SERVER['REQUEST_URI'] ?? '/cart';
 
 $data = Session::init();
 $cartItems = $data['sf_cart'] ?? [];
-$savedPhone = $data['sf_phone'] ?? '';
 $savedComment = $data['sf_comment'] ?? '';
 
 $allSvcs = Functions::getServices();
@@ -108,10 +107,6 @@ require __DIR__ . '/../../partials/header.php';
               <div class="cart-summary-row cart-summary-row--total">
                 <span>Итого</span>
                 <span id="cart-total"><?= number_format($totalSum, 0, '', ' ') ?> ₽</span>
-              </div>
-              <div class="cart-phone">
-                <label for="cart-phone-input" class="cart-phone-label">Номер телефона</label>
-                <input type="tel" id="cart-phone-input" class="cart-phone-input" placeholder="+7 (999) 999-99-99" value="<?= htmlspecialchars($savedPhone) ?>">
               </div>
               <div class="cart-comment">
                 <label class="cart-phone-label" style="font-size: 1rem;font-weight: 600">Комментарий к заказу</label>
@@ -221,11 +216,10 @@ document.addEventListener('DOMContentLoaded', function () {
   function saveCartComment() {
     var html = quill.root.innerHTML;
     if (html === '<p><br></p>') html = '';
-    var phone = document.getElementById('cart-phone-input').value.replace(/\D/g, '');
     return fetch('/cart/comment', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': getCsrf() },
-      body: JSON.stringify({ comment: html, phone: phone })
+      body: JSON.stringify({ comment: html })
     });
   }
   quill.on('text-change', function () {
@@ -233,37 +227,19 @@ document.addEventListener('DOMContentLoaded', function () {
     _commentTimer = setTimeout(saveCartComment, 800);
   });
 
-  // Phone mask
-  var phoneInput = document.getElementById('cart-phone-input');
-  if (phoneInput) {
-    phoneInput.addEventListener('input', function () {
-      var digits = this.value.replace(/\D/g, '').slice(0, 11);
-      var formatted = '';
-      if (digits.length > 0) {
-        formatted = '+7';
-        if (digits.length > 1) formatted += ' (' + digits.slice(1, 4);
-        if (digits.length > 4) formatted += ') ' + digits.slice(4, 7);
-        if (digits.length > 7) formatted += '-' + digits.slice(7, 9);
-        if (digits.length > 9) formatted += '-' + digits.slice(9, 11);
-      }
-      this.value = formatted;
-    });
-  }
-
-  // Checkout — save comment/phone and redirect
+  // Checkout — save comment and redirect
   var checkoutBtn = document.getElementById('checkout-btn');
   if (checkoutBtn) {
     checkoutBtn.addEventListener('click', function (e) {
       e.preventDefault();
       var html = quill.root.innerHTML;
       var hasText = html !== '<p><br></p>';
-      var phone = document.getElementById('cart-phone-input').value.replace(/\D/g, '');
       var p = Promise.resolve();
-      if (hasText || phone) {
+      if (hasText) {
         p = fetch('/cart/comment', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ comment: html, phone: phone })
+          body: JSON.stringify({ comment: html })
         });
       }
       p.then(function () {
