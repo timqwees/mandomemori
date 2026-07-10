@@ -74,6 +74,7 @@ require __DIR__ . '/../../partials/header.php';
         ['file' => 'beforeafter9.png',  'bg' => '#680202'],
         ['file' => 'beforeafter10.png', 'bg' => '#1c1f30'],
         ['file' => 'beforeafter11.png', 'bg' => '#281c17'],
+        ['file' => 'beforeafter12.png', 'bg' => '#281c17'],
       ];
       foreach ($baItems as $i => $item):
         $name = $item['file'];
