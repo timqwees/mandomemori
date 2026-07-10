@@ -34,7 +34,7 @@ $canonical = '/blog/' . $article['url'];
 $ogImage = $article['image'];
 require __DIR__ . '/../../../partials/header.php';
 
-$tops = array_filter($articlesJson, fn($a) => (int)$a['id'] !== (int)$id);
+$tops = array_filter($articlesJson, fn($a) => (int)$a['id'] !== (int)$article['id']);
 $tops = array_slice(array_values($tops), 0, 5);
 ?>
 <main class="main article-page">
