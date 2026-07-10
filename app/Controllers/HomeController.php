@@ -98,7 +98,7 @@ class HomeController
 
     public function onBlogArticle(...$args)
     {
-        $slug = $args['slug'] ?? ($args[1] ?? '');
+        $slug = $args[1] ?? '';
         require __DIR__ . '/../../public/pages/blog/article/index.php';
     }
 

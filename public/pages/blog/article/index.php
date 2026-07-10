@@ -3,7 +3,7 @@ use Setting\Route\Function\Functions;
 $seo = Functions::seo();
 $notify = Functions::notify();
 
-$slug = $args['slug'] ?? '';
+$slug = $args[1] ?? '';
 $articlesPath = __DIR__ . '/../data/articles.json';
 $articlesJson = json_decode(file_get_contents($articlesPath), true) ?: [];
 $article = null;
