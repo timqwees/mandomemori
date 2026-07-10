@@ -81,13 +81,13 @@ $siteUrl = "$scheme://$host";
           <a href="/products" class="nav-link" itemprop="url"><span itemprop="name">Услуги</span></a>
           <a href="/about" class="nav-link" itemprop="url"><span itemprop="name">О нас</span></a>
           <a href="/before-after" class="nav-link" itemprop="url"><span itemprop="name">До/После</span></a>
-          <a href="/blog" class="nav-link" style="align-items:center" itemprop="url">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-            <span itemprop="name">Блог</span>
-          </a>
           <a href="/order" class="nav-link" style="align-items: center;" itemprop="url">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/><line x1="8" y1="16" x2="8" y2="3"/></svg>
             <span itemprop="name">Передать обувь</span>
+          </a>
+          <a href="/blog" class="nav-link" style="align-items:center" itemprop="url">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+            <span itemprop="name">Блог</span>
           </a>
           <a href="/contacts" class="nav-link" itemprop="url"><span itemprop="name">Контакты</span></a>
           <div class="city-selector city-selector-mobile">
