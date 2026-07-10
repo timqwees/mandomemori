@@ -9,6 +9,7 @@ $pageTitle = $pageTitle ?? 'MANDO MEMORI — химчистка обуви в М
 $pageDesc = $pageDesc ?? 'MANDO MEMORI — профессиональная химчистка обуви в Москве. Чистка кроссовок, замши, нубука, кожи. Отбеливание подошвы, покраска, реставрация. Бесплатная доставка.';
 $pageKeywords = $pageKeywords ?? 'химчистка обуви Москва, чистка кроссовок, отбеливание подошвы, химчистка замши, реставрация обуви, MANDO MEMORI';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/';
+echo '<link rel="preload" as="image" href="/public/assets/images/mandomemori/hero-poster.jpg" fetchpriority="high">';
 require __DIR__ . '/../../partials/header.php';
 ?>
 

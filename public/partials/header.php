@@ -29,7 +29,6 @@ $siteUrl = "$scheme://$host";
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://unpkg.com" crossorigin>
   <link rel="preload" href="/public/assets/css/mandomemori.min.css" as="style" fetchpriority="high">
-  <link rel="preload" as="image" href="/public/assets/images/mandomemori/hero-poster.jpg" fetchpriority="high">
   <link rel="stylesheet" href="/public/assets/css/mandomemori.min.css" media="print" onload="this.media='all'">
   <link rel="icon" href="/public/assets/images/favicon.svg" sizes="48x48" type="image/svg+xml">
   <link rel="icon" href="/public/favicon.ico" sizes="any">
