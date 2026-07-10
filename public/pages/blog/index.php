@@ -77,7 +77,7 @@ $tops = array_slice($articlesJson, 0, 5);
                   <p class="blog-card-text" itemprop="description"><?= htmlspecialchars(mb_substr($article['content'], 0, 150)) ?>...</p>
                   <div class="blog-card-meta">
                     <span class="blog-card-date"><time itemprop="datePublished" datetime="<?= date('c', strtotime($article['created_at'])) ?>"><?= date('d.m.Y', strtotime($article['created_at'])) ?></time></span>
-                    <a href="/blog/article/<?= $article['id'] ?>" class="blog-card-btn" itemprop="url">Читать далее →</a>
+                    <a href="/blog/<?= $article['url'] ?>" class="blog-card-btn" itemprop="url">Читать далее →</a>
                   </div>
                 </div>
               </div>
@@ -110,7 +110,7 @@ $tops = array_slice($articlesJson, 0, 5);
             <div class="blog-sidebar-header">Популярные статьи</div>
             <div class="blog-sidebar-body">
               <?php foreach ($tops as $i => $item): ?>
-              <a class="blog-popular-item" href="/blog/article/<?= $item['id'] ?>">
+              <a class="blog-popular-item" href="/blog/<?= $item['url'] ?>">
                 <span class="blog-popular-num"><?= $i + 1 ?></span>
                 <div class="blog-popular-body">
                   <div class="blog-popular-title"><?= htmlspecialchars($item['title']) ?></div>

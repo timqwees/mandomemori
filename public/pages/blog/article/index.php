@@ -3,12 +3,12 @@ use Setting\Route\Function\Functions;
 $seo = Functions::seo();
 $notify = Functions::notify();
 
-$id = $args['id'] ?? 0;
+$slug = $args['slug'] ?? '';
 $articlesPath = __DIR__ . '/../data/articles.json';
 $articlesJson = json_decode(file_get_contents($articlesPath), true) ?: [];
 $article = null;
 foreach ($articlesJson as $a) {
-  if ((int)$a['id'] === (int)$id) { $article = $a; break; }
+  if ($a['url'] === $slug) { $article = $a; break; }
 }
 
 if (!$article) {
@@ -22,15 +22,15 @@ if (!$article) {
 }
 
 $siteURL = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? 'mandomemori.ru');
-$articleUrl = $siteURL . '/blog/article/' . $article['id'];
+$articleUrl = $siteURL . '/blog/' . $article['url'];
 $articleImage = $siteURL . $article['image'];
 
-$siteINFO = ['canonical' => '/blog/article/' . $article['id'], 'priority' => '0.7', 'changefreq' => 'monthly', 'index' => 'articles'];
+$siteINFO = ['canonical' => '/blog/' . $article['url'], 'priority' => '0.7', 'changefreq' => 'monthly', 'index' => 'articles'];
 $pageTitle = $article['title'] . ' — MANDO MEMORI';
 $pageDesc = $article['meta_description'];
 $pageKeywords = $article['tags'];
 $robots = 'index, follow';
-$canonical = '/blog/article/' . $article['id'];
+$canonical = '/blog/' . $article['url'];
 $ogImage = $article['image'];
 require __DIR__ . '/../../../partials/header.php';
 
@@ -102,7 +102,7 @@ $tops = array_slice(array_values($tops), 0, 5);
             <div class="article-sidebar-header">Читайте также</div>
             <div class="article-sidebar-body">
               <?php foreach ($tops as $item): ?>
-              <a class="article-popular-item" href="/blog/article/<?= $item['id'] ?>">
+              <a class="article-popular-item" href="/blog/<?= $item['url'] ?>">
                 <span class="article-popular-num"><?= htmlspecialchars($item['title']) ?></span>
                 <span class="article-popular-date"><?= date('d.m.Y', strtotime($item['created_at'])) ?></span>
               </a>

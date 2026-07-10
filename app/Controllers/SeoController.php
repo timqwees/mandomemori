@@ -123,11 +123,7 @@ class SeoController
       }
     }
 
-    if (empty($filtered)) {
-      http_response_code(404);
-      echo '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"/>';
-      return;
-    }
+    $s = $this->site();
 
     echo '<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -137,12 +133,27 @@ class SeoController
       $priority = $p['priority'] ?? '0.5';
       $changefreq = $p['changefreq'] ?? 'monthly';
       echo "  <url>\n"
-        . "    <loc>" . $this->site() . $p['canonical'] . "</loc>\n"
+        . "    <loc>" . $s . $p['canonical'] . "</loc>\n"
         . "    <lastmod>$lastmod</lastmod>\n"
         . "    <changefreq>$changefreq</changefreq>\n"
         . "    <priority>$priority</priority>\n"
         . "  </url>\n";
     }
+
+    if ($name === 'articles') {
+      $articles = $this->loadArticles();
+      foreach ($articles as $a) {
+        $url = $s . '/blog/' . $a['url'];
+        $lastmod = date('Y-m-d', strtotime($a['updated_at']));
+        echo "  <url>\n"
+          . "    <loc>$url</loc>\n"
+          . "    <lastmod>$lastmod</lastmod>\n"
+          . "    <changefreq>monthly</changefreq>\n"
+          . "    <priority>0.7</priority>\n"
+          . "  </url>\n";
+      }
+    }
+
     echo '</urlset>';
   }
 
@@ -169,57 +180,95 @@ class SeoController
   {
     $s = $this->site();
     header('Content-Type: text/plain; charset=utf-8');
-    echo "# MANDO MEMORI — химчистка обуви в Москве\n"
-      . "> Профессиональная химчистка и уход за обувью.\n"
-      . "> Сайт: $s\n"
-      . "> Telegram: mandomemori_bot\n"
-      . "> Телефон: +7 (915) 252-75-75\n\n"
-      . "## Услуги\n";
 
-    $pages = $this->extractAllPages();
     $services = \Setting\Route\Function\Functions::getServices();
-    foreach ($pages as $p) {
-      $route = $p['canonical'];
-      if (str_starts_with($route, '/product/')) {
-        $slug = substr($route, 9);
-        $svc = current(array_filter($services, fn($s) => $s['slug'] === $slug));
-        $label = $svc ? $svc['title'] . ' — ' . $svc['price_formatted'] . '₽' : $slug;
-        echo "- $label\n";
-      }
+    $articles = $this->loadArticles();
+
+    echo "# MANDO MEMORI\n\n"
+      . "> MANDO MEMORI — профессиональная химчистка обуви в Москве: чистка кроссовок, отбеливание подошвы, покраска и реставрация. Бесплатная доставка курьером. Работаем с 2015 года.\n\n"
+      . "Ключевая информация:\n"
+      . "- Телефон: +7 (915) 252-75-75\n"
+      . "- Telegram: https://t.me/mandomemori_bot\n"
+      . "- Email: info@mmclean.ru\n"
+      . "- Адрес: Москва, Петровка 15/13 стр.5, ежедневно 10:00–22:00\n"
+      . "- Средняя оценка: 4.9★, более 10 000 довольных клиентов\n"
+      . "- Бесплатная доставка курьером по Москве и МО\n"
+      . "- Оплата только после выполнения работы\n\n"
+      . "## Услуги и цены\n";
+
+    foreach ($services as $svc) {
+      $url = $s . '/product/' . $svc['slug'];
+      echo "- [{$svc['title']}]({$url}): {$svc['price_formatted']} ₽ — {$svc['duration']}\n";
     }
 
-    echo "\n## Страницы\n";
-    foreach ($pages as $p) {
-      echo "- " . $s . $p['canonical'] . "\n";
+    echo "\n## Основные страницы\n";
+
+    $pages = [
+      '/' => ['Главная', 'Главная страница: услуги, преимущества, отзывы'],
+      '/products' => ['Услуги', 'Каталог всех услуг и цен'],
+      '/about' => ['О нас', 'Информация о компании MANDO MEMORI'],
+      '/before-after' => ['До/После', 'Фотографии работ до и после чистки'],
+      '/blog' => ['Блог', 'Статьи и советы по уходу за обувью'],
+      '/contacts' => ['Контакты', 'Телефон, адрес, Telegram'],
+      '/order' => ['Передать обувь', 'Вызов курьера и оформление заказа'],
+      '/franchise' => ['Франшиза', 'Условия франшизы MANDO MEMORI'],
+      '/requisites' => ['Реквизиты', 'Банковские реквизиты компании'],
+    ];
+    foreach ($pages as $path => [$title, $desc]) {
+      echo "- [$title](" . $s . $path . "): $desc\n";
     }
+
+    echo "\n## Статьи блога\n";
+
+    foreach ($articles as $a) {
+      $url = $s . '/blog/' . $a['url'];
+      $date = date('d.m.Y', strtotime($a['created_at']));
+      echo "- [" . htmlspecialchars($a['title'], ENT_XML1, 'UTF-8') . "]($url): {$date} — {$a['category']}\n";
+    }
+
+    echo "\n## Optional\n"
+      . "- [Корзина](" . $s . "/cart): Добавление услуг и оформление заказа\n"
+      . "- [Политика конфиденциальности](" . $s . "/privacy-policy): Обработка персональных данных\n";
   }
 
   public function onLlmsFull(): void
   {
     $s = $this->site();
     header('Content-Type: text/plain; charset=utf-8');
-    echo "# MANDO MEMORI — Полная информация\n\n"
-      . "## О компании\n"
-      . "MANDO MEMORI — профессиональная химчистка обуви в Москве. "
-      . "9 лет на рынке, более 10 000 довольных клиентов, средняя оценка 4.9★. "
-      . "Бесплатная доставка курьером по Москве и МО.\n\n"
-      . "## Контакты\n"
-      . "- Телефон: +7 (915) 252-75-75\n"
-      . "- Telegram: mandomemori_bot\n"
-      . "- Email: info@mmclean.ru\n"
-      . "- Адрес: Москва, Петровка 15/13 стр.5, -1 этаж\n\n"
-      . "## Все услуги и цены\n";
 
-    $pages = $this->extractAllPages();
     $services = \Setting\Route\Function\Functions::getServices();
-    foreach ($pages as $p) {
-      $route = $p['canonical'];
-      if (str_starts_with($route, '/product/')) {
-        $slug = substr($route, 9);
-        $svc = current(array_filter($services, fn($s) => $s['slug'] === $slug));
-        $label = $svc ? $svc['title'] . ' — ' . $svc['price_formatted'] . '₽' : $slug;
-        echo "- $label — " . $s . "$route\n";
-      }
+    $articles = $this->loadArticles();
+
+    echo "# MANDO MEMORI — Полная информация\n\n"
+      . "> MANDO MEMORI — профессиональная химчистка обуви в Москве. 9 лет на рынке, более 10 000 довольных клиентов, средняя оценка 4.9★. Бесплатная доставка курьером по Москве и МО.\n\n"
+      . "## О компании\n\n"
+      . "MANDO MEMORI — профессиональная химчистка обуви в Москве. Работаем с 2015 года. Очищено более 1 000 000 пар обуви. "
+      . "Используем эко-составы и оборудование премиум-класса. 100% гарантия качества.\n\n"
+      . "### Процесс работы\n\n"
+      . "1. Заказ на сайте или в Telegram\n"
+      . "2. Бесплатный забор курьером\n"
+      . "3. Профессиональная чистка\n"
+      . "4. Доставка обратно\n"
+      . "Оплата только после выполнения работы.\n\n"
+      . "## Контакты\n\n"
+      . "- Телефон: +7 (915) 252-75-75\n"
+      . "- Telegram: https://t.me/mandomemori_bot\n"
+      . "- Email: info@mmclean.ru\n"
+      . "- Адрес: Москва, Петровка 15/13 стр.5, -1 этаж\n"
+      . "- Режим работы: ежедневно 10:00–22:00\n\n"
+      . "## Услуги и цены\n\n";
+
+    foreach ($services as $svc) {
+      $url = $s . '/product/' . $svc['slug'];
+      echo "- [{$svc['title']}]({$url}): {$svc['price_formatted']} ₽ — {$svc['duration']}\n";
+    }
+
+    echo "\n## Статьи блога\n\n";
+
+    foreach ($articles as $a) {
+      $url = $s . '/blog/' . $a['url'];
+      $date = date('d.m.Y', strtotime($a['created_at']));
+    echo "- [" . htmlspecialchars($a['title'], ENT_XML1, 'UTF-8') . "]($url): {$date}\n";
     }
 
     echo "\n## Адрес\n"
@@ -254,7 +303,7 @@ class SeoController
     <lastBuildDate>' . date('r') . '</lastBuildDate>' . "\n";
 
     foreach ($articles as $a) {
-      $url = $s . '/blog/article/' . $a['id'];
+      $url = $s . '/blog/' . $a['url'];
       $pubDate = date('r', strtotime($a['created_at']));
       $title = htmlspecialchars($a['title'], ENT_XML1, 'UTF-8');
       $desc = htmlspecialchars($a['meta_description'], ENT_XML1, 'UTF-8');
@@ -296,7 +345,7 @@ class SeoController
   <updated>' . $updated . '</updated>' . "\n";
 
     foreach ($articles as $a) {
-      $url = $s . '/blog/article/' . $a['id'];
+      $url = $s . '/blog/' . $a['url'];
       $published = date('Y-m-d\TH:i:s\Z', strtotime($a['created_at']));
       $title = htmlspecialchars($a['title'], ENT_XML1, 'UTF-8');
       $summary = htmlspecialchars($a['meta_description'], ENT_XML1, 'UTF-8');
