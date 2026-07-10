@@ -3,6 +3,8 @@ use Setting\Route\Function\Functions;
 $seo = Functions::seo();
 $notify = Functions::notify();
 
+$siteURL = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? 'mandomemori.ru');
+
 $slug = $args[1] ?? '';
 $articlesPath = __DIR__ . '/../data/articles.json';
 $articlesJson = json_decode(file_get_contents($articlesPath), true) ?: [];
@@ -21,7 +23,6 @@ if (!$article) {
   exit;
 }
 
-$siteURL = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? 'mandomemori.ru');
 $articleUrl = $siteURL . '/blog/' . $article['url'];
 $articleImage = $siteURL . $article['image'];
 
@@ -37,6 +38,7 @@ require __DIR__ . '/../../../partials/header.php';
 $tops = array_filter($articlesJson, fn($a) => (int)$a['id'] !== (int)$article['id']);
 $tops = array_slice(array_values($tops), 0, 5);
 ?>
+<div id="reading-bar"></div>
 <main class="main article-page">
   <section class="article-hero">
     <div class="container">
@@ -131,12 +133,15 @@ $tops = array_slice(array_values($tops), 0, 5);
 .article-page { --blog-bg: #fff; --blog-card: #fff; --blog-border: #e5e5e5; --blog-text: #1a1a1a; --blog-muted: #6b6b6b; --accent: #D4562A; --blog-hover: #f9f9f9; }
 .article-page { background: var(--blog-bg); color: var(--blog-text); min-height: 100vh; }
 
-.article-hero { padding: clamp(2rem,4vw,3rem) 0; border-bottom: 1px solid var(--blog-border); }
+#reading-bar { position:fixed; top:0; left:0; height:3px; background:var(--accent); z-index:9999; width:0; transition:width .15s; pointer-events:none; }
+
+.article-hero { padding: clamp(2rem,4vw,3rem) 0; position:relative; }
+.article-hero::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:min(80%,600px); height:1px; background:linear-gradient(90deg,transparent,var(--blog-border),var(--accent),var(--blog-border),transparent); }
 .article-breadcrumbs { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--blog-muted); margin-bottom: 16px; flex-wrap: wrap; }
 .article-breadcrumbs a { color: #888; text-decoration: none; transition: color .15s; }
 .article-breadcrumbs a:hover { color: var(--accent); }
 .article-bc-sep { color: #ccc; }
-.article-meta-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
+.article-meta-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
 .article-meta-left { display: inline-flex; align-items: center; gap: 6px; color: #888; font-size: 13px; }
 .article-meta-left svg { width: 16px; height: 16px; }
 .article-author-label { color: #999; }
@@ -152,16 +157,23 @@ $tops = array_slice(array_values($tops), 0, 5);
 @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } }
 
 .article-img { border-radius: 10px; overflow: hidden; margin-bottom: 28px; background: #eaeaea; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
-.article-img img { width: 100%; height: auto; display: block; aspect-ratio: 16/9; object-fit: cover; }
+.article-img img { width: 100%; height: auto; display: block; aspect-ratio: 16/9; object-fit: cover; opacity:0; transition:opacity .4s; }
+.article-img img.loaded { opacity:1; }
 
 .article-body { font-size: 16px; line-height: 1.75; color: #333; }
-.article-body h2 { font-family: var(--font-heading); font-size: 22px; font-weight: 700; margin: 40px 0 16px; color: #000; letter-spacing:-0.01em; }
+.article-body > * { max-width: 680px; }
+.article-body [data-type="image"],
+.article-body [data-type="compare"],
+.article-body [data-type="list"],
+.article-body [data-type="box"] { max-width: 100%; }
+.article-body h2 { font-family: var(--font-heading); font-size: 22px; font-weight: 700; margin: 44px 0 16px; color: #000; letter-spacing:-0.01em; }
 .article-body h3 { font-size: 18px; font-weight: 600; margin: 32px 0 12px; color: #000; }
-.article-body p { margin: 0 0 18px; }
-.article-body ul, .article-body ol { margin: 0 0 18px; padding-left: 20px; }
+.article-body p { margin: 0 0 20px; }
+.article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 20px; }
 .article-body li { margin-bottom: 6px; }
 .article-body strong { color: #000; }
 .article-body a { color: var(--accent); text-decoration: underline; text-underline-offset:2px; }
+.article-body a:hover { text-decoration:none; }
 
 .article-body [data-type="start"] { font-size: 17px; line-height: 1.8; color: #555; }
 .article-body [data-type="list"] { background: #f7f7f7; border: 1px solid var(--blog-border); border-radius: 10px; padding: 20px 24px; margin-bottom: 24px; }
@@ -170,7 +182,7 @@ $tops = array_slice(array_values($tops), 0, 5);
 .article-body [data-type="list"] li { margin-bottom: 8px; }
 .article-body [data-type="list"] a { color: var(--accent); text-decoration: none; }
 .article-body [data-type="list"] a:hover { text-decoration: underline; }
-.article-body [data-type="box"] { border-radius: 10px; padding: 20px 24px; margin-bottom: 20px; }
+.article-body [data-type="box"] { border-radius: 10px; padding: 24px 28px; margin-bottom: 24px; }
 .article-body [data-type="box"][data-color="gray"] { background: #f7f7f7; border: 1px solid var(--blog-border); }
 .article-body [data-type="box"][data-color="dark"] { background: #1a1a1a; border: 1px solid #333; }
 .article-body [data-type="box"][data-color="dark"] h4 { color: #fff; }
@@ -197,7 +209,7 @@ $tops = array_slice(array_values($tops), 0, 5);
 .article-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--blog-border); }
 .article-tag { display: inline-block; padding: 4px 10px; border-radius: 4px; background: #f0f0f0; color: #666; font-size: 12px; }
 
-.article-cta { margin-top: 40px; border-radius: 12px; background: #f7f7f7; border: 1px solid var(--blog-border); padding: 36px; text-align: center; }
+.article-cta { margin-top: 40px; border-radius: 12px; background: linear-gradient(135deg,#fafafa,#f5f5f5); border: 1px solid var(--blog-border); border-left:3px solid var(--accent); padding: 40px; text-align: center; }
 .article-cta-title { font-family: var(--font-heading); font-size: 20px; font-weight: 700; margin: 0 0 8px; color: #000; }
 .article-cta-desc { font-size: 14px; color: var(--blog-muted); margin: 0 0 20px; max-width: 480px; margin-left: auto; margin-right: auto; }
 .article-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
@@ -206,16 +218,46 @@ $tops = array_slice(array_values($tops), 0, 5);
 .article-cta-btn--outline { background: transparent; border: 1px solid #d0d0d0; color: #333; }
 .article-cta-btn--outline:hover { background: #f0f0f0; }
 
-.article-sidebar-card { border-radius: 12px; background: #f7f7f7; border: 1px solid var(--blog-border); overflow: hidden; }
+.article-sidebar { position: sticky; top: 90px; }
+.article-sidebar-card { border-radius: 10px; background: #f7f7f7; border: 1px solid var(--blog-border); overflow: hidden; }
 .article-sidebar-card + .article-sidebar-card { margin-top: 12px; }
-.article-sidebar-header { padding: 14px 18px; border-bottom: 1px solid var(--blog-border); font-size: 15px; font-weight: 700; color: #000; }
-.article-sidebar-body { padding: 8px 18px; }
-.article-popular-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid #eaeaea; text-decoration: none; align-items: center; }
+.article-sidebar-header { padding: 14px 18px; border-bottom: 1px solid var(--blog-border); font-size: 14px; font-weight: 700; color: #000; }
+.article-sidebar-body { padding: 6px 18px; }
+.article-popular-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid #eaeaea; text-decoration: none; align-items: center; transition: opacity .15s; }
+.article-popular-item:hover { opacity: 0.75; }
 .article-popular-item:last-child { border-bottom: none; }
-.article-popular-img { width: 44px; height: 44px; min-width: 44px; border-radius: 6px; background-size: cover; background-position: center; background-color: #eaeaea; }
+.article-popular-img { width: 42px; height: 42px; min-width: 42px; border-radius: 6px; background-size: cover; background-position: center; background-color: #eaeaea; }
 .article-popular-body { flex: 1; min-width: 0; }
 .article-popular-title { font-size: 13px; font-weight: 600; color: #000; line-height: 17px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .article-popular-date { font-size: 11px; color: #999; margin-top: 2px; display: block; }
+#back-top { position:fixed; bottom:24px; right:24px; z-index:999; width:40px; height:40px; border-radius:8px; background:#fff; border:1px solid var(--blog-border); color:#666; display:flex; align-items:center; justify-content:center; cursor:pointer; opacity:0; pointer-events:none; transition:opacity .2s, transform .2s; transform:translateY(8px); box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+#back-top.show { opacity:1; pointer-events:auto; transform:translateY(0); }
+#back-top:hover { background:#f5f5f5; color:var(--accent); }
 </style>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var bar = document.getElementById('reading-bar');
+  var back = document.getElementById('back-top');
+  if (!back) { back = document.createElement('div'); back.id='back-top'; back.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>'; document.body.appendChild(back); }
+  back.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  var img = document.querySelector('.article-img img');
+  if (img) { img.onload = function(){ img.classList.add('loaded'); }; if (img.complete) img.classList.add('loaded'); }
+  document.querySelectorAll('.article-body [data-type="image"] img').forEach(function(im){
+    im.addEventListener('load', function(){ im.style.opacity='1'; });
+    if (im.complete) im.style.opacity='1';
+  });
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if (!ticking) { requestAnimationFrame(function(){
+      var dh = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = dh > 0 ? (window.scrollY / dh) * 100 : 0;
+      bar.style.width = pct + '%';
+      back.classList.toggle('show', window.scrollY > 400);
+      ticking = false;
+    }); }
+    ticking = true;
+  });
+});
+</script>
 
 <?php require __DIR__ . '/../../../partials/footer.php'; ?>

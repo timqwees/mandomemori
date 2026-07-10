@@ -82,10 +82,9 @@ if ($featured) {
 
           <div class="blog-cards">
             <?php if (empty($articles)): ?>
-            <div class="blog-card">
-              <div class="blog-card-body" style="padding:40px;text-align:center">
-                <p style="color:#999">Пока нет статей. Вернитесь позже!</p>
-              </div>
+            <div class="blog-empty">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              <p>Пока нет статей в этой категории. Вернитесь позже!</p>
             </div>
             <?php else: ?>
             <?php foreach ($articles as $article): ?>
