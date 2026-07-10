@@ -27,7 +27,7 @@ require __DIR__ . '/../../partials/header.php';
           <span class="scroll-hero__word" id="scroll-hero-word">Кроссовки</span>
           <span class="scroll-hero__rest">останутся чистыми</span>
         </h1>
-        <a class="btn-accent hero-cta" href="/order">Передать обувь</a>
+        <a class="btn-accent hero-cta" href="/order">Вызвать курьера</a>
       </div>
     </div>
   </section>

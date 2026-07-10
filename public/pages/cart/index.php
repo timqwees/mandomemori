@@ -129,7 +129,7 @@ require __DIR__ . '/../../partials/header.php';
                 </style>
                 <div id="cart-comment-editor"></div>
               </div>
-              <a href="/order" class="btn btn-primary cart-checkout-btn" id="checkout-btn">Получить чек</a>
+              <a href="/order" class="btn btn-primary cart-checkout-btn" id="checkout-btn">Вызвать курьера</a>
               <a href="/products" class="cart-continue-link">Продолжить выбор</a>
             </div>
           </div>
@@ -166,15 +166,12 @@ require __DIR__ . '/../../partials/header.php';
           <div class="cart-flow-step-num">2</div>
           <div class="cart-flow-step-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/>
-              <line x1="16" y1="17" x2="8" y2="17"/>
-              <polyline points="10 9 9 9 8 9"/>
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
             </svg>
           </div>
-          <h3 class="cart-flow-step-title">Получаете чек</h3>
-          <p class="cart-flow-step-desc">Система формирует PDF-чек с номером заказа — после вызова курьера PDF придёт вам на почту, сейчас вы просто скачиваете копию</p>
+          <h3 class="cart-flow-step-title">Передаёте обувь</h3>
+          <p class="cart-flow-step-desc">Вызываете курьера — у него уже есть данные вашего заказа, остаётся только отдать обувь</p>
         </div>
 
         <div class="cart-flow-arrow">
@@ -185,24 +182,6 @@ require __DIR__ . '/../../partials/header.php';
 
         <div class="cart-flow-step">
           <div class="cart-flow-step-num">3</div>
-          <div class="cart-flow-step-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-          </div>
-          <h3 class="cart-flow-step-title">Передаёте обувь</h3>
-          <p class="cart-flow-step-desc">Вызываете курьера — у него уже есть чек с данными вашего заказа, остаётся только отдать обувь</p>
-        </div>
-
-        <div class="cart-flow-arrow">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14m-6-6 6 6-6 6"/>
-          </svg>
-        </div>
-
-        <div class="cart-flow-step">
-          <div class="cart-flow-step-num">4</div>
           <div class="cart-flow-step-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
@@ -271,16 +250,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Checkout
+  // Checkout — save comment/phone and redirect
   var checkoutBtn = document.getElementById('checkout-btn');
   if (checkoutBtn) {
     checkoutBtn.addEventListener('click', function (e) {
       e.preventDefault();
-      var btn = this;
       var html = quill.root.innerHTML;
       var hasText = html !== '<p><br></p>';
-      btn.textContent = 'Формируем чек…';
-      btn.disabled = true;
       var phone = document.getElementById('cart-phone-input').value.replace(/\D/g, '');
       var p = Promise.resolve();
       if (hasText || phone) {
@@ -291,23 +267,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
       p.then(function () {
-        return fetch('/checkout');
-      }).then(function (r) {
-        if (!r.ok) throw new Error('Пустая корзина');
-        return r.blob();
-      }).then(function (blob) {
-        var url = URL.createObjectURL(blob);
-        var a = document.createElement('a');
-        a.href = url;
-        a.download = 'check-mandomemori-' + Date.now() + '.pdf';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-        window.location.href = '/order';
-      }).catch(function () {
-        btn.textContent = 'Получить чек';
-        btn.disabled = false;
         window.location.href = '/order';
       });
     });
