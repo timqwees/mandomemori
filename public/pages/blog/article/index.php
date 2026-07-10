@@ -46,14 +46,15 @@ $tops = array_slice(array_values($tops), 0, 5);
         <span><?= htmlspecialchars($article['category']) ?></span>
       </nav>
       <div class="article-meta-top">
-        <div class="article-author-row">
-          <div class="article-author-avatar">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4562A"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          </div>
+        <div class="article-meta-left">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4562A"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <span class="article-author-label">Автор:</span>
           <span class="article-author-name"><?= htmlspecialchars($article['author']) ?></span>
         </div>
-        <span class="article-cat"><?= htmlspecialchars($article['category']) ?></span>
-        <span class="article-date"><time datetime="<?= date('c', strtotime($article['created_at'])) ?>"><?= date('d.m.Y', strtotime($article['created_at'])) ?></time></span>
+        <div class="article-meta-right">
+          <span class="article-cat"><?= htmlspecialchars($article['category']) ?></span>
+          <span class="article-date"><time datetime="<?= date('c', strtotime($article['created_at'])) ?>"><?= date('d.m.Y', strtotime($article['created_at'])) ?></time></span>
+        </div>
       </div>
       <h1 class="article-title" itemprop="headline"><?= htmlspecialchars($article['title']) ?></h1>
       <p class="article-desc" itemprop="description"><?= htmlspecialchars($article['meta_description']) ?></p>
@@ -135,10 +136,12 @@ $tops = array_slice(array_values($tops), 0, 5);
 .article-breadcrumbs a { color: #888; text-decoration: none; transition: color .15s; }
 .article-breadcrumbs a:hover { color: var(--accent); }
 .article-bc-sep { color: #ccc; }
-.article-meta-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
-.article-author-row { display: inline-flex; align-items: center; gap: 6px; }
-.article-author-avatar { width: 22px; height: 22px; border-radius: 50%; background: rgba(212,86,42,0.12); display: flex; align-items: center; justify-content: center; }
-.article-author-name { font-size: 12px; font-weight: 500; color: #888; }
+.article-meta-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
+.article-meta-left { display: inline-flex; align-items: center; gap: 6px; color: #888; font-size: 13px; }
+.article-meta-left svg { width: 16px; height: 16px; }
+.article-author-label { color: #999; }
+.article-author-name { font-weight: 600; color: #555; }
+.article-meta-right { display: inline-flex; align-items: center; gap: 10px; }
 .article-cat { display: inline-block; padding: 3px 10px; border-radius: 4px; background: var(--accent); color: #fff; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing:0.03em; }
 .article-date { font-size: 13px; color: var(--blog-muted); }
 .article-title { font-family: var(--font-heading); font-size: clamp(1.6rem,3.5vw,2.4rem); font-weight: 700; letter-spacing:-0.02em; line-height:1.15; margin:0; max-width: 800px; color: #000; }
