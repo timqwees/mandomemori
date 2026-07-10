@@ -5534,6 +5534,29 @@ a.promo-banner-text:hover {
   background: var(--border);
 }
 
+.cart-qty-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  background: var(--bg);
+  color: var(--text-primary);
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+  flex-shrink: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.cart-qty-btn:hover {
+  background: var(--bg-secondary);
+  border-color: var(--text-muted);
+}
+
 /* ── Cart summary ──────────────────────────────────────────── */
 .cart-summary {
   position: sticky;
@@ -5621,6 +5644,62 @@ a.promo-banner-text:hover {
 
 .cart-continue-link:hover {
   color: var(--text-primary);
+}
+
+/* ── Cart mobile responsive ────────────────────────────────── */
+@media (max-width: 600px) {
+  .cart-section {
+    padding: 24px 0 48px;
+  }
+  .cart-title {
+    font-size: 1.375rem;
+    margin-bottom: 16px;
+  }
+  .cart-empty {
+    padding: 48px 16px;
+  }
+  .cart-item {
+    flex-direction: column;
+  }
+  .cart-item-img {
+    width: 100%;
+  }
+  .cart-item-img-wrap {
+    min-height: 140px;
+  }
+  .cart-item-body {
+    padding: 10px 12px;
+  }
+  .cart-item-top {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .cart-item-total {
+    font-size: 0.9375rem;
+  }
+  .cart-item-qty {
+    justify-content: space-between;
+  }
+  .cart-qty-btn {
+    width: 36px;
+    height: 36px;
+  }
+  .cart-summary {
+    position: static;
+  }
+  .cart-summary-inner {
+    padding: 16px;
+  }
+  .cart-comment {
+    width: 100%;
+  }
+  .cart-flow {
+    padding: 2.5rem 0 3rem;
+  }
+  .cart-flow-title {
+    font-size: 1.375rem;
+    margin-bottom: 2rem;
+  }
 }
 
 /* ── Toast notification ────────────────────────────────────── */
