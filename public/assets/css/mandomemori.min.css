@@ -7952,7 +7952,7 @@ img {
   color: var(--text-primary);
 }
 
-.cart-comment{width:600px;max-width:100%}.cart-comment .ql-toolbar.ql-snow{border:none;border-bottom:1px solid var(--text-primary);background:transparent;padding:8px 10px}.cart-comment .ql-container.ql-snow{border:none;font-family:var(--font);font-size:1rem}.cart-comment .ql-editor{min-height:150px;padding:14px 16px;color:var(--text-primary);line-height:1.6;font-size:1rem}.cart-comment .ql-editor.ql-blank::before{color:var(--text-muted);opacity:.8;font-style:normal;font-family:var(--font);left:16px;right:16px}
+.cart-comment{width:100%;max-width:100%}.cart-comment .ql-toolbar.ql-snow{border:none;border-bottom:1px solid var(--text-primary);background:transparent;padding:8px 10px}.cart-comment .ql-container.ql-snow{border:none;font-family:var(--font);font-size:1rem}.cart-comment .ql-editor{min-height:150px;padding:14px 16px;color:var(--text-primary);line-height:1.6;font-size:1rem}.cart-comment .ql-editor.ql-blank::before{color:var(--text-muted);opacity:.8;font-style:normal;font-family:var(--font);left:16px;right:16px}
 
 .cart-phone {
   margin-top: 20px;
