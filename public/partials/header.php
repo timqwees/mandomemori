@@ -32,7 +32,7 @@ $siteUrl = "$scheme://$host";
   <link rel="preload" as="image" href="/public/assets/images/mandomemori/hero-poster.jpg" fetchpriority="high">
   <link rel="stylesheet" href="/public/assets/css/mandomemori.min.css" media="print" onload="this.media='all'">
   <link rel="icon" href="/public/assets/images/favicon.svg" sizes="48x48" type="image/svg+xml">
-  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/public/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/public/assets/images/favicon.svg">
   <meta name="csrf-token" content="3bd5a1ea01eec4cc5fac232d54cfe19be1beb147477f69e057180030166a8e04">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
