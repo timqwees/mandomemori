@@ -15,9 +15,9 @@ if (!$article) {
   http_response_code(404);
   $pageTitle = 'Статья не найдена — MANDO MEMORI';
   $pageDesc = 'Запрашиваемая статья не найдена.';
-  require __DIR__ . '/../../partials/header.php';
+  require __DIR__ . '/../../../partials/header.php';
   echo '<main class="main" style="padding:80px 0;text-align:center;background:#121212;color:#fff;min-height:50vh"><h1>404 — Статья не найдена</h1><p style="color:rgba(255,255,255,0.5);margin-top:12px"><a href="/blog" style="color:#D4562A">Вернуться в блог</a></p></main>';
-  require __DIR__ . '/../../partials/footer.php';
+  require __DIR__ . '/../../../partials/footer.php';
   exit;
 }
 
@@ -32,7 +32,7 @@ $pageKeywords = $article['tags'];
 $robots = 'index, follow';
 $canonical = '/blog/article/' . $article['id'];
 $ogImage = $article['image'];
-require __DIR__ . '/../../partials/header.php';
+require __DIR__ . '/../../../partials/header.php';
 
 $tops = array_filter($articlesJson, fn($a) => (int)$a['id'] !== (int)$id);
 $tops = array_slice(array_values($tops), 0, 5);
@@ -208,4 +208,4 @@ $tops = array_slice(array_values($tops), 0, 5);
 .article-popular-date { font-size: 11px; color: rgba(255,255,255,0.35); }
 </style>
 
-<?php require __DIR__ . '/../../partials/footer.php'; ?>
+<?php require __DIR__ . '/../../../partials/footer.php'; ?>
