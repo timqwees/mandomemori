@@ -228,7 +228,7 @@ if ($featured) {
 .blog-featured-btn { display: inline-flex; align-items: center; gap: 4px; height: 34px; padding: 0 16px; border-radius: 6px; font-size: 13px; font-weight: 600; color: #fff; background: var(--accent); align-self: flex-start; transition: background .2s; }
 .blog-featured-card:hover .blog-featured-btn { background: #e05a2a; }
 @media (max-width: 767px) {
-  .blog-featured-card { grid-template-columns: 1fr 140px; min-height: 0; border-radius: 8px; border-width: 1px; }
+  .blog-featured-card { grid-template-columns: 35% 1fr; min-height: 0; border-radius: 8px; border-width: 1px; }
   .blog-featured-img { min-height: 100px; }
   .blog-featured-body { padding: 14px 16px; }
   .blog-featured-badge { font-size: 10px; padding: 2px 8px; margin-bottom: 6px; }
