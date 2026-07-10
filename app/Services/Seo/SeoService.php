@@ -37,7 +37,7 @@ class SeoService
         'url' => $s,
         'description' => 'Химчистка обуви и сумок в Москве'
     ];
-        return '<script type="application/ld+json">' . json_encode($data, JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+        return '<script type="application/ld+json">' . json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
     }
 
     public function jsonLdOrganization()
@@ -55,7 +55,7 @@ class SeoService
                 'contactType' => 'customer service'
             ]
         ];
-        return '<script type="application/ld+json">' . json_encode($data, JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+        return '<script type="application/ld+json">' . json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
     }
 
     public function jsonLdServices()
@@ -70,7 +70,7 @@ class SeoService
                 'name' => 'MandoMemori'
             ]
         ];
-        return '<script type="application/ld+json">' . json_encode($data, JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+        return '<script type="application/ld+json">' . json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
     }
 
     public function jsonLdFaq()
@@ -97,6 +97,6 @@ class SeoService
                 ]
             ]
         ];
-        return '<script type="application/ld+json">' . json_encode($data, JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+        return '<script type="application/ld+json">' . json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
     }
 }

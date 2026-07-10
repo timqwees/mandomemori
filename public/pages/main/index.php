@@ -39,7 +39,10 @@ require __DIR__ . '/../../partials/header.php';
     </div>
   </section>
 
-  <div class="trust-bar">
+  <div class="trust-bar" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+    <meta itemprop="ratingValue" content="4.9">
+    <meta itemprop="bestRating" content="5">
+    <meta itemprop="ratingCount" content="1500">
     <div class="trust-item">
       <div class="trust-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
@@ -78,43 +81,43 @@ require __DIR__ . '/../../partials/header.php';
     </div>
   </div>
 
-  <section class="about-steps">
+  <section class="about-steps" itemscope itemtype="https://schema.org/HowTo">
     <div class="about-steps__content">
       <h2 class="about-steps__heading">Как мы работаем</h2>
       <div class="about-steps__list">
-        <div class="about-step">
-          <span class="about-step__num">01</span>
+        <div class="about-step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+          <span class="about-step__num" itemprop="position">01</span>
           <div class="about-step__body">
-            <h3 class="about-step__title">Собираете заказ</h3>
-            <p class="about-step__desc">Выбираете услуги, указываете количество пар — добавляете в корзину на сайте.</p>
+            <h3 class="about-step__title" itemprop="name">Собираете заказ</h3>
+            <p class="about-step__desc" itemprop="text">Выбираете услуги, указываете количество пар — добавляете в корзину на сайте.</p>
           </div>
         </div>
-        <div class="about-step">
-          <span class="about-step__num">02</span>
+        <div class="about-step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+          <span class="about-step__num" itemprop="position">02</span>
           <div class="about-step__body">
-            <h3 class="about-step__title">Получаете чек</h3>
-            <p class="about-step__desc">Система формирует PDF-чек с деталями заказа — после вызова курьера он придёт вам на почту.</p>
+            <h3 class="about-step__title" itemprop="name">Получаете чек</h3>
+            <p class="about-step__desc" itemprop="text">Система формирует PDF-чек с деталями заказа — после вызова курьера он придёт вам на почту.</p>
           </div>
         </div>
-        <div class="about-step">
-          <span class="about-step__num">03</span>
+        <div class="about-step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+          <span class="about-step__num" itemprop="position">03</span>
           <div class="about-step__body">
-            <h3 class="about-step__title">Передаёте обувь</h3>
-            <p class="about-step__desc">Вызываете бесплатного курьера — у него уже есть данные заказа, остаётся только отдать обувь.</p>
+            <h3 class="about-step__title" itemprop="name">Передаёте обувь</h3>
+            <p class="about-step__desc" itemprop="text">Вызываете бесплатного курьера — у него уже есть данные заказа, остаётся только отдать обувь.</p>
           </div>
         </div>
-        <div class="about-step">
-          <span class="about-step__num">04</span>
+        <div class="about-step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+          <span class="about-step__num" itemprop="position">04</span>
           <div class="about-step__body">
-            <h3 class="about-step__title">Мы выполняем работу</h3>
-            <p class="about-step__desc">Мастер приступает к чистке по вашему заказу — оплата только после выполнения работы, по факту.</p>
+            <h3 class="about-step__title" itemprop="name">Мы выполняем работу</h3>
+            <p class="about-step__desc" itemprop="text">Мастер приступает к чистке по вашему заказу — оплата только после выполнения работы, по факту.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="home-products-section">
+  <section class="home-products-section" itemscope itemtype="https://schema.org/ItemList">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Все услуги</h2>
@@ -124,17 +127,22 @@ require __DIR__ . '/../../partials/header.php';
       <div class="cards">
         <?php
         $allServices = Functions::getServices();
-        foreach ($allServices as $id => $p): ?>
-        <article class="product-card<?= $p['dark'] ? ' dark-bg' : '' ?>" style="background:<?= $p['bg'] ?>">
+        $position = 0;
+        foreach ($allServices as $id => $p):
+        $position++; ?>
+        <article class="product-card<?= $p['dark'] ? ' dark-bg' : '' ?>" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="background:<?= $p['bg'] ?>">
+          <meta itemprop="position" content="<?= $position ?>">
+          <div itemprop="item" itemscope itemtype="https://schema.org/Product">
           <div class="product-card-text">
-            <h2 class="product-card-title"><?= $p['title'] ?></h2>
-            <p class="product-card-desc">от <?= $p['price_formatted'] ?> ₽ за пару</p>
+            <h2 class="product-card-title" itemprop="name"><?= $p['title'] ?></h2>
+            <p class="product-card-desc" itemprop="offers" itemscope itemtype="https://schema.org/Offer">от <span itemprop="price"><?= $p['price_formatted'] ?></span> <span itemprop="priceCurrency" content="RUB">₽</span> за пару</p>
           </div>
           <div class="product-card-image">
-            <img src="/public/assets/images/<?= $p['img'] ?>" alt="<?= $p['title'] ?>" loading="lazy" width="487" height="324">
+            <img src="/public/assets/images/<?= $p['img'] ?>" alt="<?= $p['title'] ?>" itemprop="image" loading="lazy" width="487" height="324">
           </div>
           <div class="product-card-action">
-            <a href="/product/<?= $p['slug'] ?>" class="product-card-btn product-card-btn-detail">Подробнее</a>
+            <a href="/product/<?= $p['slug'] ?>" itemprop="url" class="product-card-btn product-card-btn-detail">Подробнее</a>
+          </div>
           </div>
         </article>
         <?php endforeach; ?>
@@ -163,43 +171,59 @@ require __DIR__ . '/../../partials/header.php';
     </div>
   </section>
 
-  <section class="home-faq-section">
+  <section class="home-faq-section" itemscope itemtype="https://schema.org/FAQPage">
     <div class="home-faq-header">
       <h2 class="home-faq-title">Часто задаваемые вопросы</h2>
       <p class="home-faq-subtitle">Всё, что важно знать о нашем сервисе</p>
     </div>
     <div class="home-faq-grid">
-      <div class="home-faq-card">
-        <h3 class="home-faq-question">Сколько стоит химчистка обуви?</h3>
-        <div class="home-faq-answer">Цена зависит от типа обуви и сложности загрязнения. Базовая химчистка — от 3 490 ₽, премиум-чистка — от 5 990 ₽. Пришлите фото в Telegram — оценим бесплатно.</div>
+      <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <h3 class="home-faq-question" itemprop="name">Сколько стоит химчистка обуви?</h3>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+        <div class="home-faq-answer" itemprop="text">Цена зависит от типа обуви и сложности загрязнения. Базовая химчистка — от 3 490 ₽, премиум-чистка — от 5 990 ₽. Пришлите фото в Telegram — оценим бесплатно.</div>
+        </div>
       </div>
-      <div class="home-faq-card">
-        <h3 class="home-faq-question">Как отбелить пожелтевшую подошву?</h3>
-        <div class="home-faq-answer">Мы используем профессиональные составы для отбеливания подошвы. Результат — белоснежная подошва без разводов. Услуга доступна отдельно от 1 490 ₽.</div>
+      <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <h3 class="home-faq-question" itemprop="name">Как отбелить пожелтевшую подошву?</h3>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+        <div class="home-faq-answer" itemprop="text">Мы используем профессиональные составы для отбеливания подошвы. Результат — белоснежная подошва без разводов. Услуга доступна отдельно от 1 490 ₽.</div>
+        </div>
       </div>
-      <div class="home-faq-card">
-        <h3 class="home-faq-question">Вы принимаете обувь после зимы с реагентами?</h3>
-        <div class="home-faq-answer">Да, наши мастера выводят солевые разводы и следы реагентов. В стоимость чистки входит обработка подошвы и выведение пятен любой сложности.</div>
+      <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <h3 class="home-faq-question" itemprop="name">Вы принимаете обувь после зимы с реагентами?</h3>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+        <div class="home-faq-answer" itemprop="text">Да, наши мастера выводят солевые разводы и следы реагентов. В стоимость чистки входит обработка подошвы и выведение пятен любой сложности.</div>
+        </div>
       </div>
-      <div class="home-faq-card">
-        <h3 class="home-faq-question">Чистите ли вы замшу и нубук?</h3>
-        <div class="home-faq-answer">Да, мы специализируемся на деликатной чистке замши и нубука с восстановлением ворса, цвета и нанесением водоотталкивающей пропитки. Цена — от 4 490 ₽.</div>
+      <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <h3 class="home-faq-question" itemprop="name">Чистите ли вы замшу и нубук?</h3>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+        <div class="home-faq-answer" itemprop="text">Да, мы специализируемся на деликатной чистке замши и нубука с восстановлением ворса, цвета и нанесением водоотталкивающей пропитки. Цена — от 4 490 ₽.</div>
+        </div>
       </div>
-      <div class="home-faq-card">
-        <h3 class="home-faq-question">Какие бренды вы принимаете?</h3>
-        <div class="home-faq-answer">Мы работаем с любой обувью: от повседневной до премиальных брендов — Loro Piana, Gucci, Prada, Balenciaga, Louis Vuitton, Hermès и других. Особый подход к люксовым материалам.</div>
+      <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <h3 class="home-faq-question" itemprop="name">Какие бренды вы принимаете?</h3>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+        <div class="home-faq-answer" itemprop="text">Мы работаем с любой обувью: от повседневной до премиальных брендов — Loro Piana, Gucci, Prada, Balenciaga, Louis Vuitton, Hermès и других. Особый подход к люксовым материалам.</div>
+        </div>
       </div>
-      <div class="home-faq-card">
-        <h3 class="home-faq-question">Делаете ли вы покраску и реставрацию?</h3>
-        <div class="home-faq-answer">Да, восстанавливаем цвет, маскируем потёртости, царапины и сдиры. Полная покраска обуви — от 3 990 ₽, реставрация отдельных участков — от 1 990 ₽.</div>
+      <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <h3 class="home-faq-question" itemprop="name">Делаете ли вы покраску и реставрацию?</h3>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+        <div class="home-faq-answer" itemprop="text">Да, восстанавливаем цвет, маскируем потёртости, царапины и сдиры. Полная покраска обуви — от 3 990 ₽, реставрация отдельных участков — от 1 990 ₽.</div>
+        </div>
       </div>
-      <div class="home-faq-card">
-        <h3 class="home-faq-question">Сколько дней занимает чистка?</h3>
-        <div class="home-faq-answer">Стандартный срок — 1–6 дней в зависимости от загруженности и сложности. Экспресс-чистка возможна за 24 часа. Точный срок называем после оценки.</div>
+      <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <h3 class="home-faq-question" itemprop="name">Сколько дней занимает чистка?</h3>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+        <div class="home-faq-answer" itemprop="text">Стандартный срок — 1–6 дней в зависимости от загруженности и сложности. Экспресс-чистка возможна за 24 часа. Точный срок называем после оценки.</div>
+        </div>
       </div>
-      <div class="home-faq-card">
-        <h3 class="home-faq-question">Есть ли доставка и курьер?</h3>
-        <div class="home-faq-answer">Да, курьер бесплатно заберёт обувь и привезёт обратно после чистки. Это удобно и быстро — вы никуда не едете.</div>
+      <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <h3 class="home-faq-question" itemprop="name">Есть ли доставка и курьер?</h3>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+        <div class="home-faq-answer" itemprop="text">Да, курьер бесплатно заберёт обувь и привезёт обратно после чистки. Это удобно и быстро — вы никуда не едете.</div>
+        </div>
       </div>
     </div>
   </section>

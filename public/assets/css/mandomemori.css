@@ -734,6 +734,7 @@ img {
 
 .svc-order-img {
   overflow: hidden;
+  aspect-ratio: 4 / 3;
 }
 
 .svc-order-img img {

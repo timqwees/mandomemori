@@ -38,14 +38,14 @@ require __DIR__ . '/../../../partials/header.php';
     </ol>
   </nav>
   </div>
-  <section class="svc-hero">
-    <div class="svc-hero-bg" style="background-image:url('/public/assets/images/<?= $svc['img'] ?>')"></div>
+  <section class="svc-hero" itemscope itemtype="https://schema.org/Product">
+    <div class="svc-hero-bg" itemprop="image" style="background-image:url('/public/assets/images/<?= $svc['img'] ?>')"></div>
     <div class="svc-hero-overlay"></div>
     <div class="container svc-hero-content">
-      <h1 class="svc-hero-title"><?= $title ?></h1>
-      <p class="svc-hero-desc"><?= $svc['desc'] ?></p>
+      <h1 class="svc-hero-title" itemprop="name"><?= $title ?></h1>
+      <p class="svc-hero-desc" itemprop="description"><?= $svc['desc'] ?></p>
       <div class="svc-hero-actions">
-        <span class="svc-hero-price"><?= $price ?> ₽ <small>за пару</small></span>
+        <span class="svc-hero-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="RUB"><span itemprop="price"><?= $price ?></span> ₽ <small>за пару</small><meta itemprop="availability" content="https://schema.org/InStock"></span>
         <a href="#svc-order" class="svc-hero-btn">Заказать услугу</a>
       </div>
     </div>
@@ -56,10 +56,10 @@ require __DIR__ . '/../../../partials/header.php';
         <div class="svc-order-img">
           <img src="/public/assets/images/<?= $svc['img'] ?>" alt="<?= $title ?> | MANDO MEMORI" loading="lazy">
         </div>
-        <div class="svc-order-body">
+        <div class="svc-order-body" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
           <h2 class="svc-order-name"><?= $title ?></h2>
           <div class="svc-order-price-row">
-            <span class="svc-order-price"><?= $price ?> ₽</span>
+            <span class="svc-order-price"><meta itemprop="priceCurrency" content="RUB"><span itemprop="price"><?= $price ?></span> ₽</span>
             <span class="svc-order-unit">за пару</span>
           </div>
           <label class="svc-order-qty-label">Количество пар</label>

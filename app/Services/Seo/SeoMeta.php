@@ -85,6 +85,6 @@ class SeoMeta
     $graph = [$business];
     if ($extra) $graph[] = $extra;
 
-    return '<script type="application/ld+json">' . json_encode($graph, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . "</script>\n";
+    return '<script type="application/ld+json">' . json_encode($graph, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . "</script>\n";
   }
 }

@@ -91,6 +91,17 @@ class HomeController
         require __DIR__ . '/../../public/pages/requisites/index.php';
     }
 
+    public function onBlog()
+    {
+        require __DIR__ . '/../../public/pages/blog/index.php';
+    }
+
+    public function onBlogArticle(...$args)
+    {
+        $id = $args['id'] ?? ($args[1] ?? 0);
+        require __DIR__ . '/../../public/pages/blog/article/index.php';
+    }
+
     public function onProductDetail(...$args)
     {
         $slug = $args['slug'] ?? ($args[1] ?? '');

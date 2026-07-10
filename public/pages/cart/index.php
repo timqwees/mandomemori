@@ -72,19 +72,21 @@ require __DIR__ . '/../../partials/header.php';
         </div>
       <?php else: ?>
         <div class="cart-layout">
-          <div class="cart-items">
+          <div class="cart-items" itemscope itemtype="https://schema.org/ItemList">
+            <?php $position = 0; ?>
             <?php foreach ($resolvedItems as $item): ?>
-            <div class="cart-item" id="cart-item-<?= $item['product_id'] ?>">
+            <div class="cart-item" id="cart-item-<?= $item['product_id'] ?>" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <meta itemprop="position" content="<?= ++$position ?>">
               <div class="cart-item-img">
                 <div class="cart-item-img-wrap" style="background:<?= $item['bg_color'] ?>">
                   <img src="<?= $item['image_url'] ?>" alt="<?= $item['title'] ?>" loading="lazy">
                 </div>
               </div>
-              <div class="cart-item-body">
+              <div class="cart-item-body" itemprop="item" itemscope itemtype="https://schema.org/Product">
                 <div class="cart-item-top">
                   <div class="cart-item-info">
-                    <div class="cart-item-title"><?= $item['title'] ?></div>
-                    <div class="cart-item-price-unit"><?= number_format($item['price'], 0, '', ' ') ?> ₽ / пара</div>
+                    <div class="cart-item-title" itemprop="name"><?= $item['title'] ?></div>
+                    <div class="cart-item-price-unit" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><?= number_format($item['price'], 0, '', ' ') ?> ₽ / пара</div>
                   </div>
                   <span class="cart-item-total" id="item-total-<?= $item['product_id'] ?>"><?= number_format($item['item_total'], 0, '', ' ') ?> ₽</span>
                 </div>
@@ -137,18 +139,18 @@ require __DIR__ . '/../../partials/header.php';
   <section class="cart-flow">
     <div class="container">
       <h2 class="cart-flow-title">Как проходит заказ</h2>
-      <div class="cart-flow-grid">
+      <div class="cart-flow-grid" itemscope itemtype="https://schema.org/HowTo">
 
-        <div class="cart-flow-step">
-          <div class="cart-flow-step-num">1</div>
+        <div class="cart-flow-step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+          <div class="cart-flow-step-num" itemprop="position">1</div>
           <div class="cart-flow-step-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
             </svg>
           </div>
-          <h3 class="cart-flow-step-title">Вы собираете заказ</h3>
-          <p class="cart-flow-step-desc">Добавляете услуги, указываете количество пар и оставляете комментарий к заказу</p>
+          <h3 class="cart-flow-step-title" itemprop="name">Вы собираете заказ</h3>
+          <p class="cart-flow-step-desc" itemprop="text">Добавляете услуги, указываете количество пар и оставляете комментарий к заказу</p>
         </div>
 
         <div class="cart-flow-arrow">
@@ -157,16 +159,16 @@ require __DIR__ . '/../../partials/header.php';
           </svg>
         </div>
 
-        <div class="cart-flow-step">
-          <div class="cart-flow-step-num">2</div>
+        <div class="cart-flow-step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+          <div class="cart-flow-step-num" itemprop="position">2</div>
           <div class="cart-flow-step-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
               <circle cx="12" cy="10" r="3"/>
             </svg>
           </div>
-          <h3 class="cart-flow-step-title">Передаёте обувь</h3>
-          <p class="cart-flow-step-desc">Вызываете курьера — у него уже есть данные вашего заказа, остаётся только отдать обувь</p>
+          <h3 class="cart-flow-step-title" itemprop="name">Передаёте обувь</h3>
+          <p class="cart-flow-step-desc" itemprop="text">Вызываете курьера — у него уже есть данные вашего заказа, остаётся только отдать обувь</p>
         </div>
 
         <div class="cart-flow-arrow">
@@ -175,16 +177,16 @@ require __DIR__ . '/../../partials/header.php';
           </svg>
         </div>
 
-        <div class="cart-flow-step">
-          <div class="cart-flow-step-num">3</div>
+        <div class="cart-flow-step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+          <div class="cart-flow-step-num" itemprop="position">3</div>
           <div class="cart-flow-step-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
               <polyline points="22 4 12 14.01 9 11.01"/>
             </svg>
           </div>
-          <h3 class="cart-flow-step-title">Организация выполняет работу</h3>
-          <p class="cart-flow-step-desc">Мастер приступает к чистке по вашему заказу — оплата только после выполнения работы, по факту</p>
+          <h3 class="cart-flow-step-title" itemprop="name">Организация выполняет работу</h3>
+          <p class="cart-flow-step-desc" itemprop="text">Мастер приступает к чистке по вашему заказу — оплата только после выполнения работы, по факту</p>
         </div>
 
       </div>

@@ -227,33 +227,93 @@ class SeoController
   }
 
   // ── Feeds ───────────────────────────────────────────────────
+  private function loadArticles(): array
+  {
+    $path = __DIR__ . '/../../public/pages/blog/data/articles.json';
+    if (!file_exists($path)) return [];
+    $data = json_decode(file_get_contents($path), true);
+    return is_array($data) ? $data : [];
+  }
+
   public function onRss(): void
   {
     header('Content-Type: application/rss+xml; charset=utf-8');
-    echo '<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+    $articles = $this->loadArticles();
+    usort($articles, fn($a, $b) => strtotime($b['created_at']) - strtotime($a['created_at']));
+
+    $s = $this->site();
+    $out = '<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>MANDO MEMORI — химчистка обуви</title>
-    <link>' . $this->site() . '</link>
-    <description>Профессиональная химчистка и уход за обувью в Москве</description>
+    <link>' . $s . '</link>
+    <description>Профессиональная химчистка и уход за обувью в Москве. Полезные статьи, советы экспертов, тренды 2026.</description>
     <language>ru</language>
-    <atom:link href="' . $this->site() . '/rss.xml" rel="self" type="application/rss+xml"/>
-  </channel>
+    <atom:link href="' . $s . '/rss.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>' . date('r') . '</lastBuildDate>' . "\n";
+
+    foreach ($articles as $a) {
+      $url = $s . '/blog/article/' . $a['id'];
+      $pubDate = date('r', strtotime($a['created_at']));
+      $title = htmlspecialchars($a['title'], ENT_XML1, 'UTF-8');
+      $desc = htmlspecialchars($a['meta_description'], ENT_XML1, 'UTF-8');
+      $img = $s . $a['image'];
+
+      $out .= '    <item>
+      <title>' . $title . '</title>
+      <link>' . $url . '</link>
+      <guid isPermaLink="true">' . $url . '</guid>
+      <pubDate>' . $pubDate . '</pubDate>
+      <description>' . $desc . '</description>
+      <category>' . htmlspecialchars($a['category'], ENT_XML1, 'UTF-8') . '</category>
+      <enclosure url="' . $img . '" type="image/jpeg"/>
+    </item>' . "\n";
+    }
+
+    $out .= '  </channel>
 </rss>';
+    echo $out;
   }
 
   public function onFeed(): void { $this->onRss(); }
   public function onAtom(): void
   {
     header('Content-Type: application/atom+xml; charset=utf-8');
-    echo '<?xml version="1.0" encoding="UTF-8"?>
+
+    $articles = $this->loadArticles();
+    usort($articles, fn($a, $b) => strtotime($b['created_at']) - strtotime($a['created_at']));
+
+    $s = $this->site();
+    $updated = date('Y-m-d\TH:i:s\Z');
+    $out = '<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>MANDO MEMORI — химчистка обуви</title>
-  <link href="' . $this->site() . '/atom.xml" rel="self"/>
-  <link href="' . $this->site() . '"/>
-  <id>' . $this->site() . '/atom.xml</id>
-  <updated>' . date('Y-m-d\TH:i:s\Z') . '</updated>
-</feed>';
+  <subtitle>Полезные статьи об уходе за обувью: чистка, реставрация, тренды</subtitle>
+  <link href="' . $s . '/atom.xml" rel="self"/>
+  <link href="' . $s . '"/>
+  <id>' . $s . '/atom.xml</id>
+  <updated>' . $updated . '</updated>' . "\n";
+
+    foreach ($articles as $a) {
+      $url = $s . '/blog/article/' . $a['id'];
+      $published = date('Y-m-d\TH:i:s\Z', strtotime($a['created_at']));
+      $title = htmlspecialchars($a['title'], ENT_XML1, 'UTF-8');
+      $summary = htmlspecialchars($a['meta_description'], ENT_XML1, 'UTF-8');
+
+      $out .= '  <entry>
+    <title>' . $title . '</title>
+    <link href="' . $url . '"/>
+    <id>' . $url . '</id>
+    <published>' . $published . '</published>
+    <updated>' . $published . '</updated>
+    <summary>' . $summary . '</summary>
+    <category term="' . htmlspecialchars($a['category'], ENT_XML1, 'UTF-8') . '"/>
+  </entry>' . "\n";
+    }
+
+    $out .= '</feed>';
+    echo $out;
   }
 
   // ── PWA Manifest ────────────────────────────────────────────
@@ -273,7 +333,7 @@ class SeoController
         ['src' => '/public/assets/images/favicon.svg', 'sizes' => '192x192', 'type' => 'image/svg+xml'],
         ['src' => '/public/assets/images/favicon.svg', 'sizes' => '512x512', 'type' => 'image/svg+xml'],
       ],
-    ], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
   }
 
   public function onWebmanifest(): void { $this->onManifest(); }

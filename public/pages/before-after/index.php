@@ -60,7 +60,7 @@ require __DIR__ . '/../../partials/header.php';
     </div>
   </section>
 
-  <section class="ba-stack">
+  <section class="ba-stack" itemscope itemtype="https://schema.org/ImageGallery">
       <?php
       $baItems = [
         ['file' => 'beforeafter1.png',  'bg' => '#efa468'],

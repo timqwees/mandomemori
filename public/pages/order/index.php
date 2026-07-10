@@ -467,21 +467,21 @@ html, body { background: #121212; margin: 0; }
     <script>if(typeof ym==='function') ym('reachGoal','order_created');</script>
     <?php endif; ?>
 
-    <div class="ord-steps">
-      <div class="ord-step">
-        <span class="ord-step__num">Шаг 1</span>
-        <h3 class="ord-step__title">Выберите способ передачи</h3>
-        <p class="ord-step__desc">Вызовите курьера — он сам заберёт обувь и привезёт обратно</p>
+    <div class="ord-steps" itemscope itemtype="https://schema.org/HowTo">
+      <div class="ord-step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <span class="ord-step__num" itemprop="position">Шаг 1</span>
+        <h3 class="ord-step__title" itemprop="name">Выберите способ передачи</h3>
+        <p class="ord-step__desc" itemprop="text">Вызовите курьера — он сам заберёт обувь и привезёт обратно</p>
       </div>
-      <div class="ord-step">
-        <span class="ord-step__num">Шаг 2</span>
-        <h3 class="ord-step__title">Назовите номер заказа</h3>
-        <p class="ord-step__desc">Сотрудник или курьер найдёт заказ в системе по номеру — никаких лишних вопросов</p>
+      <div class="ord-step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <span class="ord-step__num" itemprop="position">Шаг 2</span>
+        <h3 class="ord-step__title" itemprop="name">Назовите номер заказа</h3>
+        <p class="ord-step__desc" itemprop="text">Сотрудник или курьер найдёт заказ в системе по номеру — никаких лишних вопросов</p>
       </div>
-      <div class="ord-step">
-        <span class="ord-step__num">Шаг 3</span>
-        <h3 class="ord-step__title">Отдайте обувь</h3>
-        <p class="ord-step__desc">Курьер заберёт её сразу — мастер приступает к работе</p>
+      <div class="ord-step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <span class="ord-step__num" itemprop="position">Шаг 3</span>
+        <h3 class="ord-step__title" itemprop="name">Отдайте обувь</h3>
+        <p class="ord-step__desc" itemprop="text">Курьер заберёт её сразу — мастер приступает к работе</p>
       </div>
     </div>
 
@@ -507,7 +507,7 @@ html, body { background: #121212; margin: 0; }
     <div class="courier-form-wrapper" id="courier-form">
       <div class="courier-form-card">
         <h2 class="courier-form-title" style="color: black;">Вызов курьера</h2>
-        <p class="courier-form-subtitle"><?= $orderNum ? 'Оставьте контакты — PDF-чек с деталями заказа придёт вам на почту' : 'Оставьте контакты — курьер приедет за обувью' ?></p>
+        <p class="courier-form-subtitle"><?= $orderNum ? 'PDF-чек с деталями заказа придёт вам на почту' : 'Оставьте контакты — курьер приедет за обувью' ?></p>
         <form id="courier-request-form" class="courier-form">
           <input type="hidden" name="_csrf" value="3bd5a1ea01eec4cc5fac232d54cfe19be1beb147477f69e057180030166a8e04">
           <input type="hidden" name="city_slug" value="moscow">
@@ -549,16 +549,16 @@ html, body { background: #121212; margin: 0; }
     </div>
   </section>
 
-  <section class="ord-cta">
+  <section class="ord-cta" itemscope itemtype="https://schema.org/ContactPoint">
     <div class="ord-cta__inner">
       <h2 class="ord-cta__title">Остались вопросы?</h2>
       <p class="ord-cta__desc">Напишите в Telegram или позвоните — ответим оперативно</p>
       <div class="ord-cta__btns">
-        <a href="https://t.me/mandomemori_bot" target="_blank" class="ord-cta__btn ord-cta__btn--tg">
+        <a href="https://t.me/mandomemori_bot" target="_blank" class="ord-cta__btn ord-cta__btn--tg" itemprop="contactType" content="Telegram">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
           Telegram, mandomemori_bot
         </a>
-        <a href="tel:+74951980495" class="ord-cta__btn ord-cta__btn--phone">
+        <a href="tel:+74951980495" class="ord-cta__btn ord-cta__btn--phone" itemprop="telephone">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           +7 (915) 252-75-75
         </a>

@@ -13,6 +13,8 @@ use App\Controllers\CourierController;
 
 //==================================================================================================// MAIN
 Routes::get('/', [HomeController::class, 'onIndex']);
+Routes::get('/blog', [HomeController::class, 'onBlog']);
+Routes::get('/blog/article/{id}', [HomeController::class, 'onBlogArticle']);
 Routes::get('/privacy-policy', [HomeController::class, 'onPrivacy']);
 Routes::get('/products', [HomeController::class, 'onProducts']);
 Routes::get('/about', [HomeController::class, 'onAbout']);

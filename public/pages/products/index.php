@@ -57,23 +57,28 @@ require __DIR__ . '/../../partials/header.php';
     </div>
   </section>
 
-  <section class="services-grid">
+  <section class="services-grid" itemscope itemtype="https://schema.org/ItemList">
     <div class="container">
       <div class="product-cards">
         <?php
         $allSvcs = Functions::getServices();
+        $pos = 0;
         foreach ($allSvcs as $svc):
+        $pos++;
         ?>
-        <article class="product-card<?= $svc['dark'] ? ' dark-bg' : '' ?>" style="background:<?= $svc['bg'] ?>">
+        <article class="product-card<?= $svc['dark'] ? ' dark-bg' : '' ?>" style="background:<?= $svc['bg'] ?>" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <meta itemprop="position" content="<?= $pos ?>">
+          <div itemprop="item" itemscope itemtype="https://schema.org/Product">
           <div class="product-card-text">
-            <h2 class="product-card-title"><?= $svc['title'] ?></h2>
-            <p class="product-card-desc">от <?= $svc['price_formatted'] ?> ₽ за пару</p>
+            <h2 class="product-card-title" itemprop="name"><?= $svc['title'] ?></h2>
+            <p class="product-card-desc" itemprop="offers" itemscope itemtype="https://schema.org/Offer">от <span itemprop="price" content="<?= $svc['price'] ?>"><?= $svc['price_formatted'] ?></span> <span itemprop="priceCurrency" content="RUB">₽</span> за пару</p>
           </div>
-          <div class="product-card-image">
-            <img src="/public/assets/images/<?= $svc['img'] ?>" alt="<?= $svc['title'] ?>" loading="lazy">
+          <div class="product-card-image" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+            <img src="/public/assets/images/<?= $svc['img'] ?>" alt="<?= $svc['title'] ?>" loading="lazy" itemprop="contentUrl">
           </div>
           <div class="product-card-action">
-            <a href="/product/<?= $svc['slug'] ?>" class="product-card-btn product-card-btn-detail">Подробнее</a>
+            <a href="/product/<?= $svc['slug'] ?>" class="product-card-btn product-card-btn-detail" itemprop="url">Подробнее</a>
+          </div>
           </div>
         </article>
         <?php endforeach; ?>

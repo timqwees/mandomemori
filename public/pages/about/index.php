@@ -619,7 +619,8 @@ html, body { background: #121212; margin: 0; }
     </div>
   </div>
 
-  <section class="anp-hero">
+  <section class="anp-hero" itemscope itemtype="https://schema.org/Organization">
+    <meta itemprop="name" content="MANDO MEMORI">
     <div class="anp-hero__top">
       <svg class="anp-hero__cutout" viewBox="0 0 100 30" preserveAspectRatio="xMidYMid meet" role="img" aria-label="MANDO MEMORI">
         <defs>
@@ -641,7 +642,7 @@ html, body { background: #121212; margin: 0; }
       <div class="anp-hero__spacer"></div>
       <div class="anp-hero__bottom">
           <h1 class="anp-hero__tagline">Химчистка обуви с 2015 года</h1>
-          <p class="anp-hero__desc">MANDO MEMORI — профессиональный сервис химчистки обуви в Москве. Чистим кроссовки, ботинки, туфли, замшу, нубук и премиальные бренды. Отбеливание подошвы, покраска, реставрация — полный цикл ухода.</p>
+          <p class="anp-hero__desc" itemprop="description">MANDO MEMORI — профессиональный сервис химчистки обуви в Москве. Чистим кроссовки, ботинки, туфли, замшу, нубук и премиальные бренды. Отбеливание подошвы, покраска, реставрация — полный цикл ухода.</p>
       </div>
     </div>
   </section>
@@ -674,7 +675,10 @@ html, body { background: #121212; margin: 0; }
             </div>
         </section>
 
-        <section class="anp-numbers" id="s-numbers">
+        <section class="anp-numbers" id="s-numbers" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+          <meta itemprop="ratingValue" content="4.9">
+          <meta itemprop="bestRating" content="5">
+          <meta itemprop="ratingCount" content="1100000">
           <div class="anp-numbers__grid">
             <div class="anp-number">
               <span class="anp-number__value">1 100 000+</span>

@@ -67,16 +67,16 @@ require __DIR__ . '/../../partials/header.php';
             <img src="/public/assets/images/mandomemori/фон чистки.jpg" alt="MANDO MEMORI — мастерская" loading="lazy">
           </div>
 
-          <div class="contacts-duo-card contacts-duo-info">
+          <div class="contacts-duo-card contacts-duo-info" itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
             <h2 class="contacts-duo-heading">Наши контакты</h2>
             <p class="contacts-duo-text">Химчистка обуви в Москве. Напишите в Telegram или позвоните — ответим в ближайшее время</p>
 
             <div class="contacts-duo-btns">
-                <a href="https://t.me/mandomemori_bot" target="_blank" class="contact-btn contact-btn-tg">
+                <a href="https://t.me/mandomemori_bot" target="_blank" class="contact-btn contact-btn-tg" itemprop="contactType" content="Telegram">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
                   Telegram, mandomemori_bot
                 </a>
-                <a href="tel:+74951980495" class="contact-btn contact-btn-phone">
+                <a href="tel:+74951980495" class="contact-btn contact-btn-phone" itemprop="telephone">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
                   +7 (915) 252-75-75
                 </a>
@@ -93,11 +93,11 @@ require __DIR__ . '/../../partials/header.php';
                 </div>
                 <div class="contacts-duo-link">
                   <span>Почта</span>
-                  <a href="mailto:info@mmclean.ru">info@mmclean.ru</a>
+                  <a href="mailto:info@mmclean.ru" itemprop="email">info@mmclean.ru</a>
                 </div>
                 <div class="contacts-duo-link">
                   <span>Номер</span>
-                  <a href="tel:+79152527575">+7 (915) 252-75-75</a>
+                  <a href="tel:+79152527575" itemprop="telephone">+7 (915) 252-75-75</a>
                 </div>
             </div>
           </div>

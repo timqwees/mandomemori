@@ -14,18 +14,18 @@ require __DIR__ . '/../../partials/header.php';
 
 <main class="main franchise-page">
 
-  <section class="fr-intro" style="background-color:#1d1d1f;background-image:url('/public/assets/images/mandomemori/фон чистки2.jpg');color:#ffffff">
+  <section class="fr-intro" style="background-color:#1d1d1f;background-image:url('/public/assets/images/mandomemori/фон чистки2.jpg');color:#ffffff" itemscope itemtype="https://schema.org/Product">
     <div class="container fr-intro-content">
       <p class="fr-intro-label" style="font-size:13px;text-transform:uppercase;letter-spacing:2px;opacity:0.6;margin-bottom:12px">Франшиза</p>
-      <h1 class="fr-intro-title">Откройте химчистку обуви<br>по франшизе MANDO MEMORI</h1>
-      <p class="fr-intro-desc">11 лет на рынке, 1 100 000+ пар обуви, 26 городов в 8 странах.<br>Готовый бизнес под ключ с обучением и сопровождением.</p>
+      <h1 class="fr-intro-title" itemprop="name">Откройте химчистку обуви<br>по франшизе MANDO MEMORI</h1>
+      <p class="fr-intro-desc" itemprop="description">11 лет на рынке, 1 100 000+ пар обуви, 26 городов в 8 странах.<br>Готовый бизнес под ключ с обучением и сопровождением.</p>
     </div>
   </section>
 
   <section class="fr-section" style="padding:80px 0">
     <div class="container">
       <h2 class="fr-section-title">Почему MANDO MEMORI</h2>
-      <div class="fr-desc-usp-grid">
+      <div class="fr-desc-usp-grid" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
         <div class="fr-desc-usp-item" style="background:#f5f5f7;border-radius:16px;padding:40px 32px">
           <h4 style="color:#C8A46F">11 лет</h4>
           <p style="color:#333">С 2015 года задаём стандарты профессиональной чистки обуви. Отработанная технология, которая приносит результат.</p>
