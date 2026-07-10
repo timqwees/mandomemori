@@ -47,6 +47,7 @@ $siteUrl = "$scheme://$host";
   $ywId = $_ENV["YW_ID"] ?? "";
   $ga4Id = $_ENV["GA4_ID"] ?? "";
   $ymId = $_ENV["YM_ID"] ?? "";
+  $ywebId = $_ENV["YWEB_ID"] ?? "";
   ?>
   <?php if (
     $gscId
@@ -58,15 +59,17 @@ $siteUrl = "$scheme://$host";
   <meta name="geo.placename" content="Москва">
   <meta name="geo.position" content="55.765833;37.618889">
   <meta name="ICBM" content="55.765833, 37.618889">
-
+    
+  <!-- SEO METRIKS -->
+  <?php if ($ywebId): ?><meta name="yandex-verification" content="<?= htmlspecialchars($ywebId) ?>" /><?php endif; ?>
   <?php if ($ga4Id): ?>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=<?= $ga4Id ?>"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','<?= $ga4Id ?>');</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<?= htmlspecialchars($ga4Id) ?>"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','<?= htmlspecialchars($ga4Id) ?>');</script>
   <?php endif; ?>
 
   <?php if ($ymId): ?>
-  <script>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r)return;}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');ym(<?= $ymId ?>,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});</script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/<?= $ymId ?>" style="position:absolute;left:-9999px" alt=""></div></noscript>
+  <script>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r)return;}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');ym(<?= htmlspecialchars($ymId) ?>,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});</script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/<?= htmlspecialchars($ymId) ?>" style="position:absolute;left:-9999px" alt=""></div></noscript>
   <?php endif; ?>
 </head>
 <body itemscope itemtype="https://schema.org/LocalBusiness">
