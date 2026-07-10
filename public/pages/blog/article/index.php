@@ -46,17 +46,17 @@ $tops = array_slice(array_values($tops), 0, 5);
         <span><?= htmlspecialchars($article['category']) ?></span>
       </nav>
       <div class="article-meta-top">
+        <div class="article-author-row">
+          <div class="article-author-avatar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4562A"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+          <span class="article-author-name"><?= htmlspecialchars($article['author']) ?></span>
+        </div>
         <span class="article-cat"><?= htmlspecialchars($article['category']) ?></span>
         <span class="article-date"><time datetime="<?= date('c', strtotime($article['created_at'])) ?>"><?= date('d.m.Y', strtotime($article['created_at'])) ?></time></span>
       </div>
       <h1 class="article-title" itemprop="headline"><?= htmlspecialchars($article['title']) ?></h1>
       <p class="article-desc" itemprop="description"><?= htmlspecialchars($article['meta_description']) ?></p>
-      <div class="article-author-row">
-        <div class="article-author-avatar">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#D4562A"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        </div>
-        <span class="article-author-name"><?= htmlspecialchars($article['author']) ?></span>
-      </div>
     </div>
   </section>
 
@@ -103,8 +103,11 @@ $tops = array_slice(array_values($tops), 0, 5);
             <div class="article-sidebar-body">
               <?php foreach ($tops as $item): ?>
               <a class="article-popular-item" href="/blog/<?= $item['url'] ?>">
-                <span class="article-popular-num"><?= htmlspecialchars($item['title']) ?></span>
-                <span class="article-popular-date"><?= date('d.m.Y', strtotime($item['created_at'])) ?></span>
+                <div class="article-popular-img" style="background-image:url('<?= htmlspecialchars($item['image']) ?>')"></div>
+                <div class="article-popular-body">
+                  <span class="article-popular-title"><?= htmlspecialchars($item['title']) ?></span>
+                  <span class="article-popular-date"><?= date('d.m.Y', strtotime($item['created_at'])) ?></span>
+                </div>
               </a>
               <?php endforeach; ?>
             </div>
@@ -133,13 +136,13 @@ $tops = array_slice(array_values($tops), 0, 5);
 .article-breadcrumbs a:hover { color: var(--accent); }
 .article-bc-sep { color: #ccc; }
 .article-meta-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+.article-author-row { display: inline-flex; align-items: center; gap: 6px; }
+.article-author-avatar { width: 22px; height: 22px; border-radius: 50%; background: rgba(212,86,42,0.12); display: flex; align-items: center; justify-content: center; }
+.article-author-name { font-size: 12px; font-weight: 500; color: #888; }
 .article-cat { display: inline-block; padding: 3px 10px; border-radius: 4px; background: var(--accent); color: #fff; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing:0.03em; }
 .article-date { font-size: 13px; color: var(--blog-muted); }
 .article-title { font-family: var(--font-heading); font-size: clamp(1.6rem,3.5vw,2.4rem); font-weight: 700; letter-spacing:-0.02em; line-height:1.15; margin:0; max-width: 800px; color: #000; }
 .article-desc { color: var(--blog-muted); margin-top: 12px; font-size: clamp(0.9rem,1.05vw,1rem); line-height:1.55; max-width: 700px; }
-.article-author-row { display: flex; align-items: center; gap: 10px; margin-top: 18px; }
-.article-author-avatar { width: 32px; height: 32px; border-radius: 50%; background: rgba(212,86,42,0.12); display: flex; align-items: center; justify-content: center; }
-.article-author-name { font-size: 13px; font-weight: 500; color: #666; }
 
 .article-body-wrap { padding: clamp(1.5rem,3vw,2.5rem) 0 clamp(3rem,5vw,5rem); }
 .article-layout { display: grid; grid-template-columns: 1fr 280px; gap: clamp(1.5rem,2.5vw,2.5rem); align-items: start; }
@@ -204,10 +207,12 @@ $tops = array_slice(array_values($tops), 0, 5);
 .article-sidebar-card + .article-sidebar-card { margin-top: 12px; }
 .article-sidebar-header { padding: 14px 18px; border-bottom: 1px solid var(--blog-border); font-size: 15px; font-weight: 700; color: #000; }
 .article-sidebar-body { padding: 8px 18px; }
-.article-popular-item { display: flex; flex-direction: column; gap: 2px; padding: 10px 0; border-bottom: 1px solid #eaeaea; text-decoration: none; }
+.article-popular-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid #eaeaea; text-decoration: none; align-items: center; }
 .article-popular-item:last-child { border-bottom: none; }
-.article-popular-num { font-size: 13px; font-weight: 600; color: #000; line-height: 17px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.article-popular-date { font-size: 11px; color: #999; }
+.article-popular-img { width: 44px; height: 44px; min-width: 44px; border-radius: 6px; background-size: cover; background-position: center; background-color: #eaeaea; }
+.article-popular-body { flex: 1; min-width: 0; }
+.article-popular-title { font-size: 13px; font-weight: 600; color: #000; line-height: 17px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.article-popular-date { font-size: 11px; color: #999; margin-top: 2px; display: block; }
 </style>
 
 <?php require __DIR__ . '/../../../partials/footer.php'; ?>

@@ -32,6 +32,16 @@ foreach ($articlesJson as $item) {
 }
 
 $tops = array_slice($articlesJson, 0, 5);
+$featured = $articlesJson[0] ?? null;
+$allArticles = $articlesJson;
+$listArticles = $articlesJson;
+if ($featured) {
+  $listArticles = array_slice($articlesJson, 1);
+  $maxPages = max(1, ceil(count($listArticles) / $perPage));
+  if ($page > $maxPages) $page = $maxPages;
+  $offset = ($page - 1) * $perPage;
+  $articles = array_slice($listArticles, $offset, $perPage);
+}
 ?>
 <main class="main blog-page">
   <section class="blog-hero">
@@ -40,6 +50,24 @@ $tops = array_slice($articlesJson, 0, 5);
       <p class="blog-hero-desc">Полезные советы по уходу за обувью: инструкции, тренды, лайфхаки от профессионалов MANDO MEMORI</p>
     </div>
   </section>
+
+  <?php if ($featured && $page <= 1): ?>
+  <section class="blog-featured">
+    <div class="container">
+      <a href="/blog/<?= $featured['url'] ?>" class="blog-featured-card" itemscope itemtype="https://schema.org/Article">
+        <meta itemprop="inLanguage" content="ru-RU">
+        <div class="blog-featured-img" style="background-image:url('<?= htmlspecialchars($featured['image']) ?>')" itemprop="image" itemscope itemtype="https://schema.org/ImageObject"></div>
+        <div class="blog-featured-body">
+          <span class="blog-featured-badge">Рекомендуем</span>
+          <span class="blog-featured-cat"><?= htmlspecialchars($featured['category']) ?></span>
+          <h2 class="blog-featured-title" itemprop="headline"><?= htmlspecialchars($featured['title']) ?></h2>
+          <p class="blog-featured-text" itemprop="description"><?= htmlspecialchars(mb_substr($featured['content'], 0, 200)) ?>...</p>
+          <span class="blog-featured-btn">Читать статью →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+  <?php endif; ?>
 
   <section class="blog-content">
     <div class="container">
@@ -77,7 +105,7 @@ $tops = array_slice($articlesJson, 0, 5);
                   <p class="blog-card-text" itemprop="description"><?= htmlspecialchars(mb_substr($article['content'], 0, 150)) ?>...</p>
                   <div class="blog-card-meta">
                     <span class="blog-card-date"><time itemprop="datePublished" datetime="<?= date('c', strtotime($article['created_at'])) ?>"><?= date('d.m.Y', strtotime($article['created_at'])) ?></time></span>
-                    <a href="/blog/<?= $article['url'] ?>" class="blog-card-btn" itemprop="url">Читать далее →</a>
+                    <a href="/blog/<?= $article['url'] ?>" class="blog-card-btn" itemprop="url">Читать статью →</a>
                   </div>
                 </div>
               </div>
@@ -111,7 +139,7 @@ $tops = array_slice($articlesJson, 0, 5);
             <div class="blog-sidebar-body">
               <?php foreach ($tops as $i => $item): ?>
               <a class="blog-popular-item" href="/blog/<?= $item['url'] ?>">
-                <span class="blog-popular-num"><?= $i + 1 ?></span>
+                <div class="blog-popular-img" style="background-image:url('<?= htmlspecialchars($item['image']) ?>')"></div>
                 <div class="blog-popular-body">
                   <div class="blog-popular-title"><?= htmlspecialchars($item['title']) ?></div>
                   <div class="blog-popular-date"><?= date('d.m.Y', strtotime($item['created_at'])) ?></div>
@@ -188,6 +216,18 @@ $tops = array_slice($articlesJson, 0, 5);
 .blog-card-meta { margin-top: 14px; display: flex; align-items: center; gap: 12px; font-size: 13px; color: #999; }
 .blog-card-btn { margin-left: auto; display: inline-flex; align-items: center; gap: 4px; height: 32px; padding: 0 16px; border-radius: 6px; color: #fff; font-size: 12px; font-weight: 600; background: var(--accent); text-decoration: none; transition: background .2s; }
 .blog-card-btn:hover { background: #e05a2a; }
+.blog-featured { padding-bottom: 0; }
+.blog-featured-card { display: grid; grid-template-columns: 1fr 1fr; border-radius: 12px; background: #fafafa; border: 2px solid var(--accent); overflow: hidden; text-decoration: none; transition: box-shadow .2s; min-height: 300px; }
+.blog-featured-card:hover { box-shadow: 0 6px 30px rgba(212,86,42,0.12); }
+@media (max-width: 767px) { .blog-featured-card { grid-template-columns: 1fr; } }
+.blog-featured-img { min-height: 280px; background-size: cover; background-position: center; }
+.blog-featured-body { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+.blog-featured-badge { display: inline-flex; align-self: flex-start; padding: 4px 12px; border-radius: 4px; background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing:0.05em; margin-bottom: 12px; }
+.blog-featured-cat { font-size: 12px; color: var(--blog-muted); text-transform: uppercase; letter-spacing:0.03em; font-weight: 600; margin-bottom: 8px; }
+.blog-featured-title { font-family: var(--font-heading); font-size: clamp(1.2rem,2.5vw,1.6rem); font-weight: 700; line-height: 1.2; color: #000; margin: 0 0 10px; }
+.blog-featured-text { font-size: 14px; line-height: 1.55; color: var(--blog-muted); margin: 0 0 18px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.blog-featured-btn { display: inline-flex; align-items: center; gap: 4px; height: 36px; padding: 0 18px; border-radius: 6px; font-size: 13px; font-weight: 600; color: #fff; background: var(--accent); align-self: flex-start; transition: background .2s; }
+.blog-featured-card:hover .blog-featured-btn { background: #e05a2a; }
 .blog-pagination { display: flex; justify-content: center; align-items: center; gap: 6px; margin-top: 32px; flex-wrap: wrap; }
 .blog-pag-btn { display: inline-flex; align-items: center; justify-content: center; height: 38px; min-width: 38px; padding: 0 14px; border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--blog-muted); background: #f0f0f0; border: none; text-decoration: none; transition: background .15s; cursor: pointer; }
 .blog-pag-btn:hover { background: #e5e5e5; color: var(--blog-text); }
@@ -195,9 +235,9 @@ $tops = array_slice($articlesJson, 0, 5);
 .blog-sidebar-card { border-radius: 12px; background: #f7f7f7; border: 1px solid var(--blog-border); overflow: hidden; }
 .blog-sidebar-header { padding: 14px 18px; border-bottom: 1px solid var(--blog-border); font-size: 15px; font-weight: 700; color: #000; }
 .blog-sidebar-body { padding: 8px 18px; }
-.blog-popular-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #eaeaea; text-decoration: none; }
+.blog-popular-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid #eaeaea; text-decoration: none; align-items: center; }
 .blog-popular-item:last-child { border-bottom: none; }
-.blog-popular-num { width: 24px; height: 24px; min-width: 24px; border-radius: 4px; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+.blog-popular-img { width: 44px; height: 44px; min-width: 44px; border-radius: 6px; background-size: cover; background-position: center; background-color: #eaeaea; }
 .blog-popular-body { flex: 1; min-width: 0; }
 .blog-popular-title { font-size: 13px; font-weight: 600; color: #000; line-height: 17px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .blog-popular-date { font-size: 11px; color: #999; margin-top: 3px; }
