@@ -22,7 +22,7 @@
             <a href="/product/cleaning">Чистка</a>
             <a href="/product/whitening">Отбеливание подошвы</a>
             <a href="/product/restoration">Реставрация</a>
-            <a href="/product/sole-replacement">Замена подошвы</a>
+            <a href="/product/replacement">Замена подошвы</a>
             <a href="/product/heel-taps-rubber">Набойки (резина)</a>
             <a href="/product/bag-restoration">Реставрация сумок</a>
             <a href="/products">Все услуги</a>
