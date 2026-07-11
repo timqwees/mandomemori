@@ -41,6 +41,7 @@ require __DIR__ . '/../../../partials/header.php';
   </div>
   <section class="svc-hero" itemscope itemtype="https://schema.org/Product">
     <meta itemprop="brand" content="MANDO MEMORI">
+    <span itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating"><meta itemprop="ratingValue" content="4.9"><meta itemprop="bestRating" content="5"><meta itemprop="ratingCount" content="1500"></span>
     <div class="svc-hero-bg" style="background-image:url('/public/assets/images/<?= $svc['img'] ?>')"></div>
     <meta itemprop="image" content="/public/assets/images/<?= $svc['img'] ?>">
     <div class="svc-hero-overlay"></div>
