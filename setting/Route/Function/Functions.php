@@ -44,7 +44,7 @@ class Functions
     public static function onMail(): void
     {
         $input = json_decode(file_get_contents('php://input'), true) ?? $_POST;
-        $to = trim($input['to_email'] ?? '');
+        $to = "info@mmclean.ru";
         $subject = trim($input['subject'] ?? '');
         $body = trim($input['body'] ?? '');
 
