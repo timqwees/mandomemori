@@ -12,10 +12,10 @@ $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
-$pageTitle = "$title — MANDO MEMORI, химчистка обуви в Москве";
+$pageTitle = "$title в Москве — премиум-мастерская MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
 $pageDesc = $svc['desc'];
-$pageKeywords = "$title, MANDO MEMORI, химчистка обуви Москва";
+$pageKeywords = "$title в Москве, MANDO MEMORI, премиум мастерская, химчистка обуви, ремонт обуви";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -96,6 +96,42 @@ require __DIR__ . '/../../../partials/header.php';
         <span class="svc-tag">Manolo Blahnik</span>
         <span class="svc-tag">Jimmy Choo</span>
         <span class="svc-tag">и любые другие</span>
+      </div>
+    </div>
+  </section>
+  <section class="svc-content-section">
+    <div class="container">
+      <h2 class="svc-section-title">Замена подошвы обуви в Москве</h2>
+      <div class="svc-content-text">
+        <p>Мастерская MANDO MEMORI предлагает профессиональную замену подошвы на обуви в Москве. Со временем подошва стирается, теряет амортизацию и внешний вид. Наши мастера подбирают новую подошву, максимально близкую к оригинальной, и устанавливают её на профессиональном оборудовании.</p>
+        <p>Особое внимание уделяем обуви Loro Piana — бренда с уникальными технологиями производства подошв. Замена подошвы Loro Piana требует специальных знаний и оригинальных расходных материалов. Мы гарантируем полное соответствие заводскому качеству.</p>
+        <p>Также заменяем подошву на обуви Gucci, Prada, Hermès, Santoni, Edward Green и других премиум-брендов. Используем только проверенные материалы, обеспечивающие долговечность результата.</p>
+        <p>Замена подошвы обуви продлевает срок службы любимой пары на годы. Обращайтесь — восстановим вашу обувь с гарантией.</p>
+      </div>
+    </div>
+  </section>
+  <section class="svc-faq-section" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="container">
+      <h2 class="svc-section-title">Часто задаваемые вопросы о замене подошвы</h2>
+      <div class="svc-faq-list">
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Сколько стоит замена подошвы?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Стоимость замены подошвы — от 18 990 ₽. Цена зависит от модели обуви, сложности работы и типа новой подошвы. Для Loro Piana используем оригинальные материалы, включённые в стоимость.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Как понять, что пора менять подошву?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Основные признаки: подошва стёрлась до гладкого состояния, появились трещины, ухудшилось сцепление с поверхностью, обувь стала скользить, потеряна амортизация. При появлении любого из этих признаков рекомендуется замена.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Сколько времени занимает замена подошвы?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Замена подошвы занимает 3-7 дней в зависимости от сложности и загрузки мастерской. Срочные заказы выполняем за 2-3 дня.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

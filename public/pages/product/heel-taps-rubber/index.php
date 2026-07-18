@@ -12,10 +12,10 @@ $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
-$pageTitle = "$title — MANDO MEMORI, химчистка обуви в Москве";
+$pageTitle = "$title в Москве — премиум-мастерская MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
 $pageDesc = $svc['desc'];
-$pageKeywords = "$title, MANDO MEMORI, химчистка обуви Москва";
+$pageKeywords = "$title в Москве, MANDO MEMORI, премиум мастерская, химчистка обуви, ремонт обуви";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -96,6 +96,35 @@ require __DIR__ . '/../../../partials/header.php';
         <span class="svc-tag">Manolo Blahnik</span>
         <span class="svc-tag">Jimmy Choo</span>
         <span class="svc-tag">и любые другие</span>
+      </div>
+    </div>
+  </section>
+  <section class="svc-content-section">
+    <div class="container">
+      <h2 class="svc-section-title">Резиновые набойки на мужскую обувь в Москве</h2>
+      <div class="svc-content-text">
+        <p>Мастерская MANDO MEMORI предлагает установку резиновых набоек на мужскую обувь в Москве. Набойки защищают каблук от стирания, продлевают срок службы обуви и обеспечивают устойчивость при ходьбе. Резиновые набойки — оптимальный выбор для повседневной носки благодаря износостойкости и комфорту.</p>
+        <p>Мы устанавливаем набойки на любую мужскую обувь: туфли, ботинки, полуботинки, оксфорды, дерби, монки. Работаем с премиум-брендами Loro Piana, Gucci, Prada, Santoni — используем только качественные материалы, не повреждающие каблук.</p>
+        <p>Установка занимает 1 день. После установки набойки незаметны и не влияют на внешний вид обуви.</p>
+      </div>
+    </div>
+  </section>
+  <section class="svc-faq-section" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="container">
+      <h2 class="svc-section-title">Часто задаваемые вопросы о резиновых набойках</h2>
+      <div class="svc-faq-list">
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Сколько стоят резиновые набойки?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Стоимость установки резиновых набоек — от 1 990 ₽ за пару. Цена включает материал и работу.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Как часто нужно менять набойки?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Резиновые набойки служат в среднем 3-6 месяцев при ежедневной носке. Рекомендуем проверять состояние набоек каждые 2-3 месяца и менять при первых признаках износа.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

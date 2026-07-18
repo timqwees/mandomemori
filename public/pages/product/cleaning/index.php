@@ -12,10 +12,10 @@ $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
-$pageTitle = "$title — MANDO MEMORI, химчистка обуви в Москве";
+$pageTitle = "$title в Москве — премиум-мастерская MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
 $pageDesc = $svc['desc'];
-$pageKeywords = "$title, MANDO MEMORI, химчистка обуви Москва";
+$pageKeywords = "$title в Москве, MANDO MEMORI, премиум мастерская, химчистка обуви, ремонт обуви";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -96,6 +96,48 @@ require __DIR__ . '/../../../partials/header.php';
         <span class="svc-tag">Manolo Blahnik</span>
         <span class="svc-tag">Jimmy Choo</span>
         <span class="svc-tag">и любые другие</span>
+      </div>
+    </div>
+  </section>
+  <section class="svc-content-section">
+    <div class="container">
+      <h2 class="svc-section-title">Профессиональная химчистка обуви в Москве</h2>
+      <div class="svc-content-text">
+        <p>Мастерская MANDO MEMORI предлагает профессиональную химчистку обуви в Москве. Мы работаем с любыми материалами: кожа, замша, нубук, текстиль, лак. Каждая пара проходит полный цикл очистки — от наружной чистки до внутренней дезинфекции и водоотталкивающей пропитки.</p>
+        <p>Наши мастера используют профессиональные средства ведущих мировых брендов (Saphir, Tarrago, Collonil), которые бережно удаляют загрязнения, не повреждая материал. После химчистки обувь выглядит как новая: исчезают потёртости, возвращается насыщенный цвет, уходит неприятный запах.</p>
+        <p>Мы особенно тщательно работаем с премиум-брендами: Loro Piana, Gucci, Prada, Louis Vuitton, Hermès. Деликатные материалы требуют особого подхода, и наши технологи знают, как не навредить дорогой обуви.</p>
+        <p>Химчистка обуви с доставкой по Москве — мы приедем к вам, заберём обувь и вернём её чистой и свежей. Работаем по всей Москве.</p>
+      </div>
+    </div>
+  </section>
+  <section class="svc-faq-section" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="container">
+      <h2 class="svc-section-title">Часто задаваемые вопросы о химчистке обуви</h2>
+      <div class="svc-faq-list">
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Сколько стоит химчистка обуви в Москве?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Стоимость химчистки обуви в нашей мастерской — от 5 990 ₽ за пару. Цена зависит от материала, сложности загрязнений и состояния обуви. Мы предлагаем бесплатную консультацию и оценку.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Сколько времени занимает химчистка обуви?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Обычно химчистка обуви занимает от 1 до 6 дней в зависимости от сложности. Для стандартной чистки кроссовок достаточно 2-3 дней. Также доступна срочная химчистка за 1 день.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Вы забираете обувь на химчистку с доставкой?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Да, мы предлагаем химчистку обуви с доставкой по Москве. Наш курьер приедет к вам, заберёт обувь и вернёт её чистой. Это удобно и бесплатно при заказе от 1 пары.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Какие бренды обуви вы принимаете на химчистку?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Мы работаем с любыми брендами — от масс-маркета до премиум-сегмента: Loro Piana, Gucci, Prada, Louis Vuitton, Hermès, Balenciaga, Nike, Adidas, New Balance и другими. Каждая пара получает индивидуальный подход.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

@@ -12,10 +12,10 @@ $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
-$pageTitle = "$title — MANDO MEMORI, химчистка обуви в Москве";
+$pageTitle = "$title в Москве — премиум-мастерская MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
 $pageDesc = $svc['desc'];
-$pageKeywords = "$title, MANDO MEMORI, химчистка обуви Москва";
+$pageKeywords = "$title в Москве, MANDO MEMORI, премиум мастерская, химчистка обуви, ремонт обуви";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -96,6 +96,48 @@ require __DIR__ . '/../../../partials/header.php';
         <span class="svc-tag">Manolo Blahnik</span>
         <span class="svc-tag">Jimmy Choo</span>
         <span class="svc-tag">и любые другие</span>
+      </div>
+    </div>
+  </section>
+  <section class="svc-content-section">
+    <div class="container">
+      <h2 class="svc-section-title">Отбеливание подошвы кроссовок в Москве</h2>
+      <div class="svc-content-text">
+        <p>Мастерская MANDO MEMORI предлагает профессиональное отбеливание подошвы обуви в Москве. Со временем подошва кроссовок желтеет из-за окисления резины, ультрафиолета и воздействия реагентов. Наши мастера используют специальные составы, которые безопасно удаляют желтизну и возвращают подошве белоснежный вид.</p>
+        <p>Особое внимание мы уделяем обуви Loro Piana — бренда, который славится своими уникальными материалами и технологиями. Отбеливание подошвы Loro Piana требует деликатного подхода: мы используем только оригинальные восстановительные составы, рекомендованные производителем.</p>
+        <p>Процесс отбеливания включает очистку подошвы, нанесение отбеливающего состава, выдерживание и фиксацию результата защитным покрытием. Результат сохраняется надолго при правильном уходе.</p>
+        <p>Отбеливание подошвы кроссовок также доступно для Nike, Adidas, New Balance, Asics и других брендов.</p>
+      </div>
+    </div>
+  </section>
+  <section class="svc-faq-section" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="container">
+      <h2 class="svc-section-title">Часто задаваемые вопросы об отбеливании подошвы</h2>
+      <div class="svc-faq-list">
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Сколько стоит отбеливание подошвы кроссовок?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Стоимость отбеливания подошвы — от 10 990 ₽. Цена зависит от степени пожелтения, материала подошвы и бренда обуви. Для Loro Piana используется специальная технология, включённая в стоимость.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Почему желтеет подошва кроссовок?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Подошва желтеет из-за окисления резины при контакте с воздухом и ультрафиолетом, а также из-за воздействия дорожных реагентов и неправильного хранения. Это естественный процесс, который легко обратим с помощью профессионального отбеливания.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Как надолго хватает отбеливания подошвы?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">При правильном уходе результат отбеливания сохраняется от 3 до 6 месяцев. Рекомендуем использовать водоотталкивающую пропитку и избегать агрессивных моющих средств.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Какие кроссовки можно отбелить?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Мы отбеливаем подошву любых кроссовок: Nike, Adidas, New Balance, Asics, Yeezy, Balenciaga и других. Метод отбеливания подбирается индивидуально под тип резины подошвы.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

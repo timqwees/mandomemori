@@ -12,10 +12,10 @@ $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
-$pageTitle = "$title — MANDO MEMORI, химчистка обуви в Москве";
+$pageTitle = "$title в Москве — премиум-мастерская MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
 $pageDesc = $svc['desc'];
-$pageKeywords = "$title, MANDO MEMORI, химчистка обуви Москва";
+$pageKeywords = "$title в Москве, MANDO MEMORI, премиум мастерская, химчистка обуви, ремонт обуви";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -96,6 +96,41 @@ require __DIR__ . '/../../../partials/header.php';
         <span class="svc-tag">Manolo Blahnik</span>
         <span class="svc-tag">Jimmy Choo</span>
         <span class="svc-tag">и любые другие</span>
+      </div>
+    </div>
+  </section>
+  <section class="svc-content-section">
+    <div class="container">
+      <h2 class="svc-section-title">Реставрация сумок в Москве</h2>
+      <div class="svc-content-text">
+        <p>Мастерская MANDO MEMORI предлагает профессиональную реставрацию кожаных сумок в Москве. После активного использования на сумках появляются царапины, потёртости, повреждаются швы, молнии и фурнитура. Наши мастера восстанавливают любые дефекты, возвращая сумкам первоначальный вид.</p>
+        <p>Мы работаем с сумками любых брендов — от масс-маркета до люксовых: Loro Piana, Gucci, Prada, Louis Vuitton, Hermès, Chanel. Каждое изделие проходит индивидуальную оценку и подбор методов восстановления.</p>
+        <p>Реставрация сумок включает устранение царапин и потёртостей, восстановление цвета кожи, ремонт и замену швов, молний, фурнитуры. Используем оригинальные красители и материалы, максимально приближенные к заводским.</p>
+      </div>
+    </div>
+  </section>
+  <section class="svc-faq-section" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="container">
+      <h2 class="svc-section-title">Часто задаваемые вопросы о реставрации сумок</h2>
+      <div class="svc-faq-list">
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Сколько стоит реставрация сумок в Москве?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Стоимость реставрации сумок — от 7 990 ₽. Цена зависит от размера сумки, сложности дефектов, необходимости замены фурнитуры или молнии. Точную стоимость определяем после осмотра.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Какие бренды сумок вы реставрируете?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Мы реставрируем сумки любых брендов: Loro Piana, Gucci, Prada, Louis Vuitton, Hermès, Chanel, Balenciaga, Bottega Veneta, Valentino и других. Премиум-бренды получают особый подход с использованием оригинальных материалов.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Сколько времени занимает реставрация сумки?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Реставрация сумки занимает от 3 до 10 дней в зависимости от сложности работ. После приёма изделия мы называем точный срок.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

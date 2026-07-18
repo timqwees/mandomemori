@@ -12,10 +12,10 @@ $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
-$pageTitle = "$title — MANDO MEMORI, химчистка обуви в Москве";
+$pageTitle = "$title в Москве — премиум-мастерская MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
 $pageDesc = $svc['desc'];
-$pageKeywords = "$title, MANDO MEMORI, химчистка обуви Москва";
+$pageKeywords = "$title в Москве, MANDO MEMORI, премиум мастерская, химчистка обуви, ремонт обуви";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -96,6 +96,35 @@ require __DIR__ . '/../../../partials/header.php';
         <span class="svc-tag">Manolo Blahnik</span>
         <span class="svc-tag">Jimmy Choo</span>
         <span class="svc-tag">и любые другие</span>
+      </div>
+    </div>
+  </section>
+  <section class="svc-content-section">
+    <div class="container">
+      <h2 class="svc-section-title">Комбинированные набойки на обувь в Москве</h2>
+      <div class="svc-content-text">
+        <p>Мастерская MANDO MEMORI предлагает установку комбинированных набоек на мужскую обувь в Москве. Комбинированные набойки сочетают твёрдую основу и резиновую накладку — это обеспечивает долговечность и комфорт при ходьбе одновременно.</p>
+        <p>Такой тип набоек идеально подходит для дорогой премиум-обуви: Loro Piana, Gucci, Prada, Magnanni. Твёрдая основа сохраняет форму каблука, а резиновая часть обеспечивает сцепление с поверхностью и амортизацию.</p>
+        <p>Установка занимает 1 день. Рекомендуется для обуви, которая носится ежедневно и требует максимальной надёжности.</p>
+      </div>
+    </div>
+  </section>
+  <section class="svc-faq-section" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="container">
+      <h2 class="svc-section-title">Часто задаваемые вопросы о комбинированных набойках</h2>
+      <div class="svc-faq-list">
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Сколько стоят комбинированные набойки?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Стоимость установки комбинированных набоек — от 2 990 ₽ за пару. Цена включает материалы и работу.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Чем комбинированные набойки лучше обычных резиновых?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Комбинированные набойки долговечнее — твёрдая основа не даёт каблуку деформироваться, а резиновая часть обеспечивает комфорт при ходьбе. Они идеальны для ежедневной носки и сохраняют форму обуви дольше.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

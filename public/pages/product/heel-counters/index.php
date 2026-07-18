@@ -12,10 +12,10 @@ $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
-$pageTitle = "$title — MANDO MEMORI, химчистка обуви в Москве";
+$pageTitle = "$title в Москве — премиум-мастерская MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
 $pageDesc = $svc['desc'];
-$pageKeywords = "$title, MANDO MEMORI, химчистка обуви Москва";
+$pageKeywords = "$title в Москве, MANDO MEMORI, премиум мастерская, химчистка обуви, ремонт обуви";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -96,6 +96,35 @@ require __DIR__ . '/../../../partials/header.php';
         <span class="svc-tag">Manolo Blahnik</span>
         <span class="svc-tag">Jimmy Choo</span>
         <span class="svc-tag">и любые другие</span>
+      </div>
+    </div>
+  </section>
+  <section class="svc-content-section">
+    <div class="container">
+      <h2 class="svc-section-title">Замена задников обуви в Москве</h2>
+      <div class="svc-content-text">
+        <p>Мастерская MANDO MEMORI предлагает замену задников обуви в Москве. Задники — это внутренние жёсткие элементы в пяточной части обуви, которые фиксируют пятку и формируют заднюю часть ботинка или туфли. Со временем задники изнашиваются, деформируются, размокают — и обувь теряет форму, появляются мозоли, дискомфорт при ходьбе.</p>
+        <p>Мы заменяем как твёрдые, так и мягкие задники на обуви любых брендов: Loro Piana, Gucci, Prada, Hermès. Процесс включает удаление старого задника, установку нового из качественного материала и формовку по ноге клиента.</p>
+        <p>После замены задников обувь снова садится по ноге, исчезает дискомфорт, восстанавливается первоначальная форма. Работа занимает 2-4 дня.</p>
+      </div>
+    </div>
+  </section>
+  <section class="svc-faq-section" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="container">
+      <h2 class="svc-section-title">Часто задаваемые вопросы о замене задников</h2>
+      <div class="svc-faq-list">
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Сколько стоит замена задников обуви?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Стоимость замены задников — от 3 490 ₽ за пару. Цена зависит от сложности работы и типа задника (твёрдый или мягкий).</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Когда нужно менять задники обуви?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Задники нужно менять, если обувь начала натирать пятку, потеряла форму в задней части, появился дискомфорт при ходьбе или задник стал мягким и не фиксирует ногу. Также замена требуется, если задник повреждён водой или разбит при носке.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

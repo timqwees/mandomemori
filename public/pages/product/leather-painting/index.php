@@ -12,10 +12,10 @@ $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
-$pageTitle = "$title — MANDO MEMORI, химчистка обуви в Москве";
+$pageTitle = "$title в Москве — премиум-мастерская MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
 $pageDesc = $svc['desc'];
-$pageKeywords = "$title, MANDO MEMORI, химчистка обуви Москва";
+$pageKeywords = "$title в Москве, MANDO MEMORI, премиум мастерская, химчистка обуви, ремонт обуви";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -96,6 +96,42 @@ require __DIR__ . '/../../../partials/header.php';
         <span class="svc-tag">Manolo Blahnik</span>
         <span class="svc-tag">Jimmy Choo</span>
         <span class="svc-tag">и любые другие</span>
+      </div>
+    </div>
+  </section>
+  <section class="svc-content-section">
+    <div class="container">
+      <h2 class="svc-section-title">Ручная роспись на коже в Москве</h2>
+      <div class="svc-content-text">
+        <p>Мастерская MANDO MEMORI предлагает уникальную услугу — ручная роспись на коже в Москве. Наши художники создают индивидуальные рисунки на обуви, сумках, ремнях и любых кожаных аксессуарах. Вы выбираете дизайн, а мы воплощаем его в единственном экземпляре на вашей вещи.</p>
+        <p>Мы используем профессиональные краски для кожи, которые сохраняют яркость и не стираются со временем. Каждое изделие покрывается защитным фиксатором, обеспечивающим долговечность рисунка. Роспись на коже — это не просто дизайн, а полноценная кастомизация, которая делает вещь уникальной.</p>
+        <p>Особой популярностью пользуется роспись кроссовок — кастомные дизайны для Nike, Adidas, Vans, Converse. Наши художники могут воспроизвести любой стиль: от минимализма до сложных орнаментов.</p>
+        <p>Срок выполнения — от 5 до 14 дней в зависимости от сложности рисунка. Бесплатная консультация и согласование эскиза перед началом работы.</p>
+      </div>
+    </div>
+  </section>
+  <section class="svc-faq-section" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="container">
+      <h2 class="svc-section-title">Часто задаваемые вопросы о росписи на коже</h2>
+      <div class="svc-faq-list">
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Сколько стоит ручная роспись на коже?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Стоимость ручной росписи на коже — от 49 900 ₽. Цена зависит от сложности рисунка, площади покрытия и количества цветов. Точную стоимость называем после согласования эскиза.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Долго ли держится роспись на коже?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">При правильном уходе роспись сохраняет яркость и целостность годами. Мы используем профессиональные красители и финишное защитное покрытие. Рекомендуется избегать длительного контакта с водой и агрессивными моющими средствами.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Какие рисунки можно нанести на кожу?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Любые! Наши художники работают в любых стилях: от монохромных логотипов и надписей до полноцветных иллюстраций, орнаментов и абстракций. Вы можете предоставить свой эскиз или заказать разработку дизайна под ключ.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

@@ -12,10 +12,10 @@ $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
-$pageTitle = "$title — MANDO MEMORI, химчистка обуви в Москве";
+$pageTitle = "$title в Москве — премиум-мастерская MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
 $pageDesc = $svc['desc'];
-$pageKeywords = "$title, MANDO MEMORI, химчистка обуви Москва";
+$pageKeywords = "$title в Москве, MANDO MEMORI, премиум мастерская, химчистка обуви, ремонт обуви";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -96,6 +96,35 @@ require __DIR__ . '/../../../partials/header.php';
         <span class="svc-tag">Manolo Blahnik</span>
         <span class="svc-tag">Jimmy Choo</span>
         <span class="svc-tag">и любые другие</span>
+      </div>
+    </div>
+  </section>
+  <section class="svc-content-section">
+    <div class="container">
+      <h2 class="svc-section-title">Профилактика подошвы обуви в Москве</h2>
+      <div class="svc-content-text">
+        <p>Мастерская MANDO MEMORI предлагает установку профилактики на подошву обуви в Москве. Профилактика — это специальная накладка на подошву, которая защищает её от преждевременного износа, скольжения и повреждений. Установка профилактики продлевает срок службы обуви в 2-3 раза.</p>
+        <p>Мы предлагаем два типа профилактики: фактурная (с рифлением для лучшего сцепления) и гелевая (мягкая, амортизирующая). Выбор зависит от типа обуви и предпочтений клиента. Особенно актуальна профилактика для премиум-обуви Loro Piana, Gucci, Prada — сохраняет дорогую подошву в идеальном состоянии.</p>
+        <p>Установка занимает 1-2 дня. После нанесения профилактика практически незаметна и не влияет на внешний вид обуви.</p>
+      </div>
+    </div>
+  </section>
+  <section class="svc-faq-section" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="container">
+      <h2 class="svc-section-title">Часто задаваемые вопросы о профилактике подошвы</h2>
+      <div class="svc-faq-list">
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Сколько стоит профилактика подошвы?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Стоимость профилактики подошвы — от 3 490 ₽. Цена включает материал и установку. Фактурная и гелевая профилактика стоят одинаково.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Какую профилактику выбрать — фактурную или гелевую?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Фактурная профилактика лучше подходит для зимней и демисезонной обуви — обеспечивает отличное сцепление. Гелевая профилактика мягче, подходит для летней обуви и даёт дополнительную амортизацию при ходьбе.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

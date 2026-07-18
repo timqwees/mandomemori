@@ -102,6 +102,21 @@ class HomeController
         require __DIR__ . '/../../public/pages/blog/article/index.php';
     }
 
+    public function onCleaning()
+    {
+        require __DIR__ . '/../../public/pages/cleaning/index.php';
+    }
+
+    public function onRepair()
+    {
+        require __DIR__ . '/../../public/pages/repair/index.php';
+    }
+
+    public function onSneakerCleaning()
+    {
+        require __DIR__ . '/../../public/pages/sneaker-cleaning/index.php';
+    }
+
     public function onProductDetail(...$args)
     {
         $slug = $args['slug'] ?? ($args[1] ?? '');

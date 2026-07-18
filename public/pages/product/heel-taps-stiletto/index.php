@@ -12,10 +12,10 @@ $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
-$pageTitle = "$title — MANDO MEMORI, химчистка обуви в Москве";
+$pageTitle = "$title в Москве — премиум-мастерская MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
 $pageDesc = $svc['desc'];
-$pageKeywords = "$title, MANDO MEMORI, химчистка обуви Москва";
+$pageKeywords = "$title в Москве, MANDO MEMORI, премиум мастерская, химчистка обуви, ремонт обуви";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -96,6 +96,35 @@ require __DIR__ . '/../../../partials/header.php';
         <span class="svc-tag">Manolo Blahnik</span>
         <span class="svc-tag">Jimmy Choo</span>
         <span class="svc-tag">и любые другие</span>
+      </div>
+    </div>
+  </section>
+  <section class="svc-content-section">
+    <div class="container">
+      <h2 class="svc-section-title">Набойки на шпильки в Москве</h2>
+      <div class="svc-content-text">
+        <p>Мастерская MANDO MEMORI предлагает установку набоек на женские туфли на шпильке в Москве. Шпильки требуют особого подхода — набойка должна быть установлена аккуратно, чтобы не повредить каблук и обеспечить устойчивость при ходьбе. Наши мастера имеют большой опыт работы с женской обувью на каблуках.</p>
+        <p>Мы используем специальные набойки для шпилек из износостойких материалов, которые незаметны после установки. Работаем с любой обувью — от повседневных туфель до дизайнерских моделей Manolo Blahnik, Christian Louboutin, Jimmy Choo.</p>
+        <p>Установка занимает 1 день. Рекомендуем менять набойки на шпильках каждые 2-3 месяца при активной носке.</p>
+      </div>
+    </div>
+  </section>
+  <section class="svc-faq-section" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="container">
+      <h2 class="svc-section-title">Часто задаваемые вопросы о набойках на шпильки</h2>
+      <div class="svc-faq-list">
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Сколько стоят набойки на шпильки?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Стоимость установки набоек на шпильки — от 1 490 ₽ за пару. Цена включает материал и установку.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Как часто нужно менять набойки на шпильках?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">При ежедневной носке набойки на шпильках стираются быстрее — рекомендуем менять каждые 2-3 месяца. Признаки износа: набойка стёрлась до металла каблука, появился скрип, ухудшилась устойчивость.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

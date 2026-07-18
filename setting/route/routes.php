@@ -21,6 +21,9 @@ Routes::get('/about', [HomeController::class, 'onAbout']);
 Routes::get('/before-after', [HomeController::class, 'onBeforeAfter']);
 Routes::get('/contacts', [HomeController::class, 'onContacts']);
 Routes::get('/order', [HomeController::class, 'onOrder']);
+Routes::get('/cleaning', [HomeController::class, 'onCleaning']);
+Routes::get('/repair', [HomeController::class, 'onRepair']);
+Routes::get('/sneaker-cleaning', [HomeController::class, 'onSneakerCleaning']);
 
 //==================================================================================================// LEADS
 Routes::post('/api/lead', [LeadController::class, 'onSubmit']);

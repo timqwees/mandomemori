@@ -12,10 +12,10 @@ $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
-$pageTitle = "$title — MANDO MEMORI, химчистка обуви в Москве";
+$pageTitle = "$title в Москве — премиум-мастерская MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
 $pageDesc = $svc['desc'];
-$pageKeywords = "$title, MANDO MEMORI, химчистка обуви Москва";
+$pageKeywords = "$title в Москве, MANDO MEMORI, премиум мастерская, химчистка обуви, ремонт обуви";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -96,6 +96,42 @@ require __DIR__ . '/../../../partials/header.php';
         <span class="svc-tag">Manolo Blahnik</span>
         <span class="svc-tag">Jimmy Choo</span>
         <span class="svc-tag">и любые другие</span>
+      </div>
+    </div>
+  </section>
+  <section class="svc-content-section">
+    <div class="container">
+      <h2 class="svc-section-title">Реставрация обуви в Москве — вернём былой вид</h2>
+      <div class="svc-content-text">
+        <p>Мастерская MANDO MEMORI предлагает профессиональную реставрацию обуви в Москве. После активной носки на обуви появляются царапины, потёртости, заломы, повреждаются швы и фурнитура. Наши мастера восстанавливают любые дефекты, возвращая обуви эстетичный вид и продлевая срок её службы.</p>
+        <p>Реставрация обуви включает устранение царапин и потёртостей, восстановление цвета и структуры кожи, ремонт швов и молний, замену фурнитуры. Мы работаем с кожаной, замшевой, лаковой и текстильной обувью любых брендов.</p>
+        <p>Особое внимание уделяем премиум-сегменту: Loro Piana, Gucci, Prada, Hermès. Используем оригинальные красители и финишные покрытия, чтобы цвет и текстура максимально соответствовали заводским.</p>
+        <p>Реставрация обуви в Москве от MANDO MEMORI — это не просто маскировка дефектов, а полное восстановление с гарантией качества.</p>
+      </div>
+    </div>
+  </section>
+  <section class="svc-faq-section" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="container">
+      <h2 class="svc-section-title">Часто задаваемые вопросы о реставрации обуви</h2>
+      <div class="svc-faq-list">
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Сколько стоит реставрация обуви?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Стоимость реставрации обуви — от 6 490 ₽. Цена зависит от объёма работ: сложности царапин, необходимости восстановления цвета, ремонта швов или замены фурнитуры. Точную стоимость определяем после осмотра.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Какие дефекты можно устранить реставрацией?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Реставрация устраняет царапины, потёртости, заломы, восстанавливает цвет, ремонтирует швы, молнии, фурнитуру. Также восстанавливаем форму обуви и удаляем поверхностные загрязнения.</p>
+          </div>
+        </div>
+        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Сколько времени занимает реставрация обуви?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Стандартная реставрация обуви занимает 3-7 дней. Сложные случаи (глубокая реставрация цвета, замена фурнитуры) могут требовать до 10 дней. Мы всегда сообщаем точные сроки после оценки.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
