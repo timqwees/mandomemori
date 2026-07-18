@@ -20,7 +20,7 @@
           <h2 class="footer-col-title">Услуги</h2>
           <nav class="footer-nav">
             <a href="/product/cleaning">Чистка</a>
-            <a href="/product/whitening">Отбеливание подошвы</a>
+            <a href="/product/whitening">Отбеливание подошвы Loro Piana</a>
             <a href="/product/restoration">Реставрация</a>
             <a href="/product/replacement">Замена подошвы Loro Piana</a>
             <a href="/product/heel-taps-rubber">Набойки (резина)</a>
