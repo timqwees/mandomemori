@@ -558,9 +558,9 @@ html, body { background: #121212; margin: 0; }
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
           Telegram, mandomemori_bot
         </a>
-        <a href="tel:+74951980495" class="ord-cta__btn ord-cta__btn--phone" itemprop="telephone">
+        <a href="tel:+79161829272" class="ord-cta__btn ord-cta__btn--phone" itemprop="telephone">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          +7 (915) 252-75-75
+          +7 (916) 182-92-72
         </a>
       </div>
       <p class="ord-cta__hint">Если что-то пошло не так — просто напишите, и мы поможем</p>
