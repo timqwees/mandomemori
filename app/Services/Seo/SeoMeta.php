@@ -65,7 +65,7 @@ class SeoMeta
       'description' => 'Профессиональная химчистка обуви в Москве. Чистка кроссовок, отбеливание подошвы, премиальный уход.',
       'image' => $siteUrl . '/public/assets/images/favicon_full_black.svg',
       'url' => $siteUrl,
-      'telephone' => '+7 (915) 252-75-75',
+      'telephone' => '+7 (916) 182-92-72',
       'email' => 'info@mmclean.ru',
       'address' => [
         '@type' => 'PostalAddress',

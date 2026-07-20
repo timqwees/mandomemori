@@ -51,7 +51,7 @@ class SeoService
         'logo' => $s . '/public/assets/images/favicon_full_black.svg',
             'contactPoint' => [
                 '@type' => 'ContactPoint',
-                'telephone' => '+7 (915) 252-75-75',
+                'telephone' => '+7 (916) 182-92-72',
                 'contactType' => 'customer service'
             ]
         ];
