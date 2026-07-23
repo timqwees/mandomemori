@@ -5,9 +5,9 @@ $notify = Functions::notify();
 
 $siteINFO = ['canonical' => '/contacts', 'priority' => '0.7', 'changefreq' => 'monthly', 'index' => 'main'];
 
-$pageTitle = 'Контакты — MANDO MEMORI, химчистка обуви в Москве с бесплатной доставкой';
-$pageDesc = 'Контакты MANDO MEMORI в Москве. Телефон +7 (916) 182-92-72, Telegram. Химчистка обуви с бесплатной доставкой курьером.';
-$pageKeywords = 'контакты MANDO MEMORI, химчистка обуви Москва, курьерская доставка';
+$pageTitle = 'Контакты — MANDO MEMORI, премиальная мастерская обуви в Москве';
+$pageDesc = 'Контакты MANDO MEMORI — премиальная мастерская по химчистке и реставрации обуви в Москве. Телефон +7 (916) 182-92-72, Telegram. Курьерская доставка, бесплатно от 10 000 ₽.';
+$pageKeywords = 'контакты MANDO MEMORI, премиальная мастерская обуви Москва, химчистка Loro Piana контакты, курьерская доставка обуви';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/contacts';
 require __DIR__ . '/../../partials/header.php';
 ?>
@@ -69,7 +69,7 @@ require __DIR__ . '/../../partials/header.php';
 
           <div class="contacts-duo-card contacts-duo-info" itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
             <h2 class="contacts-duo-heading">Наши контакты</h2>
-            <p class="contacts-duo-text">Химчистка обуви в Москве. Напишите в Telegram или позвоните — ответим в ближайшее время</p>
+            <p class="contacts-duo-text">Премиальная мастерская по уходу за обувью в Москве. Напишите в Telegram или позвоните — ответим в ближайшее время</p>
 
             <div class="contacts-duo-btns">
                 <a href="https://t.me/mandomemori_bot" target="_blank" class="contact-btn contact-btn-tg" itemprop="contactType" content="Telegram">

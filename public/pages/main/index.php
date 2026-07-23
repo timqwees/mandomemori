@@ -5,9 +5,10 @@ $notify = Functions::notify();
 
 $siteINFO = ['canonical' => '/', 'priority' => '1.0', 'changefreq' => 'daily', 'index' => 'main'];
 
-$pageTitle = $pageTitle ?? 'MANDO MEMORI — химчистка обуви в Москве, чистка кроссовок и премиальный уход';
-$pageDesc = $pageDesc ?? 'MANDO MEMORI — профессиональная химчистка обуви в Москве. Чистка кроссовок, замши, нубука, кожи. Отбеливание подошвы, покраска, реставрация. Бесплатная доставка.';
-$pageKeywords = $pageKeywords ?? 'химчистка обуви Москва, чистка кроссовок, отбеливание подошвы, химчистка замши, реставрация обуви, MANDO MEMORI';
+$pageTitle = $pageTitle ?? 'MANDO MEMORI — химчистка премиальной обуви в Москве | Loro Piana, Hermès, Berluti';
+$delivery = \Setting\Route\Function\Functions::deliveryNote();
+$pageDesc = $pageDesc ?? 'Премиальная мастерская по химчистке и реставрации обуви в Москве. Loro Piana, Hermès, Berluti, John Lobb. Ручная работа от 1 490 ₽. ' . $delivery . '. Гарантия качества.';
+$pageKeywords = $pageKeywords ?? 'химчистка премиальной обуви Москва, чистка дорогой обуви, химчистка Loro Piana, реставрация премиальной обуви, уход за обувью люкс, MANDO MEMORI';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/';
 echo '<link rel="preload" as="image" href="/public/assets/images/mandomemori/hero-poster.jpg" fetchpriority="high">';
 require __DIR__ . '/../../partials/header.php';
@@ -104,7 +105,7 @@ require __DIR__ . '/../../partials/header.php';
           <span class="about-step__num" itemprop="position">03</span>
           <div class="about-step__body">
             <h3 class="about-step__title" itemprop="name">Передаёте обувь</h3>
-            <p class="about-step__desc" itemprop="text">Вызываете бесплатного курьера — у него уже есть данные заказа, остаётся только отдать обувь.</p>
+            <p class="about-step__desc" itemprop="text">Вызываете курьера — у него уже есть данные заказа, остаётся только отдать обувь. <?= htmlspecialchars($delivery) ?>.</p>
           </div>
         </div>
         <div class="about-step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
@@ -140,7 +141,7 @@ require __DIR__ . '/../../partials/header.php';
             <span itemprop="review" itemscope itemtype="https://schema.org/Review"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="Анна"></span><meta itemprop="datePublished" content="2026-06-15"><span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><meta itemprop="description" content="Отличный сервис! Обувь как новая, очень довольна результатом."></span>
           <div class="product-card-text">
             <h2 class="product-card-title" itemprop="name"><?= $p['title'] ?></h2>
-            <p class="product-card-desc" itemprop="offers" itemscope itemtype="https://schema.org/Offer">от <meta itemprop="price" content="<?= $p['price'] ?>"><span><?= $p['price_formatted'] ?></span> <span itemprop="priceCurrency" content="RUB">₽</span> за пару<meta itemprop="availability" content="https://schema.org/InStock"><span itemprop="hasMerchantReturnPolicy" itemscope itemtype="https://schema.org/MerchantReturnPolicy"><meta itemprop="applicableCountry" content="RU"><meta itemprop="returnPolicyCategory" content="https://schema.org/MerchantReturnFiniteReturnWindow"><meta itemprop="merchantReturnDays" content="14"><meta itemprop="returnMethod" content="https://schema.org/ReturnByMail"><meta itemprop="returnFees" content="https://schema.org/FreeReturn"></span><span itemprop="shippingDetails" itemscope itemtype="https://schema.org/OfferShippingDetails"><span itemprop="shippingDestination" itemscope itemtype="https://schema.org/DefinedRegion"><meta itemprop="addressCountry" content="RU"></span><span itemprop="shippingRate" itemscope itemtype="https://schema.org/MonetaryAmount"><meta itemprop="value" content="0"><meta itemprop="currency" content="RUB"></span><span itemprop="deliveryTime" itemscope itemtype="https://schema.org/ShippingDeliveryTime"><span itemprop="handlingTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="0"><meta itemprop="maxValue" content="1"><meta itemprop="unitCode" content="DAY"></span><span itemprop="transitTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="1"><meta itemprop="maxValue" content="2"><meta itemprop="unitCode" content="DAY"></span></span><meta itemprop="shippingOrigin" content="RU"></span></p>
+            <p class="product-card-desc" itemprop="offers" itemscope itemtype="https://schema.org/Offer">от <meta itemprop="price" content="<?= $p['price'] ?>"><span><?= $p['price_formatted'] ?></span> <span itemprop="priceCurrency" content="RUB">₽</span> <?= $p['unit'] ?? 'за пару' ?><meta itemprop="availability" content="https://schema.org/InStock"><span itemprop="hasMerchantReturnPolicy" itemscope itemtype="https://schema.org/MerchantReturnPolicy"><meta itemprop="applicableCountry" content="RU"><meta itemprop="returnPolicyCategory" content="https://schema.org/MerchantReturnFiniteReturnWindow"><meta itemprop="merchantReturnDays" content="14"><meta itemprop="returnMethod" content="https://schema.org/ReturnByMail"><meta itemprop="returnFees" content="https://schema.org/FreeReturn"></span><span itemprop="shippingDetails" itemscope itemtype="https://schema.org/OfferShippingDetails"><span itemprop="shippingDestination" itemscope itemtype="https://schema.org/DefinedRegion"><meta itemprop="addressCountry" content="RU"></span><span itemprop="shippingRate" itemscope itemtype="https://schema.org/MonetaryAmount"><meta itemprop="value" content="0"><meta itemprop="currency" content="RUB"></span><span itemprop="deliveryTime" itemscope itemtype="https://schema.org/ShippingDeliveryTime"><span itemprop="handlingTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="0"><meta itemprop="maxValue" content="1"><meta itemprop="unitCode" content="DAY"></span><span itemprop="transitTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="1"><meta itemprop="maxValue" content="2"><meta itemprop="unitCode" content="DAY"></span></span><meta itemprop="shippingOrigin" content="RU"></span></p>
           </div>
           <div class="product-card-image">
             <img src="/public/assets/images/<?= $p['img'] ?>" alt="<?= $p['title'] ?>" itemprop="image" loading="lazy" width="487" height="324">
@@ -227,7 +228,7 @@ require __DIR__ . '/../../partials/header.php';
       <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
         <h3 class="home-faq-question" itemprop="name">Есть ли доставка и курьер?</h3>
         <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-        <div class="home-faq-answer" itemprop="text">Да, курьер бесплатно заберёт обувь и привезёт обратно после чистки. Это удобно и быстро — вы никуда не едете.</div>
+        <div class="home-faq-answer" itemprop="text">Да, курьер заберёт обувь и привезёт обратно после работы. <?= htmlspecialchars($delivery) ?>. Это удобно — вы никуда не едете.</div>
         </div>
       </div>
     </div>

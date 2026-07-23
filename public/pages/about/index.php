@@ -5,9 +5,9 @@ $notify = Functions::notify();
 
 $siteINFO = ['canonical' => '/about', 'priority' => '0.8', 'changefreq' => 'monthly', 'index' => 'main'];
 
-$pageTitle = 'О нас — MANDO MEMORI, химчистка обуви в Москве, более 1 000 000 пар очищено';
-$pageDesc = 'MANDO MEMORI — профессиональная химчистка обуви в Москве с 2015 года. Более 1 млн пар обуви очищено. Чистка кроссовок, отбеливание подошвы, премиум-уход.';
-$pageKeywords = 'MANDO MEMORI о нас, химчистка обуви Москва, чистка кроссовок, отбеливание подошвы, реставрация обуви';
+$pageTitle = 'О нас — MANDO MEMORI, премиальная мастерская по уходу за обувью в Москве с 2015 года';
+$pageDesc = 'MANDO MEMORI — премиальная мастерская по химчистке и реставрации обуви в Москве с 2015 года. Более 1 100 000 пар очищено. Loro Piana, Hermès, Berluti, John Lobb. Ручная работа, гарантия.';
+$pageKeywords = 'MANDO MEMORI о нас, премиальная мастерская обуви Москва, химчистка Loro Piana, реставрация дорогой обуви, уход за обувью люкс, мастерская обуви с 2015';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/about';
 require __DIR__ . '/../../partials/header.php';
 ?>
@@ -641,7 +641,7 @@ html, body { background: #121212; margin: 0; }
       <div class="anp-hero__card-overlay" style="background:rgba(0, 0, 0, 0.52)"></div>
       <div class="anp-hero__spacer"></div>
       <div class="anp-hero__bottom">
-          <h1 class="anp-hero__tagline">Химчистка обуви с 2015 года</h1>
+          <h1 class="anp-hero__tagline">Премиальная мастерская с 2015 года</h1>
           <p class="anp-hero__desc" itemprop="description">MANDO MEMORI — профессиональный сервис химчистки обуви в Москве. Чистим кроссовки, ботинки, туфли, замшу, нубук и премиальные бренды. Отбеливание подошвы, покраска, реставрация — полный цикл ухода.</p>
       </div>
     </div>
@@ -650,7 +650,7 @@ html, body { background: #121212; margin: 0; }
         <section class="anp-section" id="s-about">
             <div class="anp-section__grid">
                 <h2 class="anp-section__title" data-blur-title>О нас</h2>
-                <div class="anp-section__content" data-blur-content><p>MANDO MEMORI — профессиональная химчистка обуви в Москве. Мы принимаем обувь любого типа: кроссовки, ботинки, лоферы, кеды, зимние сапоги, угги. Работаем со всеми материалами — гладкая и лакированная кожа, текстиль, замша, нубук, комбинированные поверхности.</p><p>Наши услуги включают: химчистка кроссовок, отбеливание подошвы, покраска и реставрация цвета, чистка замши и нубука, водоотталкивающая пропитка, премиум-уход за брендовой обувью (Loro Piana, Gucci, Prada).</p></div>
+                <div class="anp-section__content" data-blur-content><p>MANDO MEMORI — премиальная мастерская по химчистке и реставрации обуви в Москве. Специализируемся на люкс-сегменте: Loro Piana, Hermès, Berluti, John Lobb, Gucci, Prada. Работаем с кожей, замшей, нубуком, лаком и экзотическими материалами.</p><p>Наши услуги: ручная химчистка премиальной обуви, отбеливание подошвы Loro Piana, замена подошвы, реставрация, покраска, ремонт сумок Hermès и Louis Vuitton.</p></div>
             </div>
         </section>
 
@@ -678,7 +678,8 @@ html, body { background: #121212; margin: 0; }
         <section class="anp-numbers" id="s-numbers" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
           <meta itemprop="ratingValue" content="4.9">
           <meta itemprop="bestRating" content="5">
-          <meta itemprop="ratingCount" content="1100000">
+          <meta itemprop="ratingCount" content="1500">
+          <meta itemprop="reviewCount" content="1500">
           <div class="anp-numbers__grid">
             <div class="anp-number">
               <span class="anp-number__value">1 100 000+</span>
@@ -705,7 +706,7 @@ html, body { background: #121212; margin: 0; }
                   <div class="anp-card__media"><img src="/public/assets/images/mandomemori/curier.png" alt="Курьерская доставка MANDO MEMORI" loading="lazy"></div>
                 <div class="anp-card__body">
                   <h2 class="anp-card__title" data-blur-title>Курьер</h2>
-                  <div class="anp-card__content" data-blur-content><p>Бесплатно забираем обувь курьером и привозим обратно после чистки. Курьер приезжает в удобное время — вы называете номер заказа, и он забирает обувь для передачи мастерам.</p></div>
+                  <div class="anp-card__content" data-blur-content><p>Курьер забирает обувь и привозит обратно после работы. Бесплатная доставка — при заказе от 10 000 ₽. Курьер приезжает в удобное время — вы называете номер заказа, и он забирает обувь для передачи мастерам.</p></div>
                 </div>
               </article>
           </div>

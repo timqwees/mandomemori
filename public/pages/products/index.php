@@ -5,9 +5,9 @@ $notify = Functions::notify();
 
 $siteINFO = ['canonical' => '/products', 'priority' => '0.9', 'changefreq' => 'weekly', 'index' => 'main'];
 
-$pageTitle = 'Химчистка и ремонт обуви в Москве — все услуги | MANDO MEMORI';
-$pageDesc = 'Полный каталог услуг MANDO MEMORI: химчистка обуви, чистка кроссовок, отбеливание подошвы, ремонт и реставрация обуви, покраска, замена набоек — в Москве. Премиум-мастерская.';
-$pageKeywords = 'услуги MANDO MEMORI, химчистка обуви Москва, чистка кроссовок, отбеливание подошвы, реставрация обуви, ремонт обуви';
+$pageTitle = 'Услуги по уходу за премиальной обувью в Москве — от 1 490 ₽ | MANDO MEMORI';
+$pageDesc = 'Полный каталог услуг MANDO MEMORI: химчистка премиальной обуви от 5 990 ₽, реставрация Loro Piana, замена подошвы, отбеливание, ремонт сумок Hermès. Премиум-мастерская.';
+$pageKeywords = 'услуги премиальной обуви Москва, химчистка Loro Piana, реставрация дорогой обуви, замена подошвы Loro Piana, ремонт сумок Hermès, MANDO MEMORI';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/products';
 require __DIR__ . '/../../partials/header.php';
 ?><main class="main">
@@ -71,7 +71,7 @@ require __DIR__ . '/../../partials/header.php';
           <div itemprop="item" itemscope itemtype="https://schema.org/Product">
           <div class="product-card-text">
             <h2 class="product-card-title" itemprop="name"><?= $svc['title'] ?></h2>
-            <p class="product-card-desc" itemprop="offers" itemscope itemtype="https://schema.org/Offer">от <span itemprop="price" content="<?= $svc['price'] ?>"><?= $svc['price_formatted'] ?></span> <span itemprop="priceCurrency" content="RUB">₽</span> за пару</p>
+            <p class="product-card-desc" itemprop="offers" itemscope itemtype="https://schema.org/Offer">от <span itemprop="price" content="<?= $svc['price'] ?>"><?= $svc['price_formatted'] ?></span> <span itemprop="priceCurrency" content="RUB">₽</span> <?= $svc['unit'] ?? 'за пару' ?></p>
           </div>
           <div class="product-card-image" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
             <img src="/public/assets/images/<?= $svc['img'] ?>" alt="<?= $svc['title'] ?>" loading="lazy" itemprop="contentUrl">

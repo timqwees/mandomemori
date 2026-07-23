@@ -12,10 +12,10 @@ $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
-$pageTitle = "$title в Москве — премиум-мастерская MANDO MEMORI";
+$pageTitle = $svc['seo_title'] ?? "$title в Москве — премиум-мастерская MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
-$pageDesc = $svc['desc'];
-$pageKeywords = "$title в Москве, MANDO MEMORI, премиум мастерская, химчистка обуви, ремонт обуви";
+$pageDesc = $svc['seo_desc'] ?? $svc['desc'];
+$pageKeywords = $svc['seo_keywords'] ?? "$title в Москве, MANDO MEMORI, премиальная мастерская";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -50,7 +50,7 @@ require __DIR__ . '/../../../partials/header.php';
       <h1 class="svc-hero-title" itemprop="name"><?= $title ?></h1>
       <p class="svc-hero-desc" itemprop="description"><?= $svc['desc'] ?></p>
       <div class="svc-hero-actions">
-        <span class="svc-hero-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="RUB"><span itemprop="price"><?= $priceRaw ?></span> ₽ <small>за пару</small><meta itemprop="availability" content="https://schema.org/InStock"><span itemprop="hasMerchantReturnPolicy" itemscope itemtype="https://schema.org/MerchantReturnPolicy"><meta itemprop="applicableCountry" content="RU"><meta itemprop="returnPolicyCategory" content="https://schema.org/MerchantReturnFiniteReturnWindow"><meta itemprop="merchantReturnDays" content="14"><meta itemprop="returnMethod" content="https://schema.org/ReturnByMail"><meta itemprop="returnFees" content="https://schema.org/FreeReturn"></span><span itemprop="shippingDetails" itemscope itemtype="https://schema.org/OfferShippingDetails"><span itemprop="shippingDestination" itemscope itemtype="https://schema.org/DefinedRegion"><meta itemprop="addressCountry" content="RU"></span><span itemprop="shippingRate" itemscope itemtype="https://schema.org/MonetaryAmount"><meta itemprop="value" content="0"><meta itemprop="currency" content="RUB"></span><span itemprop="deliveryTime" itemscope itemtype="https://schema.org/ShippingDeliveryTime"><span itemprop="handlingTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="0"><meta itemprop="maxValue" content="1"><meta itemprop="unitCode" content="DAY"></span><span itemprop="transitTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="1"><meta itemprop="maxValue" content="2"><meta itemprop="unitCode" content="DAY"></span></span><meta itemprop="shippingOrigin" content="RU"></span></span>
+        <span class="svc-hero-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="RUB"><span itemprop="price"><?= $priceRaw ?></span> ₽ <small><?= $svc['unit'] ?? 'за пару' ?></small><meta itemprop="availability" content="https://schema.org/InStock"><span itemprop="hasMerchantReturnPolicy" itemscope itemtype="https://schema.org/MerchantReturnPolicy"><meta itemprop="applicableCountry" content="RU"><meta itemprop="returnPolicyCategory" content="https://schema.org/MerchantReturnFiniteReturnWindow"><meta itemprop="merchantReturnDays" content="14"><meta itemprop="returnMethod" content="https://schema.org/ReturnByMail"><meta itemprop="returnFees" content="https://schema.org/FreeReturn"></span><span itemprop="shippingDetails" itemscope itemtype="https://schema.org/OfferShippingDetails"><span itemprop="shippingDestination" itemscope itemtype="https://schema.org/DefinedRegion"><meta itemprop="addressCountry" content="RU"></span><span itemprop="shippingRate" itemscope itemtype="https://schema.org/MonetaryAmount"><meta itemprop="value" content="0"><meta itemprop="currency" content="RUB"></span><span itemprop="deliveryTime" itemscope itemtype="https://schema.org/ShippingDeliveryTime"><span itemprop="handlingTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="0"><meta itemprop="maxValue" content="1"><meta itemprop="unitCode" content="DAY"></span><span itemprop="transitTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="1"><meta itemprop="maxValue" content="2"><meta itemprop="unitCode" content="DAY"></span></span><meta itemprop="shippingOrigin" content="RU"></span></span>
         <a href="#svc-order" class="svc-hero-btn">Заказать услугу</a>
       </div>
     </div>
@@ -65,7 +65,7 @@ require __DIR__ . '/../../../partials/header.php';
           <h2 class="svc-order-name"><?= $title ?></h2>
           <div class="svc-order-price-row">
             <span class="svc-order-price"><?= $price ?> ₽</span>
-            <span class="svc-order-unit">за пару</span>
+            <span class="svc-order-unit"><?= $svc['unit'] ?? 'за пару' ?></span>
           </div>
           <label class="svc-order-qty-label">Количество пар</label>
           <div class="svc-order-qty">
@@ -105,7 +105,7 @@ require __DIR__ . '/../../../partials/header.php';
       <div class="svc-content-text">
         <p>Мастерская MANDO MEMORI предлагает уникальную услугу — ручная роспись на коже в Москве. Наши художники создают индивидуальные рисунки на обуви, сумках, ремнях и любых кожаных аксессуарах. Вы выбираете дизайн, а мы воплощаем его в единственном экземпляре на вашей вещи.</p>
         <p>Мы используем профессиональные краски для кожи, которые сохраняют яркость и не стираются со временем. Каждое изделие покрывается защитным фиксатором, обеспечивающим долговечность рисунка. Роспись на коже — это не просто дизайн, а полноценная кастомизация, которая делает вещь уникальной.</p>
-        <p>Особой популярностью пользуется роспись кроссовок — кастомные дизайны для Nike, Adidas, Vans, Converse. Наши художники могут воспроизвести любой стиль: от минимализма до сложных орнаментов.</p>
+        <p>Особой популярностью пользуется роспись на премиальной обуви — кастомные дизайны для Loro Piana, Berluti, Gucci, Balenciaga. Наши художники могут воспроизвести любой стиль: от минимализма до сложных орнаментов.</p>
         <p>Срок выполнения — от 5 до 14 дней в зависимости от сложности рисунка. Бесплатная консультация и согласование эскиза перед началом работы.</p>
       </div>
     </div>
