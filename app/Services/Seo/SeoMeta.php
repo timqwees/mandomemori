@@ -59,23 +59,30 @@ class SeoMeta
   private static function jsonLd(string $siteUrl, ?array $extra = null): string
   {
     $business = [
-      '@context' => 'https://schema.org',
       '@type' => 'LocalBusiness',
       '@id' => $siteUrl . '/#localbusiness',
       'name' => 'MANDO MEMORI',
+      'alternateName' => 'mmclean.ru',
       'description' => 'Премиальная мастерская по химчистке и реставрации обуви и сумок в Москве. Специализация: Loro Piana, Hermès, Berluti, John Lobb. Ручная работа, стоимость от 1 490 ₽.',
       'image' => [
-        $siteUrl . '/public/assets/images/mandomemori/мастер чистка.jpg',
-        $siteUrl . '/public/assets/images/mandomemori/чистка со спреем.jpg',
+        $siteUrl . '/public/assets/images/mandomemori/hero-poster.jpg',
+        $siteUrl . '/public/assets/images/mandomemori/beforeafter1.png',
       ],
-      'logo' => $siteUrl . '/public/assets/images/favicon_full_black.svg',
+      'logo' => [
+        '@type' => 'ImageObject',
+        'url' => $siteUrl . '/public/assets/images/favicon_full_black.svg',
+        'width' => 90,
+        'height' => 52,
+      ],
       'url' => $siteUrl,
-      'telephone' => '+7 (916) 182-92-72',
+      'telephone' => '+79161829272',
       'email' => 'info@mmclean.ru',
       'address' => [
         '@type' => 'PostalAddress',
+        'streetAddress' => 'Петровка 15/13 стр.5',
         'addressLocality' => 'Москва',
         'addressRegion' => 'Москва',
+        'postalCode' => '107031',
         'addressCountry' => 'RU',
       ],
       'geo' => [
@@ -85,13 +92,15 @@ class SeoMeta
       ],
       'aggregateRating' => [
         '@type' => 'AggregateRating',
-        'ratingValue' => '4.9',
-        'bestRating' => '5',
-        'worstRating' => '1',
-        'ratingCount' => '1500',
-        'reviewCount' => '1500',
+        'ratingValue' => 4.9,
+        'bestRating' => 5,
+        'worstRating' => 1,
+        'ratingCount' => 1500,
+        'reviewCount' => 1500,
       ],
-      'priceRange' => '1490₽ – 49900₽',
+      'priceRange' => '1490 RUB - 49900 RUB',
+      'currenciesAccepted' => 'RUB',
+      'paymentAccepted' => 'Cash, Credit Card',
       'openingHoursSpecification' => [
         [
           '@type' => 'OpeningHoursSpecification',
@@ -125,35 +134,116 @@ class SeoMeta
         'itemListElement' => [
           [
             '@type' => 'Offer',
+            'price' => '5990',
+            'priceCurrency' => 'RUB',
+            'availability' => 'https://schema.org/InStock',
+            'url' => $siteUrl . '/product/cleaning',
             'itemOffered' => [
               '@type' => 'Service',
               'name' => 'Химчистка премиальной обуви',
+              'description' => 'Комплексная ручная чистка премиальной обуви от 5 990 ₽ за пару',
             ],
           ],
           [
             '@type' => 'Offer',
+            'price' => '6490',
+            'priceCurrency' => 'RUB',
+            'availability' => 'https://schema.org/InStock',
+            'url' => $siteUrl . '/product/restoration',
             'itemOffered' => [
               '@type' => 'Service',
               'name' => 'Реставрация обуви Loro Piana',
+              'description' => 'Восстановление обуви Loro Piana от 6 490 ₽ за пару',
             ],
           ],
           [
             '@type' => 'Offer',
+            'price' => '18990',
+            'priceCurrency' => 'RUB',
+            'availability' => 'https://schema.org/InStock',
+            'url' => $siteUrl . '/product/replacement',
             'itemOffered' => [
               '@type' => 'Service',
               'name' => 'Замена подошвы Loro Piana',
+              'description' => 'Замена подошвы Loro Piana от 18 990 ₽ за пару',
             ],
           ],
         ],
       ],
       'sameAs' => [
         'https://t.me/mandomemori_bot',
+        'https://wa.me/79161829272',
+      ],
+      'contactPoint' => [
+        '@type' => 'ContactPoint',
+        'telephone' => '+79161829272',
+        'contactType' => 'customer service',
+        'availableLanguage' => ['ru', 'en'],
+        'areaServed' => 'RU',
       ],
     ];
 
     $graph = [$business];
-    if ($extra) $graph[] = $extra;
+    // WebSite
+    $graph[] = [
+      '@type' => 'WebSite',
+      '@id' => $siteUrl . '/#website',
+      'name' => 'MANDO MEMORI',
+      'alternateName' => 'mmclean.ru',
+      'url' => $siteUrl,
+      'inLanguage' => 'ru-RU',
+      'publisher' => ['@id' => $siteUrl . '/#localbusiness'],
+      'potentialAction' => [
+        '@type' => 'SearchAction',
+        'target' => [
+          '@type' => 'EntryPoint',
+          'urlTemplate' => $siteUrl . '/blog?search={search_term_string}',
+        ],
+        'query-input' => 'required name=search_term_string',
+      ],
+    ];
+    // Organization
+    $graph[] = [
+      '@type' => 'Organization',
+      '@id' => $siteUrl . '/#organization',
+      'name' => 'MANDO MEMORI',
+      'url' => $siteUrl,
+      'logo' => [
+        '@type' => 'ImageObject',
+        'url' => $siteUrl . '/public/assets/images/favicon_full_black.svg',
+        'width' => 90,
+        'height' => 52,
+      ],
+      'description' => 'Премиальная мастерская по химчистке и реставрации обуви в Москве с 2015 года.',
+      'foundingDate' => '2015',
+      'address' => [
+        '@type' => 'PostalAddress',
+        'streetAddress' => 'Петровка 15/13 стр.5',
+        'addressLocality' => 'Москва',
+        'postalCode' => '107031',
+        'addressCountry' => 'RU',
+      ],
+      'contactPoint' => [
+        '@type' => 'ContactPoint',
+        'telephone' => '+79161829272',
+        'contactType' => 'customer service',
+        'availableLanguage' => 'Russian',
+      ],
+      'sameAs' => ['https://t.me/mandomemori_bot'],
+    ];
+    if ($extra) {
+      if (isset($extra['@context'])) unset($extra['@context']);
+      if (isset($extra['@type']) && $extra['@type'] === 'FAQPage') {
+        $extra['@id'] = $siteUrl . $extra['@id'] ?? $siteUrl . '/#faq';
+      }
+      $graph[] = $extra;
+    }
 
-    return '<script type="application/ld+json">' . json_encode($graph, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . "</script>\n";
+    $payload = [
+      '@context' => 'https://schema.org',
+      '@graph' => $graph,
+    ];
+
+    return '<script type="application/ld+json">' . json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . "</script>\n";
   }
 }

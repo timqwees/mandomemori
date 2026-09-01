@@ -69,10 +69,10 @@ require __DIR__ . '/../../partials/header.php';
         ?>
         <article class="product-card<?= $svc['dark'] ? ' dark-bg' : '' ?>" style="background:<?= $svc['bg'] ?>" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
           <meta itemprop="position" content="<?= $pos ?>">
-          <div itemprop="item" itemscope itemtype="https://schema.org/Product">
+          <div itemprop="item" itemscope itemtype="https://schema.org/Service">
           <div class="product-card-text">
             <h2 class="product-card-title" itemprop="name"><?= $svc['title'] ?></h2>
-            <p class="product-card-desc" itemprop="offers" itemscope itemtype="https://schema.org/Offer">от <span itemprop="price" content="<?= $svc['price'] ?>"><?= $svc['price_formatted'] ?></span> <span itemprop="priceCurrency" content="RUB">₽</span> <?= $svc['unit'] ?? 'за пару' ?></p>
+            <p class="product-card-desc" itemprop="offers" itemscope itemtype="https://schema.org/Offer">от <span itemprop="price"><?= $svc['price'] ?><?= $svc['price_formatted'] ?></span> <meta itemprop="priceCurrency" content="RUB"> <?= $svc['unit'] ?? 'за пару' ?></p>
           </div>
           <div class="product-card-image" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
             <img src="/public/assets/images/<?= $svc['img'] ?>" alt="<?= $svc['title'] ?>" loading="lazy" itemprop="contentUrl">

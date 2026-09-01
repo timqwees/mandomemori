@@ -55,11 +55,14 @@
             </a>
             <div class="footer-contact-item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span><span itemprop="addressLocality">Москва</span>, <span itemprop="streetAddress">Петровка 15/13 стр.5</span></span>
+              <span><span itemprop="streetAddress">Петровка 15/13 стр.5</span>, <span itemprop="addressLocality">Москва</span>, <span itemprop="postalCode">107031</span> <span itemprop="addressCountry">RU</span></span>
+              <meta itemprop="addressRegion" content="Москва">
             </div>
-            <div class="footer-contact-item" itemprop="openingHours" content="Mo-Su 10:00-22:00">
+            <div class="footer-contact-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
               <span>Ежедневно: 10:00 – 22:00</span>
+              <meta itemprop="openingHours" content="Mo-Sa 10:00-22:00">
+              <meta itemprop="openingHours" content="Su 11:00-22:00">
             </div>
           </div>
         </div>

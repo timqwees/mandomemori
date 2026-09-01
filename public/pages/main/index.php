@@ -58,6 +58,7 @@ require __DIR__ . '/../../partials/header.php';
   <div class="trust-bar" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
     <meta itemprop="ratingValue" content="4.9">
     <meta itemprop="bestRating" content="5">
+    <meta itemprop="worstRating" content="1">
     <meta itemprop="ratingCount" content="1500">
     <div class="trust-item">
       <div class="trust-icon">
@@ -98,32 +99,33 @@ require __DIR__ . '/../../partials/header.php';
   </div>
 
   <section class="about-steps" itemscope itemtype="https://schema.org/HowTo">
+    <meta itemprop="name" content="Как мы работаем — MANDO MEMORI">
     <div class="about-steps__content">
       <h2 class="about-steps__heading">Как мы работаем</h2>
       <div class="about-steps__list">
         <div class="about-step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
-          <span class="about-step__num" itemprop="position">01</span>
+          <span class="about-step__num" itemprop="position">1</span>
           <div class="about-step__body">
             <h3 class="about-step__title" itemprop="name">Собираете заказ</h3>
             <p class="about-step__desc" itemprop="text">Выбираете услуги, указываете количество пар — добавляете в корзину на сайте.</p>
           </div>
         </div>
         <div class="about-step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
-          <span class="about-step__num" itemprop="position">02</span>
+          <span class="about-step__num" itemprop="position">2</span>
           <div class="about-step__body">
             <h3 class="about-step__title" itemprop="name">Получаете чек</h3>
             <p class="about-step__desc" itemprop="text">Система формирует PDF-чек с деталями заказа — после вызова курьера он придёт вам на почту.</p>
           </div>
         </div>
         <div class="about-step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
-          <span class="about-step__num" itemprop="position">03</span>
+          <span class="about-step__num" itemprop="position">3</span>
           <div class="about-step__body">
             <h3 class="about-step__title" itemprop="name">Передаёте обувь</h3>
             <p class="about-step__desc" itemprop="text">Вызываете курьера — у него уже есть данные заказа, остаётся только отдать обувь. <?= htmlspecialchars($delivery) ?>.</p>
           </div>
         </div>
         <div class="about-step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
-          <span class="about-step__num" itemprop="position">04</span>
+          <span class="about-step__num" itemprop="position">4</span>
           <div class="about-step__body">
             <h3 class="about-step__title" itemprop="name">Мы выполняем работу</h3>
             <p class="about-step__desc" itemprop="text">Мастер приступает к чистке по вашему заказу — оплата только после выполнения работы, по факту.</p>
@@ -155,14 +157,14 @@ require __DIR__ . '/../../partials/header.php';
         $position++; ?>
         <article class="product-card<?= $p['dark'] ? ' dark-bg' : '' ?>" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="background:<?= $p['bg'] ?>">
           <meta itemprop="position" content="<?= $position ?>">
-          <div itemprop="item" itemscope itemtype="https://schema.org/Product">
-            <meta itemprop="brand" content="MANDO MEMORI">
+          <div itemprop="item" itemscope itemtype="https://schema.org/Service">
+            <span itemprop="brand" itemscope itemtype="https://schema.org/Brand"><meta itemprop="name" content="MANDO MEMORI"></span>
             <meta itemprop="description" content="<?= htmlspecialchars($p['desc']) ?>">
-            <span itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating"><meta itemprop="ratingValue" content="4.9"><meta itemprop="bestRating" content="5"><meta itemprop="ratingCount" content="1500"></span>
-            <span itemprop="review" itemscope itemtype="https://schema.org/Review"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="Анна"></span><meta itemprop="datePublished" content="2026-06-15"><span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><meta itemprop="description" content="Отличный сервис! Обувь как новая, очень довольна результатом."></span>
+            <span itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating"><meta itemprop="ratingValue" content="4.9"><meta itemprop="bestRating" content="5"><meta itemprop="worstRating" content="1"><meta itemprop="ratingCount" content="1500"></span>
+            <span itemprop="review" itemscope itemtype="https://schema.org/Review"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="Анна"></span><meta itemprop="datePublished" content="2026-06-15"><span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><meta itemprop="reviewBody" content="Отличный сервис! Обувь как новая, очень довольна результатом."></span>
           <div class="product-card-text">
             <h2 class="product-card-title" itemprop="name"><?= $p['title'] ?></h2>
-            <p class="product-card-desc" itemprop="offers" itemscope itemtype="https://schema.org/Offer">от <meta itemprop="price" content="<?= $p['price'] ?>"><span><?= $p['price_formatted'] ?></span> <span itemprop="priceCurrency" content="RUB">₽</span> <?= $p['unit'] ?? 'за пару' ?><meta itemprop="availability" content="https://schema.org/InStock"><span itemprop="hasMerchantReturnPolicy" itemscope itemtype="https://schema.org/MerchantReturnPolicy"><meta itemprop="applicableCountry" content="RU"><meta itemprop="returnPolicyCategory" content="https://schema.org/MerchantReturnFiniteReturnWindow"><meta itemprop="merchantReturnDays" content="14"><meta itemprop="returnMethod" content="https://schema.org/ReturnByMail"><meta itemprop="returnFees" content="https://schema.org/FreeReturn"></span><span itemprop="shippingDetails" itemscope itemtype="https://schema.org/OfferShippingDetails"><span itemprop="shippingDestination" itemscope itemtype="https://schema.org/DefinedRegion"><meta itemprop="addressCountry" content="RU"></span><span itemprop="shippingRate" itemscope itemtype="https://schema.org/MonetaryAmount"><meta itemprop="value" content="0"><meta itemprop="currency" content="RUB"></span><span itemprop="deliveryTime" itemscope itemtype="https://schema.org/ShippingDeliveryTime"><span itemprop="handlingTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="0"><meta itemprop="maxValue" content="1"><meta itemprop="unitCode" content="DAY"></span><span itemprop="transitTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="1"><meta itemprop="maxValue" content="2"><meta itemprop="unitCode" content="DAY"></span></span><meta itemprop="shippingOrigin" content="RU"></span></p>
+            <p class="product-card-desc" itemprop="offers" itemscope itemtype="https://schema.org/Offer">от <meta itemprop="price" content="<?= $p['price'] ?>"><span><?= $p['price_formatted'] ?></span> <meta itemprop="priceCurrency" content="RUB"> <?= $p['unit'] ?? 'за пару' ?><meta itemprop="availability" content="https://schema.org/InStock"><span itemprop="hasMerchantReturnPolicy" itemscope itemtype="https://schema.org/MerchantReturnPolicy"><meta itemprop="applicableCountry" content="RU"><meta itemprop="returnPolicyCategory" content="https://schema.org/MerchantReturnFiniteReturnWindow"><meta itemprop="merchantReturnDays" content="14"><meta itemprop="returnMethod" content="https://schema.org/ReturnByMail"><meta itemprop="returnFees" content="https://schema.org/FreeReturn"></span><span itemprop="shippingDetails" itemscope itemtype="https://schema.org/OfferShippingDetails"><span itemprop="shippingDestination" itemscope itemtype="https://schema.org/DefinedRegion"><meta itemprop="addressCountry" content="RU"></span><span itemprop="shippingRate" itemscope itemtype="https://schema.org/MonetaryAmount"><meta itemprop="value" content="0"><meta itemprop="currency" content="RUB"></span><span itemprop="deliveryTime" itemscope itemtype="https://schema.org/ShippingDeliveryTime"><span itemprop="handlingTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="0"><meta itemprop="maxValue" content="1"><meta itemprop="unitCode" content="DAY"></span><span itemprop="transitTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="1"><meta itemprop="maxValue" content="2"><meta itemprop="unitCode" content="DAY"></span></span><meta itemprop="shippingOrigin" content="RU"></span></p>
           </div>
           <div class="product-card-image">
             <img src="/public/assets/images/<?= $p['img'] ?>" alt="<?= $p['title'] ?>" itemprop="image" loading="lazy" width="487" height="324">
