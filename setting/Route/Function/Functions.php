@@ -23,6 +23,14 @@ class Functions
         return ['message' => '', 'type' => ''];
     }
 
+    /** Бесплатная доставка курьером — только при заказе от этой суммы (₽) */
+    public const FREE_DELIVERY_FROM = 10000;
+
+    public static function deliveryNote(): string
+    {
+        return 'Бесплатная доставка курьером — при заказе от ' . number_format(self::FREE_DELIVERY_FROM, 0, '', ' ') . ' ₽';
+    }
+
     public static function getServices(): array
     {
         $brands = 'Работаем с любыми брендами: Loro Piana, Gucci, Prada, Louis Vuitton, Hermès, Balenciaga и другими.';
