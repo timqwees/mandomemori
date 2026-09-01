@@ -5,9 +5,9 @@ $notify = Functions::notify();
 
 $siteINFO = ['canonical' => '/products', 'priority' => '0.9', 'changefreq' => 'weekly', 'index' => 'main'];
 
-$pageTitle = 'Химчистка и ремонт обуви в Москве — все услуги | MANDO MEMORI';
-$pageDesc = 'Полный каталог услуг MANDO MEMORI: химчистка обуви, чистка кроссовок, отбеливание подошвы, ремонт и реставрация обуви, покраска, замена набоек — в Москве. Премиум-мастерская.';
-$pageKeywords = 'услуги MANDO MEMORI, химчистка обуви Москва, чистка кроссовок, отбеливание подошвы, реставрация обуви, ремонт обуви';
+$pageTitle = 'Услуги по уходу за премиальной обувью в Москве — от 1 490 ₽ | MANDO MEMORI';
+$pageDesc = 'Полный каталог услуг MANDO MEMORI: химчистка премиальной обуви от 5 990 ₽, реставрация Loro Piana, замена подошвы, отбеливание, ремонт сумок Hermès. Премиум-мастерская.';
+$pageKeywords = 'услуги премиальной обуви Москва, химчистка Loro Piana, реставрация дорогой обуви, замена подошвы Loro Piana, ремонт сумок Hermès, MANDO MEMORI';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/products';
 require __DIR__ . '/../../partials/header.php';
 ?><main class="main">
@@ -53,7 +53,8 @@ require __DIR__ . '/../../partials/header.php';
   <section class="contacts-hero">
     <div class="container">
       <h1 class="contacts-title">Услуги</h1>
-      <p class="contacts-subtitle">Профессиональный уход за вашей обувью</p>
+      <p class="contacts-subtitle">Только для премиальной обуви — Loro Piana, Hermès, Berluti и др. Масс-маркет не обслуживаем</p>
+      <a href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=products_top" target="_blank" rel="noopener" class="btn-tg" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:12px 22px;background:var(--tg);color:#fff;border-radius:980px;font-weight:600;text-decoration:none" data-tg="products_top">Оценить люкс по фото — 5 мин →</a>
     </div>
   </section>
 
@@ -71,13 +72,14 @@ require __DIR__ . '/../../partials/header.php';
           <div itemprop="item" itemscope itemtype="https://schema.org/Product">
           <div class="product-card-text">
             <h2 class="product-card-title" itemprop="name"><?= $svc['title'] ?></h2>
-            <p class="product-card-desc" itemprop="offers" itemscope itemtype="https://schema.org/Offer">от <span itemprop="price" content="<?= $svc['price'] ?>"><?= $svc['price_formatted'] ?></span> <span itemprop="priceCurrency" content="RUB">₽</span> за пару</p>
+            <p class="product-card-desc" itemprop="offers" itemscope itemtype="https://schema.org/Offer">от <span itemprop="price" content="<?= $svc['price'] ?>"><?= $svc['price_formatted'] ?></span> <span itemprop="priceCurrency" content="RUB">₽</span> <?= $svc['unit'] ?? 'за пару' ?></p>
           </div>
           <div class="product-card-image" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
             <img src="/public/assets/images/<?= $svc['img'] ?>" alt="<?= $svc['title'] ?>" loading="lazy" itemprop="contentUrl">
           </div>
           <div class="product-card-action">
             <a href="/product/<?= $svc['slug'] ?>" class="product-card-btn product-card-btn-detail" itemprop="url">Подробнее</a>
+            <a href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=products_<?= $svc['slug'] ?>" target="_blank" rel="noopener" class="product-card-btn product-card-btn-tg" data-tg="products_<?= $svc['slug'] ?>">Заказать через Телеграм</a>
           </div>
           </div>
         </article>

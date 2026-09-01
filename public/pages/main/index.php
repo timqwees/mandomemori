@@ -5,15 +5,21 @@ $notify = Functions::notify();
 
 $siteINFO = ['canonical' => '/', 'priority' => '1.0', 'changefreq' => 'daily', 'index' => 'main'];
 
-$pageTitle = $pageTitle ?? 'MANDO MEMORI — химчистка обуви в Москве, чистка кроссовок и премиальный уход';
-$pageDesc = $pageDesc ?? 'MANDO MEMORI — профессиональная химчистка обуви в Москве. Чистка кроссовок, замши, нубука, кожи. Отбеливание подошвы, покраска, реставрация. Бесплатная доставка.';
-$pageKeywords = $pageKeywords ?? 'химчистка обуви Москва, чистка кроссовок, отбеливание подошвы, химчистка замши, реставрация обуви, MANDO MEMORI';
+$pageTitle = $pageTitle ?? 'MANDO MEMORI — химчистка премиальной обуви в Москве | Loro Piana, Hermès, Berluti';
+$delivery = \Setting\Route\Function\Functions::deliveryNote();
+$pageDesc = $pageDesc ?? 'Премиальная мастерская по химчистке и реставрации обуви в Москве. Loro Piana, Hermès, Berluti, John Lobb. Ручная работа от 1 490 ₽. ' . $delivery . '. Гарантия качества.';
+$pageKeywords = $pageKeywords ?? 'химчистка премиальной обуви Москва, чистка дорогой обуви, химчистка Loro Piana, реставрация премиальной обуви, уход за обувью люкс, MANDO MEMORI';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/';
 echo '<link rel="preload" as="image" href="/public/assets/images/mandomemori/hero-poster.jpg" fetchpriority="high">';
 require __DIR__ . '/../../partials/header.php';
 ?>
 
 <main class="main">
+  <div class="premium-notice">
+    <span class="premium-notice__badge">ТОЛЬКО ПРЕМИУМ</span>
+    <span class="premium-notice__text">Работаем только с дорогой премиальной обувью и аксессуарами — Loro Piana, Hermès, Berluti, John Lobb, Gucci, Louis Vuitton и др. <span class="premium-notice__sub">Обычную обувь и кроссовки из масс-маркета не принимаем</span></span>
+    <a href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=premium_notice" target="_blank" rel="noopener" class="premium-notice__cta" data-tg="premium_notice">Уточнить →</a>
+  </div>
   <section class="scroll-hero" id="scroll-hero">
     <div class="scroll-hero__sticky">
       <video class="scroll-hero__video" id="scroll-hero-video" src="/public/assets/images/mandomemori/heroBG.mp4" data-src-desktop="/public/assets/images/mandomemori/heroBG.mp4" data-src-mobile="/public/assets/images/mandomemori/heroBG.mp4" muted playsinline webkit-playsinline preload="metadata" poster="/public/assets/images/mandomemori/hero-poster.jpg">
@@ -24,11 +30,20 @@ require __DIR__ . '/../../partials/header.php';
         <div class="scroll-hero__spinner"></div>
       </div>
       <div class="scroll-hero__content">
+        <p class="hero-eyebrow">Loro Piana · Hermès · Berluti · John Lobb · Gucci · Louis Vuitton · Только люкс</p>
         <h1 class="scroll-hero__heading">
-          <span class="scroll-hero__word" id="scroll-hero-word">Кроссовки</span>
-          <span class="scroll-hero__rest">останутся чистыми</span>
+          <span class="scroll-hero__word" id="scroll-hero-word">Loro Piana</span>
+          <span class="scroll-hero__rest">останется как новая</span>
         </h1>
-        <a class="btn-accent hero-cta" href="/order">Вызвать курьера</a>
+        <p class="hero-sub">Премиальная мастерская. Ручная работа. Масс-маркет не обслуживаем.</p>
+        <div class="hero-cta-group">
+          <a class="btn-accent hero-cta" href="/order">Вызвать курьера</a>
+          <a class="btn-tg hero-cta-tg" href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=hero" target="_blank" rel="noopener" data-tg="hero">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
+            Оценить люкс по фото — 5 мин
+          </a>
+        </div>
+        <p class="hero-cta-hint">Ответим за 5 минут · Бесплатно · Только премиум-сегмент</p>
       </div>
     </div>
   </section>
@@ -104,7 +119,7 @@ require __DIR__ . '/../../partials/header.php';
           <span class="about-step__num" itemprop="position">03</span>
           <div class="about-step__body">
             <h3 class="about-step__title" itemprop="name">Передаёте обувь</h3>
-            <p class="about-step__desc" itemprop="text">Вызываете бесплатного курьера — у него уже есть данные заказа, остаётся только отдать обувь.</p>
+            <p class="about-step__desc" itemprop="text">Вызываете курьера — у него уже есть данные заказа, остаётся только отдать обувь. <?= htmlspecialchars($delivery) ?>.</p>
           </div>
         </div>
         <div class="about-step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
@@ -121,7 +136,14 @@ require __DIR__ . '/../../partials/header.php';
   <section class="home-products-section" itemscope itemtype="https://schema.org/ItemList">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Все услуги</h2>
+        <h2 class="section-title">Все услуги — только для премиума</h2>
+        <p class="section-subtitle">Для премиальной обуви и аксессуаров. Масс-маркет (Zara, H&M, Kari и т.п.) не обслуживаем.</p>
+        <div class="premium-inline">
+          <span class="premium-inline__dot">◆</span>
+          <span>Принимаем только премиум — кожа крокодила, кашемир, замша и нубук люкс-брендов</span>
+          <a href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=qualifier_inline" target="_blank" rel="noopener" data-tg="qualifier_inline">Проверить пару →</a>
+        </div>
+        <div class="premium-brands-strip">Loro Piana · Brioni · Kiton · Berluti · John Lobb · Hermès · Gucci · Prada · Louis Vuitton · Chanel · Dior · Bottega Veneta · Saint Laurent</div>
       </div>
     </div>
     <div class="cards-slider" id="products-slider">
@@ -140,13 +162,14 @@ require __DIR__ . '/../../partials/header.php';
             <span itemprop="review" itemscope itemtype="https://schema.org/Review"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="Анна"></span><meta itemprop="datePublished" content="2026-06-15"><span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><meta itemprop="description" content="Отличный сервис! Обувь как новая, очень довольна результатом."></span>
           <div class="product-card-text">
             <h2 class="product-card-title" itemprop="name"><?= $p['title'] ?></h2>
-            <p class="product-card-desc" itemprop="offers" itemscope itemtype="https://schema.org/Offer">от <meta itemprop="price" content="<?= $p['price'] ?>"><span><?= $p['price_formatted'] ?></span> <span itemprop="priceCurrency" content="RUB">₽</span> за пару<meta itemprop="availability" content="https://schema.org/InStock"><span itemprop="hasMerchantReturnPolicy" itemscope itemtype="https://schema.org/MerchantReturnPolicy"><meta itemprop="applicableCountry" content="RU"><meta itemprop="returnPolicyCategory" content="https://schema.org/MerchantReturnFiniteReturnWindow"><meta itemprop="merchantReturnDays" content="14"><meta itemprop="returnMethod" content="https://schema.org/ReturnByMail"><meta itemprop="returnFees" content="https://schema.org/FreeReturn"></span><span itemprop="shippingDetails" itemscope itemtype="https://schema.org/OfferShippingDetails"><span itemprop="shippingDestination" itemscope itemtype="https://schema.org/DefinedRegion"><meta itemprop="addressCountry" content="RU"></span><span itemprop="shippingRate" itemscope itemtype="https://schema.org/MonetaryAmount"><meta itemprop="value" content="0"><meta itemprop="currency" content="RUB"></span><span itemprop="deliveryTime" itemscope itemtype="https://schema.org/ShippingDeliveryTime"><span itemprop="handlingTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="0"><meta itemprop="maxValue" content="1"><meta itemprop="unitCode" content="DAY"></span><span itemprop="transitTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="1"><meta itemprop="maxValue" content="2"><meta itemprop="unitCode" content="DAY"></span></span><meta itemprop="shippingOrigin" content="RU"></span></p>
+            <p class="product-card-desc" itemprop="offers" itemscope itemtype="https://schema.org/Offer">от <meta itemprop="price" content="<?= $p['price'] ?>"><span><?= $p['price_formatted'] ?></span> <span itemprop="priceCurrency" content="RUB">₽</span> <?= $p['unit'] ?? 'за пару' ?><meta itemprop="availability" content="https://schema.org/InStock"><span itemprop="hasMerchantReturnPolicy" itemscope itemtype="https://schema.org/MerchantReturnPolicy"><meta itemprop="applicableCountry" content="RU"><meta itemprop="returnPolicyCategory" content="https://schema.org/MerchantReturnFiniteReturnWindow"><meta itemprop="merchantReturnDays" content="14"><meta itemprop="returnMethod" content="https://schema.org/ReturnByMail"><meta itemprop="returnFees" content="https://schema.org/FreeReturn"></span><span itemprop="shippingDetails" itemscope itemtype="https://schema.org/OfferShippingDetails"><span itemprop="shippingDestination" itemscope itemtype="https://schema.org/DefinedRegion"><meta itemprop="addressCountry" content="RU"></span><span itemprop="shippingRate" itemscope itemtype="https://schema.org/MonetaryAmount"><meta itemprop="value" content="0"><meta itemprop="currency" content="RUB"></span><span itemprop="deliveryTime" itemscope itemtype="https://schema.org/ShippingDeliveryTime"><span itemprop="handlingTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="0"><meta itemprop="maxValue" content="1"><meta itemprop="unitCode" content="DAY"></span><span itemprop="transitTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="1"><meta itemprop="maxValue" content="2"><meta itemprop="unitCode" content="DAY"></span></span><meta itemprop="shippingOrigin" content="RU"></span></p>
           </div>
           <div class="product-card-image">
             <img src="/public/assets/images/<?= $p['img'] ?>" alt="<?= $p['title'] ?>" itemprop="image" loading="lazy" width="487" height="324">
           </div>
           <div class="product-card-action">
             <a href="/product/<?= $p['slug'] ?>" itemprop="url" class="product-card-btn product-card-btn-detail">Подробнее</a>
+            <a href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=card_<?= $p['slug'] ?>" target="_blank" rel="noopener" class="product-card-btn product-card-btn-tg" data-tg="card_<?= $p['slug'] ?>">Заказать через Телеграм</a>
           </div>
           </div>
         </article>
@@ -176,59 +199,55 @@ require __DIR__ . '/../../partials/header.php';
     </div>
   </section>
 
+  <div class="container">
+    <a href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=trust_compact" target="_blank" rel="noopener" class="tg-compact" data-tg="trust_compact">
+      <span class="tg-compact__icon">✦</span>
+      <span class="tg-compact__text">Пришлите фото люкса в Telegram — назовём цену за 5 минут, бесплатно</span>
+      <span class="tg-compact__btn">Написать</span>
+    </a>
+  </div>
+
   <section class="home-faq-section" itemscope itemtype="https://schema.org/FAQPage">
     <div class="home-faq-header">
-      <h2 class="home-faq-title">Часто задаваемые вопросы</h2>
-      <p class="home-faq-subtitle">Всё, что важно знать о нашем сервисе</p>
+      <h2 class="home-faq-title">Часто задаваемые вопросы о химчистке обуви</h2>
+      <p class="home-faq-subtitle">Только для премиальной обуви и аксессуаров — масс-маркет не обслуживаем</p>
     </div>
     <div class="home-faq-grid">
       <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 class="home-faq-question" itemprop="name">Сколько стоит химчистка обуви?</h3>
+        <h3 class="home-faq-question" itemprop="name">Сколько стоит химчистка обуви в Москве?</h3>
         <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-        <div class="home-faq-answer" itemprop="text">Цена зависит от типа обуви и сложности загрязнения. Базовая химчистка — от 3 490 ₽, премиум-чистка — от 5 990 ₽. Пришлите фото в Telegram — оценим бесплатно.</div>
+          <div class="home-faq-answer" itemprop="text">Стоимость химчистки обуви в нашей мастерской — <strong>от 5 990 ₽ за пару</strong>. Цена зависит от материала, сложности загрязнений и состояния обуви. <a href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=faq_price" target="_blank" rel="noopener" data-tg="faq_price" style="color:#229ED9;font-weight:600;text-decoration:underline">Пришлите фото в Telegram — оценим стоимость работы бесплатно за 5 минут →</a></div>
         </div>
       </div>
       <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 class="home-faq-question" itemprop="name">Как отбелить пожелтевшую подошву?</h3>
+        <h3 class="home-faq-question" itemprop="name">Сколько времени занимает химчистка обуви?</h3>
         <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-        <div class="home-faq-answer" itemprop="text">Мы используем профессиональные составы для отбеливания подошвы. Результат — белоснежная подошва без разводов. Услуга доступна отдельно от 1 490 ₽.</div>
+          <div class="home-faq-answer" itemprop="text">Ручная химчистка премиальной обуви занимает <strong>от 1 до 6 дней</strong> в зависимости от материала и сложности. Срочная обработка возможна за 1 день.</div>
         </div>
       </div>
       <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 class="home-faq-question" itemprop="name">Вы принимаете обувь после зимы с реагентами?</h3>
+        <h3 class="home-faq-question" itemprop="name">Вы забираете обувь на химчистку с доставкой?</h3>
         <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-        <div class="home-faq-answer" itemprop="text">Да, наши мастера выводят солевые разводы и следы реагентов. В стоимость чистки входит обработка подошвы и выведение пятен любой сложности.</div>
+          <div class="home-faq-answer" itemprop="text">Да, предлагаем химчистку обуви с доставкой по Москве. Наш курьер приедет к вам, заберёт обувь и вернёт её чистой. <strong><?= htmlspecialchars($delivery) ?></strong>.</div>
         </div>
       </div>
       <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 class="home-faq-question" itemprop="name">Чистите ли вы замшу и нубук?</h3>
+        <h3 class="home-faq-question" itemprop="name">Какие бренды обуви вы принимаете на химчистку?</h3>
         <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-        <div class="home-faq-answer" itemprop="text">Да, мы специализируемся на деликатной чистке замши и нубука с восстановлением ворса, цвета и нанесением водоотталкивающей пропитки. Цена — от 4 490 ₽.</div>
+          <div class="home-faq-answer" itemprop="text">Специализируемся на премиальном сегменте: <strong>Loro Piana, Hermès, Berluti, John Lobb, Gucci, Prada, Louis Vuitton, Balenciaga, Christian Louboutin</strong>. Каждая пара получает индивидуальный подход с учётом материала и конструкции. Масс-маркет не обслуживаем.</div>
         </div>
       </div>
-      <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 class="home-faq-question" itemprop="name">Какие бренды вы принимаете?</h3>
-        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-        <div class="home-faq-answer" itemprop="text">Мы работаем с любой обувью: от повседневной до премиальных брендов — Loro Piana, Gucci, Prada, Balenciaga, Louis Vuitton, Hermès и других. Особый подход к люксовым материалам.</div>
+    </div>
+  </section>
+
+  <section class="tg-inline-cta">
+    <div class="container">
+      <div class="tg-inline-cta__card tg-inline-cta__card--premium">
+        <div class="tg-inline-cta__text">
+          <h3>Ваша пара — премиум? Проверим за 5 минут</h3>
+          <p>Пришлите фото + бренд в Telegram. Если это премиум/люкс — назовём цену. Если масс-маркет — честно откажем и сэкономим ваше время.</p>
         </div>
-      </div>
-      <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 class="home-faq-question" itemprop="name">Делаете ли вы покраску и реставрацию?</h3>
-        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-        <div class="home-faq-answer" itemprop="text">Да, восстанавливаем цвет, маскируем потёртости, царапины и сдиры. Полная покраска обуви — от 3 990 ₽, реставрация отдельных участков — от 1 990 ₽.</div>
-        </div>
-      </div>
-      <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 class="home-faq-question" itemprop="name">Сколько дней занимает чистка?</h3>
-        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-        <div class="home-faq-answer" itemprop="text">Стандартный срок — 1–6 дней в зависимости от загруженности и сложности. Экспресс-чистка возможна за 24 часа. Точный срок называем после оценки.</div>
-        </div>
-      </div>
-      <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 class="home-faq-question" itemprop="name">Есть ли доставка и курьер?</h3>
-        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-        <div class="home-faq-answer" itemprop="text">Да, курьер бесплатно заберёт обувь и привезёт обратно после чистки. Это удобно и быстро — вы никуда не едете.</div>
-        </div>
+        <a href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=inline_mid" target="_blank" rel="noopener" class="tg-inline-cta__btn" data-tg="inline_mid">Проверить в Telegram</a>
       </div>
     </div>
   </section>

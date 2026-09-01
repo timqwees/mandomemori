@@ -9,10 +9,10 @@ class SeoService
     public function __construct()
     {
         $this->meta = [
-            'title' => 'MANDO MEMORI — химчистка обуви в Москве, чистка кроссовок, отбеливание подошвы',
-            'description' => 'Профессиональная химчистка обуви в Москве. Чистка кроссовок, замши, нубука, отбеливание подошвы, покраска. Бесплатная доставка. Более 1 млн пар очищено.',
-            'keywords' => 'химчистка обуви Москва, чистка кроссовок, отбеливание подошвы, химчистка замши, реставрация обуви, MANDO MEMORI',
-            'h1' => 'Химчистка обуви в Москве — MANDO MEMORI'
+            'title' => 'MANDO MEMORI — химчистка премиальной обуви в Москве | Loro Piana, Hermès, Berluti',
+            'description' => 'Премиальная мастерская по химчистке и реставрации обуви в Москве. Loro Piana, Hermès, Berluti, John Lobb. Ручная работа от 1 490 ₽. ' . \Setting\Route\Function\Functions::deliveryNote() . '. Гарантия качества.',
+            'keywords' => 'химчистка премиальной обуви Москва, чистка дорогой обуви, химчистка Loro Piana, реставрация премиальной обуви, уход за обувью люкс, MANDO MEMORI',
+            'h1' => 'Химчистка премиальной обуви в Москве — MANDO MEMORI'
         ];
     }
 
@@ -33,9 +33,20 @@ class SeoService
     $data = [
         '@context' => 'https://schema.org',
         '@type' => 'WebSite',
-        'name' => 'MandoMemori',
+        '@id' => $s . '/#website',
+        'name' => 'MANDO MEMORI',
+        'alternateName' => 'mmclean.ru',
         'url' => $s,
-        'description' => 'Химчистка обуви и сумок в Москве'
+        'description' => 'Премиальная химчистка и реставрация обуви и сумок в Москве. Loro Piana, Hermès, Berluti, John Lobb.',
+        'inLanguage' => 'ru-RU',
+        'potentialAction' => [
+            '@type' => 'SearchAction',
+            'target' => [
+                '@type' => 'EntryPoint',
+                'urlTemplate' => $s . '/blog?search={search_term_string}',
+            ],
+            'query-input' => 'required name=search_term_string',
+        ],
     ];
         return '<script type="application/ld+json">' . json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
     }
@@ -46,29 +57,59 @@ class SeoService
     $data = [
         '@context' => 'https://schema.org',
         '@type' => 'Organization',
-        'name' => 'MandoMemori',
+        '@id' => $s . '/#organization',
+        'name' => 'MANDO MEMORI',
         'url' => $s,
-        'logo' => $s . '/public/assets/images/favicon_full_black.svg',
-            'contactPoint' => [
-                '@type' => 'ContactPoint',
-                'telephone' => '+7 (915) 252-75-75',
-                'contactType' => 'customer service'
-            ]
-        ];
+        'logo' => [
+            '@type' => 'ImageObject',
+            'url' => $s . '/public/assets/images/favicon_full_black.svg',
+            'width' => 90,
+            'height' => 52,
+        ],
+        'description' => 'Премиальная мастерская по химчистке и реставрации обуви в Москве с 2015 года.',
+        'foundingDate' => '2015',
+        'contactPoint' => [
+            '@type' => 'ContactPoint',
+            'telephone' => '+7 (916) 182-92-72',
+            'contactType' => 'customer service',
+            'availableLanguage' => 'Russian',
+        ],
+        'sameAs' => [
+            'https://t.me/mandomemori_bot',
+        ],
+    ];
         return '<script type="application/ld+json">' . json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
     }
 
     public function jsonLdServices()
     {
+    $s = SeoMeta::siteUrl();
         $data = [
             '@context' => 'https://schema.org',
             '@type' => 'Service',
-            'name' => 'Химчистка обуви и сумок',
-            'description' => 'Профессиональная химчистка и реставрация обуви, сумок, курток и одежды',
+            'serviceType' => 'Химчистка и реставрация премиальной обуви',
+            'name' => 'Химчистка и реставрация премиальной обуви',
+            'description' => 'Ручная химчистка и реставрация премиальной обуви и сумок в Москве. Loro Piana, Hermès, Berluti, John Lobb. Стоимость от 1 490 ₽.',
             'provider' => [
                 '@type' => 'Organization',
-                'name' => 'MandoMemori'
-            ]
+                '@id' => $s . '/#organization',
+                'name' => 'MANDO MEMORI',
+            ],
+            'areaServed' => [
+                '@type' => 'City',
+                'name' => 'Москва',
+            ],
+            'hasOfferCatalog' => [
+                '@type' => 'OfferCatalog',
+                'name' => 'Каталог услуг MANDO MEMORI',
+                'itemListElement' => [
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Service', 'name' => 'Химчистка премиальной обуви', 'description' => 'Ручная чистка от 5 990 ₽ за пару']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Service', 'name' => 'Реставрация обуви Loro Piana', 'description' => 'Восстановление от 6 490 ₽ за пару']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Service', 'name' => 'Замена подошвы Loro Piana', 'description' => 'Замена от 18 990 ₽ за пару']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Service', 'name' => 'Отбеливание подошвы', 'description' => 'Отбеливание от 10 990 ₽ за пару']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Service', 'name' => 'Реставрация сумок', 'description' => 'Реставрация от 7 990 ₽ за изделие']],
+                ],
+            ],
         ];
         return '<script type="application/ld+json">' . json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
     }
@@ -81,20 +122,36 @@ class SeoService
             'mainEntity' => [
                 [
                     '@type' => 'Question',
-                    'name' => 'Сколько времени занимает химчистка?',
+                    'name' => 'Сколько стоит химчистка обуви в Москве?',
                     'acceptedAnswer' => [
                         '@type' => 'Answer',
-                        'text' => 'Обычно химчистка занимает 1-3 дня в зависимости от сложности работы.'
+                        'text' => 'Стоимость химчистки обуви в нашей мастерской — от 5 990 ₽ за пару. Цена зависит от материала, сложности загрязнений и состояния обуви. Мы предлагаем бесплатную консультацию и оценку.'
                     ]
                 ],
                 [
                     '@type' => 'Question',
-                    'name' => 'Как работает курьерская служба?',
+                    'name' => 'Сколько времени занимает химчистка обуви?',
                     'acceptedAnswer' => [
                         '@type' => 'Answer',
-                        'text' => 'Курьер забирает вещи в течение 30 минут после заказа и возвращает их после чистки.'
+                        'text' => 'Ручная химчистка премиальной обуви занимает от 1 до 6 дней в зависимости от материала и сложности. Срочная обработка возможна за 1 день.'
                     ]
-                ]
+                ],
+                [
+                    '@type' => 'Question',
+                    'name' => 'Вы забираете обувь на химчистку с доставкой?',
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => 'Да, мы предлагаем химчистку обуви с доставкой по Москве. Наш курьер приедет к вам, заберёт обувь и вернёт её чистой. ' . \Setting\Route\Function\Functions::deliveryNote() . '.'
+                    ]
+                ],
+                [
+                    '@type' => 'Question',
+                    'name' => 'Какие бренды обуви вы принимаете на химчистку?',
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => 'Мы специализируемся на премиальном сегменте: Loro Piana, Hermès, Berluti, John Lobb, Gucci, Prada, Louis Vuitton, Balenciaga, Christian Louboutin. Каждая пара получает индивидуальный подход с учётом материала и конструкции.'
+                    ]
+                ],
             ]
         ];
         return '<script type="application/ld+json">' . json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>' . "\n";

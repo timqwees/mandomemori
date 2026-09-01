@@ -4,9 +4,9 @@ $seo = Functions::seo();
 $notify = Functions::notify();
 
 $siteINFO = ['canonical' => '/blog', 'priority' => '0.8', 'changefreq' => 'weekly', 'index' => 'articles'];
-$pageTitle = 'Блог об уходе за обувью — MANDO MEMORI, советы экспертов 2026';
-$pageDesc = 'Полезные статьи об уходе за обувью: чистка кроссовок, отбеливание подошвы, реставрация, тренды 2026. Советы профессионалов MANDO MEMORI с 10-летним опытом.';
-$pageKeywords = 'блог об уходе за обувью, советы по чистке обуви, уход за кроссовками, блог MANDO MEMORI';
+$pageTitle = 'Блог об уходе за премиальной обувью — MANDO MEMORI, советы экспертов';
+$pageDesc = 'Экспертные статьи об уходе за премиальной обувью: чистка Loro Piana, реставрация кожи, уход за замшей и нубуком. Советы мастеров MANDO MEMORI.';
+$pageKeywords = 'уход за премиальной обувью, чистка Loro Piana, реставрация кожаной обуви, советы по уходу за обувью люкс, блог MANDO MEMORI';
 $robots = 'index, follow';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/blog';
 require __DIR__ . '/../../partials/header.php';
@@ -31,12 +31,24 @@ foreach ($articlesJson as $item) {
   }
 }
 
+// Фильтр по категории (?category=...)
+$filterCat = $_GET['category'] ?? 'all';
+$filterCat = trim($filterCat);
+if ($filterCat !== 'all' && $filterCat !== '') {
+  $articlesJson = array_values(array_filter($articlesJson, fn($a) => ($a['category'] ?? '') === $filterCat));
+}
+
 $tops = array_slice($articlesJson, 0, 5);
-$featured = $articlesJson[0] ?? null;
+$featured = ($filterCat === 'all' || $filterCat === '') ? ($articlesJson[0] ?? null) : null;
 $allArticles = $articlesJson;
 $listArticles = $articlesJson;
 if ($featured) {
   $listArticles = array_slice($articlesJson, 1);
+  $maxPages = max(1, ceil(count($listArticles) / $perPage));
+  if ($page > $maxPages) $page = $maxPages;
+  $offset = ($page - 1) * $perPage;
+  $articles = array_slice($listArticles, $offset, $perPage);
+} else {
   $maxPages = max(1, ceil(count($listArticles) / $perPage));
   if ($page > $maxPages) $page = $maxPages;
   $offset = ($page - 1) * $perPage;
@@ -74,11 +86,21 @@ if ($featured) {
       <div class="blog-layout">
         <div class="blog-main">
           <div class="blog-filters">
-            <button class="blog-filter active" data-filter="all">Все статьи</button>
-            <?php foreach ($categories as $cat): ?>
-            <button class="blog-filter" data-filter="<?= htmlspecialchars($cat) ?>"><?= htmlspecialchars($cat) ?></button>
+            <a href="/blog" class="blog-filter <?= ($filterCat==='all'||$filterCat==='')?'active':'' ?>" data-filter="all">Все статьи <span class="blog-filter__count"><?= array_sum($fullCounts) ?></span></a>
+            <?php
+              $catCounts = array_count_values(array_column($articlesJson, 'category'));
+              // keep original full list for counts
+              $allCatsJson = json_decode(file_get_contents(__DIR__ . '/data/articles.json'), true) ?: [];
+              $fullCounts = array_count_values(array_column($allCatsJson, 'category'));
+              foreach ($categories as $cat):
+                $cnt = $fullCounts[$cat] ?? 0;
+            ?>
+            <a href="/blog?category=<?= urlencode($cat) ?>" class="blog-filter <?= $filterCat===$cat?'active':'' ?>" data-filter="<?= htmlspecialchars($cat) ?>"><?= htmlspecialchars($cat) ?> <span class="blog-filter__count"><?= $cnt ?></span></a>
             <?php endforeach; ?>
           </div>
+          <?php if ($filterCat!=='all' && $filterCat!==''): ?>
+          <div class="blog-filter-info" style="margin-bottom:12px;font-size:13px;color:#6b6b6b">Показаны статьи категории «<?= htmlspecialchars($filterCat) ?>» — <?= count($articlesJson) ?> шт. <a href="/blog" style="color:#D4562A">Сбросить</a></div>
+          <?php endif; ?>
 
           <div class="blog-cards">
             <?php if (empty($articles)): ?>
@@ -115,18 +137,22 @@ if ($featured) {
 
           <?php if ($maxPages > 1): ?>
           <div class="blog-pagination">
+            <?php
+              $qBase = ($filterCat!=='all' && $filterCat!=='') ? '&category='.urlencode($filterCat) : '';
+              $q = fn($p)=> '?page='.$p.$qBase;
+            ?>
             <?php if ($page > 1): ?>
-            <a href="?page=<?= $page - 1 ?>" class="blog-pag-btn">← Назад</a>
+            <a href="<?= $q($page-1) ?>" class="blog-pag-btn">← Назад</a>
             <?php endif; ?>
             <?php for ($i = 1; $i <= $maxPages; $i++): ?>
             <?php if ($i === $page): ?>
             <span class="blog-pag-btn active"><?= $i ?></span>
             <?php else: ?>
-            <a href="?page=<?= $i ?>" class="blog-pag-btn"><?= $i ?></a>
+            <a href="<?= $q($i) ?>" class="blog-pag-btn"><?= $i ?></a>
             <?php endif; ?>
             <?php endfor; ?>
             <?php if ($page < $maxPages): ?>
-            <a href="?page=<?= $page + 1 ?>" class="blog-pag-btn">Вперед →</a>
+            <a href="<?= $q($page+1) ?>" class="blog-pag-btn">Вперед →</a>
             <?php endif; ?>
           </div>
           <?php endif; ?>
@@ -197,10 +223,13 @@ if ($featured) {
 .blog-content { padding: clamp(1.5rem,3vw,2.5rem) 0 clamp(3rem,5vw,5rem); }
 .blog-layout { display: grid; grid-template-columns: 1fr 320px; gap: clamp(1.5rem,2.5vw,2.5rem); align-items: start; }
 @media (max-width: 900px) { .blog-layout { grid-template-columns: 1fr; } }
-.blog-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
-.blog-filter { height: 34px; padding: 0 14px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; background: #f0f0f0; color: var(--blog-muted); border: none; transition: all .15s; }
-.blog-filter:hover { background: #e5e5e5; color: var(--blog-text); }
-.blog-filter.active { background: var(--accent); color: #fff; }
+.blog-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; align-items:center; }
+.blog-filter { display:inline-flex; align-items:center; gap:6px; height:36px; padding:0 16px; border-radius:980px; font-size:13px; font-weight:500; cursor:pointer; background:#fff; color:#1a1a1a; border:1px solid #e5e5e5; text-decoration:none; transition:all .2s; white-space:nowrap; }
+.blog-filter:hover { border-color:#D4562A; color:#D4562A; background:#fff; transform:translateY(-1px); box-shadow:0 2px 8px rgba(212,86,42,.12); }
+.blog-filter.active { background:#1d1d1f; color:#fff; border-color:#1d1d1f; box-shadow:0 2px 12px rgba(0,0,0,.12); }
+.blog-filter__count { background:rgba(0,0,0,.06); padding:2px 7px; border-radius:980px; font-size:11px; font-weight:700; min-width:20px; text-align:center; line-height:1.2; }
+.blog-filter.active .blog-filter__count { background:rgba(255,255,255,.18); color:#fff; }
+@media(max-width:768px){ .blog-filters{ flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; padding-bottom:4px; } .blog-filters::-webkit-scrollbar{display:none} }
 .blog-cards { display: flex; flex-direction: column; gap: 14px; }
 .blog-card { border-radius: 10px; background: var(--blog-card); border: 1px solid var(--blog-border); overflow: hidden; transition: transform .2s, box-shadow .2s; }
 .blog-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.05); }
@@ -273,22 +302,7 @@ if ($featured) {
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  var btns = document.querySelectorAll('.blog-filter');
-  var cards = document.querySelectorAll('.blog-card');
-  btns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var filter = this.dataset.filter;
-      btns.forEach(function (b) { b.classList.remove('active'); });
-      this.classList.add('active');
-      cards.forEach(function (card) {
-        var match = filter === 'all' || card.dataset.category === filter;
-        card.style.display = match ? '' : 'none';
-        if (match) { card.style.animation = 'none'; requestAnimationFrame(function(){ card.style.animation = 'fadeIn .3s ease forwards'; }); }
-      });
-    });
-  });
-});
+// Фильтрация теперь серверная (?category=) — JS отключён, пагинация сохраняет фильтр
 </script>
 
 <?php require __DIR__ . '/../../partials/footer.php'; ?>

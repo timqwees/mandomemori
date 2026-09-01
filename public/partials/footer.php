@@ -5,7 +5,7 @@
           <a href="/" class="footer-logo">
             <img src="/public/assets/images/favicon_full_white.svg" alt="MANDO MEMORI" class="footer-logo-img" width="90" height="52">
           </a>
-          <p class="footer-brand-desc" itemprop="description">Профессиональная химчистка обуви в Москве. Чистка кроссовок, отбеливание подошвы, покраска, реставрация. Бесплатная доставка курьером.</p>
+          <p class="footer-brand-desc" itemprop="description">Премиальная мастерская по химчистке и реставрации обуви в Москве. Loro Piana, Hermès, Berluti, John Lobb. Ручная работа. <?= htmlspecialchars(\Setting\Route\Function\Functions::deliveryNote()) ?>.</p>
           <div class="footer-social">
             <a href="https://t.me/mandomemori_bot" target="_blank" rel="noopener" class="footer-social-link" title="Telegram" itemprop="sameAs">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
@@ -19,9 +19,9 @@
         <div class="footer-col footer-col--nav">
           <h2 class="footer-col-title">Услуги</h2>
           <nav class="footer-nav">
+            <a href="/loro-piana">Loro Piana</a>
             <a href="/product/cleaning">Чистка</a>
-            <a href="/product/whitening">Отбеливание подошвы Loro Piana</a>
-            <a href="/product/restoration">Реставрация</a>
+            <a href="/product/restoration">Реставрация Loro Piana</a>
             <a href="/product/replacement">Замена подошвы Loro Piana</a>
             <a href="/product/heel-taps-rubber">Набойки (резина)</a>
             <a href="/product/bag-restoration">Реставрация сумок</a>
@@ -150,23 +150,42 @@
     })();
   </script>
 
-  <script>
-    window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":""};
-    (function(d,t) {
-      var BASE_URL="https://app.chatwoot.com";
-      var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=BASE_URL+"/packs/js/sdk.js";
-      g.async = true;
-      s.parentNode.insertBefore(g,s);
-      g.onload=function(){
-        window.chatwootSDK.run({
-          websiteToken: 'pTmipPDsScmgdWfdxNwFimow',
-          baseUrl: BASE_URL
-        })
-      }
-    })(document,"script");
-  </script>
+  <?php require __DIR__ . '/telegram-widget.php'; ?>
   <script src="/public/assets/js/mandomemori/main.js" defer></script>
   <script src="/public/assets/js/mandomemori/cart.js" defer></script>
+  <script>
+  (function(){
+    // Telegram CRO analytics
+    document.addEventListener('click', function(e){
+      var a = e.target.closest('a[data-tg]');
+      if(!a) return;
+      var src = a.getAttribute('data-tg') || 'unknown';
+      try{ if(window.ym) ym(<?= json_encode($_ENV["YM_ID"] ?? "") ?>,'reachGoal','tg_click_'+src); }catch(_){}
+      try{ if(window.gtag) gtag('event','tg_click',{campaign:src}); }catch(_){}
+      try{ localStorage.setItem('tg_click_src', src); }catch(_){}
+    });
+    // Bubble close — only bubble, 3600 sec session
+    var closeBtn = document.getElementById('tg-float-close');
+    var floatEl = document.getElementById('tg-float');
+    var bubbleEl = document.getElementById('tg-bubble');
+    if(closeBtn && floatEl && bubbleEl){
+      var key='tg_bubble_closed_ts';
+      var ts=parseInt(localStorage.getItem(key)||'0',10);
+      var now=Date.now();
+      var hidden = ts && (now - ts < 3600*1000);
+      if(hidden) bubbleEl.style.display='none';
+      closeBtn.addEventListener('click', function(e){
+        e.preventDefault(); e.stopPropagation();
+        floatEl.classList.remove('tg-float--show-bubble');
+        bubbleEl.style.display='none';
+        try{ localStorage.setItem(key, String(Date.now())); }catch(_){}
+      });
+      if(!hidden){
+        setTimeout(function(){ if(bubbleEl.style.display!=='none') floatEl.classList.add('tg-float--show-bubble'); }, 4000);
+        setTimeout(function(){ floatEl.classList.remove('tg-float--show-bubble'); }, 12000);
+      }
+    }
+  })();
+  </script>
 </body>
 </html>

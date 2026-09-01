@@ -7,8 +7,8 @@ class SeoMeta
   public static function head(array $p = []): string
   {
     $siteUrl = $p['siteUrl'] ?? self::siteUrl();
-    $title   = $p['title'] ?? 'MANDO MEMORI — химчистка обуви в Москве, чистка кроссовок и отбеливание подошвы';
-    $desc    = $p['desc'] ?? 'MANDO MEMORI — профессиональная химчистка обуви в Москве. Чистка кроссовок, замши, нубука, кожи. Отбеливание подошвы, покраска, реставрация. Бесплатная доставка.';
+    $title   = $p['title'] ?? 'MANDO MEMORI — химчистка премиальной обуви в Москве | Loro Piana, Hermès, Berluti';
+    $desc    = $p['desc'] ?? 'Премиальная мастерская по химчистке и реставрации обуви в Москве. Loro Piana, Hermès, Berluti, John Lobb. Ручная работа от 1 490 ₽. ' . \Setting\Route\Function\Functions::deliveryNote() . '. Гарантия качества.';
     $kw      = $p['keywords'] ?? '';
     $canon   = $p['canonical'] ?? '/';
     $img     = $p['image'] ?? '/public/assets/images/services/default.webp';
@@ -61,25 +61,94 @@ class SeoMeta
     $business = [
       '@context' => 'https://schema.org',
       '@type' => 'LocalBusiness',
+      '@id' => $siteUrl . '/#localbusiness',
       'name' => 'MANDO MEMORI',
-      'description' => 'Профессиональная химчистка обуви в Москве. Чистка кроссовок, отбеливание подошвы, премиальный уход.',
-      'image' => $siteUrl . '/public/assets/images/favicon_full_black.svg',
+      'description' => 'Премиальная мастерская по химчистке и реставрации обуви и сумок в Москве. Специализация: Loro Piana, Hermès, Berluti, John Lobb. Ручная работа, стоимость от 1 490 ₽.',
+      'image' => [
+        $siteUrl . '/public/assets/images/mandomemori/мастер чистка.jpg',
+        $siteUrl . '/public/assets/images/mandomemori/чистка со спреем.jpg',
+      ],
+      'logo' => $siteUrl . '/public/assets/images/favicon_full_black.svg',
       'url' => $siteUrl,
-      'telephone' => '+7 (915) 252-75-75',
+      'telephone' => '+7 (916) 182-92-72',
       'email' => 'info@mmclean.ru',
       'address' => [
         '@type' => 'PostalAddress',
         'addressLocality' => 'Москва',
+        'addressRegion' => 'Москва',
         'addressCountry' => 'RU',
+      ],
+      'geo' => [
+        '@type' => 'GeoCoordinates',
+        'latitude' => 55.765833,
+        'longitude' => 37.618889,
       ],
       'aggregateRating' => [
         '@type' => 'AggregateRating',
         'ratingValue' => '4.9',
         'bestRating' => '5',
+        'worstRating' => '1',
         'ratingCount' => '1500',
+        'reviewCount' => '1500',
       ],
-      'priceRange' => '990₽ – 8990₽',
-      'openingHours' => 'Mo-Sa 10:00-22:00, Su 11:00-22:00',
+      'priceRange' => '1490₽ – 49900₽',
+      'openingHoursSpecification' => [
+        [
+          '@type' => 'OpeningHoursSpecification',
+          'dayOfWeek' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+          'opens' => '10:00',
+          'closes' => '22:00',
+        ],
+        [
+          '@type' => 'OpeningHoursSpecification',
+          'dayOfWeek' => 'Sunday',
+          'opens' => '11:00',
+          'closes' => '22:00',
+        ],
+      ],
+      'knowsAbout' => [
+        'Химчистка премиальной обуви',
+        'Реставрация обуви Loro Piana',
+        'Замена подошвы Loro Piana',
+        'Отбеливание подошвы',
+        'Ремонт сумок Hermès',
+        'Реставрация сумок',
+        'Набойки на обувь',
+      ],
+      'areaServed' => [
+        '@type' => 'City',
+        'name' => 'Москва',
+      ],
+      'hasOfferCatalog' => [
+        '@type' => 'OfferCatalog',
+        'name' => 'Услуги премиальной мастерской MANDO MEMORI',
+        'itemListElement' => [
+          [
+            '@type' => 'Offer',
+            'itemOffered' => [
+              '@type' => 'Service',
+              'name' => 'Химчистка премиальной обуви',
+            ],
+          ],
+          [
+            '@type' => 'Offer',
+            'itemOffered' => [
+              '@type' => 'Service',
+              'name' => 'Реставрация обуви Loro Piana',
+            ],
+          ],
+          [
+            '@type' => 'Offer',
+            'itemOffered' => [
+              '@type' => 'Service',
+              'name' => 'Замена подошвы Loro Piana',
+            ],
+          ],
+        ],
+      ],
+      'sameAs' => [
+        'https://t.me/mandomemori_bot',
+      ],
     ];
 
     $graph = [$business];
