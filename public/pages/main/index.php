@@ -20,54 +20,6 @@ require __DIR__ . '/../../partials/header.php';
     <span class="premium-notice__text">Работаем только с дорогой премиальной обувью и аксессуарами — Loro Piana, Hermès, Berluti, John Lobb, Gucci, Louis Vuitton и др. <span class="premium-notice__sub">Обычную обувь и кроссовки из масс-маркета не принимаем</span></span>
     <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=premium_notice" target="_blank" rel="noopener" class="premium-notice__cta" data-tg="premium_notice">Уточнить →</a>
   </div>
-  <!-- ── ХИТ ПРОДАЖ: ажиотаж-баннер ── -->
-  <section class="hit-promo" itemscope itemtype="https://schema.org/PromotionCard">
-    <div class="hit-promo__marquee" aria-hidden="true">
-      <div class="hit-promo__marquee-track">
-        <span>🔥 ХИТ: ЗАМЕНА ПОДОШВЫ LORO PIANA &nbsp;•&nbsp; ОТБЕЛИВАНИЕ ПОДОШВЫ LORO PIANA &nbsp;•&nbsp; РЕСТАВРАЦИЯ СУМОК HERMÈS / CHANEL &nbsp;•&nbsp; РЕСТАВРАЦИЯ ОБУВИ &nbsp;•&nbsp;</span>
-        <span>🔥 ХИТ: ЗАМЕНА ПОДОШВЫ LORO PIANA &nbsp;•&nbsp; ОТБЕЛИВАНИЕ ПОДОШВЫ LORO PIANA &nbsp;•&nbsp; РЕСТАВРАЦИЯ СУМОК HERMÈS / CHANEL &nbsp;•&nbsp; РЕСТАВРАЦИЯ ОБУВИ &nbsp;•&nbsp;</span>
-      </div>
-    </div>
-    <div class="container hit-promo__inner">
-      <div class="hit-promo__badge-row">
-        <span class="hit-promo__fire">🔥 ХИТ ПРОДАЖ</span>
-        <span class="hit-promo__urgency"><span class="hit-promo__dot"></span>Высокий спрос — мест в мастерской мало</span>
-      </div>
-      <h2 class="hit-promo__title">Замена и отбеливание подошвы <span>Loro&nbsp;Piana</span> + реставрация сумок — главный хит сезона</h2>
-      <p class="hit-promo__sub">Жёлтая подошва? Стёртая подошва? Потёртая сумка Hermès, Chanel, Louis Vuitton? Вернём заводской вид. Оценка по фото за 5 минут — бесплатно.</p>
-      <div class="hit-promo__cards">
-        <a href="/product/replacement" class="hit-promo__card">
-          <span class="hit-promo__card-badge">ХИТ №1</span>
-          <strong>Замена подошвы Loro Piana</strong>
-          <em>от 18 990 ₽ · 3–7 дней</em>
-          <span class="hit-promo__card-link">Подробнее →</span>
-        </a>
-        <a href="/product/whitening" class="hit-promo__card">
-          <span class="hit-promo__card-badge">ХИТ №2</span>
-          <strong>Отбеливание подошвы Loro Piana</strong>
-          <em>от 10 990 ₽ · убираем желтизну</em>
-          <span class="hit-promo__card-link">Подробнее →</span>
-        </a>
-        <a href="/product/bag-restoration" class="hit-promo__card">
-          <span class="hit-promo__card-badge">ХИТ №3</span>
-          <strong>Реставрация сумок</strong>
-          <em>от 7 990 ₽ · Hermès, Chanel, LV</em>
-          <span class="hit-promo__card-link">Подробнее →</span>
-        </a>
-        <a href="/product/restoration" class="hit-promo__card">
-          <span class="hit-promo__card-badge">ХИТ №4</span>
-          <strong>Реставрация обуви</strong>
-          <em>от 6 490 ₽ · царапины, цвет, швы</em>
-          <span class="hit-promo__card-link">Подробнее →</span>
-        </a>
-      </div>
-      <div class="hit-promo__cta-row">
-        <a class="btn-accent hit-promo__cta" href="/order">Вызвать курьера</a>
-        <a class="btn-tg hit-promo__cta-tg" href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=hit_promo" target="_blank" rel="noopener" data-tg="hit_promo">Прислать фото в Telegram — оценка 5 мин</a>
-        <a class="hit-promo__cta-phone" href="tel:+79161829272">📞 +7 (916) 182-92-72</a>
-      </div>
-    </div>
-  </section>
   <section class="scroll-hero" id="scroll-hero">
     <div class="scroll-hero__sticky">
       <video class="scroll-hero__video" id="scroll-hero-video" src="/public/assets/images/mandomemori/heroBG.mp4" data-src-desktop="/public/assets/images/mandomemori/heroBG.mp4" data-src-mobile="/public/assets/images/mandomemori/heroBG.mp4" muted playsinline webkit-playsinline preload="metadata" poster="/public/assets/images/mandomemori/hero-poster.jpg">
