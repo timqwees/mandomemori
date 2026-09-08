@@ -9,10 +9,10 @@ class SeoService
     public function __construct()
     {
         $this->meta = [
-            'title' => 'MANDO MEMORI — химчистка премиальной обуви в Москве | Loro Piana, Hermès, Berluti',
-            'description' => 'Премиальная мастерская по химчистке и реставрации обуви в Москве. Loro Piana, Hermès, Berluti, John Lobb. Ручная работа от 1 490 ₽. ' . \Setting\Route\Function\Functions::deliveryNote() . '. Гарантия качества.',
-            'keywords' => 'химчистка премиальной обуви Москва, чистка дорогой обуви, химчистка Loro Piana, реставрация премиальной обуви, уход за обувью люкс, MANDO MEMORI',
-            'h1' => 'Химчистка премиальной обуви в Москве — MANDO MEMORI'
+            'title' => 'Замена и отбеливание подошвы Loro Piana в Москве — ХИТ | Реставрация сумок | MANDO MEMORI',
+            'description' => 'ХИТ: замена подошвы Loro Piana от 18 990 ₽, отбеливание подошвы Loro Piana от 10 990 ₽, реставрация сумок Hermès/Chanel от 7 990 ₽, реставрация обуви от 6 490 ₽. Премиум-мастерская в Москве. ' . \Setting\Route\Function\Functions::deliveryNote() . '. Гарантия качества.',
+            'keywords' => 'замена подошвы Loro Piana Москва, отбеливание подошвы Loro Piana, реставрация сумок Москва, реставрация обуви Loro Piana, химчистка Loro Piana, MANDO MEMORI',
+            'h1' => 'Замена и отбеливание подошвы Loro Piana, реставрация сумок в Москве — MANDO MEMORI'
         ];
     }
 
@@ -75,7 +75,7 @@ class SeoService
             'availableLanguage' => 'Russian',
         ],
         'sameAs' => [
-            'https://t.me/mandomemori_bot',
+            'https://t.me/maksim1144',
         ],
     ];
         return '<script type="application/ld+json">' . json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>' . "\n";

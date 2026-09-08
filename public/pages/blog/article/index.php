@@ -84,6 +84,25 @@ $tops = array_slice(array_values($tops), 0, 5);
             ?>
           </article>
 
+          <!-- Экспертиза вместо самоделки: лид-блок шаблона -->
+          <div class="article-expert" itemscope itemtype="https://schema.org/Service">
+            <meta itemprop="name" content="Бесплатная экспертиза обуви и сумок — MANDO MEMORI">
+            <div class="article-expert__badge">⚠️ Не шейте / не клейте / не трите сами — будет дороже</div>
+            <h3 class="article-expert__title">Разошёлся шов, пятно, желтизна? Сначала — экспертиза, а не ручная попытка</h3>
+            <p class="article-expert__text">Домашняя иголка рвёт проколы кожи, суперклей сжигает шов, агрессивная химия оставляет пятна. Каждый такой «ремонт» удорожает профессиональное восстановление в 2–3 раза. <strong>Быстрее и дешевле так:</strong> сфотографируйте проблему крупно + общий вид — технолог MANDO MEMORI назовёт причину, цену и срок <strong>за 5 минут, бесплатно</strong>.</p>
+            <ol class="article-expert__steps">
+              <li><strong>Снимите пару</strong> — не носите, шов/пятно расползаются.</li>
+              <li><strong>Сфотографируйте</strong> — крупно дефект + вся пара.</li>
+              <li><strong>Пришлите нам</strong> — в Telegram или позвоните. Ответ за 5 минут.</li>
+            </ol>
+            <div class="article-expert__btns">
+              <a href="tel:+79161829272" class="article-expert__btn article-expert__btn--phone">📞 Позвонить: +7 (916) 182-92-72</a>
+              <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=blog_expert_<?= htmlspecialchars($article['url']) ?>" target="_blank" rel="noopener" class="article-expert__btn article-expert__btn--tg" data-tg="blog_expert">Прислать фото в Telegram — 5 мин</a>
+              <a href="/order" class="article-expert__btn article-expert__btn--order">Заказать экспертизу →</a>
+            </div>
+            <p class="article-expert__note">Оплата только после работы · <?= htmlspecialchars(\Setting\Route\Function\Functions::deliveryNote()) ?> · Loro Piana, Hermès, Berluti, Chanel, LV</p>
+          </div>
+
           <div class="article-tags">
             <?php foreach (explode(',', $article['tags']) as $tag): ?>
             <span class="article-tag"><?= htmlspecialchars(trim($tag)) ?></span>
@@ -91,10 +110,12 @@ $tops = array_slice(array_values($tops), 0, 5);
           </div>
 
           <div class="article-cta">
-            <h3 class="article-cta-title">Нужна профессиональная чистка обуви?</h3>
-            <p class="article-cta-desc">Доверьте свою обувь экспертам MANDO MEMORI — бесплатная доставка курьером по Москве</p>
+            <h3 class="article-cta-title">Не рискуйте парой — закажите экспертизу</h3>
+            <p class="article-cta-desc">Пришлите фото проблемы или позвоните — решим вопрос быстрее, чем ручная попытка. Ответ за 5 минут, бесплатно.</p>
             <div class="article-cta-btns">
-              <a href="/order" class="article-cta-btn">Заказать чистку</a>
+              <a href="tel:+79161829272" class="article-cta-btn article-cta-btn--phone">📞 Позвонить</a>
+              <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=blog_cta_<?= htmlspecialchars($article['url']) ?>" target="_blank" rel="noopener" class="article-cta-btn article-cta-btn--tg" data-tg="blog_cta">Telegram — 5 мин</a>
+              <a href="/order" class="article-cta-btn">Заказать экспертизу</a>
               <a href="/products" class="article-cta-btn article-cta-btn--outline">Посмотреть услуги</a>
             </div>
           </div>
@@ -118,9 +139,11 @@ $tops = array_slice(array_values($tops), 0, 5);
 
           <div class="article-sidebar-card article-sidebar-card--cta">
             <div class="article-sidebar-body" style="text-align:center;padding:24px 18px">
-              <h4 style="margin:0 0 8px;font-size:16px;color:#000;font-family:var(--font-heading)">Бесплатный курьер</h4>
-              <p style="margin:0 0 16px;font-size:13px;color:#666;line-height:1.5">Заберём обувь и привезём обратно после чистки</p>
-              <a href="/order" style="display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 20px;border-radius:6px;background:var(--accent,#D4562A);color:#fff;font-size:13px;font-weight:600;text-decoration:none">Вызвать курьера</a>
+              <h4 style="margin:0 0 8px;font-size:16px;color:#000;font-family:var(--font-heading)">⚠️ Не чините сами</h4>
+              <p style="margin:0 0 16px;font-size:13px;color:#666;line-height:1.5">Пришлите фото — эксперт оценит за 5 минут, бесплатно. Это быстрее и дешевле самоделки.</p>
+              <a href="tel:+79161829272" style="display:flex;align-items:center;justify-content:center;min-height:38px;padding:8px 20px;border-radius:6px;background:#1a1a1a;color:#fff;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:8px">📞 +7 (916) 182-92-72</a>
+              <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=blog_sidebar" target="_blank" rel="noopener" data-tg="blog_sidebar" style="display:flex;align-items:center;justify-content:center;min-height:38px;padding:8px 20px;border-radius:6px;background:#229ED9;color:#fff;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:8px">Написать в Telegram</a>
+              <a href="/order" style="display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 20px;border-radius:6px;background:var(--accent,#D4562A);color:#fff;font-size:13px;font-weight:600;text-decoration:none">Заказать экспертизу</a>
             </div>
           </div>
         </aside>
@@ -217,6 +240,25 @@ $tops = array_slice(array_values($tops), 0, 5);
 .article-cta-btn:hover { background: #e05a2a; }
 .article-cta-btn--outline { background: transparent; border: 1px solid #d0d0d0; color: #333; }
 .article-cta-btn--outline:hover { background: #f0f0f0; }
+.article-cta-btn--phone { background: #1a1a1a; }
+.article-cta-btn--phone:hover { background: #333; }
+.article-cta-btn--tg { background: #229ED9; }
+.article-cta-btn--tg:hover { background: #1a8bc2; }
+
+.article-expert { margin-top: 32px; border-radius: 14px; border: 2px solid var(--accent); background: linear-gradient(135deg,#fff8f3,#fff); padding: clamp(22px,3vw,36px); box-shadow: 0 8px 32px rgba(212,86,42,.12); }
+.article-expert__badge { display: inline-block; background: #1a1a1a; color: #fff; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 100px; margin-bottom: 12px; }
+.article-expert__title { font-family: var(--font-heading); font-size: clamp(1.15rem,2vw,1.45rem); font-weight: 700; margin: 0 0 10px; color: #000; line-height: 1.3; }
+.article-expert__text { font-size: 15px; line-height: 1.7; color: #444; margin: 0 0 16px; }
+.article-expert__text strong { color: #000; }
+.article-expert__steps { margin: 0 0 20px; padding-left: 20px; font-size: 14px; line-height: 1.7; color: #333; }
+.article-expert__steps li { margin-bottom: 4px; }
+.article-expert__btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.article-expert__btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 22px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; transition: transform .15s, box-shadow .15s; }
+.article-expert__btn:hover { transform: translateY(-2px); }
+.article-expert__btn--phone { background: #1a1a1a; color: #fff; }
+.article-expert__btn--tg { background: #229ED9; color: #fff; box-shadow: 0 4px 16px rgba(34,158,217,.35); }
+.article-expert__btn--order { background: var(--accent); color: #fff; box-shadow: 0 4px 16px rgba(212,86,42,.35); }
+.article-expert__note { margin: 14px 0 0; font-size: 12px; color: #999; }
 
 .article-sidebar { position: sticky; top: 90px; }
 .article-sidebar-card { border-radius: 10px; background: #f7f7f7; border: 1px solid var(--blog-border); overflow: hidden; }

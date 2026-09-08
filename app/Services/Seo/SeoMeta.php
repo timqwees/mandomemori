@@ -171,7 +171,7 @@ class SeoMeta
         ],
       ],
       'sameAs' => [
-        'https://t.me/mandomemori_bot',
+        'https://t.me/maksim1144',
         'https://wa.me/79161829272',
       ],
       'contactPoint' => [
@@ -229,7 +229,7 @@ class SeoMeta
         'contactType' => 'customer service',
         'availableLanguage' => 'Russian',
       ],
-      'sameAs' => ['https://t.me/mandomemori_bot'],
+      'sameAs' => ['https://t.me/maksim1144'],
     ];
     if ($extra) {
       if (isset($extra['@context'])) unset($extra['@context']);

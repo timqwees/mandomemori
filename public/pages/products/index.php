@@ -5,9 +5,9 @@ $notify = Functions::notify();
 
 $siteINFO = ['canonical' => '/products', 'priority' => '0.9', 'changefreq' => 'weekly', 'index' => 'main'];
 
-$pageTitle = 'Услуги по уходу за премиальной обувью в Москве — от 1 490 ₽ | MANDO MEMORI';
-$pageDesc = 'Полный каталог услуг MANDO MEMORI: химчистка премиальной обуви от 5 990 ₽, реставрация Loro Piana, замена подошвы, отбеливание, ремонт сумок Hermès. Премиум-мастерская.';
-$pageKeywords = 'услуги премиальной обуви Москва, химчистка Loro Piana, реставрация дорогой обуви, замена подошвы Loro Piana, ремонт сумок Hermès, MANDO MEMORI';
+$pageTitle = '🔥 Замена и отбеливание подошвы Loro Piana, реставрация сумок — хиты | MANDO MEMORI';
+$pageDesc = 'ХИТЫ ПРОДАЖ: замена подошвы Loro Piana от 18 990 ₽, отбеливание подошвы Loro Piana от 10 990 ₽, реставрация сумок Hermès/Chanel/LV от 7 990 ₽, реставрация обуви от 6 490 ₽. Премиум-мастерская в Москве.';
+$pageKeywords = 'замена подошвы Loro Piana Москва, отбеливание подошвы Loro Piana, реставрация сумок Москва, реставрация сумок Hermès, реставрация обуви Loro Piana, услуги премиальной обуви Москва, MANDO MEMORI';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/products';
 require __DIR__ . '/../../partials/header.php';
 ?><main class="main">
@@ -52,9 +52,9 @@ require __DIR__ . '/../../partials/header.php';
 
   <section class="contacts-hero">
     <div class="container">
-      <h1 class="contacts-title">Услуги</h1>
-      <p class="contacts-subtitle">Только для премиальной обуви — Loro Piana, Hermès, Berluti и др. Масс-маркет не обслуживаем</p>
-      <a href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=products_top" target="_blank" rel="noopener" class="btn-tg" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:12px 22px;background:var(--tg);color:#fff;border-radius:980px;font-weight:600;text-decoration:none" data-tg="products_top">Оценить люкс по фото — 5 мин →</a>
+      <h1 class="contacts-title">🔥 Хиты: замена и отбеливание подошвы Loro Piana, реставрация сумок</h1>
+      <p class="contacts-subtitle">Максимальный спрос — замена подошвы Loro Piana · отбеливание подошвы Loro Piana · реставрация сумок Hermès, Chanel, Louis Vuitton · реставрация обуви. Только премиум — Loro Piana, Hermès, Berluti и др. Масс-маркет не обслуживаем</p>
+      <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=products_top" target="_blank" rel="noopener" class="btn-tg" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:12px 22px;background:var(--tg);color:#fff;border-radius:980px;font-weight:600;text-decoration:none" data-tg="products_top">Оценить люкс по фото — 5 мин →</a>
     </div>
   </section>
 
@@ -63,11 +63,13 @@ require __DIR__ . '/../../partials/header.php';
       <div class="product-cards">
         <?php
         $allSvcs = Functions::getServices();
+        uasort($allSvcs, fn($a, $b) => (!empty($b['is_hit']) <=> !empty($a['is_hit'])) ?: (($a['hit_order'] ?? 99) <=> ($b['hit_order'] ?? 99)));
         $pos = 0;
         foreach ($allSvcs as $svc):
         $pos++;
         ?>
-        <article class="product-card<?= $svc['dark'] ? ' dark-bg' : '' ?>" style="background:<?= $svc['bg'] ?>" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <article class="product-card<?= $svc['dark'] ? ' dark-bg' : '' ?><?= !empty($svc['is_hit']) ? ' product-card--hit' : '' ?>" style="background:<?= $svc['bg'] ?>" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <?php if (!empty($svc['badge'])): ?><span class="product-card__hit-badge"><?= htmlspecialchars($svc['badge']) ?></span><?php endif; ?>
           <meta itemprop="position" content="<?= $pos ?>">
           <div itemprop="item" itemscope itemtype="https://schema.org/Service">
           <div class="product-card-text">
@@ -79,7 +81,7 @@ require __DIR__ . '/../../partials/header.php';
           </div>
           <div class="product-card-action">
             <a href="/product/<?= $svc['slug'] ?>" class="product-card-btn product-card-btn-detail" itemprop="url">Подробнее</a>
-            <a href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=products_<?= $svc['slug'] ?>" target="_blank" rel="noopener" class="product-card-btn product-card-btn-tg" data-tg="products_<?= $svc['slug'] ?>">Заказать через Телеграм</a>
+            <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=products_<?= $svc['slug'] ?>" target="_blank" rel="noopener" class="product-card-btn product-card-btn-tg" data-tg="products_<?= $svc['slug'] ?>">Заказать через Телеграм</a>
           </div>
           </div>
         </article>

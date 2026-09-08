@@ -11,11 +11,11 @@ $title = $svc['title'];
 $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
-$siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
-$pageTitle = "$title в Москве — премиум-мастерская MANDO MEMORI";
+$siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '1.0', 'changefreq' => 'daily', 'index' => 'products'];
+$pageTitle = "🔥 Отбеливание подошвы Loro Piana в Москве от 10 990 ₽ — ХИТ | MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
-$pageDesc = $svc['desc'];
-$pageKeywords = "$title в Москве, MANDO MEMORI, премиум мастерская, химчистка обуви, ремонт обуви";
+$pageDesc = "ХИТ ПРОДАЖ: отбеливание пожелтевшей подошвы Loro Piana в Москве от 10 990 ₽. Убираем желтизну, возвращаем белоснежный вид за 3-7 дней. Оценка по фото за 5 минут. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
+$pageKeywords = "отбеливание подошвы Loro Piana Москва, отбеливание подошвы кроссовок Москва, пожелтела подошва что делать, отбеливание подошвы цена, MANDO MEMORI";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -47,7 +47,8 @@ require __DIR__ . '/../../../partials/header.php';
     <meta itemprop="image" content="https://mmclean.ru/public/assets/images/<?= $svc['img'] ?>">
     <div class="svc-hero-overlay"></div>
     <div class="container svc-hero-content">
-      <h1 class="svc-hero-title" itemprop="name"><?= $title ?></h1>
+      <span class="svc-hero-badge svc-hero-badge--hit">🔥 ХИТ ПРОДАЖ · убираем желтизну</span>
+      <h1 class="svc-hero-title" itemprop="name">Отбеливание подошвы Loro Piana в Москве — хит №2</h1>
       <p class="svc-hero-desc" itemprop="description"><?= $svc['desc'] ?></p>
       <div class="svc-hero-actions">
         <span class="svc-hero-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="RUB"><meta itemprop="url" content="https://mmclean.ru/product/whitening"><span itemprop="price"><?= $priceRaw ?></span> ₽ <small>за пару</small><meta itemprop="availability" content="https://schema.org/InStock"><span itemprop="hasMerchantReturnPolicy" itemscope itemtype="https://schema.org/MerchantReturnPolicy"><meta itemprop="applicableCountry" content="RU"><meta itemprop="returnPolicyCategory" content="https://schema.org/MerchantReturnFiniteReturnWindow"><meta itemprop="merchantReturnDays" content="14"><meta itemprop="returnMethod" content="https://schema.org/ReturnByMail"><meta itemprop="returnFees" content="https://schema.org/FreeReturn"></span><span itemprop="shippingDetails" itemscope itemtype="https://schema.org/OfferShippingDetails"><span itemprop="shippingDestination" itemscope itemtype="https://schema.org/DefinedRegion"><meta itemprop="addressCountry" content="RU"></span><span itemprop="shippingRate" itemscope itemtype="https://schema.org/MonetaryAmount"><meta itemprop="value" content="0"><meta itemprop="currency" content="RUB"></span><span itemprop="deliveryTime" itemscope itemtype="https://schema.org/ShippingDeliveryTime"><span itemprop="handlingTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="0"><meta itemprop="maxValue" content="1"><meta itemprop="unitCode" content="DAY"></span><span itemprop="transitTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="1"><meta itemprop="maxValue" content="2"><meta itemprop="unitCode" content="DAY"></span></span><meta itemprop="shippingOrigin" content="RU"></span></span>
@@ -74,6 +75,13 @@ require __DIR__ . '/../../../partials/header.php';
             <button type="button" class="product-qty-btn" data-id="<?= $id ?>" data-action="inc">+</button>
           </div>
           <button type="button" class="svc-order-cart-btn product-add-to-cart" data-id="<?= $id ?>">Добавить в корзину</button>
+          <div class="svc-order-contacts">
+            <a href="tel:+79161829272" class="svc-order-phone">📞 Позвонить: +7 (916) 182-92-72</a>
+            <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_<?= $slug ?>" target="_blank" rel="noopener" class="svc-order-tg" data-tg="svc_<?= $slug ?>">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
+              Написать в Telegram — оценка за 5 мин
+            </a>
+          </div>
           <a href="/order" class="svc-order-link">Заказать услугу →</a>
         </div>
       </div>
@@ -143,9 +151,13 @@ require __DIR__ . '/../../../partials/header.php';
   </section>
   <section class="svc-cta-section">
     <div class="container">
-      <h2>Готовы доверить обувь профессионалам?</h2>
-      <p>Оставьте заявку, и мы свяжемся с вами в ближайшее время</p>
-      <a href="/order" class="svc-cta-btn">Передать обувь</a>
+      <h2>🔥 Пожелтела подошва Loro Piana? Вернём белизну!</h2>
+      <p>Пришлите фото подошвы в Telegram — оценим степень желтизны и назовём цену за 5 минут. Или позвоните — проконсультируем сразу.</p>
+      <div class="svc-cta-row">
+        <a href="/order" class="svc-cta-btn">Передать обувь</a>
+        <a href="tel:+79161829272" class="svc-cta-phone">📞 Позвонить</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_cta_<?= $slug ?>" target="_blank" rel="noopener" class="svc-cta-tg" data-tg="svc_cta_<?= $slug ?>">Написать в Telegram</a>
+      </div>
     </div>
   </section>
 </main>

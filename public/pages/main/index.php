@@ -5,10 +5,10 @@ $notify = Functions::notify();
 
 $siteINFO = ['canonical' => '/', 'priority' => '1.0', 'changefreq' => 'daily', 'index' => 'main'];
 
-$pageTitle = $pageTitle ?? 'MANDO MEMORI — химчистка премиальной обуви в Москве | Loro Piana, Hermès, Berluti';
+$pageTitle = $pageTitle ?? 'Замена и отбеливание подошвы Loro Piana в Москве — ХИТ | Реставрация сумок | MANDO MEMORI';
 $delivery = \Setting\Route\Function\Functions::deliveryNote();
-$pageDesc = $pageDesc ?? 'Премиальная мастерская по химчистке и реставрации обуви в Москве. Loro Piana, Hermès, Berluti, John Lobb. Ручная работа от 1 490 ₽. ' . $delivery . '. Гарантия качества.';
-$pageKeywords = $pageKeywords ?? 'химчистка премиальной обуви Москва, чистка дорогой обуви, химчистка Loro Piana, реставрация премиальной обуви, уход за обувью люкс, MANDO MEMORI';
+$pageDesc = $pageDesc ?? 'ХИТ ПРОДАЖ: замена подошвы Loro Piana от 18 990 ₽, отбеливание подошвы Loro Piana от 10 990 ₽, реставрация сумок Hermès/Chanel от 7 990 ₽, реставрация обуви от 6 490 ₽. Премиальная мастерская в Москве. ' . $delivery . '. Оценка по фото за 5 минут.';
+$pageKeywords = $pageKeywords ?? 'замена подошвы Loro Piana Москва, отбеливание подошвы Loro Piana, отбеливание подошвы кроссовок Москва, реставрация сумок Москва, реставрация сумок Hermès Chanel, реставрация обуви Loro Piana, химчистка Loro Piana, MANDO MEMORI';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/';
 echo '<link rel="preload" as="image" href="/public/assets/images/mandomemori/hero-poster.jpg" fetchpriority="high">';
 require __DIR__ . '/../../partials/header.php';
@@ -18,8 +18,56 @@ require __DIR__ . '/../../partials/header.php';
   <div class="premium-notice">
     <span class="premium-notice__badge">ТОЛЬКО ПРЕМИУМ</span>
     <span class="premium-notice__text">Работаем только с дорогой премиальной обувью и аксессуарами — Loro Piana, Hermès, Berluti, John Lobb, Gucci, Louis Vuitton и др. <span class="premium-notice__sub">Обычную обувь и кроссовки из масс-маркета не принимаем</span></span>
-    <a href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=premium_notice" target="_blank" rel="noopener" class="premium-notice__cta" data-tg="premium_notice">Уточнить →</a>
+    <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=premium_notice" target="_blank" rel="noopener" class="premium-notice__cta" data-tg="premium_notice">Уточнить →</a>
   </div>
+  <!-- ── ХИТ ПРОДАЖ: ажиотаж-баннер ── -->
+  <section class="hit-promo" itemscope itemtype="https://schema.org/PromotionCard">
+    <div class="hit-promo__marquee" aria-hidden="true">
+      <div class="hit-promo__marquee-track">
+        <span>🔥 ХИТ: ЗАМЕНА ПОДОШВЫ LORO PIANA &nbsp;•&nbsp; ОТБЕЛИВАНИЕ ПОДОШВЫ LORO PIANA &nbsp;•&nbsp; РЕСТАВРАЦИЯ СУМОК HERMÈS / CHANEL &nbsp;•&nbsp; РЕСТАВРАЦИЯ ОБУВИ &nbsp;•&nbsp;</span>
+        <span>🔥 ХИТ: ЗАМЕНА ПОДОШВЫ LORO PIANA &nbsp;•&nbsp; ОТБЕЛИВАНИЕ ПОДОШВЫ LORO PIANA &nbsp;•&nbsp; РЕСТАВРАЦИЯ СУМОК HERMÈS / CHANEL &nbsp;•&nbsp; РЕСТАВРАЦИЯ ОБУВИ &nbsp;•&nbsp;</span>
+      </div>
+    </div>
+    <div class="container hit-promo__inner">
+      <div class="hit-promo__badge-row">
+        <span class="hit-promo__fire">🔥 ХИТ ПРОДАЖ</span>
+        <span class="hit-promo__urgency"><span class="hit-promo__dot"></span>Высокий спрос — мест в мастерской мало</span>
+      </div>
+      <h2 class="hit-promo__title">Замена и отбеливание подошвы <span>Loro&nbsp;Piana</span> + реставрация сумок — главный хит сезона</h2>
+      <p class="hit-promo__sub">Жёлтая подошва? Стёртая подошва? Потёртая сумка Hermès, Chanel, Louis Vuitton? Вернём заводской вид. Оценка по фото за 5 минут — бесплатно.</p>
+      <div class="hit-promo__cards">
+        <a href="/product/replacement" class="hit-promo__card">
+          <span class="hit-promo__card-badge">ХИТ №1</span>
+          <strong>Замена подошвы Loro Piana</strong>
+          <em>от 18 990 ₽ · 3–7 дней</em>
+          <span class="hit-promo__card-link">Подробнее →</span>
+        </a>
+        <a href="/product/whitening" class="hit-promo__card">
+          <span class="hit-promo__card-badge">ХИТ №2</span>
+          <strong>Отбеливание подошвы Loro Piana</strong>
+          <em>от 10 990 ₽ · убираем желтизну</em>
+          <span class="hit-promo__card-link">Подробнее →</span>
+        </a>
+        <a href="/product/bag-restoration" class="hit-promo__card">
+          <span class="hit-promo__card-badge">ХИТ №3</span>
+          <strong>Реставрация сумок</strong>
+          <em>от 7 990 ₽ · Hermès, Chanel, LV</em>
+          <span class="hit-promo__card-link">Подробнее →</span>
+        </a>
+        <a href="/product/restoration" class="hit-promo__card">
+          <span class="hit-promo__card-badge">ХИТ №4</span>
+          <strong>Реставрация обуви</strong>
+          <em>от 6 490 ₽ · царапины, цвет, швы</em>
+          <span class="hit-promo__card-link">Подробнее →</span>
+        </a>
+      </div>
+      <div class="hit-promo__cta-row">
+        <a class="btn-accent hit-promo__cta" href="/order">Вызвать курьера</a>
+        <a class="btn-tg hit-promo__cta-tg" href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=hit_promo" target="_blank" rel="noopener" data-tg="hit_promo">Прислать фото в Telegram — оценка 5 мин</a>
+        <a class="hit-promo__cta-phone" href="tel:+79161829272">📞 +7 (916) 182-92-72</a>
+      </div>
+    </div>
+  </section>
   <section class="scroll-hero" id="scroll-hero">
     <div class="scroll-hero__sticky">
       <video class="scroll-hero__video" id="scroll-hero-video" src="/public/assets/images/mandomemori/heroBG.mp4" data-src-desktop="/public/assets/images/mandomemori/heroBG.mp4" data-src-mobile="/public/assets/images/mandomemori/heroBG.mp4" muted playsinline webkit-playsinline preload="metadata" poster="/public/assets/images/mandomemori/hero-poster.jpg">
@@ -38,7 +86,7 @@ require __DIR__ . '/../../partials/header.php';
         <p class="hero-sub">Премиальная мастерская. Ручная работа. Масс-маркет не обслуживаем.</p>
         <div class="hero-cta-group">
           <a class="btn-accent hero-cta" href="/order">Вызвать курьера</a>
-          <a class="btn-tg hero-cta-tg" href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=hero" target="_blank" rel="noopener" data-tg="hero">
+          <a class="btn-tg hero-cta-tg" href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=hero" target="_blank" rel="noopener" data-tg="hero">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
             Оценить люкс по фото — 5 мин
           </a>
@@ -138,12 +186,12 @@ require __DIR__ . '/../../partials/header.php';
   <section class="home-products-section" itemscope itemtype="https://schema.org/ItemList">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Все услуги — только для премиума</h2>
-        <p class="section-subtitle">Для премиальной обуви и аксессуаров. Масс-маркет (Zara, H&M, Kari и т.п.) не обслуживаем.</p>
+        <h2 class="section-title">🔥 Хиты продаж — <span style="color:#D4562A">замена и отбеливание Loro Piana</span>, реставрация сумок</h2>
+        <p class="section-subtitle">Максимальный спрос: замена подошвы Loro Piana, отбеливание подошвы Loro Piana, реставрация сумок Hermès/Chanel/LV и реставрация обуви. Для премиальной обуви и аксессуаров. Масс-маркет (Zara, H&M, Kari и т.п.) не обслуживаем.</p>
         <div class="premium-inline">
           <span class="premium-inline__dot">◆</span>
           <span>Принимаем только премиум — кожа крокодила, кашемир, замша и нубук люкс-брендов</span>
-          <a href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=qualifier_inline" target="_blank" rel="noopener" data-tg="qualifier_inline">Проверить пару →</a>
+          <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=qualifier_inline" target="_blank" rel="noopener" data-tg="qualifier_inline">Проверить пару →</a>
         </div>
         <div class="premium-brands-strip">Loro Piana · Brioni · Kiton · Berluti · John Lobb · Hermès · Gucci · Prada · Louis Vuitton · Chanel · Dior · Bottega Veneta · Saint Laurent</div>
       </div>
@@ -152,10 +200,13 @@ require __DIR__ . '/../../partials/header.php';
       <div class="cards">
         <?php
         $allServices = Functions::getServices();
+        // Хиты первыми
+        uasort($allServices, fn($a, $b) => (!empty($b['is_hit']) <=> !empty($a['is_hit'])) ?: (($a['hit_order'] ?? 99) <=> ($b['hit_order'] ?? 99)));
         $position = 0;
         foreach ($allServices as $id => $p):
         $position++; ?>
-        <article class="product-card<?= $p['dark'] ? ' dark-bg' : '' ?>" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="background:<?= $p['bg'] ?>">
+        <article class="product-card<?= $p['dark'] ? ' dark-bg' : '' ?><?= !empty($p['is_hit']) ? ' product-card--hit' : '' ?>" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="background:<?= $p['bg'] ?>">
+          <?php if (!empty($p['badge'])): ?><span class="product-card__hit-badge"><?= htmlspecialchars($p['badge']) ?></span><?php endif; ?>
           <meta itemprop="position" content="<?= $position ?>">
           <div itemprop="item" itemscope itemtype="https://schema.org/Service">
             <span itemprop="brand" itemscope itemtype="https://schema.org/Brand"><meta itemprop="name" content="MANDO MEMORI"></span>
@@ -171,7 +222,7 @@ require __DIR__ . '/../../partials/header.php';
           </div>
           <div class="product-card-action">
             <a href="/product/<?= $p['slug'] ?>" itemprop="url" class="product-card-btn product-card-btn-detail">Подробнее</a>
-            <a href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=card_<?= $p['slug'] ?>" target="_blank" rel="noopener" class="product-card-btn product-card-btn-tg" data-tg="card_<?= $p['slug'] ?>">Заказать через Телеграм</a>
+            <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=card_<?= $p['slug'] ?>" target="_blank" rel="noopener" class="product-card-btn product-card-btn-tg" data-tg="card_<?= $p['slug'] ?>">Заказать через Телеграм</a>
           </div>
           </div>
         </article>
@@ -202,7 +253,7 @@ require __DIR__ . '/../../partials/header.php';
   </section>
 
   <div class="container">
-    <a href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=trust_compact" target="_blank" rel="noopener" class="tg-compact" data-tg="trust_compact">
+    <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=trust_compact" target="_blank" rel="noopener" class="tg-compact" data-tg="trust_compact">
       <span class="tg-compact__icon">✦</span>
       <span class="tg-compact__text">Пришлите фото люкса в Telegram — назовём цену за 5 минут, бесплатно</span>
       <span class="tg-compact__btn">Написать</span>
@@ -218,7 +269,7 @@ require __DIR__ . '/../../partials/header.php';
       <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
         <h3 class="home-faq-question" itemprop="name">Сколько стоит химчистка обуви в Москве?</h3>
         <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <div class="home-faq-answer" itemprop="text">Стоимость химчистки обуви в нашей мастерской — <strong>от 5 990 ₽ за пару</strong>. Цена зависит от материала, сложности загрязнений и состояния обуви. <a href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=faq_price" target="_blank" rel="noopener" data-tg="faq_price" style="color:#229ED9;font-weight:600;text-decoration:underline">Пришлите фото в Telegram — оценим стоимость работы бесплатно за 5 минут →</a></div>
+          <div class="home-faq-answer" itemprop="text">Стоимость химчистки обуви в нашей мастерской — <strong>от 5 990 ₽ за пару</strong>. Цена зависит от материала, сложности загрязнений и состояния обуви. <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=faq_price" target="_blank" rel="noopener" data-tg="faq_price" style="color:#229ED9;font-weight:600;text-decoration:underline">Пришлите фото в Telegram — оценим стоимость работы бесплатно за 5 минут →</a></div>
         </div>
       </div>
       <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
@@ -249,7 +300,7 @@ require __DIR__ . '/../../partials/header.php';
           <h3>Ваша пара — премиум? Проверим за 5 минут</h3>
           <p>Пришлите фото + бренд в Telegram. Если это премиум/люкс — назовём цену. Если масс-маркет — честно откажем и сэкономим ваше время.</p>
         </div>
-        <a href="https://t.me/mandomemori_bot?utm_source=site&utm_medium=telegram&utm_campaign=inline_mid" target="_blank" rel="noopener" class="tg-inline-cta__btn" data-tg="inline_mid">Проверить в Telegram</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=inline_mid" target="_blank" rel="noopener" class="tg-inline-cta__btn" data-tg="inline_mid">Проверить в Telegram</a>
       </div>
     </div>
   </section>
@@ -320,7 +371,7 @@ require __DIR__ . '/../../partials/header.php';
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
     Позвонить
   </a>
-  <a class="bottom-cta__btn bottom-cta__btn--tg" href="https://t.me/mandomemori_bot" target="_blank" rel="noopener">
+  <a class="bottom-cta__btn bottom-cta__btn--tg" href="https://t.me/maksim1144" target="_blank" rel="noopener">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
     Написать в Telegram
   </a>

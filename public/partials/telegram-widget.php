@@ -1,6 +1,6 @@
 <?php
 // Telegram CRO widget — floating + inline banners
-$tgBase = 'https://t.me/mandomemori_bot';
+$tgBase = 'https://t.me/maksim1144';
 function tg_link($src) {
   global $tgBase;
   return $tgBase . '?utm_source=site&utm_medium=telegram&utm_campaign=' . urlencode($src);
