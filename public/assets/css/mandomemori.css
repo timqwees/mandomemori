@@ -545,21 +545,48 @@ img {
 
 .home-faq-card {
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 24px;
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  background: var(--card);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-faq-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.home-faq-card:hover::before {
+  transform: scaleX(1);
 }
 
 .home-faq-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 4px 20px rgba(212, 86, 42, 0.06);
+  box-shadow: 0 8px 30px rgba(212, 86, 42, 0.12);
 }
 
 .home-faq-question {
   font-family: var(--font-heading);
   font-weight: 600;
-  margin-bottom: 8px;
-  font-size: 1.05rem;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.home-faq-question span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
 }
 
 /* ── Responsive ─────────────────────────────────────── */
@@ -1007,8 +1034,8 @@ img {
   color: var(--text-secondary);
   margin: 0;
 }
-
 /* FAQ */
+
 .svc-content-section {
   padding: 80px 0;
   background: var(--bg);
@@ -1053,6 +1080,7 @@ img {
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .svc-faq-q {
@@ -1061,7 +1089,7 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 18px 24px;
+  padding: 20px 24px;
   background: none;
   border: none;
   cursor: pointer;
@@ -1070,11 +1098,29 @@ img {
   font-weight: 500;
   color: var(--text-primary);
   text-align: left;
-  transition: background 0.2s;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.svc-faq-q::after {
+  content: '▸';
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.svc-faq-item.open .svc-faq-q::after {
+  transform: rotate(90deg);
+  color: var(--accent);
 }
 
 .svc-faq-q:hover {
-  background: rgba(0,0,0,0.02);
+  background: rgba(0,0,0,0.03);
+}
+
+.svc-faq-q:hover {
+  color: var(--accent);
 }
 
 .svc-faq-q svg {
@@ -1098,7 +1144,7 @@ img {
 }
 
 .svc-faq-a p {
-  padding: 0 24px 18px;
+  padding: 0 24px 20px;
   margin: 0;
   font-size: 0.9375rem;
   line-height: 1.6;
