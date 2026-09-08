@@ -96,7 +96,7 @@ $tops = array_slice(array_values($tops), 0, 5);
               <li><strong>Пришлите нам</strong> — в Telegram или позвоните. Ответ за 5 минут.</li>
             </ol>
             <div class="article-expert__btns">
-              <a href="tel:+79161829272" class="article-expert__btn article-expert__btn--phone">📞 Позвонить: +7 (916) 182-92-72</a>
+              <a href="tel:+79161829272" class="article-expert__btn article-expert__btn--phone">Позвонить: +7 (916) 182-92-72</a>
               <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=blog_expert_<?= htmlspecialchars($article['url']) ?>" target="_blank" rel="noopener" class="article-expert__btn article-expert__btn--tg" data-tg="blog_expert">Прислать фото в Telegram — 5 мин</a>
               <a href="/order" class="article-expert__btn article-expert__btn--order">Заказать экспертизу →</a>
             </div>
@@ -113,7 +113,7 @@ $tops = array_slice(array_values($tops), 0, 5);
             <h3 class="article-cta-title">Не рискуйте парой — закажите экспертизу</h3>
             <p class="article-cta-desc">Пришлите фото проблемы или позвоните — решим вопрос быстрее, чем ручная попытка. Ответ за 5 минут, бесплатно.</p>
             <div class="article-cta-btns">
-              <a href="tel:+79161829272" class="article-cta-btn article-cta-btn--phone">📞 Позвонить</a>
+              <a href="tel:+79161829272" class="article-cta-btn article-cta-btn--phone">Позвонить</a>
               <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=blog_cta_<?= htmlspecialchars($article['url']) ?>" target="_blank" rel="noopener" class="article-cta-btn article-cta-btn--tg" data-tg="blog_cta">Telegram — 5 мин</a>
               <a href="/order" class="article-cta-btn">Заказать экспертизу</a>
               <a href="/products" class="article-cta-btn article-cta-btn--outline">Посмотреть услуги</a>
@@ -141,7 +141,7 @@ $tops = array_slice(array_values($tops), 0, 5);
             <div class="article-sidebar-body" style="text-align:center;padding:24px 18px">
               <h4 style="margin:0 0 8px;font-size:16px;color:#000;font-family:var(--font-heading)">⚠️ Не чините сами</h4>
               <p style="margin:0 0 16px;font-size:13px;color:#666;line-height:1.5">Пришлите фото — эксперт оценит за 5 минут, бесплатно. Это быстрее и дешевле самоделки.</p>
-              <a href="tel:+79161829272" style="display:flex;align-items:center;justify-content:center;min-height:38px;padding:8px 20px;border-radius:6px;background:#1a1a1a;color:#fff;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:8px">📞 +7 (916) 182-92-72</a>
+              <a href="tel:+79161829272" style="display:flex;align-items:center;justify-content:center;min-height:38px;padding:8px 20px;border-radius:6px;background:#1a1a1a;color:#fff;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:8px">+7 (916) 182-92-72</a>
               <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=blog_sidebar" target="_blank" rel="noopener" data-tg="blog_sidebar" style="display:flex;align-items:center;justify-content:center;min-height:38px;padding:8px 20px;border-radius:6px;background:#229ED9;color:#fff;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:8px">Написать в Telegram</a>
               <a href="/order" style="display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 20px;border-radius:6px;background:var(--accent,#D4562A);color:#fff;font-size:13px;font-weight:600;text-decoration:none">Заказать экспертизу</a>
             </div>

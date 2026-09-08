@@ -76,7 +76,7 @@ require __DIR__ . '/../../../partials/header.php';
           </div>
           <button type="button" class="svc-order-cart-btn product-add-to-cart" data-id="<?= $id ?>">Добавить в корзину</button>
           <div class="svc-order-contacts">
-            <a href="tel:+79161829272" class="svc-order-phone">📞 Позвонить: +7 (916) 182-92-72</a>
+            <a href="tel:+79161829272" class="svc-order-phone">Позвонить: +7 (916) 182-92-72</a>
             <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_<?= $slug ?>" target="_blank" rel="noopener" class="svc-order-tg" data-tg="svc_<?= $slug ?>">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
               Написать в Telegram — оценка за 5 мин
@@ -155,7 +155,7 @@ require __DIR__ . '/../../../partials/header.php';
       <p>Пришлите фото подошвы в Telegram — оценим степень желтизны и назовём цену за 5 минут. Или позвоните — проконсультируем сразу.</p>
       <div class="svc-cta-row">
         <a href="/order" class="svc-cta-btn">Передать обувь</a>
-        <a href="tel:+79161829272" class="svc-cta-phone">📞 Позвонить</a>
+        <a href="tel:+79161829272" class="svc-cta-phone">Позвонить</a>
         <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_cta_<?= $slug ?>" target="_blank" rel="noopener" class="svc-cta-tg" data-tg="svc_cta_<?= $slug ?>">Написать в Telegram</a>
       </div>
     </div>
