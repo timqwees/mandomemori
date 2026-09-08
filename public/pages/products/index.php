@@ -5,9 +5,9 @@ $notify = Functions::notify();
 
 $siteINFO = ['canonical' => '/products', 'priority' => '0.9', 'changefreq' => 'weekly', 'index' => 'main'];
 
-$pageTitle = '🔥 Замена и отбеливание подошвы Loro Piana, реставрация сумок — хиты | MANDO MEMORI';
-$pageDesc = 'ХИТЫ ПРОДАЖ: замена подошвы Loro Piana от 18 990 ₽, отбеливание подошвы Loro Piana от 10 990 ₽, реставрация сумок Hermès/Chanel/LV от 7 990 ₽, реставрация обуви от 6 490 ₽. Премиум-мастерская в Москве.';
-$pageKeywords = 'замена подошвы Loro Piana Москва, отбеливание подошвы Loro Piana, реставрация сумок Москва, реставрация сумок Hermès, реставрация обуви Loro Piana, услуги премиальной обуви Москва, MANDO MEMORI';
+$pageTitle = 'Услуги премиальной обуви в Москве — чистка, ремонт, реставрация, отбеливание | MANDO MEMORI';
+$pageDesc = 'Чистка премиальной обуви от 5 990 ₽, ремонт обуви от 1 990 ₽, реставрация обуви от 6 490 ₽, отбеливание подошвы от 10 990 ₽, замена подошвы от 18 990 ₽, реставрация сумок от 7 990 ₽. Премиум-мастерская в Москве. Loro Piana, Hermès, Berluti, Gucci, Louis Vuitton.';
+$pageKeywords = 'чистка обуви Москва, химчистка обуви Москва, ремонт обуви Москва, реставрация обуви Москва, отбеливание подошвы Москва, замена подошвы Москва, реставрация сумок Москва, набойки Москва, задники обуви, чистка Loro Piana, ремонт Hermès, MANDO MEMORI';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/products';
 require __DIR__ . '/../../partials/header.php';
 ?><main class="main">
@@ -52,8 +52,8 @@ require __DIR__ . '/../../partials/header.php';
 
   <section class="contacts-hero">
     <div class="container">
-      <h1 class="contacts-title">🔥 Хиты: замена и отбеливание подошвы Loro Piana, реставрация сумок</h1>
-      <p class="contacts-subtitle">Максимальный спрос — замена подошвы Loro Piana · отбеливание подошвы Loro Piana · реставрация сумок Hermès, Chanel, Louis Vuitton · реставрация обуви. Только премиум — Loro Piana, Hermès, Berluti и др. Масс-маркет не обслуживаем</p>
+      <h1 class="contacts-title">Услуги премиальной обуви в Москве — чистка, ремонт, реставрация</h1>
+      <p class="contacts-subtitle">Чистка обуви от 5 990 ₽ · Ремонт обуви от 1 990 ₽ · Реставрация обуви от 6 490 ₽ · Отбеливание подошвы от 10 990 ₽ · Замена подошвы от 18 990 ₽ · Реставрация сумок от 7 990 ₽. Только премиум — Loro Piana, Hermès, Berluti, Gucci, Louis Vuitton. Масс-маркет не обслуживаем</p>
       <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=products_top" target="_blank" rel="noopener" class="btn-tg" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:12px 22px;background:var(--tg);color:#fff;border-radius:980px;font-weight:600;text-decoration:none" data-tg="products_top">Оценить люкс по фото — 5 мин →</a>
     </div>
   </section>
@@ -74,7 +74,7 @@ require __DIR__ . '/../../partials/header.php';
           <div itemprop="item" itemscope itemtype="https://schema.org/Service">
           <div class="product-card-text">
             <h2 class="product-card-title" itemprop="name"><?= $svc['title'] ?></h2>
-            <p class="product-card-desc" itemprop="offers" itemscope itemtype="https://schema.org/Offer">от <span itemprop="price"><?= $svc['price'] ?><?= $svc['price_formatted'] ?></span> <meta itemprop="priceCurrency" content="RUB"> <?= $svc['unit'] ?? 'за пару' ?></p>
+            <p class="product-card-desc" itemprop="offers" itemscope itemtype="https://schema.org/Offer">от <span itemprop="price"><?= $svc['price_formatted'] ?></span> <meta itemprop="priceCurrency" content="RUB"> <?= $svc['unit'] ?? 'за пару' ?></p>
           </div>
           <div class="product-card-image" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
             <img src="/public/assets/images/<?= $svc['img'] ?>" alt="<?= $svc['title'] ?>" loading="lazy" itemprop="contentUrl">

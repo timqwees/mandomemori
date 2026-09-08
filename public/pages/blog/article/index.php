@@ -142,7 +142,7 @@ $tops = array_slice(array_values($tops), 0, 5);
               <h4 style="margin:0 0 8px;font-size:16px;color:#000;font-family:var(--font-heading)">⚠️ Не чините сами</h4>
               <p style="margin:0 0 16px;font-size:13px;color:#666;line-height:1.5">Пришлите фото — эксперт оценит за 5 минут, бесплатно. Это быстрее и дешевле самоделки.</p>
               <a href="tel:+79161829272" style="display:flex;align-items:center;justify-content:center;min-height:38px;padding:8px 20px;border-radius:6px;background:#1a1a1a;color:#fff;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:8px">+7 (916) 182-92-72</a>
-              <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=blog_sidebar" target="_blank" rel="noopener" data-tg="blog_sidebar" style="display:flex;align-items:center;justify-content:center;min-height:38px;padding:8px 20px;border-radius:6px;background:#229ED9;color:#fff;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:8px">Написать в Telegram</a>
+               <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=blog_sidebar" target="_blank" rel="noopener" data-tg="blog_sidebar" style="display:flex;align-items:center;justify-content:center;min-height:38px;padding:8px 20px;border-radius:6px;background:#229ED9;color:#fff;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:8px">Пришлите фото в Telegram</a>
               <a href="/order" style="display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 20px;border-radius:6px;background:var(--accent,#D4562A);color:#fff;font-size:13px;font-weight:600;text-decoration:none">Заказать экспертизу</a>
             </div>
           </div>

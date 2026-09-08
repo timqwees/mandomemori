@@ -12,10 +12,10 @@ $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '1.0', 'changefreq' => 'daily', 'index' => 'products'];
-$pageTitle = "🔥 Замена подошвы Loro Piana в Москве от 18 990 ₽ — ХИТ | MANDO MEMORI";
+$pageTitle = "Замена подошвы Loro Piana в Москве от 18 990 ₽ — ремонт обуви | MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
-$pageDesc = "ХИТ ПРОДАЖ: замена подошвы Loro Piana в Москве от 18 990 ₽ за 3-7 дней. Оригинальные материалы, заводское качество, гарантия. Оценка по фото за 5 минут. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
-$pageKeywords = "замена подошвы Loro Piana Москва, замена подошвы Loro Piana цена, замена подошвы премиальной обуви, ремонт подошвы Loro Piana, MANDO MEMORI";
+$pageDesc = "Замена подошвы Loro Piana, Hermès, Berluti, John Lobb, Gucci в Москве от 18 990 ₽. Оригинальные материалы, заводское качество, гарантия. Бесплатная оценка по фото за 5 минут. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
+$pageKeywords = "замена подошвы Loro Piana Москва, замена подошвы обуви, ремонт подошвы обуви, замена подошвы Hermès, замена подошвы Berluti, MANDO MEMORI";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -79,7 +79,7 @@ require __DIR__ . '/../../../partials/header.php';
             <a href="tel:+79161829272" class="svc-order-phone">Позвонить: +7 (916) 182-92-72</a>
             <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_<?= $slug ?>" target="_blank" rel="noopener" class="svc-order-tg" data-tg="svc_<?= $slug ?>">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
-              Написать в Telegram — оценка за 5 мин
+              Пришлите фото — назовём цену за 5 мин
             </a>
           </div>
           <a href="/order" class="svc-order-link">Заказать услугу →</a>
@@ -122,24 +122,24 @@ require __DIR__ . '/../../../partials/header.php';
     <div class="container">
       <h2 class="svc-section-title">Часто задаваемые вопросы о замене подошвы</h2>
       <div class="svc-faq-list">
-        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <h3 itemprop="name">Сколько стоит замена подошвы?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Стоимость замены подошвы — от 18 990 ₽. Цена зависит от модели обуви, сложности работы и типа новой подошвы. Для Loro Piana используем оригинальные материалы, включённые в стоимость.</p>
           </div>
-        </div>
-        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        </details>
+        <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <h3 itemprop="name">Как понять, что пора менять подошву?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Основные признаки: подошва стёрлась до гладкого состояния, появились трещины, ухудшилось сцепление с поверхностью, обувь стала скользить, потеряна амортизация. При появлении любого из этих признаков рекомендуется замена.</p>
           </div>
-        </div>
-        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        </details>
+        <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <h3 itemprop="name">Сколько времени занимает замена подошвы?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Замена подошвы занимает 3-7 дней в зависимости от сложности и загрузки мастерской. Срочные заказы выполняем за 2-3 дня.</p>
           </div>
-        </div>
+        </details>
       </div>
     </div>
   </section>
@@ -150,7 +150,7 @@ require __DIR__ . '/../../../partials/header.php';
       <div class="svc-cta-row">
         <a href="/order" class="svc-cta-btn">Передать обувь</a>
         <a href="tel:+79161829272" class="svc-cta-phone">Позвонить</a>
-        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_cta_<?= $slug ?>" target="_blank" rel="noopener" class="svc-cta-tg" data-tg="svc_cta_<?= $slug ?>">Написать в Telegram</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_cta_<?= $slug ?>" target="_blank" rel="noopener" class="svc-cta-tg" data-tg="svc_cta_<?= $slug ?>">Пришлите фото в Telegram</a>
       </div>
     </div>
   </section>

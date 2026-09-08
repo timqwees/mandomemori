@@ -12,10 +12,10 @@ $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '1.0', 'changefreq' => 'daily', 'index' => 'products'];
-$pageTitle = "Чистка премиальной обуви в Москве от 5 990 ₽ — Loro Piana, Hermès | MANDO MEMORI";
+$pageTitle = "Чистка премиальной обуви в Москве от 5 990 ₽ — Loro Piana, Hermès, Berluti | MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
-$pageDesc = "Чистка премиальной обуви в Москве от 5 990 ₽: Loro Piana, Hermès, Berluti, John Lobb. Ручная химчистка, восстановление формы и цвета, пропитка. Оценка по фото за 5 минут. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
-$pageKeywords = "чистка премиальной обуви в Москве, химчистка премиальной обуви Москва, чистка Loro Piana Москва, химчистка дорогой обуви цена, MANDO MEMORI";
+$pageDesc = "Чистка премиальной обуви Loro Piana, Hermès, Berluti, John Lobb, Gucci, Louis Vuitton в Москве от 5 990 ₽. Ручная химистка, восстановление формы и цвета, пропитка. Бесплатная оценка по фото за 5 минут. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
+$pageKeywords = "чистка обуви Москва, химчистка обуви Москва, чистка Loro Piana, чистка Hermès, чистка Berluti, химчистка премиальной обуви, чистка кожаной обуви, чистка замши, MANDO MEMORI";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -55,7 +55,7 @@ require __DIR__ . '/../../../partials/header.php';
         <span class="svc-hero-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="RUB"><meta itemprop="url" content="https://mmclean.ru/product/cleaning"><span itemprop="price"><?= $priceRaw ?></span> ₽ <small>за пару</small><meta itemprop="availability" content="https://schema.org/InStock"><span itemprop="hasMerchantReturnPolicy" itemscope itemtype="https://schema.org/MerchantReturnPolicy"><meta itemprop="applicableCountry" content="RU"><meta itemprop="returnPolicyCategory" content="https://schema.org/MerchantReturnFiniteReturnWindow"><meta itemprop="merchantReturnDays" content="14"><meta itemprop="returnMethod" content="https://schema.org/ReturnByMail"><meta itemprop="returnFees" content="https://schema.org/FreeReturn"></span><span itemprop="shippingDetails" itemscope itemtype="https://schema.org/OfferShippingDetails"><span itemprop="shippingDestination" itemscope itemtype="https://schema.org/DefinedRegion"><meta itemprop="addressCountry" content="RU"></span><span itemprop="shippingRate" itemscope itemtype="https://schema.org/MonetaryAmount"><meta itemprop="value" content="0"><meta itemprop="currency" content="RUB"></span><span itemprop="deliveryTime" itemscope itemtype="https://schema.org/ShippingDeliveryTime"><span itemprop="handlingTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="0"><meta itemprop="maxValue" content="1"><meta itemprop="unitCode" content="DAY"></span><span itemprop="transitTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="1"><meta itemprop="maxValue" content="2"><meta itemprop="unitCode" content="DAY"></span></span><meta itemprop="shippingOrigin" content="RU"></span></span>
         <a href="#svc-order" class="svc-hero-btn svc-hero-btn--pulse">Заказать чистку</a>
         <a href="tel:+79161829272" class="svc-hero-call">Позвонить</a>
-        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_cleaning_hero" target="_blank" rel="noopener" class="svc-hero-tg" data-tg="svc_cleaning_hero">Написать в Telegram</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_cleaning_hero" target="_blank" rel="noopener" class="svc-hero-tg" data-tg="svc_cleaning_hero">Пришлите фото в Telegram</a>
       </div>
       <p class="svc-hero-trust">★ 4.9 · 10 000+ пар · ответ за 5 минут · оплата после работы</p>
     </div>
@@ -93,31 +93,11 @@ require __DIR__ . '/../../../partials/header.php';
             <a href="tel:+79161829272" class="svc-order-phone">Позвонить: +7 (916) 182-92-72</a>
             <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_<?= $slug ?>" target="_blank" rel="noopener" class="svc-order-tg" data-tg="svc_<?= $slug ?>">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
-              Написать в Telegram — оценка за 5 мин
+              Пришлите фото — назовём цену за 5 мин
             </a>
           </div>
           <a href="/order" class="svc-order-link">Заказать услугу →</a>
         </div>
-      </div>
-    </div>
-  </section>
-  <section class="svc-brands-section reveal">
-    <div class="container">
-      <h2 class="svc-section-title">Чистка премиальной обуви в Москве — с какими брендами работаем</h2>
-      <div class="svc-tags">
-        <span class="svc-tag">Loro Piana</span>
-        <span class="svc-tag">Gucci</span>
-        <span class="svc-tag">Prada</span>
-        <span class="svc-tag">Louis Vuitton</span>
-        <span class="svc-tag">Hermès</span>
-        <span class="svc-tag">Balenciaga</span>
-        <span class="svc-tag">Saint Laurent</span>
-        <span class="svc-tag">Bottega Veneta</span>
-        <span class="svc-tag">Valentino</span>
-        <span class="svc-tag">Christian Louboutin</span>
-        <span class="svc-tag">Manolo Blahnik</span>
-        <span class="svc-tag">Jimmy Choo</span>
-        <span class="svc-tag">и любые другие</span>
       </div>
     </div>
   </section>
@@ -165,6 +145,26 @@ require __DIR__ . '/../../../partials/header.php';
       </div>
     </div>
   </section>
+  <section class="svc-brands-section reveal">
+    <div class="container">
+      <h2 class="svc-section-title">Чистка премиальной обуви в Москве — с какими брендами работаем</h2>
+      <div class="svc-tags">
+        <span class="svc-tag">Loro Piana</span>
+        <span class="svc-tag">Gucci</span>
+        <span class="svc-tag">Prada</span>
+        <span class="svc-tag">Louis Vuitton</span>
+        <span class="svc-tag">Hermès</span>
+        <span class="svc-tag">Balenciaga</span>
+        <span class="svc-tag">Saint Laurent</span>
+        <span class="svc-tag">Bottega Veneta</span>
+        <span class="svc-tag">Valentino</span>
+        <span class="svc-tag">Christian Louboutin</span>
+        <span class="svc-tag">Manolo Blahnik</span>
+        <span class="svc-tag">Jimmy Choo</span>
+        <span class="svc-tag">и любые другие</span>
+      </div>
+    </div>
+  </section>
   <section class="svc-seam reveal" id="seam" itemscope itemtype="https://schema.org/FAQPage">
     <div class="container">
       <div class="svc-seam__card">
@@ -200,24 +200,24 @@ require __DIR__ . '/../../../partials/header.php';
           <a href="/product/restoration" class="svc-seam__link">Нужна реставрация? Подробнее →</a>
         </div>
         <div class="svc-faq-list" style="margin-top:24px">
-          <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <h3 itemprop="name">Можно ли носить туфли, если шов только начал расходиться?</h3>
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
               <p itemprop="text">Нет. Нагрузка расходится дальше по строчке и деформирует верх. Чем раньше остановитесь и покажете шов мастеру, тем дешевле и незаметнее будет перестрочка.</p>
             </div>
-          </div>
-          <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          </details>
+          <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <h3 itemprop="name">Сколько стоит зашить разошедшийся шов на туфлях?</h3>
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
               <p itemprop="text">Зависит от длины разрыва, материала и доступа изнутри. Пришлите фото шва в Telegram — оценим за 5 минут. Часто делаем вместе с чисткой премиальной обуви от 5 990 ₽, перестрочка считается отдельно по факту.</p>
             </div>
-          </div>
-          <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          </details>
+          <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <h3 itemprop="name">Почему нельзя заклеить шов суперклеем?</h3>
             <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
               <p itemprop="text">Суперклей прожигает кожу и нить, оставляет жёсткое пятно и разрушает проколы. После клея перестрочка по родным отверстиям уже невозможна — ремонт становится дороже и заметнее. Просто сфотографируйте и позвоните нам.</p>
             </div>
-          </div>
+          </details>
         </div>
       </div>
     </div>
@@ -226,30 +226,30 @@ require __DIR__ . '/../../../partials/header.php';
     <div class="container">
       <h2 class="svc-section-title">Часто задаваемые вопросы о химчистке обуви</h2>
       <div class="svc-faq-list">
-        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <h3 itemprop="name">Сколько стоит химчистка обуви в Москве?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Стоимость химчистки обуви в нашей мастерской — от 5 990 ₽ за пару. Цена зависит от материала, сложности загрязнений и состояния обуви. Мы предлагаем бесплатную консультацию и оценку.</p>
           </div>
-        </div>
-        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        </details>
+        <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <h3 itemprop="name">Сколько времени занимает химчистка обуви?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Обычно химчистка обуви занимает от 1 до 6 дней в зависимости от сложности. Для стандартной чистки кроссовок достаточно 2-3 дней. Также доступна срочная химчистка за 1 день.</p>
           </div>
-        </div>
-        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        </details>
+        <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <h3 itemprop="name">Вы забираете обувь на химчистку с доставкой?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Да, мы предлагаем химчистку обуви с доставкой по Москве. Наш курьер приедет к вам, заберёт обувь и вернёт её чистой. Это удобно и бесплатно при заказе от 1 пары.</p>
           </div>
-        </div>
-        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        </details>
+        <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <h3 itemprop="name">Какие бренды обуви вы принимаете на химчистку?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Мы работаем с любыми брендами — от масс-маркета до премиум-сегмента: Loro Piana, Gucci, Prada, Louis Vuitton, Hermès, Balenciaga, Nike, Adidas, New Balance и другими. Каждая пара получает индивидуальный подход.</p>
           </div>
-        </div>
+        </details>
       </div>
     </div>
   </section>
@@ -260,7 +260,7 @@ require __DIR__ . '/../../../partials/header.php';
       <div class="svc-cta-row">
         <a href="/order" class="svc-cta-btn">Передать обувь</a>
         <a href="tel:+79161829272" class="svc-cta-phone">Позвонить</a>
-        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_cta_<?= $slug ?>" target="_blank" rel="noopener" class="svc-cta-tg" data-tg="svc_cta_<?= $slug ?>">Написать в Telegram</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_cta_<?= $slug ?>" target="_blank" rel="noopener" class="svc-cta-tg" data-tg="svc_cta_<?= $slug ?>">Пришлите фото в Telegram</a>
       </div>
     </div>
   </section>
@@ -320,6 +320,16 @@ require __DIR__ . '/../../../partials/header.php';
 .svc-sticky__phone{background:#fff;color:#1C1512}
 .svc-sticky__tg{background:#229ED9;color:#fff}
 .svc-sticky__order{background:#D4562A;color:#fff}
+.svc-faq-list{display:flex;flex-direction:column;gap:10px}
+.svc-faq-item{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:box-shadow .3s}
+.svc-faq-item:hover{box-shadow:var(--shadow)}
+.svc-faq-item h3{margin:0;padding:18px 20px;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;user-select:none;transition:color .2s}
+.svc-faq-item h3::after{content:'▸';font-size:1.1rem;color:var(--text-secondary);transition:transform .3s ease;flex-shrink:0}
+.svc-faq-item[open] h3::after{transform:rotate(90deg);color:#D4562A}
+.svc-faq-item h3:hover{color:#D4562A}
+.svc-faq-item p{margin:0;padding:0 20px 18px;font-size:.9rem;line-height:1.7;color:var(--text-secondary)}
+@keyframes faqFadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.svc-faq-item[open] p{animation:faqFadeIn .3s ease}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .reveal--visible{opacity:1;transform:none}
 @media(max-width:860px){.svc-steps-visual__grid,.svc-seam__grid{grid-template-columns:1fr}.svc-sticky__label{display:none}}
@@ -336,6 +346,10 @@ require __DIR__ . '/../../../partials/header.php';
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('reveal--visible');io.unobserve(e.target);}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  document.querySelectorAll('.svc-faq-item').forEach(function(item){
+    var h=item.querySelector('h3');if(!h)return;
+    h.addEventListener('click',function(){item.toggleAttribute('open');});
+  });
   document.querySelectorAll('[data-count]').forEach(function(el){
     var done=false;
     new IntersectionObserver(function(es,o){if(es[0].isIntersecting&&!done){done=true;o.disconnect();

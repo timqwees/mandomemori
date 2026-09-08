@@ -12,10 +12,10 @@ $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '1.0', 'changefreq' => 'daily', 'index' => 'products'];
-$pageTitle = "🔥 Отбеливание подошвы Loro Piana в Москве от 10 990 ₽ — ХИТ | MANDO MEMORI";
+$pageTitle = "Отбеливание подошвы Loro Piana в Москве от 10 990 ₽ — убираем желтизну | MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
-$pageDesc = "ХИТ ПРОДАЖ: отбеливание пожелтевшей подошвы Loro Piana в Москве от 10 990 ₽. Убираем желтизну, возвращаем белоснежный вид за 3-7 дней. Оценка по фото за 5 минут. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
-$pageKeywords = "отбеливание подошвы Loro Piana Москва, отбеливание подошвы кроссовок Москва, пожелтела подошва что делать, отбеливание подошвы цена, MANDO MEMORI";
+$pageDesc = "Отбеливание пожелтевшей подошвы Loro Piana, Hermès, Berluti, Gucci в Москве от 10 990 ₽. Возвращаем белоснежный вид за 3-7 дней. Профессиональные составы. Бесплатная оценка по фото. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
+$pageKeywords = "отбеливание подошвы Loro Piana Москва, отбеливание подошвы кроссовок, убрать желтизну подошвы, отбеливание подошвы Hermès, MANDO MEMORI";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -79,7 +79,7 @@ require __DIR__ . '/../../../partials/header.php';
             <a href="tel:+79161829272" class="svc-order-phone">Позвонить: +7 (916) 182-92-72</a>
             <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_<?= $slug ?>" target="_blank" rel="noopener" class="svc-order-tg" data-tg="svc_<?= $slug ?>">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
-              Написать в Telegram — оценка за 5 мин
+              Пришлите фото — назовём цену за 5 мин
             </a>
           </div>
           <a href="/order" class="svc-order-link">Заказать услугу →</a>
@@ -122,30 +122,30 @@ require __DIR__ . '/../../../partials/header.php';
     <div class="container">
       <h2 class="svc-section-title">Часто задаваемые вопросы об отбеливании подошвы</h2>
       <div class="svc-faq-list">
-        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <h3 itemprop="name">Сколько стоит отбеливание подошвы кроссовок?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Стоимость отбеливания подошвы — от 10 990 ₽. Цена зависит от степени пожелтения, материала подошвы и бренда обуви. Для Loro Piana используется специальная технология, включённая в стоимость.</p>
           </div>
-        </div>
-        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        </details>
+        <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <h3 itemprop="name">Почему желтеет подошва кроссовок?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Подошва желтеет из-за окисления резины при контакте с воздухом и ультрафиолетом, а также из-за воздействия дорожных реагентов и неправильного хранения. Это естественный процесс, который легко обратим с помощью профессионального отбеливания.</p>
           </div>
-        </div>
-        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        </details>
+        <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <h3 itemprop="name">Как надолго хватает отбеливания подошвы?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">При правильном уходе результат отбеливания сохраняется от 3 до 6 месяцев. Рекомендуем использовать водоотталкивающую пропитку и избегать агрессивных моющих средств.</p>
           </div>
-        </div>
-        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        </details>
+        <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <h3 itemprop="name">Какие кроссовки можно отбелить?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Мы отбеливаем подошву любых кроссовок: Nike, Adidas, New Balance, Asics, Yeezy, Balenciaga и других. Метод отбеливания подбирается индивидуально под тип резины подошвы.</p>
           </div>
-        </div>
+        </details>
       </div>
     </div>
   </section>
@@ -156,7 +156,7 @@ require __DIR__ . '/../../../partials/header.php';
       <div class="svc-cta-row">
         <a href="/order" class="svc-cta-btn">Передать обувь</a>
         <a href="tel:+79161829272" class="svc-cta-phone">Позвонить</a>
-        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_cta_<?= $slug ?>" target="_blank" rel="noopener" class="svc-cta-tg" data-tg="svc_cta_<?= $slug ?>">Написать в Telegram</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_cta_<?= $slug ?>" target="_blank" rel="noopener" class="svc-cta-tg" data-tg="svc_cta_<?= $slug ?>">Пришлите фото в Telegram</a>
       </div>
     </div>
   </section>

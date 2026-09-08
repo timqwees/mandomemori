@@ -12,10 +12,10 @@ $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '1.0', 'changefreq' => 'daily', 'index' => 'products'];
-$pageTitle = "🔥 Реставрация сумок Hermès, Chanel, LV в Москве от 7 990 ₽ — ХИТ | MANDO MEMORI";
+$pageTitle = "Реставрация сумок Hermès, Chanel, Louis Vuitton в Москве от 7 990 ₽ | MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
-$pageDesc = "ХИТ ПРОДАЖ: реставрация сумок Hermès, Chanel, Louis Vuitton, Loro Piana в Москве от 7 990 ₽. Царапины, потёртости, швы, молнии, фурнитура, цвет. Оценка по фото за 5 минут. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
-$pageKeywords = "реставрация сумок Москва, реставрация сумок Hermès, реставрация сумок Chanel, ремонт сумок Louis Vuitton цена, реставрация кожи сумки, MANDO MEMORI";
+$pageDesc = "Реставрация сумок Hermès, Chanel, Louis Vuitton, Loro Piana, Bottega Veneta в Москве от 7 990 ₽. Царапины, потёртости, швы, молнии, фурнитура, цвет. Бесплатная оценка по фото за 5 минут. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
+$pageKeywords = "реставрация сумок Москва, реставрация сумок Hermès, реставрация сумок Chanel, ремонт сумок Louis Vuitton, реставрация сумки Loro Piana, ремонт сумки Bottega Veneta, MANDO MEMORI";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -79,7 +79,7 @@ require __DIR__ . '/../../../partials/header.php';
             <a href="tel:+79161829272" class="svc-order-phone">Позвонить: +7 (916) 182-92-72</a>
             <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_<?= $slug ?>" target="_blank" rel="noopener" class="svc-order-tg" data-tg="svc_<?= $slug ?>">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
-              Написать в Telegram — оценка за 5 мин
+              Пришлите фото — назовём цену за 5 мин
             </a>
           </div>
           <a href="/order" class="svc-order-link">Заказать услугу →</a>
@@ -121,24 +121,24 @@ require __DIR__ . '/../../../partials/header.php';
     <div class="container">
       <h2 class="svc-section-title">Часто задаваемые вопросы о реставрации сумок</h2>
       <div class="svc-faq-list">
-        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <h3 itemprop="name">Сколько стоит реставрация сумок в Москве?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Стоимость реставрации сумок — от 7 990 ₽. Цена зависит от размера сумки, сложности дефектов, необходимости замены фурнитуры или молнии. Точную стоимость определяем после осмотра.</p>
           </div>
-        </div>
-        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        </details>
+        <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <h3 itemprop="name">Какие бренды сумок вы реставрируете?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Мы реставрируем сумки любых брендов: Loro Piana, Gucci, Prada, Louis Vuitton, Hermès, Chanel, Balenciaga, Bottega Veneta, Valentino и других. Премиум-бренды получают особый подход с использованием оригинальных материалов.</p>
           </div>
-        </div>
-        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        </details>
+        <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <h3 itemprop="name">Сколько времени занимает реставрация сумки?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Реставрация сумки занимает от 3 до 10 дней в зависимости от сложности работ. После приёма изделия мы называем точный срок.</p>
           </div>
-        </div>
+        </details>
       </div>
     </div>
   </section>
@@ -149,7 +149,7 @@ require __DIR__ . '/../../../partials/header.php';
       <div class="svc-cta-row">
         <a href="/order" class="svc-cta-btn">Передать сумку</a>
         <a href="tel:+79161829272" class="svc-cta-phone">Позвонить</a>
-        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_cta_<?= $slug ?>" target="_blank" rel="noopener" class="svc-cta-tg" data-tg="svc_cta_<?= $slug ?>">Написать в Telegram</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_cta_<?= $slug ?>" target="_blank" rel="noopener" class="svc-cta-tg" data-tg="svc_cta_<?= $slug ?>">Пришлите фото в Telegram</a>
       </div>
     </div>
   </section>

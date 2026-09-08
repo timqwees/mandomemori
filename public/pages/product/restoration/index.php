@@ -12,10 +12,10 @@ $price = $svc['price_formatted'];
 $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '1.0', 'changefreq' => 'daily', 'index' => 'products'];
-$pageTitle = "🔥 Реставрация обуви Loro Piana в Москве от 6 490 ₽ — ХИТ | MANDO MEMORI";
+$pageTitle = "Реставрация премиальной обуви в Москве от 6 490 ₽ — Loro Piana, Hermès, Berluti | MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
-$pageDesc = "ХИТ ПРОДАЖ: реставрация обуви Loro Piana, Gucci, Hermès в Москве от 6 490 ₽. Царапины, потёртости, заломы, цвет, швы, фурнитура. Оценка по фото за 5 минут. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
-$pageKeywords = "реставрация обуви Москва, реставрация обуви Loro Piana, восстановление обуви премиум, ремонт дорогой обуви цена, MANDO MEMORI";
+$pageDesc = "Реставрация премиальной обуви Loro Piana, Hermès, Berluti, John Lobb, Gucci, Louis Vuitton в Москве от 6 490 ₽. Царапины, потёртости, заломы, цвет, швы, фурнитура. Бесплатная оценка по фото за 5 минут. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
+$pageKeywords = "реставрация обуви Москва, реставрация обуви Loro Piana, реставрация обуви Hermès, восстановление премиальной обуви, ремонт дорогой обуви, реставрация Berluti, реставрация John Lobb, MANDO MEMORI";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
 require __DIR__ . '/../../../partials/header.php';
@@ -79,7 +79,7 @@ require __DIR__ . '/../../../partials/header.php';
             <a href="tel:+79161829272" class="svc-order-phone">Позвонить: +7 (916) 182-92-72</a>
             <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_<?= $slug ?>" target="_blank" rel="noopener" class="svc-order-tg" data-tg="svc_<?= $slug ?>">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
-              Написать в Telegram — оценка за 5 мин
+              Пришлите фото — назовём цену за 5 мин
             </a>
           </div>
           <a href="/order" class="svc-order-link">Заказать услугу →</a>
@@ -122,24 +122,24 @@ require __DIR__ . '/../../../partials/header.php';
     <div class="container">
       <h2 class="svc-section-title">Часто задаваемые вопросы о реставрации обуви</h2>
       <div class="svc-faq-list">
-        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <h3 itemprop="name">Сколько стоит реставрация обуви?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Стоимость реставрации обуви — от 6 490 ₽. Цена зависит от объёма работ: сложности царапин, необходимости восстановления цвета, ремонта швов или замены фурнитуры. Точную стоимость определяем после осмотра.</p>
           </div>
-        </div>
-        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        </details>
+        <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <h3 itemprop="name">Какие дефекты можно устранить реставрацией?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Реставрация устраняет царапины, потёртости, заломы, восстанавливает цвет, ремонтирует швы, молнии, фурнитуру. Также восстанавливаем форму обуви и удаляем поверхностные загрязнения.</p>
           </div>
-        </div>
-        <div class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        </details>
+        <details class="svc-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <h3 itemprop="name">Сколько времени занимает реставрация обуви?</h3>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemprop="text">Стандартная реставрация обуви занимает 3-7 дней. Сложные случаи (глубокая реставрация цвета, замена фурнитуры) могут требовать до 10 дней. Мы всегда сообщаем точные сроки после оценки.</p>
           </div>
-        </div>
+        </details>
       </div>
     </div>
   </section>
@@ -150,7 +150,7 @@ require __DIR__ . '/../../../partials/header.php';
       <div class="svc-cta-row">
         <a href="/order" class="svc-cta-btn">Передать обувь</a>
         <a href="tel:+79161829272" class="svc-cta-phone">Позвонить</a>
-        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_cta_<?= $slug ?>" target="_blank" rel="noopener" class="svc-cta-tg" data-tg="svc_cta_<?= $slug ?>">Написать в Telegram</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_cta_<?= $slug ?>" target="_blank" rel="noopener" class="svc-cta-tg" data-tg="svc_cta_<?= $slug ?>">Пришлите фото в Telegram</a>
       </div>
     </div>
   </section>
