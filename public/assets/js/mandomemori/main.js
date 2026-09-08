@@ -69,7 +69,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── Regular service card clicks ──────────────────────────
+  // Telegram CRO — open in Telegram app directly
+  document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('click', function(e){
+      var a = e.target.closest('a[data-tg]');
+      if(!a) return;
+      var src = a.getAttribute('data-tg') || 'unknown';
+      e.preventDefault();
+      window.location = 'https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=' + src;
+    });
+  });
+
+// ── Regular service card clicks ──────────────────────────
   document.querySelectorAll('.card-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
