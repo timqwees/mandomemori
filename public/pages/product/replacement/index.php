@@ -52,7 +52,7 @@ require __DIR__ . '/../../../partials/header.php';
       <p class="svc-hero-desc" itemprop="description"><?= $svc['desc'] ?></p>
       <div class="svc-hero-actions">
         <span class="svc-hero-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="RUB"><meta itemprop="url" content="https://mmclean.ru/product/replacement"><span itemprop="price"><?= $priceRaw ?></span> ₽ <small>за пару</small><meta itemprop="availability" content="https://schema.org/InStock"><span itemprop="hasMerchantReturnPolicy" itemscope itemtype="https://schema.org/MerchantReturnPolicy"><meta itemprop="applicableCountry" content="RU"><meta itemprop="returnPolicyCategory" content="https://schema.org/MerchantReturnFiniteReturnWindow"><meta itemprop="merchantReturnDays" content="14"><meta itemprop="returnMethod" content="https://schema.org/ReturnByMail"><meta itemprop="returnFees" content="https://schema.org/FreeReturn"></span><span itemprop="shippingDetails" itemscope itemtype="https://schema.org/OfferShippingDetails"><span itemprop="shippingDestination" itemscope itemtype="https://schema.org/DefinedRegion"><meta itemprop="addressCountry" content="RU"></span><span itemprop="shippingRate" itemscope itemtype="https://schema.org/MonetaryAmount"><meta itemprop="value" content="0"><meta itemprop="currency" content="RUB"></span><span itemprop="deliveryTime" itemscope itemtype="https://schema.org/ShippingDeliveryTime"><span itemprop="handlingTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="0"><meta itemprop="maxValue" content="1"><meta itemprop="unitCode" content="DAY"></span><span itemprop="transitTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="1"><meta itemprop="maxValue" content="2"><meta itemprop="unitCode" content="DAY"></span></span><meta itemprop="shippingOrigin" content="RU"></span></span>
-        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_\<?= $slug \?\>_hero" target="_blank" rel="external nofollow noopener noreferrer" class="svc-hero-btn svc-hero-btn--pulse" title="Заказать в Telegram">Заказать → Telegram</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_<?= $slug ?>_hero" target="_blank" rel="external nofollow noopener noreferrer" class="svc-hero-btn svc-hero-btn--pulse" title="Заказать в Telegram">Заказать → Telegram</a>
       </div>
     </div>
   </section>
@@ -85,7 +85,7 @@ require __DIR__ . '/../../../partials/header.php';
               Заказать в Telegram
             </a>
           </div>
-          <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_\<?= $slug \?\>_order" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg" data-tg="svc_\<?= $slug \?\>_order" title="Заказать в Telegram">Заказать → Telegram</a>
+          <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_<?= $slug ?>_order" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg" data-tg="svc_<?= $slug ?>_order" title="Заказать в Telegram">Заказать → Telegram</a>
         </div>
       </div>
     </div>

@@ -44,7 +44,7 @@ foreach ($articlesJson as $a) {
 }
 
 // ── FAQ Templates ──
-require_once __DIR__ . '/faq-templates.php';
+require_once __DIR__ . '/../faq-templates.php';
 $faqItems = buildArticleFaq($article, $faqTemplates, $categoryFaqMap);
 
 // ── JSON-LD: BlogPosting + BreadcrumbList + FAQPage ──
