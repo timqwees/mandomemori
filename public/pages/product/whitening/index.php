@@ -17,7 +17,8 @@ $ogImage = '/public/assets/images/' . $svc['img'];
 $pageDesc = "Отбеливание пожелтевшей подошвы Loro Piana, Hermès, Berluti, Gucci в Москве от 10 990 ₽. Возвращаем белоснежный вид за 3-7 дней. Профессиональные составы. Бесплатная оценка по фото. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
 $pageKeywords = "отбеливание подошвы Loro Piana Москва, отбеливание подошвы кроссовок, убрать желтизну подошвы, отбеливание подошвы Hermès, MANDO MEMORI";
 $currentSlug = $slug;
-$canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
+$canonical = '/product/' . $slug;
+$heroImage = '/public/assets/images/' . $svc['img'];
 require __DIR__ . '/../../../partials/header.php';
 ?>
 <main class="main svc-page">
@@ -37,14 +38,15 @@ require __DIR__ . '/../../../partials/header.php';
         <meta itemprop="position" content="3">
       </li>
     </ol>
-  </nav>
   </div>
+  </div>
+  <link rel="preload" as="image" href="<?= $heroImage ?>" fetchpriority="high">
   <section class="svc-hero" itemscope itemtype="https://schema.org/Service">
     <span itemprop="brand" itemscope itemtype="https://schema.org/Brand"><meta itemprop="name" content="MANDO MEMORI"></span>
     <span itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating"><meta itemprop="ratingValue" content="4.9"><meta itemprop="bestRating" content="5"><meta itemprop="worstRating" content="1"><meta itemprop="ratingCount" content="1500"></span>
     <span itemprop="review" itemscope itemtype="https://schema.org/Review"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="Анна"></span><meta itemprop="datePublished" content="2026-06-15"><span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><meta itemprop="reviewBody" content="Отличный сервис! Обувь как новая, очень довольна результатом."></span>
-    <div class="svc-hero-bg" style="background-image:url('/public/assets/images/<?= $svc['img'] ?>')"></div>
-    <meta itemprop="image" content="https://mmclean.ru/public/assets/images/<?= $svc['img'] ?>">
+    <div class="svc-hero-bg" style="background-image:url('<?= $heroImage ?>')"></div>
+    <meta itemprop="image" content="https://mmclean.ru<?= $heroImage ?>">
     <div class="svc-hero-overlay"></div>
     <div class="container svc-hero-content">
       <span class="svc-hero-badge svc-hero-badge--hit">🔥 ХИТ ПРОДАЖ · убираем желтизну</span>
@@ -52,7 +54,7 @@ require __DIR__ . '/../../../partials/header.php';
       <p class="svc-hero-desc" itemprop="description"><?= $svc['desc'] ?></p>
       <div class="svc-hero-actions">
         <span class="svc-hero-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="RUB"><meta itemprop="url" content="https://mmclean.ru/product/whitening"><span itemprop="price"><?= $priceRaw ?></span> ₽ <small>за пару</small><meta itemprop="availability" content="https://schema.org/InStock"><span itemprop="hasMerchantReturnPolicy" itemscope itemtype="https://schema.org/MerchantReturnPolicy"><meta itemprop="applicableCountry" content="RU"><meta itemprop="returnPolicyCategory" content="https://schema.org/MerchantReturnFiniteReturnWindow"><meta itemprop="merchantReturnDays" content="14"><meta itemprop="returnMethod" content="https://schema.org/ReturnByMail"><meta itemprop="returnFees" content="https://schema.org/FreeReturn"></span><span itemprop="shippingDetails" itemscope itemtype="https://schema.org/OfferShippingDetails"><span itemprop="shippingDestination" itemscope itemtype="https://schema.org/DefinedRegion"><meta itemprop="addressCountry" content="RU"></span><span itemprop="shippingRate" itemscope itemtype="https://schema.org/MonetaryAmount"><meta itemprop="value" content="0"><meta itemprop="currency" content="RUB"></span><span itemprop="deliveryTime" itemscope itemtype="https://schema.org/ShippingDeliveryTime"><span itemprop="handlingTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="0"><meta itemprop="maxValue" content="1"><meta itemprop="unitCode" content="DAY"></span><span itemprop="transitTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="1"><meta itemprop="maxValue" content="2"><meta itemprop="unitCode" content="DAY"></span></span><meta itemprop="shippingOrigin" content="RU"></span></span>
-        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_\<?= $slug \?\>_hero" target="_blank" rel="external nofollow noopener noreferrer" class="svc-hero-btn svc-hero-btn--pulse" title="Заказать в Telegram">Заказать → Telegram</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_<?= $slug ?>_hero" target="_blank" rel="external nofollow noopener noreferrer" class="svc-hero-btn svc-hero-btn--pulse" title="Заказать в Telegram">Заказать → Telegram</a>
       </div>
     </div>
   </section>
@@ -85,7 +87,7 @@ require __DIR__ . '/../../../partials/header.php';
               Заказать в Telegram
             </a>
           </div>
-          <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_\<?= $slug \?\>_order" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg" data-tg="svc_\<?= $slug \?\>_order" title="Заказать в Telegram">Заказать → Telegram</a>
+          <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_<?= $slug ?>_order" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg" data-tg="svc_<?= $slug ?>_order" title="Заказать в Telegram">Заказать → Telegram</a>
         </div>
       </div>
     </div>

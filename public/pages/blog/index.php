@@ -4,11 +4,55 @@ $seo = Functions::seo();
 $notify = Functions::notify();
 
 $siteINFO = ['canonical' => '/blog', 'priority' => '0.8', 'changefreq' => 'weekly', 'index' => 'articles'];
+
+$scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'] ?? 'mandomemori.ru';
+$siteUrl = "$scheme://$host";
+
+$filterCat = $_GET['category'] ?? 'all';
+$filterCat = trim($filterCat);
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+if ($page < 1) $page = 1;
+
+// Build canonical URL
+if ($filterCat !== 'all' && $filterCat !== '') {
+    $canonical = '/blog?category=' . urlencode($filterCat);
+    if ($page > 1) $canonical .= '&page=' . $page;
+} elseif ($page > 1) {
+    $canonical = '/blog?page=' . $page;
+} else {
+    $canonical = '/blog';
+}
+
 $pageTitle = 'Блог об уходе за обувью — MANDO MEMORI, советы экспертов';
 $pageDesc = 'Экспертные статьи об уходе за обувью: чистка Loro Piana, реставрация кожи, уход за замшей и нубуком. Советы мастеров MANDO MEMORI.';
 $pageKeywords = 'уход за обувью, чистка Loro Piana, реставрация кожаной обуви, советы по уходу за обувью, блог MANDO MEMORI';
 $robots = 'index, follow';
-$canonical = $_SERVER['REQUEST_URI'] ?? '/blog';
+
+// Add prev/next for pagination
+$prevLink = '';
+$nextLink = '';
+if ($maxPages > 1) {
+    if ($page > 1) {
+        $prevPage = $page - 1;
+        if ($filterCat !== 'all' && $filterCat !== '') {
+            $prevLink = '<link rel="prev" href="' . $siteUrl . '/blog?category=' . urlencode($filterCat) . ($prevPage > 1 ? '&page=' . $prevPage : '') . '">';
+        } else {
+            $prevLink = '<link rel="prev" href="' . $siteUrl . '/blog' . ($prevPage > 1 ? '?page=' . $prevPage : '') . '">';
+        }
+    }
+    if ($page < $maxPages) {
+        $nextPage = $page + 1;
+        if ($filterCat !== 'all' && $filterCat !== '') {
+            $nextLink = '<link rel="next" href="' . $siteUrl . '/blog?category=' . urlencode($filterCat) . '&page=' . $nextPage . '">';
+        } else {
+            $nextLink = '<link rel="next" href="' . $siteUrl . '/blog?page=' . $nextPage . '">';
+        }
+    }
+}
+
+$extraHead = $prevLink . $nextLink;
+
 require __DIR__ . '/../../partials/header.php';
 
 $articlesJson = json_decode(file_get_contents(__DIR__ . '/data/articles.json'), true) ?: [];

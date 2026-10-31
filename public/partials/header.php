@@ -47,6 +47,8 @@ $siteUrl = "$scheme://$host";
   <link rel="privacy-policy" href="/privacy-policy" title="Политика конфиденциальности">
   <link rel="terms-of-service" href="/terms" title="Условия использования">
 
+  <?= $extraHead ?? '' ?>
+
   <?php
   $gscId = $_ENV["GSC_ID"] ?? "";
   $ga4Id = $_ENV["GA4_ID"] ?? "";

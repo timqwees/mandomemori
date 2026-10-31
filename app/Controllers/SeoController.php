@@ -187,7 +187,11 @@ class SeoController
       'Disallow: /cart',
       'Disallow: /checkout',
       'Disallow: /send/*',
-      'Disallow: /*?*',
+      'Disallow: /admin',
+      'Disallow: /api/',
+      'Disallow: /setting/',
+      'Disallow: /app/',
+      'Disallow: /vendor/',
       'Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&gclid&yclid&fbclid&msclkid&_ga&_gl&_openstat&referrer',
       "Sitemap: " . $s . "/sitemap.xml",
       "Host: " . $s,
@@ -259,7 +263,6 @@ class SeoController
     }
 
     echo "\n## Optional\n"
-      . "- [Корзина](" . $s . "/cart): Добавление услуг и оформление заказа\n"
       . "- [Политика конфиденциальности](" . $s . "/privacy-policy): Обработка персональных данных\n";
   }
 

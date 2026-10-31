@@ -102,6 +102,18 @@ class HomeController
         require __DIR__ . '/../../public/pages/blog/article/index.php';
     }
 
+    public function onAuthor(...$args)
+    {
+        $slug = $args[1] ?? '';
+        $path = __DIR__ . '/../../public/pages/author/' . $slug . '/index.php';
+        if (file_exists($path)) {
+            require $path;
+        } else {
+            http_response_code(404);
+            echo '404 — автор не найден';
+        }
+    }
+
     public function onCleaning()
     {
         require __DIR__ . '/../../public/pages/cleaning/index.php';

@@ -17,7 +17,8 @@ $ogImage = '/public/assets/images/' . $svc['img'];
 $pageDesc = "Чистка премиальной обуви Loro Piana, Hermès, Berluti, Gucci, Louis Vuitton в Москве от 5 990 ₽. Ручная химистка, восстановление формы и цвета, пропитка. Бесплатная оценка по фото за 5 минут. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
 $pageKeywords = "чистка обуви Москва, химчистка обуви Москва, чистка Loro Piana, чистка Hermès, чистка Berluti, химчистка премиальной обуви, чистка кожаной обуви, чистка замши, MANDO MEMORI";
 $currentSlug = $slug;
-$canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
+$canonical = '/product/' . $slug;
+$heroImage = '/public/assets/images/' . $svc['img'];
 require __DIR__ . '/../../../partials/header.php';
 ?>
 <main class="main svc-page svc-cleaning">
@@ -40,12 +41,13 @@ require __DIR__ . '/../../../partials/header.php';
     </ol>
   </nav>
   </div>
+  <link rel="preload" as="image" href="<?= $heroImage ?>" fetchpriority="high">
   <section class="svc-hero" itemscope itemtype="https://schema.org/Service">
     <span itemprop="brand" itemscope itemtype="https://schema.org/Brand"><meta itemprop="name" content="MANDO MEMORI"></span>
     <span itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating"><meta itemprop="ratingValue" content="4.9"><meta itemprop="bestRating" content="5"><meta itemprop="worstRating" content="1"><meta itemprop="ratingCount" content="1500"></span>
     <span itemprop="review" itemscope itemtype="https://schema.org/Review"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="Анна"></span><meta itemprop="datePublished" content="2026-06-15"><span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><meta itemprop="reviewBody" content="Отличный сервис! Обувь как новая, очень довольна результатом."></span>
-    <div class="svc-hero-bg" id="svc-hero-bg" style="background-image:url('/public/assets/images/<?= $svc['img'] ?>')"></div>
-    <meta itemprop="image" content="https://mmclean.ru/public/assets/images/<?= $svc['img'] ?>">
+    <div class="svc-hero-bg" id="svc-hero-bg" style="background-image:url('<?= $heroImage ?>')"></div>
+    <meta itemprop="image" content="https://mmclean.ru<?= $heroImage ?>">
     <div class="svc-hero-overlay"></div>
     <div class="container svc-hero-content">
       <span class="svc-hero-badge">✨ Премиум-чистка · Loro Piana / Hermès / Berluti</span>

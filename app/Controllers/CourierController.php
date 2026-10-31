@@ -179,4 +179,104 @@ class CourierController
             return null;
         }
     }
+
+    public function onUploadFiles(): void
+    {
+        header('Content-Type: application/json');
+
+        $uploadDir = sys_get_temp_dir() . '/courier_uploads/';
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0755, true);
+        }
+
+        $allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'application/pdf'];
+        $maxFileSize = 10 * 1024 * 1024; // 10 MB
+        $maxFiles = 5;
+
+        $files = $_FILES['files'] ?? [];
+        $uploaded = [];
+
+        if (empty($files['name'][0])) {
+            echo json_encode(['success' => false, 'error' => 'Файлы не выбраны']);
+            return;
+        }
+
+        $fileCount = count(array_filter($files['name']));
+        if ($fileCount > $maxFiles) {
+            echo json_encode(['success' => false, 'error' => "Максимум $maxFiles файлов"]);
+            return;
+        }
+
+        for ($i = 0; $i < $fileCount; $i++) {
+            $name = $files['name'][$i];
+            $tmpName = $files['tmp_name'][$i];
+            $size = $files['size'][$i];
+            $type = $files['type'][$i];
+            $error = $files['error'][$i];
+
+            if ($error !== UPLOAD_ERR_OK) {
+                continue;
+            }
+
+            if ($size > $maxFileSize) {
+                echo json_encode(['success' => false, 'error' => "Файл $name слишком большой (макс. 10 МБ)"]);
+                return;
+            }
+
+            if (!in_array($type, $allowedTypes)) {
+                echo json_encode(['success' => false, 'error' => "Неподдерживаемый тип файла: $name"]);
+                return;
+            }
+
+            $ext = pathinfo($name, PATHINFO_EXTENSION);
+            $safeName = preg_replace('/[^a-zA-Z0-9._-]/', '', pathinfo($name, PATHINFO_FILENAME));
+            $newName = $safeName . '_' . time() . '_' . bin2hex(random_bytes(4)) . '.' . $ext;
+            $destPath = $uploadDir . $newName;
+
+            if (move_uploaded_file($tmpName, $destPath)) {
+                $uploaded[] = [
+                    'original_name' => $name,
+                    'stored_name' => $newName,
+                    'url' => '/tmp/courier_uploads/' . $newName,
+                    'size' => $size,
+                    'type' => $type,
+                ];
+            }
+        }
+
+        echo json_encode(['success' => true, 'files' => $uploaded]);
+    }
+
+    public function onServeUpload(...$args): void
+    {
+        $filename = $args['filename'] ?? ($args[1] ?? '');
+        if (!$filename || preg_match('/[^a-zA-Z0-9._-]/', $filename)) {
+            http_response_code(404);
+            echo 'Not found';
+            return;
+        }
+
+        $filePath = sys_get_temp_dir() . '/courier_uploads/' . $filename;
+        if (!file_exists($filePath)) {
+            http_response_code(404);
+            echo 'Not found';
+            return;
+        }
+
+        $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+        $mimeTypes = [
+            'jpg' => 'image/jpeg',
+            'jpeg' => 'image/jpeg',
+            'png' => 'image/png',
+            'webp' => 'image/webp',
+            'gif' => 'image/gif',
+            'pdf' => 'application/pdf',
+        ];
+        $mime = $mimeTypes[$ext] ?? 'application/octet-stream';
+
+        header('Content-Type: ' . $mime);
+        header('Content-Length: ' . filesize($filePath));
+        header('Cache-Control: public, max-age=3600');
+        readfile($filePath);
+    }
 }

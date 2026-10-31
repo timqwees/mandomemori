@@ -15,6 +15,7 @@ use App\Controllers\CourierController;
 Routes::get('/', [HomeController::class, 'onIndex']);
 Routes::get('/blog', [HomeController::class, 'onBlog']);
 Routes::get('/blog/{slug}', [HomeController::class, 'onBlogArticle']);
+Routes::get('/author/{slug}', [HomeController::class, 'onAuthor']);
 Routes::get('/privacy-policy', [HomeController::class, 'onPrivacy']);
 Routes::get('/products', [HomeController::class, 'onProducts']);
 Routes::get('/about', [HomeController::class, 'onAbout']);
@@ -34,6 +35,8 @@ Routes::post('/api/lead', [LeadController::class, 'onSubmit']);
 Routes::post('/franchise/apply', [HomeController::class, 'onFranchiseSubmit']);
 Routes::post('/send/mail', [Functions::class, 'onMail']);
 Routes::post('/courier/request', [CourierController::class, 'onRequest']);
+Routes::post('/api/upload-courier-files', [CourierController::class, 'onUploadFiles']);
+Routes::get('/tmp/courier_uploads/{filename}', [CourierController::class, 'onServeUpload']);
 
 Routes::get('/cart', [HomeController::class, 'onCart']);
 Routes::post('/cart/add', [CartController::class, 'onAdd']);

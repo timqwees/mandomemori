@@ -13,11 +13,12 @@ $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'index' => 'products'];
 $pageTitle = "$title в Москве — премиум-мастерская MANDO MEMORI";
-$ogImage = '/public/assets/images/' . $svc['img'];
+$ogImage  = '/public/assets/images/' . $svc['img'];
 $pageDesc = $svc['desc'];
 $pageKeywords = "$title в Москве, MANDO MEMORI, премиум мастерская, химчистка обуви, ремонт обуви";
 $currentSlug = $slug;
-$canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
+$canonical = '/product/' . $slug;
+$heroImage = '/public/assets/images/' . $svc['img'];
 require __DIR__ . '/../../../partials/header.php';
 ?>
 <main class="main svc-page">
@@ -39,19 +40,20 @@ require __DIR__ . '/../../../partials/header.php';
     </ol>
   </nav>
   </div>
+  <link rel="preload" as="image" href="<?= $heroImage ?>" fetchpriority="high">
   <section class="svc-hero" itemscope itemtype="https://schema.org/Service">
     <span itemprop="brand" itemscope itemtype="https://schema.org/Brand"><meta itemprop="name" content="MANDO MEMORI"></span>
     <span itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating"><meta itemprop="ratingValue" content="4.9"><meta itemprop="bestRating" content="5"><meta itemprop="worstRating" content="1"><meta itemprop="ratingCount" content="1500"></span>
     <span itemprop="review" itemscope itemtype="https://schema.org/Review"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="Анна"></span><meta itemprop="datePublished" content="2026-06-15"><span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><meta itemprop="reviewBody" content="Отличный сервис! Обувь как новая, очень довольна результатом."></span>
-    <div class="svc-hero-bg" style="background-image:url('/public/assets/images/<?= $svc['img'] ?>')"></div>
-    <meta itemprop="image" content="https://mmclean.ru/public/assets/images/<?= $svc['img'] ?>">
+    <div class="svc-hero-bg" style="background-image:url('<?= $heroImage ?>')"></div>
+    <meta itemprop="image" content="https://mmclean.ru<?= $heroImage ?>">
     <div class="svc-hero-overlay"></div>
     <div class="container svc-hero-content">
       <h1 class="svc-hero-title" itemprop="name"><?= $title ?></h1>
       <p class="svc-hero-desc" itemprop="description"><?= $svc['desc'] ?></p>
       <div class="svc-hero-actions">
         <span class="svc-hero-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="RUB"><meta itemprop="url" content="https://mmclean.ru/product/leather-painting"><span itemprop="price"><?= $priceRaw ?></span> ₽ <small>за пару</small><meta itemprop="availability" content="https://schema.org/InStock"><span itemprop="hasMerchantReturnPolicy" itemscope itemtype="https://schema.org/MerchantReturnPolicy"><meta itemprop="applicableCountry" content="RU"><meta itemprop="returnPolicyCategory" content="https://schema.org/MerchantReturnFiniteReturnWindow"><meta itemprop="merchantReturnDays" content="14"><meta itemprop="returnMethod" content="https://schema.org/ReturnByMail"><meta itemprop="returnFees" content="https://schema.org/FreeReturn"></span><span itemprop="shippingDetails" itemscope itemtype="https://schema.org/OfferShippingDetails"><span itemprop="shippingDestination" itemscope itemtype="https://schema.org/DefinedRegion"><meta itemprop="addressCountry" content="RU"></span><span itemprop="shippingRate" itemscope itemtype="https://schema.org/MonetaryAmount"><meta itemprop="value" content="0"><meta itemprop="currency" content="RUB"></span><span itemprop="deliveryTime" itemscope itemtype="https://schema.org/ShippingDeliveryTime"><span itemprop="handlingTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="0"><meta itemprop="maxValue" content="1"><meta itemprop="unitCode" content="DAY"></span><span itemprop="transitTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="1"><meta itemprop="maxValue" content="2"><meta itemprop="unitCode" content="DAY"></span></span><meta itemprop="shippingOrigin" content="RU"></span></span>
-        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_\<?= $slug \?\>_hero" target="_blank" rel="external nofollow noopener noreferrer" class="svc-hero-btn svc-hero-btn--pulse" title="Заказать в Telegram">Заказать → Telegram</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_leather-painting_hero" target="_blank" rel="external nofollow noopener noreferrer" class="svc-hero-btn svc-hero-btn--pulse" title="Заказать в Telegram">Заказать → Telegram</a>
       </div>
     </div>
   </section>
@@ -73,11 +75,11 @@ require __DIR__ . '/../../../partials/header.php';
             <input type="number" class="product-qty-input" id="qty-<?= $id ?>" value="1" min="1" max="10">
             <button type="button" class="product-qty-btn" data-id="<?= $id ?>" data-action="inc">+</button>
           </div>
-          <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_<?= $slug ?>_hero" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg svc-order-tg--primary" data-tg="svc_<?= $slug ?>_hero" title="Заказать в Telegram">
+          <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_leather-painting_hero" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg svc-order-tg--primary" data-tg="svc_leather-painting_hero" title="Заказать в Telegram">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
               В Telegram — 5 мин
             </a>
-          <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_\<?= $slug \?\>_order" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg" data-tg="svc_\<?= $slug \?\>_order" title="Заказать в Telegram">Заказать → Telegram</a>
+          <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_leather-painting_order" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg" data-tg="svc_leather-painting_order" title="Заказать в Telegram">Заказать → Telegram</a>
         </div>
       </div>
     </div>

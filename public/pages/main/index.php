@@ -11,6 +11,7 @@ $pageDesc = $pageDesc ?? 'ХИТ ПРОДАЖ: замена подошвы Loro 
 $pageKeywords = $pageKeywords ?? 'замена подошвы Loro Piana Москва, отбеливание подошвы Loro Piana, отбеливание подошвы кроссовок Москва, реставрация сумок Москва, реставрация сумок Hermès Chanel, реставрация обуви Loro Piana, химчистка Loro Piana, MANDO MEMORI';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/';
 echo '<link rel="preload" as="image" href="/public/assets/images/mandomemori/hero-poster.jpg" fetchpriority="high">';
+echo '<link rel="preload" as="image" href="/public/assets/images/mandomemori/heroBG.mp4" type="video/mp4">';
 require __DIR__ . '/../../partials/header.php';
 ?>
 

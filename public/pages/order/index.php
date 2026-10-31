@@ -526,7 +526,7 @@ html, body { background: #121212; margin: 0; }
         <h2 class="courier-form-title" style="color: black;">Вызов курьера</h2>
         <p class="courier-form-subtitle">Бесплатно вызовем курьера — он заберёт и привезёт обувь обратно. + Бесплатная доставка по Москве</p>
         <p class="courier-form-subtitle"><?= $orderNum ? 'PDF-чек с деталями заказа придёт вам на почту' : 'Оставьте контакты — курьер приедет за обувью' ?></p>
-        <form id="courier-request-form" class="courier-form">
+        <form id="courier-request-form" class="courier-form" enctype="multipart/form-data">
           <input type="hidden" name="_csrf" value="3bd5a1ea01eec4cc5fac232d54cfe19be1beb147477f69e057180030166a8e04">
           <input type="hidden" name="city_slug" value="moscow">
           <?php if ($orderNum): ?><input type="hidden" name="order_num" value="<?= htmlspecialchars($orderNum) ?>"><?php endif; ?>
@@ -544,6 +544,11 @@ html, body { background: #121212; margin: 0; }
             <label for="cf-address">Адрес *</label>
             <input type="text" id="cf-address" name="address" required placeholder="Улица и номер дома" autocomplete="off">
             <div class="dadata-suggestions" id="cf-address-suggestions"></div>
+          </div>
+          <div class="form-field">
+            <label for="cf-files">Фото обуви / документы (до 5 файлов, до 10 МБ каждый)</label>
+            <input type="file" id="cf-files" name="files[]" multiple accept="image/*,.pdf" style="display:block;width:100%;padding:8px;border:1px solid #e5e5e5;border-radius:8px;background:#fff">
+            <small style="color:#888;font-size:12px">Можно загрузить фото обуви для оценки или сканы документов</small>
           </div>
           <?php if ($orderNum): ?>
           <div class="form-field" style="margin-top:20px">
@@ -596,6 +601,7 @@ html, body { background: #121212; margin: 0; }
     const consent = document.querySelector('input[name="consent"]').checked;
     const orderNum = document.querySelector('input[name="order_num"]')?.value || '';
     const email = document.getElementById('cf-email')?.value.trim() || '';
+    const files = document.getElementById('cf-files').files;
 
     if (!name || !phone || !address) {
       alert('Заполните все обязательные поля');
@@ -606,17 +612,63 @@ html, body { background: #121212; margin: 0; }
       return;
     }
 
-    let text = '🆕 Новый вызов курьера\n\n';
-    text += `👤 Имя: ${name}\n`;
-    text += `📞 Телефон: ${phone}\n`;
-    text += `📍 Адрес: ${address}\n`;
-    if (orderNum) text += `🔢 Номер заказа: ${orderNum}\n`;
-    if (email) text += `📧 Email: ${email}\n`;
-    text += '\n✅ Согласие на обработку ПД: да';
+    // Если есть файлы, сначала загружаем их на сервер
+    if (files.length > 0) {
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('phone', phone);
+      formData.append('address', address);
+      formData.append('consent', consent ? '1' : '0');
+      if (orderNum) formData.append('order_num', orderNum);
+      if (email) formData.append('email', email);
+      for (let i = 0; i < files.length; i++) {
+        formData.append('files[]', files[i]);
+      }
 
-    const encodedText = encodeURIComponent(text);
-    const telegramUrl = `https://t.me/maksim1144?text=${encodedText}`;
-    window.open(telegramUrl, '_blank');
+      fetch('/api/upload-courier-files', {
+        method: 'POST',
+        body: formData
+      }).then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            // Файлы загружены, открываем Telegram с ссылкой на загруженные файлы
+            let text = '🆕 Новый вызов курьера\n\n';
+            text += `👤 Имя: ${name}\n`;
+            text += `📞 Телефон: ${phone}\n`;
+            text += `📍 Адрес: ${address}\n`;
+            if (orderNum) text += `🔢 Номер заказа: ${orderNum}\n`;
+            if (email) text += `📧 Email: ${email}\n`;
+            if (data.files && data.files.length) {
+              text += `\n📎 Загруженные файлы:\n`;
+              data.files.forEach(f => text += `- ${f.url}\n`);
+            }
+            text += '\n✅ Согласие на обработку ПД: да';
+
+            const encodedText = encodeURIComponent(text);
+            const telegramUrl = `https://t.me/maksim1144?text=${encodedText}`;
+            window.open(telegramUrl, '_blank');
+          } else {
+            alert('Ошибка загрузки файлов: ' + (data.error || 'Неизвестная ошибка'));
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          alert('Ошибка при отправке. Попробуйте без файлов или позвоните.');
+        });
+    } else {
+      // Без файлов — сразу открываем Telegram
+      let text = '🆕 Новый вызов курьера\n\n';
+      text += `👤 Имя: ${name}\n`;
+      text += `📞 Телефон: ${phone}\n`;
+      text += `📍 Адрес: ${address}\n`;
+      if (orderNum) text += `🔢 Номер заказа: ${orderNum}\n`;
+      if (email) text += `📧 Email: ${email}\n`;
+      text += '\n✅ Согласие на обработку ПД: да';
+
+      const encodedText = encodeURIComponent(text);
+      const telegramUrl = `https://t.me/maksim1144?text=${encodedText}`;
+      window.open(telegramUrl, '_blank');
+    }
   }
   </script>
 

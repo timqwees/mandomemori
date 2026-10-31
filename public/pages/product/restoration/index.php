@@ -13,11 +13,12 @@ $priceRaw = $svc['price'];
 $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '1.0', 'changefreq' => 'daily', 'index' => 'products'];
 $pageTitle = "Реставрация премиальной обуви в Москве от 6 490 ₽ — Loro Piana, Hermès, Berluti | MANDO MEMORI";
-$ogImage = '/public/assets/images/' . $svc['img'];
+$ogImage  = '/public/assets/images/' . $svc['img'];
 $pageDesc = "Реставрация премиальной обуви Loro Piana, Hermès, Berluti, Gucci, Louis Vuitton в Москве от 6 490 ₽. Царапины, потёртости, заломы, цвет, швы, фурнитура. Бесплатная оценка по фото за 5 минут. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
 $pageKeywords = "реставрация обуви Москва, реставрация обуви Loro Piana, реставрация обуви Hermès, восстановление премиальной обуви, ремонт премиальной обуви, реставрация Berluti, MANDO MEMORI";
 $currentSlug = $slug;
-$canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
+$canonical = '/product/' . $slug;
+$heroImage = '/public/assets/images/' . $svc['img'];
 require __DIR__ . '/../../../partials/header.php';
 ?>
 <main class="main svc-page">
@@ -39,12 +40,13 @@ require __DIR__ . '/../../../partials/header.php';
     </ol>
   </nav>
   </div>
+  <link rel="preload" as="image" href="<?= $heroImage ?>" fetchpriority="high">
   <section class="svc-hero" itemscope itemtype="https://schema.org/Service">
     <span itemprop="brand" itemscope itemtype="https://schema.org/Brand"><meta itemprop="name" content="MANDO MEMORI"></span>
     <span itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating"><meta itemprop="ratingValue" content="4.9"><meta itemprop="bestRating" content="5"><meta itemprop="worstRating" content="1"><meta itemprop="ratingCount" content="1500"></span>
     <span itemprop="review" itemscope itemtype="https://schema.org/Review"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="Анна"></span><meta itemprop="datePublished" content="2026-06-15"><span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><meta itemprop="reviewBody" content="Отличный сервис! Обувь как новая, очень довольна результатом."></span>
-    <div class="svc-hero-bg" style="background-image:url('/public/assets/images/<?= $svc['img'] ?>')"></div>
-    <meta itemprop="image" content="https://mmclean.ru/public/assets/images/<?= $svc['img'] ?>">
+    <div class="svc-hero-bg" style="background-image:url('<?= $heroImage ?>')"></div>
+    <meta itemprop="image" content="https://mmclean.ru<?= $heroImage ?>">
     <div class="svc-hero-overlay"></div>
     <div class="container svc-hero-content">
       <span class="svc-hero-badge svc-hero-badge--hit">🔥 ХИТ ПРОДАЖ · вернём вид бутика</span>
@@ -82,7 +84,7 @@ require __DIR__ . '/../../../partials/header.php';
             <a href="tel:+79161829272" class="svc-order-phone" title="Позвонить">Позвонить: +7 (916) 182-92-72</a>
             <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_<?= $slug ?>" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg" data-tg="svc_<?= $slug ?>" title="Заказать реставрацию в Telegram">Заказать в Telegram</a>
           </div>
-          <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_\<?= $slug \?\>_order" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg" data-tg="svc_\<?= $slug \?\>_order" title="Заказать в Telegram">Заказать → Telegram</a>
+          <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_<?= $slug ?>_order" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg" data-tg="svc_<?= $slug ?>_order" title="Заказать в Telegram">Заказать → Telegram</a>
         </div>
       </div>
     </div>

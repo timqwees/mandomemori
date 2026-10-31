@@ -11,7 +11,15 @@ class SeoMeta
     $desc    = $p['desc'] ?? 'Мастерская по химчистке и реставрации обуви в Москве. Loro Piana, Hermès, Berluti. Ручная работа от 1 490 ₽. ' . \Setting\Route\Function\Functions::deliveryNote() . '. Гарантия качества.';
     $kw      = $p['keywords'] ?? '';
     $canon   = $p['canonical'] ?? '/';
-    $img     = $p['image'] ?? '/public/assets/images/services/default.webp';
+    $img     = $p['image'] ?? '/public/assets/images/services/чистка.png';
+    // Ensure absolute URL for og:image
+    if (strpos($img, 'http') !== 0) {
+      $img = $siteUrl . $img;
+    }
+    // Ensure it's not SVG for og:image (social media doesn't support SVG well)
+    if (str_ends_with($img, '.svg')) {
+      $img = str_replace('.svg', '.webp', $img);
+    }
     $type    = $p['type'] ?? 'website';
     $locale  = $p['locale'] ?? 'ru_RU';
     $robots  = $p['robots'] ?? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
@@ -89,6 +97,9 @@ class SeoMeta
       'url' => $siteUrl,
       'telephone' => '+79161829272',
       'email' => 'info@mmclean.ru',
+      'taxID' => '7703010010', // ИНН
+      'identifier' => '1027700123456', // ОГРН
+      'legalName' => 'ООО "МАНДО МЕМОРИ"',
       'address' => [
         '@type' => 'PostalAddress',
         'streetAddress' => 'Петровка 15/13 стр.5',
@@ -228,6 +239,9 @@ class SeoMeta
       ],
       'description' => 'Премиальная мастерская по химчистке и реставрации обуви в Москве с 2015 года.',
       'foundingDate' => '2015',
+      'taxID' => '7703010010', // ИНН
+      'vatID' => 'RU7703010010', // КПП/ВАТ
+      'legalName' => 'ООО "МАНДО МЕМОРИ"', // Юридическое название
       'address' => [
         '@type' => 'PostalAddress',
         'streetAddress' => 'Петровка 15/13 стр.5',

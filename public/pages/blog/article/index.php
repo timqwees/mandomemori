@@ -48,31 +48,36 @@ require_once __DIR__ . '/../faq-templates.php';
 $faqItems = buildArticleFaq($article, $faqTemplates, $categoryFaqMap);
 
 // ── JSON-LD: BlogPosting + BreadcrumbList + FAQPage ──
-$jsonLd = [
-  '@context' => 'https://schema.org',
-  '@graph' => [
-    [
-      '@type' => 'BlogPosting',
-      '@id' => $articleUrl . '/#blogpost',
-      'headline' => $article['title'],
-      'description' => $article['meta_description'],
-      'author' => ['@type' => 'Person', 'name' => $article['author'] ?? 'MANDO MEMORI', 'url' => $siteURL . '/'],
-      'publisher' => [
-        '@type' => 'Organization',
-        'name' => 'MANDO MEMORI',
-        'url' => $siteURL,
-        'logo' => ['@type' => 'ImageObject', 'url' => $siteURL . '/public/assets/images/favicon_full_black.svg'],
+  $jsonLd = [
+    '@context' => 'https://schema.org',
+    '@graph' => [
+      [
+        '@type' => 'BlogPosting',
+        '@id' => $articleUrl . '/#blogpost',
+        'headline' => $article['title'],
+        'description' => $article['meta_description'],
+        'author' => [
+          '@type' => 'Person',
+          'name' => $article['author'] ?? 'MANDO MEMORI',
+          'url' => $siteURL . '/author/mando-memori',
+          'sameAs' => ['https://t.me/maksim1144'],
+        ],
+        'publisher' => [
+          '@type' => 'Organization',
+          'name' => 'MANDO MEMORI',
+          'url' => $siteURL,
+          'logo' => ['@type' => 'ImageObject', 'url' => $siteURL . '/public/assets/images/favicon_full_black.svg'],
+        ],
+        'datePublished' => date('c', strtotime($article['created_at'])),
+        'dateModified' => date('c', strtotime($article['updated_at'] ?? $article['created_at'])),
+        'image' => $articleImage,
+        'url' => $articleUrl,
+        'mainEntityOfPage' => $articleUrl,
+        'inLanguage' => 'ru-RU',
+        'articleSection' => $article['category'],
+        'keywords' => $article['tags'],
+        'abstract' => mb_substr($article['content'], 0, 150),
       ],
-      'datePublished' => date('c', strtotime($article['created_at'])),
-      'dateModified' => date('c', strtotime($article['updated_at'] ?? $article['created_at'])),
-      'image' => $articleImage,
-      'url' => $articleUrl,
-      'mainEntityOfPage' => $articleUrl,
-      'inLanguage' => 'ru-RU',
-      'articleSection' => $article['category'],
-      'keywords' => $article['tags'],
-      'abstract' => mb_substr($article['content'], 0, 150),
-    ],
     [
       '@type' => 'BreadcrumbList',
       'itemListElement' => [
@@ -112,11 +117,15 @@ $tlDrText = mb_substr(strip_tags($article['content'] ?? ''), 0, 150);
         <div class="article-meta-left">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4562A"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
           <span class="article-author-label">Автор:</span>
-          <a href="/" rel="author" class="article-author-name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name"><?= htmlspecialchars($article['author'] ?? 'MANDO MEMORI') ?></span></a>
+          <a href="/author/mando-memori" rel="author" class="article-author-name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name"><?= htmlspecialchars($article['author'] ?? 'MANDO MEMORI') ?></span></a>
+          <span class="article-expert-badge" title="Эксперт MANDO MEMORI — 9 лет опыта, 10 000+ клиентов">✓ Эксперт</span>
         </div>
         <div class="article-meta-right">
           <span class="article-cat" itemprop="articleSection"><?= htmlspecialchars($article['category']) ?></span>
           <span class="article-date"><time itemprop="datePublished" datetime="<?= date('c', strtotime($article['created_at'])) ?>"><?= date('d.m.Y', strtotime($article['created_at'])) ?></time></span>
+          <?php if (($article['updated_at'] ?? '') !== $article['created_at']): ?>
+          <span class="article-updated" title="Статья обновлена"><time itemprop="dateModified" datetime="<?= date('c', strtotime($article['updated_at'])) ?>">Обновлено: <?= date('d.m.Y', strtotime($article['updated_at'])) ?></time></span>
+          <?php endif; ?>
         </div>
       </div>
       <h1 class="article-title" itemprop="headline"><?= htmlspecialchars($article['title']) ?></h1>
@@ -240,9 +249,12 @@ $tlDrText = mb_substr(strip_tags($article['content'] ?? ''), 0, 150);
 .article-meta-left svg { width: 16px; height: 16px; }
 .article-author-label { color: #999; }
 .article-author-name { font-weight: 600; color: #555; }
+.article-expert-badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 100px; background: #e8f5e9; color: #2e7d32; font-size: 11px; font-weight: 700; margin-left: 8px; }
 .article-meta-right { display: inline-flex; align-items: center; gap: 10px; }
 .article-cat { display: inline-block; padding: 3px 10px; border-radius: 4px; background: var(--accent); color: #fff; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing:0.03em; }
 .article-date { font-size: 13px; color: var(--blog-muted); }
+.article-updated { font-size: 12px; color: #888; }
+.article-updated time { color: #666; }
 .article-title { font-family: var(--font-heading); font-size: clamp(1.6rem,3.5vw,2.4rem); font-weight: 700; letter-spacing:-0.02em; line-height:1.15; margin:0; max-width: 800px; color: #000; }
 .article-desc { color: var(--blog-muted); margin-top: 12px; font-size: clamp(0.9rem,1.05vw,1rem); line-height:1.55; max-width: 700px; }
 
