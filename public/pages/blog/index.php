@@ -9,10 +9,26 @@ $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' :
 $host = $_SERVER['HTTP_HOST'] ?? 'mandomemori.ru';
 $siteUrl = "$scheme://$host";
 
+// Get filter and page first
 $filterCat = $_GET['category'] ?? 'all';
 $filterCat = trim($filterCat);
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 if ($page < 1) $page = 1;
+
+// Load all articles and sort by date
+$articlesJson = json_decode(file_get_contents(__DIR__ . '/data/articles.json'), true) ?: [];
+usort($articlesJson, fn($a, $b) => strtotime($b['created_at']) - strtotime($a['created_at']));
+
+// Apply category filter
+if ($filterCat !== 'all' && $filterCat !== '') {
+    $articlesJson = array_values(array_filter($articlesJson, fn($a) => ($a['category'] ?? '') === $filterCat));
+}
+
+$perPage = 5;
+$maxPages = max(1, ceil(count($articlesJson) / $perPage));
+if ($page > $maxPages) $page = $maxPages;
+$offset = ($page - 1) * $perPage;
+$articles = array_slice($articlesJson, $offset, $perPage);
 
 // Build canonical URL
 if ($filterCat !== 'all' && $filterCat !== '') {
@@ -55,49 +71,23 @@ $extraHead = $prevLink . $nextLink;
 
 require __DIR__ . '/../../partials/header.php';
 
-$articlesJson = json_decode(file_get_contents(__DIR__ . '/data/articles.json'), true) ?: [];
-usort($articlesJson, fn($a, $b) => strtotime($b['created_at']) - strtotime($a['created_at']));
-
-$perPage = 5;
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-if ($page < 1) $page = 1;
-$maxPages = ceil(count($articlesJson) / $perPage);
-if ($page > $maxPages) $page = $maxPages;
-$offset = ($page - 1) * $perPage;
-$articles = array_slice($articlesJson, $offset, $perPage);
-
+// Extract categories for filter sidebar
 $seenCats = [];
 $categories = [];
 foreach ($articlesJson as $item) {
-  if (!empty($item['category']) && !in_array($item['category'], $seenCats)) {
-    $seenCats[] = $item['category'];
-    $categories[] = $item['category'];
-  }
+    if (!empty($item['category']) && !in_array($item['category'], $seenCats)) {
+        $seenCats[] = $item['category'];
+        $categories[] = $item['category'];
+    }
 }
 
-// Фильтр по категории (?category=...)
-$filterCat = $_GET['category'] ?? 'all';
-$filterCat = trim($filterCat);
-if ($filterCat !== 'all' && $filterCat !== '') {
-  $articlesJson = array_values(array_filter($articlesJson, fn($a) => ($a['category'] ?? '') === $filterCat));
-}
+// Top articles for sidebar (from all unfiltered articles)
+$allArticlesJson = json_decode(file_get_contents(__DIR__ . '/data/articles.json'), true) ?: [];
+usort($allArticlesJson, fn($a, $b) => strtotime($b['created_at']) - strtotime($a['created_at']));
+$tops = array_slice($allArticlesJson, 0, 5);
 
-$tops = array_slice($articlesJson, 0, 5);
+// Featured article (only on first page of unfiltered view)
 $featured = ($filterCat === 'all' || $filterCat === '') ? ($articlesJson[0] ?? null) : null;
-$allArticles = $articlesJson;
-$listArticles = $articlesJson;
-if ($featured) {
-  $listArticles = array_slice($articlesJson, 1);
-  $maxPages = max(1, ceil(count($listArticles) / $perPage));
-  if ($page > $maxPages) $page = $maxPages;
-  $offset = ($page - 1) * $perPage;
-  $articles = array_slice($listArticles, $offset, $perPage);
-} else {
-  $maxPages = max(1, ceil(count($listArticles) / $perPage));
-  if ($page > $maxPages) $page = $maxPages;
-  $offset = ($page - 1) * $perPage;
-  $articles = array_slice($listArticles, $offset, $perPage);
-}
 ?>
 <main class="main blog-page">
   <!-- Хлебные крошки -->
@@ -147,14 +137,11 @@ if ($featured) {
         <div class="blog-main">
           <div class="blog-filters">
             <?php
-              $catCounts = array_count_values(array_column($articlesJson, 'category'));
-              // keep original full list for counts
-              $allCatsJson = json_decode(file_get_contents(__DIR__ . '/data/articles.json'), true) ?: [];
-              $fullCounts = array_count_values(array_column($allCatsJson, 'category'));
-              $totalCount = array_sum($fullCounts);
+              $catCounts = array_count_values(array_column($allArticlesJson, 'category'));
+              $totalCount = array_sum($catCounts);
             ?>
             <a href="/blog" class="blog-filter <?= ($filterCat==='all'||$filterCat==='')?'active':'' ?>" data-filter="all">Все статьи <span class="blog-filter__count"><?= $totalCount ?></span></a>
-            <?php foreach ($categories as $cat): $cnt = $fullCounts[$cat] ?? 0; ?>
+            <?php foreach ($categories as $cat): $cnt = $catCounts[$cat] ?? 0; ?>
             <a href="/blog?category=<?= urlencode($cat) ?>" class="blog-filter <?= $filterCat===$cat?'active':'' ?>" data-filter="<?= htmlspecialchars($cat) ?>"><?= htmlspecialchars($cat) ?> <span class="blog-filter__count"><?= $cnt ?></span></a>
             <?php endforeach; ?>
           </div>
