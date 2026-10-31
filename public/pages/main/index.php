@@ -14,11 +14,23 @@ echo '<link rel="preload" as="image" href="/public/assets/images/mandomemori/her
 require __DIR__ . '/../../partials/header.php';
 ?>
 
+<!-- Хлебные крошки для главной страницы -->
+<nav class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList" aria-label="Навигация" style="display:none;">
+  <div class="container">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name">Главная</span>
+        <meta itemprop="position" content="1">
+      </li>
+    </ol>
+  </div>
+</nav>
+
 <main class="main">
   <div class="premium-notice">
     <span class="premium-notice__badge">ТОЛЬКО ПРЕМИУМ</span>
     <span class="premium-notice__text">Работаем с обувью и аксессуарами — Loro Piana, Hermès, Berluti, Gucci, Louis Vuitton и др. <span class="premium-notice__sub">Обычную обувь и кроссовки из масс-маркета не принимаем</span></span>
-    <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=premium_notice" target="_blank" rel="noopener" class="premium-notice__cta" data-tg="premium_notice">Уточнить →</a>
+    <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=premium_notice" target="_blank" rel="external nofollow noopener noreferrer" class="premium-notice__cta" data-tg="premium_notice">Уточнить →</a>
   </div>
   <section class="scroll-hero" id="scroll-hero">
     <div class="scroll-hero__sticky">
@@ -38,7 +50,7 @@ require __DIR__ . '/../../partials/header.php';
         <p class="hero-sub">Премиальная мастерская. Ручная работа. Масс-маркет не обслуживаем.</p>
         <div class="hero-cta-group">
           <a class="btn-accent hero-cta" href="/order">Вызвать курьера</a>
-          <a class="btn-tg hero-cta-tg" href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=hero" target="_blank" rel="noopener" data-tg="hero">
+          <a class="btn-tg hero-cta-tg" href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=hero" target="_blank" rel="external nofollow noopener noreferrer" data-tg="hero">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
             Оценить по фото — 5 мин
           </a>
@@ -170,7 +182,7 @@ require __DIR__ . '/../../partials/header.php';
           </div>
           <div class="product-card-action">
             <a href="/product/<?= $p['slug'] ?>" itemprop="url" class="product-card-btn product-card-btn-detail">Подробнее</a>
-            <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=card_<?= $p['slug'] ?>" target="_blank" rel="noopener" class="product-card-btn product-card-btn-tg" data-tg="card_<?= $p['slug'] ?>">Заказать через Телеграм</a>
+            <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=card_<?= $p['slug'] ?>" target="_blank" rel="external nofollow noopener noreferrer" class="product-card-btn product-card-btn-tg" data-tg="card_<?= $p['slug'] ?>">Заказать через Телеграм</a>
           </div>
           </div>
         </article>
@@ -201,7 +213,7 @@ require __DIR__ . '/../../partials/header.php';
   </section>
 
   <div class="container">
-    <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=trust_compact" target="_blank" rel="noopener" class="tg-compact" data-tg="trust_compact">
+    <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=trust_compact" target="_blank" rel="external nofollow noopener noreferrer" class="tg-compact" data-tg="trust_compact">
       <span class="tg-compact__icon">✦</span>
       <span class="tg-compact__text">Пришлите фото в Telegram — назовём цену за 5 минут, бесплатно</span>
       <span class="tg-compact__btn">Написать</span>
@@ -217,7 +229,7 @@ require __DIR__ . '/../../partials/header.php';
       <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
         <h3 class="home-faq-question" itemprop="name">Сколько стоит химчистка обуви в Москве?</h3>
         <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <div class="home-faq-answer" itemprop="text">Стоимость химчистки обуви в нашей мастерской — <strong>от 5 990 ₽ за пару</strong>. Цена зависит от материала, сложности загрязнений и состояния обуви. <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=faq_price" target="_blank" rel="noopener" data-tg="faq_price" style="color:#229ED9;font-weight:600;text-decoration:underline">Пришлите фото в Telegram — оценим стоимость работы бесплатно за 5 минут →</a></div>
+          <div class="home-faq-answer" itemprop="text">Стоимость химчистки обуви в нашей мастерской — <strong>от 5 990 ₽ за пару</strong>. Цена зависит от материала, сложности загрязнений и состояния обуви. <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=faq_price" target="_blank" rel="external nofollow noopener noreferrer" data-tg="faq_price" style="color:#229ED9;font-weight:600;text-decoration:underline">Пришлите фото в Telegram — оценим стоимость работы бесплатно за 5 минут →</a></div>
         </div>
       </div>
       <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
@@ -305,7 +317,7 @@ $hcards = [
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
     Позвонить
   </a>
-  <a class="bottom-cta__btn bottom-cta__btn--tg" href="https://t.me/maksim1144" target="_blank" rel="noopener">
+  <a class="bottom-cta__btn bottom-cta__btn--tg" href="https://t.me/maksim1144" target="_blank" rel="external nofollow noopener noreferrer">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
     Пришлите фото
   </a>

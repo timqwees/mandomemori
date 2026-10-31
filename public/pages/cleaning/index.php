@@ -9,6 +9,27 @@ $pageKeywords = 'химчистка обуви Москва, чистка обу
 $canonical = $_SERVER['REQUEST_URI'] ?? '/cleaning';
 require __DIR__ . '/../partials/header.php';
 ?>
+
+<!-- Хлебные крошки -->
+<nav class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList" aria-label="Навигация">
+  <div class="container">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item"><span itemprop="name">Главная</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/products" itemprop="item"><span itemprop="name">Услуги</span></a>
+        <meta itemprop="position" content="2">
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name">Химчистка обуви</span>
+        <meta itemprop="position" content="3">
+      </li>
+    </ol>
+  </div>
+</nav>
+
 <main class="main">
   <section class="contacts-hero">
     <div class="container">

@@ -188,6 +188,7 @@ class SeoController
       'Disallow: /checkout',
       'Disallow: /send/*',
       'Disallow: /*?*',
+      'Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&gclid&yclid&fbclid&msclkid&_ga&_gl&_openstat&referrer',
       "Sitemap: " . $s . "/sitemap.xml",
       "Host: " . $s,
       '',

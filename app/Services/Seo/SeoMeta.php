@@ -14,7 +14,7 @@ class SeoMeta
     $img     = $p['image'] ?? '/public/assets/images/services/default.webp';
     $type    = $p['type'] ?? 'website';
     $locale  = $p['locale'] ?? 'ru_RU';
-    $robots  = $p['robots'] ?? 'index, follow';
+    $robots  = $p['robots'] ?? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
     $author  = $p['author'] ?? 'MANDO MEMORI';
     $hreflang = $p['hreflang'] ?? ($siteUrl . $canon);
 
@@ -42,6 +42,18 @@ class SeoMeta
 
     $h .= '<link rel="alternate" href="' . $hreflang . '" hreflang="ru-RU">' . "\n";
     $h .= '<link rel="alternate" href="' . $hreflang . '" hreflang="x-default">' . "\n";
+
+    $h .= '<link rel="author" href="' . $siteUrl . '/">' . "\n";
+    $h .= '<link rel="publisher" href="' . $siteUrl . '/">' . "\n";
+
+    $h .= '<link rel="dns-prefetch" href="https://t.me">' . "\n";
+    $h .= '<link rel="dns-prefetch" href="https://wa.me">' . "\n";
+    $h .= '<link rel="dns-prefetch" href="https://fonts.googleapis.com">' . "\n";
+    $h .= '<link rel="dns-prefetch" href="https://fonts.gstatic.com">' . "\n";
+    $h .= '<link rel="preconnect" href="https://t.me" crossorigin="anonymous">' . "\n";
+    $h .= '<link rel="preconnect" href="https://wa.me" crossorigin="anonymous">' . "\n";
+    $h .= '<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">' . "\n";
+    $h .= '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">' . "\n";
 
     $extraLd = $p['jsonLd'] ?? null;
     $h .= self::jsonLd($siteUrl, $extraLd);

@@ -47,7 +47,7 @@ $brandsAll = $all;
       <div class="svc-hero-actions">
         <span class="svc-hero-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="RUB"><meta itemprop="price" content="5990"><meta itemprop="availability" content="https://schema.org/InStock">от <?= htmlspecialchars($b['price_from']) ?> ₽ <small>за пару</small></span>
         <a href="/order" class="svc-hero-btn svc-hero-btn--pulse">Вызвать курьера</a>
-        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=brand_<?= $slug ?>_hero" target="_blank" rel="noopener" class="svc-hero-tg" data-tg="brand_<?= $slug ?>_hero">Пришлите фото <?= htmlspecialchars($b['name']) ?> — 5 мин</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=brand_<?= $slug ?>_hero" target="_blank" rel="external nofollow noopener noreferrer" class="svc-hero-tg" data-tg="brand_<?= $slug ?>_hero">Пришлите фото <?= htmlspecialchars($b['name']) ?> — 5 мин</a>
       </div>
       <p class="svc-hero-trust">★ 4.9 · <?= htmlspecialchars($b['duration']) ?> · оплата после работы · <?= htmlspecialchars($delivery) ?></p>
     </div>
@@ -89,7 +89,7 @@ $brandsAll = $all;
         <div class="svc-step-v" itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><span class="svc-step-v__num">06</span><h3 itemprop="name">Контроль</h3><p itemprop="text">Проверяем пару по чек-листу перед выдачей. Оплата — только после работы.</p></div>
       </div>
       <div class="svc-steps-visual__cta">
-        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=brand_<?= $slug ?>_steps" target="_blank" rel="noopener" class="svc-order-tg" data-tg="brand_<?= $slug ?>_steps">Прислать фото — оценка 5 мин</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=brand_<?= $slug ?>_steps" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg" data-tg="brand_<?= $slug ?>_steps">Прислать фото — оценка 5 мин</a>
         <a href="tel:+79161829272" class="svc-order-phone">+7 (916) 182-92-72</a>
       </div>
     </div>
@@ -140,7 +140,7 @@ $brandsAll = $all;
       <div class="svc-cta-row">
         <a href="/order" class="svc-cta-btn">Вызвать курьера</a>
         <a href="tel:+79161829272" class="svc-cta-phone">Позвонить</a>
-        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=brand_<?= $slug ?>_cta" target="_blank" rel="noopener" class="svc-cta-tg" data-tg="brand_<?= $slug ?>_cta">Пришлите фото в Telegram</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=brand_<?= $slug ?>_cta" target="_blank" rel="external nofollow noopener noreferrer" class="svc-cta-tg" data-tg="brand_<?= $slug ?>_cta">Пришлите фото в Telegram</a>
       </div>
     </div>
   </section>

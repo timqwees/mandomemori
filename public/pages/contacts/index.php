@@ -12,6 +12,22 @@ $canonical = $_SERVER['REQUEST_URI'] ?? '/contacts';
 require __DIR__ . '/../../partials/header.php';
 ?>
 
+<!-- Хлебные крошки -->
+<nav class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList" aria-label="Навигация">
+  <div class="container">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item"><span itemprop="name">Главная</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name">Контакты</span>
+        <meta itemprop="position" content="2">
+      </li>
+    </ol>
+  </div>
+</nav>
+
 
 <main class="main">
   <div class="trust-bar">

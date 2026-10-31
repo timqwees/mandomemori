@@ -39,13 +39,13 @@ $brands = require __DIR__ . '/data.php';
             </div>
             <div class="product-card-action">
               <a href="/brands/<?= $slug ?>" class="product-card-btn product-card-btn-detail" itemprop="url">Открыть →</a>
-              <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=brands_<?= $slug ?>" target="_blank" rel="noopener" class="product-card-btn product-card-btn-tg" data-tg="brands_<?= $slug ?>">Оценить по фото</a>
+              <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=brands_<?= $slug ?>" target="_blank" rel="external nofollow noopener noreferrer" class="product-card-btn product-card-btn-tg" data-tg="brands_<?= $slug ?>">Оценить по фото</a>
             </div>
           </div>
         </article>
         <?php endforeach; ?>
       </div>
-      <p style="text-align:center;color:#777;font-size:.85rem;margin-top:20px">Не нашли бренд? Мы работаем с любым премиумом — <a href="https://t.me/maksim1144" target="_blank" rel="noopener" style="color:#D4562A;font-weight:700">пришлите фото в Telegram →</a></p>
+      <p style="text-align:center;color:#777;font-size:.85rem;margin-top:20px">Не нашли бренд? Мы работаем с любым премиумом — <a href="https://t.me/maksim1144" target="_blank" rel="external nofollow noopener noreferrer" style="color:#D4562A;font-weight:700">пришлите фото в Telegram →</a></p>
     </div>
   </section>
 </main>

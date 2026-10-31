@@ -12,6 +12,22 @@ $canonical = $_SERVER['REQUEST_URI'] ?? '/franchise';
 require __DIR__ . '/../../partials/header.php';
 ?>
 
+<!-- Хлебные крошки -->
+<nav class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList" aria-label="Навигация">
+  <div class="container">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item"><span itemprop="name">Главная</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name">Франшиза</span>
+        <meta itemprop="position" content="2">
+      </li>
+    </ol>
+  </div>
+</nav>
+
 <main class="main franchise-page">
 
   <section class="fr-intro" style="background-color:#1d1d1f;background-image:url('/public/assets/images/mandomemori/фон чистки2.jpg');color:#ffffff" itemscope itemtype="https://schema.org/Product">

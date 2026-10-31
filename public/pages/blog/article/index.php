@@ -141,6 +141,26 @@ if ($tlDrText) {
     echo '<section class="tldr-block"><div class="container"><h3>TL;DR — краткое содержание</h3><p>' . htmlspecialchars($tlDrText) . '...</p><p><a href="#full-content">Читать полностью →</a></p></div></section>';
 }
 
+// Хлебные крошки
+echo '<nav class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList" aria-label="Навигация">
+  <div class="container">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item"><span itemprop="name">Главная</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/blog" itemprop="item"><span itemprop="name">Статьи</span></a>
+        <meta itemprop="position" content="2">
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name">' . htmlspecialchars($currentArticle['title']) . '</span>
+        <meta itemprop="position" content="3">
+      </li>
+    </ol>
+  </div>
+</nav>';
+
 // Главная статья
 if ($currentArticle) {
     echo '<main class="blog-article-page"><div class="container"><article itemscope itemtype="https://schema.org/Article"><meta itemprop="datePublished" content="' . date('c', strtotime($currentArticle['created_at'])) . '">
@@ -167,14 +187,14 @@ if ($currentArticle) {
 
 // Блок автора
 if ($currentArticle) {
-    echo '<section class="author-block"><div class="container"><div class="author-info"><div class="author-avatar"><img src="/public/assets/images/favicon_full_black.svg" alt="' . htmlspecialchars($currentArticle['author'] ?? 'MANDO MEMORI') . '" width="80" height="80"></div><div class="author-details"><h3 itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">' . htmlspecialchars($currentArticle['author'] ?? 'MANDO MEMORI') . '</span></h3><p itemprop="description">MANDO MEMORI — премиальная мастерская по химчистке и реставрации обуви в Москве с 2015 года.</p></div></div></div></section>';
+    echo '<section class="author-block"><div class="container"><div class="author-info"><div class="author-avatar"><img src="/public/assets/images/favicon_full_black.svg" alt="' . htmlspecialchars($currentArticle['author'] ?? 'MANDO MEMORI') . '" width="80" height="80"></div><div class="author-details"><h3 itemprop="author" itemscope itemtype="https://schema.org/Person"><a href="/" rel="author" itemprop="url"><span itemprop="name">' . htmlspecialchars($currentArticle['author'] ?? 'MANDO MEMORI') . '</span></a></h3><p itemprop="description">MANDO MEMORI — мастерская по химчистке и реставрации обуви в Москве с 2015 года.</p></div></div></div></section>';
 }
 
 // Схожие статьи
 if (!empty($relatedArticles)) {
     echo '<section class="related-articles"><div class="container"><h2>Схожие статьи</h2><div class="related-grid">';
     foreach ($relatedArticles as $article) {
-        echo '<article class="related-card"><a href="/blog/' . $article['url'] . '"><div class="related-img"><img src="' . $article['image'] . '" alt="' . htmlspecialchars($article['title']) . '" loading="lazy" width="300" height="200"></div><div class="related-body"><h3>' . htmlspecialchars($article['title']) . '</h3><time>' . date('d.m.Y', strtotime($article['created_at'])) . '</time></div></a></article>';
+        echo '<article class="related-card"><a href="/blog/' . $article['url'] . '" rel="bookmark" itemprop="url"><div class="related-img"><img src="' . $article['image'] . '" alt="' . htmlspecialchars($article['title']) . '" loading="lazy" width="300" height="200"></div><div class="related-body"><h3 itemprop="headline">' . htmlspecialchars($article['title']) . '</h3><time itemprop="datePublished" datetime="' . date('c', strtotime($article['created_at'])) . '">' . date('d.m.Y', strtotime($article['created_at'])) . '</time></div></a></article>';
     }
     echo '</div></div></section>';
 }

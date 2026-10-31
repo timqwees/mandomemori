@@ -56,6 +56,22 @@ if ($featured) {
 }
 ?>
 <main class="main blog-page">
+  <!-- Хлебные крошки -->
+  <nav class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList" aria-label="Навигация">
+    <div class="container">
+      <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Главная</span></a>
+          <meta itemprop="position" content="1">
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">Статьи</span>
+          <meta itemprop="position" content="2">
+        </li>
+      </ol>
+    </div>
+  </nav>
+
   <section class="blog-hero">
     <div class="container">
       <h1 class="blog-hero-title">Блог / статьи</h1>

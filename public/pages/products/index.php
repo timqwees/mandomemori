@@ -10,6 +10,24 @@ $pageDesc = 'Чистка обуви от 5 990 ₽, ремонт обуви о�
 $pageKeywords = 'чистка обуви Москва, химчистка обуви Москва, ремонт обуви Москва, реставрация обуви Москва, отбеливание подошвы Москва, замена подошвы Москва, реставрация сумок Москва, набойки Москва, задники обуви, чистка Loro Piana, ремонт Hermès, MANDO MEMORI';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/products';
 require __DIR__ . '/../../partials/header.php';
+?>
+
+<!-- Хлебные крошки -->
+<nav class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList" aria-label="Навигация">
+  <div class="container">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item"><span itemprop="name">Главная</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name">Услуги</span>
+        <meta itemprop="position" content="2">
+      </li>
+    </ol>
+  </div>
+</nav>
+
 ?><main class="main">
   <div class="trust-bar">
     <div class="trust-item">
@@ -54,7 +72,7 @@ require __DIR__ . '/../../partials/header.php';
     <div class="container">
       <h1 class="contacts-title">Услуги обуви в Москве — чистка, ремонт, реставрация</h1>
       <p class="contacts-subtitle">Чистка обуви от 5 990 ₽ · Ремонт обуви от 1 990 ₽ · Реставрация обуви от 6 490 ₽ · Отбеливание подошвы от 10 990 ₽ · Замена подошвы от 18 990 ₽ · Реставрация сумок от 7 990 ₽. Loro Piana, Hermès, Berluti, Gucci, Louis Vuitton. Масс-маркет не обслуживаем</p>
-      <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=products_top" target="_blank" rel="noopener" class="btn-tg" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:12px 22px;background:var(--tg);color:#fff;border-radius:980px;font-weight:600;text-decoration:none" data-tg="products_top">Оценить по фото — 5 мин →</a>
+      <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=products_top" target="_blank" rel="external nofollow noopener noreferrer" class="btn-tg" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:12px 22px;background:var(--tg);color:#fff;border-radius:980px;font-weight:600;text-decoration:none" data-tg="products_top">Оценить по фото — 5 мин →</a>
     </div>
   </section>
 
@@ -81,7 +99,7 @@ require __DIR__ . '/../../partials/header.php';
           </div>
           <div class="product-card-action">
             <a href="/product/<?= $svc['slug'] ?>" class="product-card-btn product-card-btn-detail" itemprop="url">Подробнее</a>
-            <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=products_<?= $svc['slug'] ?>" target="_blank" rel="noopener" class="product-card-btn product-card-btn-tg" data-tg="products_<?= $svc['slug'] ?>">Заказать через Телеграм</a>
+            <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=products_<?= $svc['slug'] ?>" target="_blank" rel="external nofollow noopener noreferrer" class="product-card-btn product-card-btn-tg" data-tg="products_<?= $svc['slug'] ?>">Заказать через Телеграм</a>
           </div>
           </div>
         </article>
