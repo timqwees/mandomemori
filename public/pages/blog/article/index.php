@@ -6,7 +6,7 @@ $notify = Functions::notify();
 $siteUrl = $_SERVER['REQUEST_URI'] ?? '/';
 $canonical = $siteUrl;
 
-$articlesJson = json_decode(file_get_contents(__DIR__ . '/data/articles.json'), true) ?: [];
+$articlesJson = json_decode(file_get_contents(__DIR__ . '/../data/articles.json'), true) ?: [];
 $currentArticle = null;
 
 // Извлекаем slug из URL (/blog/{slug})
