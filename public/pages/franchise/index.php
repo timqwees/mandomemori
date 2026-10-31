@@ -36,7 +36,7 @@ require __DIR__ . '/../../partials/header.php';
         </div>
         <div class="fr-desc-usp-item" style="background:#f5f5f7;border-radius:16px;padding:40px 32px">
           <h4 style="color:#C8A46F">Премиальные бренды</h4>
-          <p style="color:#333">Работаем с Loro Piana, Gucci, Prada, Hermès и другими люксовыми марками. Доверие клиентов высокого уровня.</p>
+          <p style="color:#333">Работаем с Loro Piana, Gucci, Prada, Hermès и другими брендами. Доверие клиентов высокого уровня.</p>
         </div>
         <div class="fr-desc-usp-item" style="background:#f5f5f7;border-radius:16px;padding:40px 32px">
           <h4 style="color:#C8A46F">26 городов</h4>

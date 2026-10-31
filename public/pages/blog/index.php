@@ -4,9 +4,9 @@ $seo = Functions::seo();
 $notify = Functions::notify();
 
 $siteINFO = ['canonical' => '/blog', 'priority' => '0.8', 'changefreq' => 'weekly', 'index' => 'articles'];
-$pageTitle = 'Блог об уходе за премиальной обувью — MANDO MEMORI, советы экспертов';
-$pageDesc = 'Экспертные статьи об уходе за премиальной обувью: чистка Loro Piana, реставрация кожи, уход за замшей и нубуком. Советы мастеров MANDO MEMORI.';
-$pageKeywords = 'уход за премиальной обувью, чистка Loro Piana, реставрация кожаной обуви, советы по уходу за обувью люкс, блог MANDO MEMORI';
+$pageTitle = 'Блог об уходе за обувью — MANDO MEMORI, советы экспертов';
+$pageDesc = 'Экспертные статьи об уходе за обувью: чистка Loro Piana, реставрация кожи, уход за замшей и нубуком. Советы мастеров MANDO MEMORI.';
+$pageKeywords = 'уход за обувью, чистка Loro Piana, реставрация кожаной обуви, советы по уходу за обувью, блог MANDO MEMORI';
 $robots = 'index, follow';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/blog';
 require __DIR__ . '/../../partials/header.php';

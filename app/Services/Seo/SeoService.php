@@ -10,7 +10,7 @@ class SeoService
     {
         $this->meta = [
             'title' => 'Замена и отбеливание подошвы Loro Piana в Москве — ХИТ | Реставрация сумок | MANDO MEMORI',
-            'description' => 'ХИТ: замена подошвы Loro Piana от 18 990 ₽, отбеливание подошвы Loro Piana от 10 990 ₽, реставрация сумок Hermès/Chanel от 7 990 ₽, реставрация обуви от 6 490 ₽. Премиум-мастерская в Москве. ' . \Setting\Route\Function\Functions::deliveryNote() . '. Гарантия качества.',
+            'description' => 'ХИТ: замена подошвы Loro Piana от 18 990 ₽, отбеливание подошвы Loro Piana от 10 990 ₽, реставрация сумок Hermès/Chanel от 7 990 ₽, реставрация обуви от 6 490 ₽. Мастерская в Москве. ' . \Setting\Route\Function\Functions::deliveryNote() . '. Гарантия качества.',
             'keywords' => 'замена подошвы Loro Piana Москва, отбеливание подошвы Loro Piana, реставрация сумок Москва, реставрация обуви Loro Piana, химчистка Loro Piana, MANDO MEMORI',
             'h1' => 'Замена и отбеливание подошвы Loro Piana, реставрация сумок в Москве — MANDO MEMORI'
         ];
@@ -37,7 +37,7 @@ class SeoService
         'name' => 'MANDO MEMORI',
         'alternateName' => 'mmclean.ru',
         'url' => $s,
-        'description' => 'Премиальная химчистка и реставрация обуви и сумок в Москве. Loro Piana, Hermès, Berluti, John Lobb.',
+        'description' => 'Химчистка и реставрация обуви и сумок в Москве. Loro Piana, Hermès, Berluti.',
         'inLanguage' => 'ru-RU',
         'potentialAction' => [
             '@type' => 'SearchAction',
@@ -66,7 +66,7 @@ class SeoService
             'width' => 90,
             'height' => 52,
         ],
-        'description' => 'Премиальная мастерская по химчистке и реставрации обуви в Москве с 2015 года.',
+        'description' => 'Мастерская по химчистке и реставрации обуви в Москве с 2015 года.',
         'foundingDate' => '2015',
         'contactPoint' => [
             '@type' => 'ContactPoint',
@@ -87,9 +87,9 @@ class SeoService
         $data = [
             '@context' => 'https://schema.org',
             '@type' => 'Service',
-            'serviceType' => 'Химчистка и реставрация премиальной обуви',
-            'name' => 'Химчистка и реставрация премиальной обуви',
-            'description' => 'Ручная химчистка и реставрация премиальной обуви и сумок в Москве. Loro Piana, Hermès, Berluti, John Lobb. Стоимость от 1 490 ₽.',
+            'serviceType' => 'Химчистка и реставрация обуви',
+            'name' => 'Химчистка и реставрация обуви',
+            'description' => 'Ручная химчистка и реставрация обуви и сумок в Москве. Loro Piana, Hermès, Berluti. Стоимость от 1 490 ₽.',
             'provider' => [
                 '@type' => 'Organization',
                 '@id' => $s . '/#organization',
@@ -149,7 +149,7 @@ class SeoService
                     'name' => 'Какие бренды обуви вы принимаете на химчистку?',
                     'acceptedAnswer' => [
                         '@type' => 'Answer',
-                        'text' => 'Мы специализируемся на премиальном сегменте: Loro Piana, Hermès, Berluti, John Lobb, Gucci, Prada, Louis Vuitton, Balenciaga, Christian Louboutin. Каждая пара получает индивидуальный подход с учётом материала и конструкции.'
+                        'text' => 'Мы специализируемся на сегменте: Loro Piana, Hermès, Berluti, Gucci, Prada, Louis Vuitton, Balenciaga, Christian Louboutin. Каждая пара получает индивидуальный подход с учётом материала и конструкции.'
                     ]
                 ],
             ]

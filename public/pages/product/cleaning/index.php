@@ -14,7 +14,7 @@ $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '1.0', 'changefreq' => 'daily', 'index' => 'products'];
 $pageTitle = "Чистка премиальной обуви в Москве от 5 990 ₽ — Loro Piana, Hermès, Berluti | MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
-$pageDesc = "Чистка премиальной обуви Loro Piana, Hermès, Berluti, John Lobb, Gucci, Louis Vuitton в Москве от 5 990 ₽. Ручная химистка, восстановление формы и цвета, пропитка. Бесплатная оценка по фото за 5 минут. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
+$pageDesc = "Чистка премиальной обуви Loro Piana, Hermès, Berluti, Gucci, Louis Vuitton в Москве от 5 990 ₽. Ручная химистка, восстановление формы и цвета, пропитка. Бесплатная оценка по фото за 5 минут. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
 $pageKeywords = "чистка обуви Москва, химчистка обуви Москва, чистка Loro Piana, чистка Hermès, чистка Berluti, химчистка премиальной обуви, чистка кожаной обуви, чистка замши, MANDO MEMORI";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;
@@ -107,7 +107,7 @@ require __DIR__ . '/../../../partials/header.php';
       <div class="svc-content-text">
         <p>Мастерская MANDO MEMORI предлагает профессиональную химчистку обуви в Москве. Мы работаем с любыми материалами: кожа, замша, нубук, текстиль, лак. Каждая пара проходит полный цикл очистки — от наружной чистки до внутренней дезинфекции и водоотталкивающей пропитки.</p>
         <p>Наши мастера используют профессиональные средства ведущих мировых брендов (Saphir, Tarrago, Collonil), которые бережно удаляют загрязнения, не повреждая материал. После химчистки обувь выглядит как новая: исчезают потёртости, возвращается насыщенный цвет, уходит неприятный запах.</p>
-        <p>Мы особенно тщательно работаем с премиум-брендами: Loro Piana, Gucci, Prada, Louis Vuitton, Hermès. Деликатные материалы требуют особого подхода, и наши технологи знают, как не навредить дорогой обуви.</p>
+        <p>Мы особенно тщательно работаем с премиум-брендами: Loro Piana, Gucci, Prada, Louis Vuitton, Hermès. Деликатные материалы требуют особого подхода, и наши технологи знают, как не навредить обуви.</p>
         <p>Химчистка обуви с доставкой по Москве — мы приедем к вам, заберём обувь и вернём её чистой и свежей. Работаем по всей Москве.</p>
       </div>
     </div>
@@ -149,12 +149,12 @@ require __DIR__ . '/../../../partials/header.php';
     <div class="container">
       <h2 class="svc-section-title">Чистка премиальной обуви в Москве — с какими брендами работаем</h2>
       <div class="svc-tags">
-        <span class="svc-tag">Loro Piana</span>
-        <span class="svc-tag">Gucci</span>
-        <span class="svc-tag">Prada</span>
-        <span class="svc-tag">Louis Vuitton</span>
-        <span class="svc-tag">Hermès</span>
-        <span class="svc-tag">Balenciaga</span>
+        <a class="svc-tag" href="/brands/loro-piana">Loro Piana</a>
+        <a class="svc-tag" href="/brands/gucci">Gucci</a>
+        <a class="svc-tag" href="/brands/prada">Prada</a>
+        <a class="svc-tag" href="/brands/louis-vuitton">Louis Vuitton</a>
+        <a class="svc-tag" href="/brands/hermes">Hermès</a>
+        <a class="svc-tag" href="/brands/balenciaga">Balenciaga</a>
         <span class="svc-tag">Saint Laurent</span>
         <span class="svc-tag">Bottega Veneta</span>
         <span class="svc-tag">Valentino</span>
@@ -170,7 +170,7 @@ require __DIR__ . '/../../../partials/header.php';
       <div class="svc-seam__card">
         <span class="svc-seam__badge">⚠️ Частая проблема · не шейте сами</span>
         <h2 class="svc-section-title">Разошёлся шов на туфлях — что делать?</h2>
-        <p class="svc-section-sub">Разошедшийся шов на премиальных туфлях (Loro Piana, Berluti, John Lobb, Gucci) — это не приговор, но домашний ремонт почти всегда делает хуже: кривая строчка, проколы кожи, клей, который потом приходится вычищать. Вот правильный порядок действий:</p>
+        <p class="svc-section-sub">Разошедшийся шов на премиальных туфлях (Loro Piana, Berluti, Gucci) — это не приговор, но домашний ремонт почти всегда делает хуже: кривая строчка, проколы кожи, клей, который потом приходится вычищать. Вот правильный порядок действий:</p>
         <div class="svc-seam__grid">
           <div class="svc-seam__col svc-seam__col--no">
             <h3>🚫 Чего НЕ делать</h3>

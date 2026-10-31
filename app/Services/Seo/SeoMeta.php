@@ -7,8 +7,8 @@ class SeoMeta
   public static function head(array $p = []): string
   {
     $siteUrl = $p['siteUrl'] ?? self::siteUrl();
-    $title   = $p['title'] ?? 'MANDO MEMORI — химчистка премиальной обуви в Москве | Loro Piana, Hermès, Berluti';
-    $desc    = $p['desc'] ?? 'Премиальная мастерская по химчистке и реставрации обуви в Москве. Loro Piana, Hermès, Berluti, John Lobb. Ручная работа от 1 490 ₽. ' . \Setting\Route\Function\Functions::deliveryNote() . '. Гарантия качества.';
+    $title   = $p['title'] ?? 'MANDO MEMORI — химчистка обуви в Москве | Loro Piana, Hermès, Berluti';
+    $desc    = $p['desc'] ?? 'Мастерская по химчистке и реставрации обуви в Москве. Loro Piana, Hermès, Berluti. Ручная работа от 1 490 ₽. ' . \Setting\Route\Function\Functions::deliveryNote() . '. Гарантия качества.';
     $kw      = $p['keywords'] ?? '';
     $canon   = $p['canonical'] ?? '/';
     $img     = $p['image'] ?? '/public/assets/images/services/default.webp';
@@ -63,7 +63,7 @@ class SeoMeta
       '@id' => $siteUrl . '/#localbusiness',
       'name' => 'MANDO MEMORI',
       'alternateName' => 'mmclean.ru',
-      'description' => 'Премиальная мастерская по химчистке и реставрации обуви и сумок в Москве. Специализация: Loro Piana, Hermès, Berluti, John Lobb. Ручная работа, стоимость от 1 490 ₽.',
+      'description' => 'Мастерская по химчистке и реставрации обуви и сумок в Москве. Специализация: Loro Piana, Hermès, Berluti. Ручная работа, стоимость от 1 490 ₽.',
       'image' => [
         $siteUrl . '/public/assets/images/mandomemori/hero-poster.jpg',
         $siteUrl . '/public/assets/images/mandomemori/beforeafter1.png',
@@ -116,7 +116,7 @@ class SeoMeta
         ],
       ],
       'knowsAbout' => [
-        'Химчистка премиальной обуви',
+        'Химчистка обуви',
         'Реставрация обуви Loro Piana',
         'Замена подошвы Loro Piana',
         'Отбеливание подошвы',
@@ -130,7 +130,7 @@ class SeoMeta
       ],
       'hasOfferCatalog' => [
         '@type' => 'OfferCatalog',
-        'name' => 'Услуги премиальной мастерской MANDO MEMORI',
+        'name' => 'Услуги мастерской MANDO MEMORI',
         'itemListElement' => [
           [
             '@type' => 'Offer',

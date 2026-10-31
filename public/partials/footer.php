@@ -5,7 +5,7 @@
           <a href="/" class="footer-logo">
             <img src="/public/assets/images/favicon_full_white.svg" alt="MANDO MEMORI" class="footer-logo-img" width="90" height="52">
           </a>
-          <p class="footer-brand-desc" itemprop="description">Премиальная мастерская по химчистке и реставрации обуви в Москве. Loro Piana, Hermès, Berluti, John Lobb. Ручная работа. <?= htmlspecialchars(\Setting\Route\Function\Functions::deliveryNote()) ?>.</p>
+          <p class="footer-brand-desc" itemprop="description">Премиальная мастерская по химчистке и реставрации обуви в Москве. Loro Piana, Hermès, Berluti. Ручная работа. <?= htmlspecialchars(\Setting\Route\Function\Functions::deliveryNote()) ?>.</p>
           <div class="footer-social">
             <a href="https://t.me/maksim1144" target="_blank" rel="noopener" class="footer-social-link" title="Telegram" itemprop="sameAs">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
@@ -20,6 +20,10 @@
           <h2 class="footer-col-title">Услуги</h2>
           <nav class="footer-nav">
             <a href="/loro-piana">Loro Piana</a>
+            <a href="/brands">Все бренды</a>
+            <a href="/brands/balenciaga">Balenciaga</a>
+            <a href="/brands/loro-piana">Loro Piana</a>
+            <a href="/brands/hermes">Hermès</a>
             <a href="/product/cleaning">Чистка</a>
             <a href="/product/restoration">Реставрация Loro Piana</a>
             <a href="/product/replacement">Замена подошвы Loro Piana</a>

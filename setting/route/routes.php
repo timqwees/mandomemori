@@ -24,6 +24,9 @@ Routes::get('/order', [HomeController::class, 'onOrder']);
 Routes::get('/cleaning', [HomeController::class, 'onCleaning']);
 Routes::get('/repair', [HomeController::class, 'onRepair']);
 Routes::get('/sneaker-cleaning', [HomeController::class, 'onSneakerCleaning']);
+Routes::get('/brands', [HomeController::class, 'onBrands']);
+Routes::get('/brands/{slug}', [HomeController::class, 'onBrandDetail']);
+Routes::get('/himchistka-{slug}', [HomeController::class, 'onBrandAlias']);
 
 //==================================================================================================// LEADS
 Routes::post('/api/lead', [LeadController::class, 'onSubmit']);

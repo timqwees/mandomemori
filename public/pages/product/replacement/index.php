@@ -14,7 +14,7 @@ $id = $sid;
 $siteINFO = ['canonical' => '/product/' . $slug, 'priority' => '1.0', 'changefreq' => 'daily', 'index' => 'products'];
 $pageTitle = "Замена подошвы Loro Piana в Москве от 18 990 ₽ — ремонт обуви | MANDO MEMORI";
 $ogImage = '/public/assets/images/' . $svc['img'];
-$pageDesc = "Замена подошвы Loro Piana, Hermès, Berluti, John Lobb, Gucci в Москве от 18 990 ₽. Оригинальные материалы, заводское качество, гарантия. Бесплатная оценка по фото за 5 минут. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
+$pageDesc = "Замена подошвы Loro Piana, Hermès, Berluti, Gucci в Москве от 18 990 ₽. Оригинальные материалы, заводское качество, гарантия. Бесплатная оценка по фото за 5 минут. " . \Setting\Route\Function\Functions::deliveryNote() . ".";
 $pageKeywords = "замена подошвы Loro Piana Москва, замена подошвы обуви, ремонт подошвы обуви, замена подошвы Hermès, замена подошвы Berluti, MANDO MEMORI";
 $currentSlug = $slug;
 $canonical = $_SERVER['REQUEST_URI'] ?? '/product/' . $slug;

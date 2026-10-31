@@ -5,8 +5,8 @@ $notify = Functions::notify();
 
 $siteINFO = ['canonical' => '/about', 'priority' => '0.8', 'changefreq' => 'monthly', 'index' => 'main'];
 
-$pageTitle = 'О нас — MANDO MEMORI, химчистка обуви в Москве, более 1 000 000 пар очищено';
-$pageDesc = 'MANDO MEMORI — профессиональная химчистка обуви в Москве с 2015 года. Более 1 млн пар обуви очищено. Чистка кроссовок, отбеливание подошвы, премиум-уход.';
+$pageTitle = 'О нас — MANDO MEMORI, химчистка обуви в Москве, более 10 000 000 пар очищено';
+$pageDesc = 'MANDO MEMORI — профессиональная химчистка обуви в Москве с 2015 года. Более 10 млн пар обуви очищено. Чистка кроссовок, отбеливание подошвы, премиум-уход.';
 $pageKeywords = 'MANDO MEMORI о нас, химчистка обуви Москва, чистка кроссовок, отбеливание подошвы, реставрация обуви';
 $canonical = $_SERVER['REQUEST_URI'] ?? '/about';
 require __DIR__ . '/../../partials/header.php';
@@ -642,7 +642,7 @@ html, body { background: #121212; margin: 0; }
       <div class="anp-hero__spacer"></div>
       <div class="anp-hero__bottom">
           <h1 class="anp-hero__tagline">Химчистка обуви с 2015 года</h1>
-          <p class="anp-hero__desc" itemprop="description">MANDO MEMORI — профессиональный сервис химчистки обуви в Москве. Чистим кроссовки, ботинки, туфли, замшу, нубук и премиальные бренды. Отбеливание подошвы, покраска, реставрация — полный цикл ухода.</p>
+          <p class="anp-hero__desc" itemprop="description">MANDO MEMORI — профессиональный сервис химчистки обуви в Москве. Чистим кроссовки, ботинки, туфли, замшу, нубук и бренды. Отбеливание подошвы, покраска, реставрация — полный цикл ухода.</p>
       </div>
     </div>
   </section>
@@ -650,7 +650,7 @@ html, body { background: #121212; margin: 0; }
         <section class="anp-section" id="s-about">
             <div class="anp-section__grid">
                 <h2 class="anp-section__title" data-blur-title>О нас</h2>
-                <div class="anp-section__content" data-blur-content><p>MANDO MEMORI — профессиональная химчистка обуви в Москве. Мы принимаем обувь любого типа: кроссовки, ботинки, лоферы, кеды, зимние сапоги, угги. Работаем со всеми материалами — гладкая и лакированная кожа, текстиль, замша, нубук, комбинированные поверхности.</p><p>Наши услуги включают: химчистка кроссовок, отбеливание подошвы, покраска и реставрация цвета, чистка замши и нубука, водоотталкивающая пропитка, премиум-уход за брендовой обувью (Loro Piana, Gucci, Prada).</p></div>
+                <div class="anp-section__content" data-blur-content><p>MANDO MEMORI — профессиональная химчистка обуви в Москве. Мы принимаем обувь любого типа: кроссовки, ботинки, лоферы, кеды, зимние сапоги, угги. Работаем со всеми материалами — гладкая и лакированная кожа, текстиль, замша, нубук, комбинированные поверхности.</p><p>Наши услуги включают: химчистка кроссовок, отбеливание подошвы, покраска и реставрация цвета, чистка замши и нубука, водоотталкивающая пропитка, уход за брендовой обувью (Loro Piana, Gucci, Prada).</p></div>
             </div>
         </section>
 
@@ -664,7 +664,7 @@ html, body { background: #121212; margin: 0; }
         <section class="anp-section" id="s-technology">
             <div class="anp-section__grid">
                 <h2 class="anp-section__title" data-blur-title>Технология</h2>
-                <div class="anp-section__content" data-blur-content><p>В работе применяем профессиональную химию и специализированное оборудование для химчистки обуви. Ручной труд используем там, где требуется особая аккуратность — при отбеливании подошвы, покраске и реставрации цвета.</p><p>Каждый заказ начинается с диагностики: оцениваем тип материала, степень загрязнения и износ. Это позволяет подобрать безопасную методику чистки кроссовок, замши, нубука или премиальной обуви и добиться наилучшего результата.</p></div>
+                <div class="anp-section__content" data-blur-content><p>В работе применяем профессиональную химию и специализированное оборудование для химчистки обуви. Ручной труд используем там, где требуется особая аккуратность — при отбеливании подошвы, покраске и реставрации цвета.</p><p>Каждый заказ начинается с диагностики: оцениваем тип материала, степень загрязнения и износ. Это позволяет подобрать безопасную методику чистки кроссовок, замши, нубука или обуви и добиться наилучшего результата.</p></div>
             </div>
         </section>
 
@@ -678,10 +678,10 @@ html, body { background: #121212; margin: 0; }
         <section class="anp-numbers" id="s-numbers" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
           <meta itemprop="ratingValue" content="4.9">
           <meta itemprop="bestRating" content="5">
-          <meta itemprop="ratingCount" content="1100000">
+          <meta itemprop="ratingCount" content="10000000">
           <div class="anp-numbers__grid">
             <div class="anp-number">
-              <span class="anp-number__value">1 100 000+</span>
+              <span class="anp-number__value">10 000 000+</span>
               <span class="anp-number__label">Пар обуви очищено</span>
             </div>
             <div class="anp-number">

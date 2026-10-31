@@ -498,7 +498,7 @@ html, body { background: #121212; margin: 0; }
   <section class="ord-about">
     <div class="ord-about__grid">
       <p class="ord-about__tagline">Химчистка обуви с 2015 года</p>
-      <p class="ord-about__desc">MANDO MEMORI — профессиональная химчистка обуви в Москве. Чистим кроссовки, замшу, нубук, кожу. Отбеливание подошвы, покраска, реставрация. Бесплатная доставка курьером. Более 1 000 000 пар очищено.</p>
+      <p class="ord-about__desc">MANDO MEMORI — профессиональная химчистка обуви в Москве. Чистим кроссовки, замшу, нубук, кожу. Отбеливание подошвы, покраска, реставрация. Бесплатная доставка курьером. Более 10 000 000 пар очищено.</p>
     </div>
   </section>
 
@@ -507,6 +507,7 @@ html, body { background: #121212; margin: 0; }
     <div class="courier-form-wrapper" id="courier-form">
       <div class="courier-form-card">
         <h2 class="courier-form-title" style="color: black;">Вызов курьера</h2>
+        <p class="courier-form-subtitle">Бесплатно вызовем курьера — он заберёт и привезёт обувь обратно. + Бесплатная доставка по Москве</p>
         <p class="courier-form-subtitle"><?= $orderNum ? 'PDF-чек с деталями заказа придёт вам на почту' : 'Оставьте контакты — курьер приедет за обувью' ?></p>
         <form id="courier-request-form" class="courier-form">
           <input type="hidden" name="_csrf" value="3bd5a1ea01eec4cc5fac232d54cfe19be1beb147477f69e057180030166a8e04">

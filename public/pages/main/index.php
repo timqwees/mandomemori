@@ -17,7 +17,7 @@ require __DIR__ . '/../../partials/header.php';
 <main class="main">
   <div class="premium-notice">
     <span class="premium-notice__badge">ТОЛЬКО ПРЕМИУМ</span>
-    <span class="premium-notice__text">Работаем только с дорогой премиальной обувью и аксессуарами — Loro Piana, Hermès, Berluti, John Lobb, Gucci, Louis Vuitton и др. <span class="premium-notice__sub">Обычную обувь и кроссовки из масс-маркета не принимаем</span></span>
+    <span class="premium-notice__text">Работаем с обувью и аксессуарами — Loro Piana, Hermès, Berluti, Gucci, Louis Vuitton и др. <span class="premium-notice__sub">Обычную обувь и кроссовки из масс-маркета не принимаем</span></span>
     <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=premium_notice" target="_blank" rel="noopener" class="premium-notice__cta" data-tg="premium_notice">Уточнить →</a>
   </div>
   <section class="scroll-hero" id="scroll-hero">
@@ -30,7 +30,7 @@ require __DIR__ . '/../../partials/header.php';
         <div class="scroll-hero__spinner"></div>
       </div>
       <div class="scroll-hero__content">
-        <p class="hero-eyebrow">Loro Piana · Hermès · Berluti · John Lobb · Gucci · Louis Vuitton · Только люкс</p>
+        <p class="hero-eyebrow">Loro Piana · Hermès · Berluti · Gucci · Louis Vuitton · Только люкс</p>
         <h1 class="scroll-hero__heading">
           <span class="scroll-hero__word" id="scroll-hero-word">Loro Piana</span>
           <span class="scroll-hero__rest">останется как новая</span>
@@ -40,7 +40,7 @@ require __DIR__ . '/../../partials/header.php';
           <a class="btn-accent hero-cta" href="/order">Вызвать курьера</a>
           <a class="btn-tg hero-cta-tg" href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=hero" target="_blank" rel="noopener" data-tg="hero">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
-            Оценить люкс по фото — 5 мин
+            Оценить по фото — 5 мин
           </a>
         </div>
         <p class="hero-cta-hint">Ответим за 5 минут · Бесплатно · Только премиум-сегмент</p>
@@ -138,14 +138,10 @@ require __DIR__ . '/../../partials/header.php';
   <section class="home-products-section" itemscope itemtype="https://schema.org/ItemList">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">🔥 Хиты продаж — <span style="color:#D4562A">замена и отбеливание Loro Piana</span>, реставрация сумок</h2>
-        <p class="section-subtitle">Максимальный спрос: замена подошвы Loro Piana, отбеливание подошвы Loro Piana, реставрация сумок Hermès/Chanel/LV и реставрация обуви. Для премиальной обуви и аксессуаров. Масс-маркет (Zara, H&M, Kari и т.п.) не обслуживаем.</p>
-        <div class="premium-inline">
-          <span class="premium-inline__dot">◆</span>
-          <span>Принимаем только премиум — кожа крокодила, кашемир, замша и нубук люкс-брендов</span>
-          <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=qualifier_inline" target="_blank" rel="noopener" data-tg="qualifier_inline">Проверить пару →</a>
-        </div>
-        <div class="premium-brands-strip">Loro Piana · Brioni · Kiton · Berluti · John Lobb · Hermès · Gucci · Prada · Louis Vuitton · Chanel · Dior · Bottega Veneta · Saint Laurent</div>
+        <h2 class="section-title">🔥 Хиты продаж — <span style="color:#D4562A">Замена и отбеливание подошвы Loro Piana</span>, реставрация сумок</h2>
+        <p class="section-subtitle">Максимальный спрос: замена подошвы Loro Piana, отбеливание подошвы Loro Piana, реставрация сумок Hermès/Chanel/LV и реставрация обуви. Для обуви и аксессуаров. Масс-маркет (Zara, H&M, Kari и т.п.) не обслуживаем.</p>
+        <div class="premium-brands-strip">Loro Piana · Brioni · Kiton · Berluti · Hermès · Gucci · Prada · Louis Vuitton · Chanel · Dior · Bottega Veneta · Saint Laurent</div>
+        <p style="margin-top:12px;font-size:.9rem"><a href="/brands" style="color:#D4562A;font-weight:700">Открыть все бренды: Balenciaga, Loro Piana, Hermès, Gucci, Prada, LV, Chanel, Dior, Berluti, Louboutin →</a></p>
       </div>
     </div>
     <div class="cards-slider" id="products-slider">
@@ -207,7 +203,7 @@ require __DIR__ . '/../../partials/header.php';
   <div class="container">
     <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=trust_compact" target="_blank" rel="noopener" class="tg-compact" data-tg="trust_compact">
       <span class="tg-compact__icon">✦</span>
-      <span class="tg-compact__text">Пришлите фото люкса в Telegram — назовём цену за 5 минут, бесплатно</span>
+      <span class="tg-compact__text">Пришлите фото в Telegram — назовём цену за 5 минут, бесплатно</span>
       <span class="tg-compact__btn">Написать</span>
     </a>
   </div>
@@ -215,7 +211,7 @@ require __DIR__ . '/../../partials/header.php';
   <section class="home-faq-section" itemscope itemtype="https://schema.org/FAQPage">
     <div class="home-faq-header">
       <h2 class="home-faq-title">Часто задаваемые вопросы о химчистке обуви</h2>
-      <p class="home-faq-subtitle">Только для премиальной обуви и аксессуаров — масс-маркет не обслуживаем</p>
+      <p class="home-faq-subtitle">Только для обуви и аксессуаров — масс-маркет не обслуживаем</p>
     </div>
     <div class="home-faq-grid">
       <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
@@ -227,7 +223,7 @@ require __DIR__ . '/../../partials/header.php';
       <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
         <h3 class="home-faq-question" itemprop="name">Сколько времени занимает химчистка обуви?</h3>
         <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <div class="home-faq-answer" itemprop="text">Ручная химчистка премиальной обуви занимает <strong>от 1 до 6 дней</strong> в зависимости от материала и сложности. Срочная обработка возможна за 1 день.</div>
+          <div class="home-faq-answer" itemprop="text">Ручная химчистка обуви занимает <strong>от 1 до 6 дней</strong> в зависимости от материала и сложности. Срочная обработка возможна за 1 день.</div>
         </div>
       </div>
       <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
@@ -239,20 +235,8 @@ require __DIR__ . '/../../partials/header.php';
       <div class="home-faq-card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
         <h3 class="home-faq-question" itemprop="name">Какие бренды обуви вы принимаете на химчистку?</h3>
         <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <div class="home-faq-answer" itemprop="text">Специализируемся на премиальном сегменте: <strong>Loro Piana, Hermès, Berluti, John Lobb, Gucci, Prada, Louis Vuitton, Balenciaga, Christian Louboutin</strong>. Каждая пара получает индивидуальный подход с учётом материала и конструкции. Масс-маркет не обслуживаем.</div>
+          <div class="home-faq-answer" itemprop="text">Специализируемся на сегменте: <strong>Loro Piana, Hermès, Berluti, Gucci, Prada, Louis Vuitton, Balenciaga, Christian Louboutin</strong>. Каждая пара получает индивидуальный подход с учётом материала и конструкции. Масс-маркет не обслуживаем.</div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="tg-inline-cta">
-    <div class="container">
-      <div class="tg-inline-cta__card tg-inline-cta__card--premium">
-        <div class="tg-inline-cta__text">
-          <h3>Ваша пара — премиум? Проверим за 5 минут</h3>
-          <p>Пришлите фото + бренд в Telegram. Если это премиум/люкс — назовём цену. Если масс-маркет — честно откажем и сэкономим ваше время.</p>
-        </div>
-        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=inline_mid" target="_blank" rel="noopener" class="tg-inline-cta__btn" data-tg="inline_mid">Проверить в Telegram</a>
       </div>
     </div>
   </section>
@@ -260,12 +244,11 @@ require __DIR__ . '/../../partials/header.php';
   <section class="hstack-section">
     <div class="hstack-track">
       <?php
-      $hcards = [
+$hcards = [
         ['img' => 'чистка со спреем.jpg', 'title1' => 'Деликатная сушка', 'desc1' => 'Сушим обувь при низких температурах с сохранением формы и свойств материалов.', 'title2' => 'Финальный контроль', 'desc2' => 'Проверяем каждую пару перед выдачей: чистота, цвет, состояние — всё соответствует стандарту.'],
         ['img' => 'мастер чистка.jpg', 'title1' => 'Бережная чистка', 'desc1' => 'Индивидуальный подбор составов и технологии обработки для каждого типа материала.', 'title2' => 'Уход за кожей и замшей', 'desc2' => 'Натуральные материалы проходят щадящую очистку с питанием и восстановлением структуры.'],
         ['img' => 'средства.jpg', 'title1' => 'Удаление загрязнений', 'desc1' => 'Эффективно справляемся с застарелыми пятнами, следами реагентов и стойкими разводами.', 'title2' => 'Формовка и силуэт', 'desc2' => 'Возвращаем обуви аккуратную форму, расправляем заломы и складки.'],
-        ['img' => 'обувь.jpg', 'title1' => 'Обновление подошвы', 'desc1' => 'Восстанавливаем белизну и цвет подошвы с помощью профессиональных составов.', 'title2' => 'Реставрация покрытия', 'desc2' => 'Маскируем потёртости, царапины и обновляем цвет кожаных поверхностей.'],
-        ];
+      ];
       foreach ($hcards as $hc): ?>
       <div class="hstack-item" style="--card-bg: #1C1512; --card-text: #fff;">
         <div class="hstack-card">
@@ -292,7 +275,6 @@ require __DIR__ . '/../../partials/header.php';
       <button class="hstack-dot active" data-index="0" aria-label="Слайд 1: Доверенная химчистка"></button>
       <button class="hstack-dot" data-index="1" aria-label="Слайд 2: Профессиональное оборудование"></button>
       <button class="hstack-dot" data-index="2" aria-label="Слайд 3: Эко-составы"></button>
-      <button class="hstack-dot" data-index="3" aria-label="Слайд 4: Доставка и удобство"></button>
     </div>
   </section>
 

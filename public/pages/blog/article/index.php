@@ -3,303 +3,180 @@ use Setting\Route\Function\Functions;
 $seo = Functions::seo();
 $notify = Functions::notify();
 
-$siteURL = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? 'mandomemori.ru');
+$siteUrl = $_SERVER['REQUEST_URI'] ?? '/';
+$canonical = $siteUrl;
 
-$slug = $args[1] ?? '';
-$articlesPath = __DIR__ . '/../data/articles.json';
-$articlesJson = json_decode(file_get_contents($articlesPath), true) ?: [];
-$article = null;
-foreach ($articlesJson as $a) {
-  if ($a['url'] === $slug) { $article = $a; break; }
+$articlesJson = json_decode(file_get_contents(__DIR__ . '/data/articles.json'), true) ?: [];
+$currentArticle = null;
+
+// Извлекаем slug из URL (/blog/{slug})
+$slug = trim(parse_url($siteUrl, PHP_URL_PATH), '/');
+$slug = basename($slug); // получаем последний сегмент после разделителя
+
+foreach ($articlesJson as $article) {
+    if ($article['url'] === $slug) {
+        $currentArticle = $article;
+        break;
+    }
 }
 
-if (!$article) {
-  http_response_code(404);
-  $pageTitle = 'Статья не найдена — MANDO MEMORI';
-  $pageDesc = 'Запрашиваемая статья не найдена.';
-  require __DIR__ . '/../../../partials/header.php';
-  echo '<main class="main" style="padding:80px 0;text-align:center;background:#fff;color:#000;min-height:50vh"><h1>404 — Статья не найдена</h1><p style="color:#666;margin-top:12px"><a href="/blog" style="color:#D4562A">Вернуться в блог</a></p></main>';
-  require __DIR__ . '/../../../partials/footer.php';
-  exit;
+if (!$currentArticle) {
+    http_response_code(404);
+    echo '404 — статья не найдена';
+    exit;
 }
 
-$articleUrl = $siteURL . '/blog/' . $article['url'];
-$articleImage = $siteURL . $article['image'];
+$articleId = $currentArticle['id'];
+$contentFile = __DIR__ . '/article/content/' . $articleId . '.php';
+$pageTitle = $currentArticle['title'];
+$pageDesc = $currentArticle['meta_description'];
+$pageKeywords = $currentArticle['tags'];
+$ogImage = $currentArticle['image'];
 
-$siteINFO = ['canonical' => '/blog/' . $article['url'], 'priority' => '0.7', 'changefreq' => 'monthly', 'index' => 'articles'];
-$pageTitle = $article['title'] . ' — MANDO MEMORI';
-$pageDesc = $article['meta_description'];
-$pageKeywords = $article['tags'];
-$robots = 'index, follow';
-$canonical = '/blog/' . $article['url'];
-$ogImage = $article['image'];
-require __DIR__ . '/../../../partials/header.php';
+$relatedArticles = array_filter($articlesJson, fn($a) => $a['id'] !== $articleId);
+shuffle($relatedArticles);
+$relatedArticles = array_slice($relatedArticles, 0, 5);
+$categories = array_values(array_unique(array_column($articlesJson, 'category')));
 
-$tops = array_filter($articlesJson, fn($a) => (int)$a['id'] !== (int)$article['id']);
-$tops = array_slice(array_values($tops), 0, 5);
-?>
-<div id="reading-bar"></div>
-<main class="main article-page">
-  <section class="article-hero">
-    <div class="container">
-      <nav class="article-breadcrumbs">
-        <a href="/">Главная</a> <span class="article-bc-sep">→</span>
-        <a href="/blog">Блог</a> <span class="article-bc-sep">→</span>
-        <span><?= htmlspecialchars($article['category']) ?></span>
-      </nav>
-      <div class="article-meta-top">
-        <div class="article-meta-left">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4562A"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          <span class="article-author-label">Автор:</span>
-          <span class="article-author-name"><?= htmlspecialchars($article['author']) ?></span>
-        </div>
-        <div class="article-meta-right">
-          <span class="article-cat"><?= htmlspecialchars($article['category']) ?></span>
-          <span class="article-date"><time datetime="<?= date('c', strtotime($article['created_at'])) ?>"><?= date('d.m.Y', strtotime($article['created_at'])) ?></time></span>
-        </div>
-      </div>
-      <h1 class="article-title" itemprop="headline"><?= htmlspecialchars($article['title']) ?></h1>
-      <p class="article-desc" itemprop="description"><?= htmlspecialchars($article['meta_description']) ?></p>
+$jsonLd = [
+    '@context' => 'https://schema.org',
+    '@type' => 'BlogPosting',
+    '@id' => $siteUrl . '/blog/' . $currentArticle['url'] . '/#blogpost',
+    'headline' => $currentArticle['title'],
+    'description' => $currentArticle['meta_description'],
+    'author' => [
+        '@type' => 'Person',
+        'name' => $currentArticle['author'] ?? 'MANDO MEMORI',
+        'url' => $siteUrl,
+    ],
+    'publisher' => [
+        '@type' => 'Organization',
+        'name' => 'MANDO MEMORI',
+        'logo' => [
+            '@type' => 'ImageObject',
+            'url' => $siteUrl . '/public/assets/images/favicon_full_black.svg',
+        ],
+        'url' => $siteUrl,
+    ],
+    'datePublished' => date('c', strtotime($currentArticle['created_at'])),
+    'dateModified' => date('c', strtotime($currentArticle['updated_at'] ?? $currentArticle['created_at'])),
+    'image' => $ogImage,
+    'url' => $siteUrl . '/blog/' . $currentArticle['url'],
+    'mainEntityOfPage' => [
+        '@type' => 'WebPage',
+        '@id' => $siteUrl . '/blog/' . $currentArticle['url'] . '/#webpage',
+    ],
+    'breadcrumbList' => [
+        '@type' => 'BreadcrumbList',
+        'itemListElement' => [
+            [
+                '@type' => 'ListItem',
+                'position' => 1,
+                'name' => 'Главная',
+                'item' => $siteUrl . '/',
+            ],
+            [
+                '@type' => 'ListItem',
+                'position' => 2,
+                'name' => 'Блог',
+                'item' => $siteUrl . '/blog',
+            ],
+            [
+                '@type' => 'ListItem',
+                'position' => 3,
+                'name' => $currentArticle['title'],
+                'item' => $siteUrl . '/blog/' . $currentArticle['url'],
+            ],
+        ],
+    ],
+    'faq' => [
+        [
+            'question' => 'Как чистить ' . $currentArticle['title'],
+            'answer' => 'Для чистки ' . strtolower($currentArticle['title']) . ' используйте щадящие средства: микрофибру, специализированные очистители и кондиционеры для кожи. Избегайте агрессивных растворителей, воды, сушки на батарее и полиэтиленовых пакетов.',
+        ],
+        [
+            'question' => 'Можно ли вручную чистить ' . strtolower($currentArticle['title']) . ' дома?',
+            'answer' => 'Да, но только с использованием специальных щадящих составов. Для глубокого очищения и удаления въевших загрязнений рекомендуется профессиональная чистка в MANDO MEMORI с применением пароочистителей и УФ-стерилизации.',
+        ],
+    ],
+];
+
+$next = null;
+$prev = null;
+
+foreach ($articlesJson as $article) {
+    if ($article['id'] === $currentArticle['id']) continue;
+    if (!$prev) $prev = $article;
+    $next = $article;
+}
+
+if ($prev) {
+    $prevSlug = $prev['url'];
+} else {
+    $prevSlug = '';
+}
+
+if ($next) {
+    $nextSlug = $next['url'];
+} else {
+    $nextSlug = '';
+}
+
+// TL;DR блок
+$tlDrText = mb_substr($currentArticle['content'], 0, 200);
+
+// HTML контент
+$pageContent = '';
+
+if ($contentFile && file_exists($contentFile)) {
+    include $contentFile;
+} else {
+    echo '<section><h2>Контент статьи недоступен</h2></section>';
+}
+
+require __DIR__ . '/../../partials/header.php';
+
+// TL;DR блок
+if ($tlDrText) {
+    echo '<section class="tldr-block"><div class="container"><h3>TL;DR — краткое содержание</h3><p>' . htmlspecialchars($tlDrText) . '...</p><p><a href="#full-content">Читать полностью →</a></p></div></section>';
+}
+
+// Главная статья
+if ($currentArticle) {
+    echo '<main class="blog-article-page"><div class="container"><article itemscope itemtype="https://schema.org/Article"><meta itemprop="datePublished" content="' . date('c', strtotime($currentArticle['created_at'])) . '">
+    <meta itemprop="dateModified" content="' . date('c', strtotime($currentArticle['updated_at'] ?? $currentArticle['created_at'])) . '">
+    <meta itemprop="author" content="' . ($currentArticle['author'] ?? 'MANDO MEMORI') . '">
+    <h1 itemprop="headline">' . htmlspecialchars($currentArticle['title']) . '</h1>
+    <div class="meta-line">
+        <time datetime="' . date('c', strtotime($currentArticle['created_at'])) . '">Опубликовано: ' . date('d.m.Y', strtotime($currentArticle['created_at'])) . '</time>
+        <span class="category">Категория: ' . htmlspecialchars($currentArticle['category']) . '</span>
     </div>
-  </section>
-
-  <section class="article-body-wrap">
-    <div class="container">
-      <div class="article-layout">
-        <div class="article-main">
-          <div class="article-img" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-            <img src="<?= htmlspecialchars($article['image']) ?>" alt="<?= htmlspecialchars($article['title']) ?>" itemprop="contentUrl">
-          </div>
-
-          <article class="article-body" itemscope itemtype="https://schema.org/Article">
-            <meta itemprop="inLanguage" content="ru-RU">
-            <meta itemprop="datePublished" content="<?= date('c', strtotime($article['created_at'])) ?>">
-            <meta itemprop="dateModified" content="<?= date('c', strtotime($article['updated_at'])) ?>">
-            <meta itemprop="author" content="MANDO MEMORI">
-            <link itemprop="mainEntityOfPage" href="<?= $articleUrl ?>">
-
-            <?php
-            $contentFile = __DIR__ . '/content/' . $article['id'] . '.php';
-            file_exists($contentFile) ? include $contentFile : include __DIR__ . '/content/_default.php';
-            ?>
-          </article>
-
-          <!-- Экспертиза вместо самоделки: лид-блок шаблона -->
-          <div class="article-expert" itemscope itemtype="https://schema.org/Service">
-            <meta itemprop="name" content="Бесплатная экспертиза обуви и сумок — MANDO MEMORI">
-            <div class="article-expert__badge">⚠️ Не шейте / не клейте / не трите сами — будет дороже</div>
-            <h3 class="article-expert__title">Разошёлся шов, пятно, желтизна? Сначала — экспертиза, а не ручная попытка</h3>
-            <p class="article-expert__text">Домашняя иголка рвёт проколы кожи, суперклей сжигает шов, агрессивная химия оставляет пятна. Каждый такой «ремонт» удорожает профессиональное восстановление в 2–3 раза. <strong>Быстрее и дешевле так:</strong> сфотографируйте проблему крупно + общий вид — технолог MANDO MEMORI назовёт причину, цену и срок <strong>за 5 минут, бесплатно</strong>.</p>
-            <ol class="article-expert__steps">
-              <li><strong>Снимите пару</strong> — не носите, шов/пятно расползаются.</li>
-              <li><strong>Сфотографируйте</strong> — крупно дефект + вся пара.</li>
-              <li><strong>Пришлите нам</strong> — в Telegram или позвоните. Ответ за 5 минут.</li>
-            </ol>
-            <div class="article-expert__btns">
-              <a href="tel:+79161829272" class="article-expert__btn article-expert__btn--phone">Позвонить: +7 (916) 182-92-72</a>
-              <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=blog_expert_<?= htmlspecialchars($article['url']) ?>" target="_blank" rel="noopener" class="article-expert__btn article-expert__btn--tg" data-tg="blog_expert">Прислать фото в Telegram — 5 мин</a>
-              <a href="/order" class="article-expert__btn article-expert__btn--order">Заказать экспертизу →</a>
-            </div>
-            <p class="article-expert__note">Оплата только после работы · <?= htmlspecialchars(\Setting\Route\Function\Functions::deliveryNote()) ?> · Loro Piana, Hermès, Berluti, Chanel, LV</p>
-          </div>
-
-          <div class="article-tags">
-            <?php foreach (explode(',', $article['tags']) as $tag): ?>
-            <span class="article-tag"><?= htmlspecialchars(trim($tag)) ?></span>
-            <?php endforeach; ?>
-          </div>
-
-          <div class="article-cta">
-            <h3 class="article-cta-title">Не рискуйте парой — закажите экспертизу</h3>
-            <p class="article-cta-desc">Пришлите фото проблемы или позвоните — решим вопрос быстрее, чем ручная попытка. Ответ за 5 минут, бесплатно.</p>
-            <div class="article-cta-btns">
-              <a href="tel:+79161829272" class="article-cta-btn article-cta-btn--phone">Позвонить</a>
-              <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=blog_cta_<?= htmlspecialchars($article['url']) ?>" target="_blank" rel="noopener" class="article-cta-btn article-cta-btn--tg" data-tg="blog_cta">Telegram — 5 мин</a>
-              <a href="/order" class="article-cta-btn">Заказать экспертизу</a>
-              <a href="/products" class="article-cta-btn article-cta-btn--outline">Посмотреть услуги</a>
-            </div>
-          </div>
-        </div>
-
-        <aside class="article-sidebar">
-          <div class="article-sidebar-card">
-            <div class="article-sidebar-header">Читайте также</div>
-            <div class="article-sidebar-body">
-              <?php foreach ($tops as $item): ?>
-              <a class="article-popular-item" href="/blog/<?= $item['url'] ?>">
-                <div class="article-popular-img" style="background-image:url('<?= htmlspecialchars($item['image']) ?>')"></div>
-                <div class="article-popular-body">
-                  <span class="article-popular-title"><?= htmlspecialchars($item['title']) ?></span>
-                  <span class="article-popular-date"><?= date('d.m.Y', strtotime($item['created_at'])) ?></span>
-                </div>
-              </a>
-              <?php endforeach; ?>
-            </div>
-          </div>
-
-          <div class="article-sidebar-card article-sidebar-card--cta">
-            <div class="article-sidebar-body" style="text-align:center;padding:24px 18px">
-              <h4 style="margin:0 0 8px;font-size:16px;color:#000;font-family:var(--font-heading)">⚠️ Не чините сами</h4>
-              <p style="margin:0 0 16px;font-size:13px;color:#666;line-height:1.5">Пришлите фото — эксперт оценит за 5 минут, бесплатно. Это быстрее и дешевле самоделки.</p>
-              <a href="tel:+79161829272" style="display:flex;align-items:center;justify-content:center;min-height:38px;padding:8px 20px;border-radius:6px;background:#1a1a1a;color:#fff;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:8px">+7 (916) 182-92-72</a>
-               <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=blog_sidebar" target="_blank" rel="noopener" data-tg="blog_sidebar" style="display:flex;align-items:center;justify-content:center;min-height:38px;padding:8px 20px;border-radius:6px;background:#229ED9;color:#fff;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:8px">Пришлите фото в Telegram</a>
-              <a href="/order" style="display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 20px;border-radius:6px;background:var(--accent,#D4562A);color:#fff;font-size:13px;font-weight:600;text-decoration:none">Заказать экспертизу</a>
-            </div>
-          </div>
-        </aside>
-      </div>
+    <div class="article-content">
+        ' . $pageContent . '
     </div>
-  </section>
-</main>
+    <footer class="article-footer">
+        <nav class="article-nav">
+            ' . ($prevSlug ? '<a href="/blog/' . $prevSlug . '" rel="prev" class="nav-prev">← Предыдущая: ' . htmlspecialchars($prev['title']) . '</a>' : '') . '
+            ' . ($nextSlug ? '<a href="/blog/' . $nextSlug . '" rel="next" class="nav-next">Следующая: ' . htmlspecialchars($next['title']) . ' →</a>' : '') . '
+        </nav>
+        <div class="tags">' . str_replace(', ', ', ', $currentArticle['tags']) . '</div>
+    </footer>
+    <script type="application/ld+json">' . json_encode($jsonLd, JSON_UNESCAPED_UNICODE) . '</script>
+</article></div></main>';
+}
 
-<style>
-.article-page { --blog-bg: #fff; --blog-card: #fff; --blog-border: #e5e5e5; --blog-text: #1a1a1a; --blog-muted: #6b6b6b; --accent: #D4562A; --blog-hover: #f9f9f9; }
-.article-page { background: var(--blog-bg); color: var(--blog-text); min-height: 100vh; }
+// Блок автора
+if ($currentArticle) {
+    echo '<section class="author-block"><div class="container"><div class="author-info"><div class="author-avatar"><img src="/public/assets/images/favicon_full_black.svg" alt="' . htmlspecialchars($currentArticle['author'] ?? 'MANDO MEMORI') . '" width="80" height="80"></div><div class="author-details"><h3 itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">' . htmlspecialchars($currentArticle['author'] ?? 'MANDO MEMORI') . '</span></h3><p itemprop="description">MANDO MEMORI — премиальная мастерская по химчистке и реставрации обуви в Москве с 2015 года.</p></div></div></div></section>';
+}
 
-#reading-bar { position:fixed; top:0; left:0; height:3px; background:var(--accent); z-index:9999; width:0; transition:width .15s; pointer-events:none; }
+// Схожие статьи
+if (!empty($relatedArticles)) {
+    echo '<section class="related-articles"><div class="container"><h2>Схожие статьи</h2><div class="related-grid">';
+    foreach ($relatedArticles as $article) {
+        echo '<article class="related-card"><a href="/blog/' . $article['url'] . '"><div class="related-img"><img src="' . $article['image'] . '" alt="' . htmlspecialchars($article['title']) . '" loading="lazy" width="300" height="200"></div><div class="related-body"><h3>' . htmlspecialchars($article['title']) . '</h3><time>' . date('d.m.Y', strtotime($article['created_at'])) . '</time></div></a></article>';
+    }
+    echo '</div></div></section>';
+}
 
-.article-hero { padding: clamp(2rem,4vw,3rem) 0; position:relative; }
-.article-hero::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:min(80%,600px); height:1px; background:linear-gradient(90deg,transparent,var(--blog-border),var(--accent),var(--blog-border),transparent); }
-.article-breadcrumbs { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--blog-muted); margin-bottom: 16px; flex-wrap: wrap; }
-.article-breadcrumbs a { color: #888; text-decoration: none; transition: color .15s; }
-.article-breadcrumbs a:hover { color: var(--accent); }
-.article-bc-sep { color: #ccc; }
-.article-meta-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
-.article-meta-left { display: inline-flex; align-items: center; gap: 6px; color: #888; font-size: 13px; }
-.article-meta-left svg { width: 16px; height: 16px; }
-.article-author-label { color: #999; }
-.article-author-name { font-weight: 600; color: #555; }
-.article-meta-right { display: inline-flex; align-items: center; gap: 10px; }
-.article-cat { display: inline-block; padding: 3px 10px; border-radius: 4px; background: var(--accent); color: #fff; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing:0.03em; }
-.article-date { font-size: 13px; color: var(--blog-muted); }
-.article-title { font-family: var(--font-heading); font-size: clamp(1.6rem,3.5vw,2.4rem); font-weight: 700; letter-spacing:-0.02em; line-height:1.15; margin:0; max-width: 800px; color: #000; }
-.article-desc { color: var(--blog-muted); margin-top: 12px; font-size: clamp(0.9rem,1.05vw,1rem); line-height:1.55; max-width: 700px; }
-
-.article-body-wrap { padding: clamp(1.5rem,3vw,2.5rem) 0 clamp(3rem,5vw,5rem); }
-.article-layout { display: grid; grid-template-columns: 1fr 280px; gap: clamp(1.5rem,2.5vw,2.5rem); align-items: start; }
-@media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } }
-
-.article-img { border-radius: 10px; overflow: hidden; margin-bottom: 28px; background: #eaeaea; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
-.article-img img { width: 100%; height: auto; display: block; aspect-ratio: 16/9; object-fit: cover; opacity:0; transition:opacity .4s; }
-.article-img img.loaded { opacity:1; }
-
-.article-body { font-size: 16px; line-height: 1.75; color: #333; }
-.article-body > * { max-width: 680px; }
-.article-body [data-type="image"],
-.article-body [data-type="compare"],
-.article-body [data-type="list"],
-.article-body [data-type="box"] { max-width: 100%; }
-.article-body h2 { font-family: var(--font-heading); font-size: 22px; font-weight: 700; margin: 44px 0 16px; color: #000; letter-spacing:-0.01em; }
-.article-body h3 { font-size: 18px; font-weight: 600; margin: 32px 0 12px; color: #000; }
-.article-body p { margin: 0 0 20px; }
-.article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 20px; }
-.article-body li { margin-bottom: 6px; }
-.article-body strong { color: #000; }
-.article-body a { color: var(--accent); text-decoration: underline; text-underline-offset:2px; }
-.article-body a:hover { text-decoration:none; }
-
-.article-body [data-type="start"] { font-size: 17px; line-height: 1.8; color: #555; }
-.article-body [data-type="list"] { background: #f7f7f7; border: 1px solid var(--blog-border); border-radius: 10px; padding: 20px 24px; margin-bottom: 24px; }
-.article-body [data-type="list"] h3 { margin-top: 0; }
-.article-body [data-type="list"] ol { margin: 0; padding-left: 20px; }
-.article-body [data-type="list"] li { margin-bottom: 8px; }
-.article-body [data-type="list"] a { color: var(--accent); text-decoration: none; }
-.article-body [data-type="list"] a:hover { text-decoration: underline; }
-.article-body [data-type="box"] { border-radius: 10px; padding: 24px 28px; margin-bottom: 24px; }
-.article-body [data-type="box"][data-color="gray"] { background: #f7f7f7; border: 1px solid var(--blog-border); }
-.article-body [data-type="box"][data-color="dark"] { background: #1a1a1a; border: 1px solid #333; }
-.article-body [data-type="box"][data-color="dark"] h4 { color: #fff; }
-.article-body [data-type="box"][data-color="dark"] p { color: rgba(255,255,255,0.75); }
-.article-body [data-type="box"][data-color="blue"] { background: rgba(212,86,42,0.06); border: 1px solid rgba(212,86,42,0.2); }
-.article-body [data-type="box"][data-color="green"] { background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.2); }
-.article-body [data-type="box"][data-color="red"] { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.2); }
-.article-body [data-type="box"] h4 { margin: 0 0 8px; font-size: 15px; font-weight: 600; color: #000; }
-.article-body [data-type="box"] p { margin: 0; font-size: 14px; color: #555; }
-.article-body [data-type="box"] p + p { margin-top: 8px; }
-.article-body [data-type="compare"] { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
-@media (max-width: 600px) { .article-body [data-type="compare"] { grid-template-columns: 1fr; } }
-.article-body [data-type="compare"] article { border-radius: 10px; padding: 18px 20px; }
-.article-body [data-type="compare"] article[data-variant="good"] { background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.2); }
-.article-body [data-type="compare"] article[data-variant="bad"] { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.2); }
-.article-body [data-type="compare"] h4 { font-size: 14px; font-weight: 600; margin: 0 0 8px; }
-.article-body [data-type="compare"] article[data-variant="good"] h4 { color: #16a34a; }
-.article-body [data-type="compare"] article[data-variant="bad"] h4 { color: #dc2626; }
-.article-body [data-type="compare"] ul { margin: 0; padding-left: 16px; font-size: 14px; color: #555; }
-.article-body [data-type="compare"] li { margin-bottom: 4px; }
-.article-body [data-type="image"] { margin-bottom: 24px; }
-.article-body [data-type="image"] img { width: 100%; height: auto; border-radius: 10px; display: block; aspect-ratio: 16/9; object-fit: cover; background: #eaeaea; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
-
-.article-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--blog-border); }
-.article-tag { display: inline-block; padding: 4px 10px; border-radius: 4px; background: #f0f0f0; color: #666; font-size: 12px; }
-
-.article-cta { margin-top: 40px; border-radius: 12px; background: linear-gradient(135deg,#fafafa,#f5f5f5); border: 1px solid var(--blog-border); border-left:3px solid var(--accent); padding: 40px; text-align: center; }
-.article-cta-title { font-family: var(--font-heading); font-size: 20px; font-weight: 700; margin: 0 0 8px; color: #000; }
-.article-cta-desc { font-size: 14px; color: var(--blog-muted); margin: 0 0 20px; max-width: 480px; margin-left: auto; margin-right: auto; }
-.article-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-.article-cta-btn { display: inline-flex; align-items: center; height: 40px; padding: 0 24px; border-radius: 6px; font-size: 14px; font-weight: 600; color: #fff; background: var(--accent); text-decoration: none; transition: background .2s; }
-.article-cta-btn:hover { background: #e05a2a; }
-.article-cta-btn--outline { background: transparent; border: 1px solid #d0d0d0; color: #333; }
-.article-cta-btn--outline:hover { background: #f0f0f0; }
-.article-cta-btn--phone { background: #1a1a1a; }
-.article-cta-btn--phone:hover { background: #333; }
-.article-cta-btn--tg { background: #229ED9; }
-.article-cta-btn--tg:hover { background: #1a8bc2; }
-
-.article-expert { margin-top: 32px; border-radius: 14px; border: 2px solid var(--accent); background: linear-gradient(135deg,#fff8f3,#fff); padding: clamp(22px,3vw,36px); box-shadow: 0 8px 32px rgba(212,86,42,.12); }
-.article-expert__badge { display: inline-block; background: #1a1a1a; color: #fff; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 100px; margin-bottom: 12px; }
-.article-expert__title { font-family: var(--font-heading); font-size: clamp(1.15rem,2vw,1.45rem); font-weight: 700; margin: 0 0 10px; color: #000; line-height: 1.3; }
-.article-expert__text { font-size: 15px; line-height: 1.7; color: #444; margin: 0 0 16px; }
-.article-expert__text strong { color: #000; }
-.article-expert__steps { margin: 0 0 20px; padding-left: 20px; font-size: 14px; line-height: 1.7; color: #333; }
-.article-expert__steps li { margin-bottom: 4px; }
-.article-expert__btns { display: flex; gap: 10px; flex-wrap: wrap; }
-.article-expert__btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 22px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; transition: transform .15s, box-shadow .15s; }
-.article-expert__btn:hover { transform: translateY(-2px); }
-.article-expert__btn--phone { background: #1a1a1a; color: #fff; }
-.article-expert__btn--tg { background: #229ED9; color: #fff; box-shadow: 0 4px 16px rgba(34,158,217,.35); }
-.article-expert__btn--order { background: var(--accent); color: #fff; box-shadow: 0 4px 16px rgba(212,86,42,.35); }
-.article-expert__note { margin: 14px 0 0; font-size: 12px; color: #999; }
-
-.article-sidebar { position: sticky; top: 90px; }
-.article-sidebar-card { border-radius: 10px; background: #f7f7f7; border: 1px solid var(--blog-border); overflow: hidden; }
-.article-sidebar-card + .article-sidebar-card { margin-top: 12px; }
-.article-sidebar-header { padding: 14px 18px; border-bottom: 1px solid var(--blog-border); font-size: 14px; font-weight: 700; color: #000; }
-.article-sidebar-body { padding: 6px 18px; }
-.article-popular-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid #eaeaea; text-decoration: none; align-items: center; transition: opacity .15s; }
-.article-popular-item:hover { opacity: 0.75; }
-.article-popular-item:last-child { border-bottom: none; }
-.article-popular-img { width: 42px; height: 42px; min-width: 42px; border-radius: 6px; background-size: cover; background-position: center; background-color: #eaeaea; }
-.article-popular-body { flex: 1; min-width: 0; }
-.article-popular-title { font-size: 13px; font-weight: 600; color: #000; line-height: 17px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.article-popular-date { font-size: 11px; color: #999; margin-top: 2px; display: block; }
-#back-top { position:fixed; bottom:24px; right:24px; z-index:999; width:40px; height:40px; border-radius:8px; background:#fff; border:1px solid var(--blog-border); color:#666; display:flex; align-items:center; justify-content:center; cursor:pointer; opacity:0; pointer-events:none; transition:opacity .2s, transform .2s; transform:translateY(8px); box-shadow:0 2px 12px rgba(0,0,0,0.06); }
-#back-top.show { opacity:1; pointer-events:auto; transform:translateY(0); }
-#back-top:hover { background:#f5f5f5; color:var(--accent); }
-</style>
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  var bar = document.getElementById('reading-bar');
-  var back = document.getElementById('back-top');
-  if (!back) { back = document.createElement('div'); back.id='back-top'; back.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>'; document.body.appendChild(back); }
-  back.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
-  var img = document.querySelector('.article-img img');
-  if (img) { img.onload = function(){ img.classList.add('loaded'); }; if (img.complete) img.classList.add('loaded'); }
-  document.querySelectorAll('.article-body [data-type="image"] img').forEach(function(im){
-    im.addEventListener('load', function(){ im.style.opacity='1'; });
-    if (im.complete) im.style.opacity='1';
-  });
-  var ticking = false;
-  window.addEventListener('scroll', function(){
-    if (!ticking) { requestAnimationFrame(function(){
-      var dh = document.documentElement.scrollHeight - window.innerHeight;
-      var pct = dh > 0 ? (window.scrollY / dh) * 100 : 0;
-      bar.style.width = pct + '%';
-      back.classList.toggle('show', window.scrollY > 400);
-      ticking = false;
-    }); }
-    ticking = true;
-  });
-});
-</script>
-
-<?php require __DIR__ . '/../../../partials/footer.php'; ?>
+require __DIR__ . '/../../partials/footer.php';

@@ -117,6 +117,38 @@ class HomeController
         require __DIR__ . '/../../public/pages/sneaker-cleaning/index.php';
     }
 
+    public function onBrands()
+    {
+        require __DIR__ . '/../../public/pages/brands/index.php';
+    }
+
+    public function onBrandDetail(...$args)
+    {
+        $brandSlug = strtolower(trim($args['slug'] ?? ($args[1] ?? ($args[0] ?? ''))));
+        $dataFile = __DIR__ . '/../../public/pages/brands/data.php';
+        $all = file_exists($dataFile) ? require $dataFile : [];
+        if (!$brandSlug || !isset($all[$brandSlug])) {
+            http_response_code(404);
+            echo '404 — бренд не найден';
+            return;
+        }
+        require __DIR__ . '/../../public/pages/brands/detail.php';
+    }
+
+    public function onBrandAlias(...$args)
+    {
+        $brandSlug = strtolower(trim($args['slug'] ?? ($args[1] ?? ($args[0] ?? ''))));
+        $dataFile = __DIR__ . '/../../public/pages/brands/data.php';
+        $all = file_exists($dataFile) ? require $dataFile : [];
+        if (!$brandSlug || !isset($all[$brandSlug])) {
+            http_response_code(404);
+            echo '404 — бренд не найден';
+            return;
+        }
+        header('Location: /brands/' . $brandSlug, true, 301);
+        exit;
+    }
+
     public function onProductDetail(...$args)
     {
         $slug = $args['slug'] ?? ($args[1] ?? '');

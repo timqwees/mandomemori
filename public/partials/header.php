@@ -21,6 +21,7 @@ $siteUrl = "$scheme://$host";
     "siteUrl" => $siteUrl,
     "image" => $ogImage ?? null,
     "robots" => $robots ?? null,
+    "jsonLd" => $jsonLd ?? null,
   ]) ?>
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,11 +76,12 @@ $siteUrl = "$scheme://$host";
   <header class="header" style="padding-block: 10px">
     <div class="container">
       <a href="/" class="logo">
-        <img src="/public/assets/images/favicon_full_black.svg" alt="MANDO MEMORI — премиальная мастерская обуви Москва" class="logo-img" width="90" height="52">
+        <img src="/public/assets/images/favicon_full_black.svg" alt="MANDO MEMORI — мастерская обуви Москва" class="logo-img" width="90" height="52">
       </a>
       <div class="header-right">
         <nav class="nav" id="main-nav">
           <a href="/products" class="nav-link">Услуги</a>
+          <a href="/brands" class="nav-link">Бренды</a>
           <a href="/about" class="nav-link">О нас</a>
           <a href="/before-after" class="nav-link">До/После</a>
           <a href="/order" class="nav-link" style="align-items: center;">
