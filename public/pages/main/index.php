@@ -266,7 +266,7 @@ $hcards = [
         <div class="hstack-card">
           <div class="hstack-inner">
             <div class="hstack-img">
-              <img src="/public/assets/images/mandomemori/<?= $hc['img'] ?>" alt="" loading="lazy" width="520" height="350">
+              <img src="/public/assets/images/mandomemori/<?= $hc['img'] ?>" alt="<?= htmlspecialchars($hc['title1']) ?>" loading="lazy" width="520" height="350">
             </div>
             <div class="hstack-text">
               <div class="hstack-utp">
