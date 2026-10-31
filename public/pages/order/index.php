@@ -561,7 +561,7 @@ html, body { background: #121212; margin: 0; }
             <input type="checkbox" name="consent" required>
             <span>Я даю согласие на <a href="/privacy-policy" target="_blank" title="Политика конфиденциальности">обработку персональных данных</a></span>
           </label>
-          <button type="submit" class="courier-form-submit">Заказать курьера</button>
+          <button type="button" class="courier-form-submit" onclick="sendToTelegram()">Заказать курьера → Telegram</button>
         </form>
       </div>
     </div>
@@ -588,5 +588,36 @@ html, body { background: #121212; margin: 0; }
 </main>
   <script src="/public/assets/js/mandomemori/phone-mask.js" defer></script>
   <script src="/public/assets/js/mandomemori/contacts.js" defer></script>
+  <script>
+  function sendToTelegram() {
+    const name = document.getElementById('cf-name').value.trim();
+    const phone = document.getElementById('cf-phone').value.trim();
+    const address = document.getElementById('cf-address').value.trim();
+    const consent = document.querySelector('input[name="consent"]').checked;
+    const orderNum = document.querySelector('input[name="order_num"]')?.value || '';
+    const email = document.getElementById('cf-email')?.value.trim() || '';
+
+    if (!name || !phone || !address) {
+      alert('Заполните все обязательные поля');
+      return;
+    }
+    if (!consent) {
+      alert('Необходимо согласие на обработку персональных данных');
+      return;
+    }
+
+    let text = '🆕 Новый вызов курьера\n\n';
+    text += `👤 Имя: ${name}\n`;
+    text += `📞 Телефон: ${phone}\n`;
+    text += `📍 Адрес: ${address}\n`;
+    if (orderNum) text += `🔢 Номер заказа: ${orderNum}\n`;
+    if (email) text += `📧 Email: ${email}\n`;
+    text += '\n✅ Согласие на обработку ПД: да';
+
+    const encodedText = encodeURIComponent(text);
+    const telegramUrl = `https://t.me/maksim1144?text=${encodedText}`;
+    window.open(telegramUrl, '_blank');
+  }
+  </script>
 
 <?php require __DIR__ . '/../../partials/footer.php'; ?>

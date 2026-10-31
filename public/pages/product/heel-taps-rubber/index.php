@@ -51,7 +51,7 @@ require __DIR__ . '/../../../partials/header.php';
       <p class="svc-hero-desc" itemprop="description"><?= $svc['desc'] ?></p>
       <div class="svc-hero-actions">
         <span class="svc-hero-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="RUB"><meta itemprop="url" content="https://mmclean.ru/product/heel-taps-rubber"><span itemprop="price"><?= $priceRaw ?></span> ₽ <small>за пару</small><meta itemprop="availability" content="https://schema.org/InStock"><span itemprop="hasMerchantReturnPolicy" itemscope itemtype="https://schema.org/MerchantReturnPolicy"><meta itemprop="applicableCountry" content="RU"><meta itemprop="returnPolicyCategory" content="https://schema.org/MerchantReturnFiniteReturnWindow"><meta itemprop="merchantReturnDays" content="14"><meta itemprop="returnMethod" content="https://schema.org/ReturnByMail"><meta itemprop="returnFees" content="https://schema.org/FreeReturn"></span><span itemprop="shippingDetails" itemscope itemtype="https://schema.org/OfferShippingDetails"><span itemprop="shippingDestination" itemscope itemtype="https://schema.org/DefinedRegion"><meta itemprop="addressCountry" content="RU"></span><span itemprop="shippingRate" itemscope itemtype="https://schema.org/MonetaryAmount"><meta itemprop="value" content="0"><meta itemprop="currency" content="RUB"></span><span itemprop="deliveryTime" itemscope itemtype="https://schema.org/ShippingDeliveryTime"><span itemprop="handlingTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="0"><meta itemprop="maxValue" content="1"><meta itemprop="unitCode" content="DAY"></span><span itemprop="transitTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="1"><meta itemprop="maxValue" content="2"><meta itemprop="unitCode" content="DAY"></span></span><meta itemprop="shippingOrigin" content="RU"></span></span>
-        <a href="#svc-order" class="svc-hero-btn" title="Заказать услугу">Заказать услугу</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_\<?= $slug \?\>_hero" target="_blank" rel="external nofollow noopener noreferrer" class="svc-hero-btn svc-hero-btn--pulse" title="Заказать в Telegram">Заказать → Telegram</a>
       </div>
     </div>
   </section>
@@ -73,8 +73,11 @@ require __DIR__ . '/../../../partials/header.php';
             <input type="number" class="product-qty-input" id="qty-<?= $id ?>" value="1" min="1" max="10">
             <button type="button" class="product-qty-btn" data-id="<?= $id ?>" data-action="inc">+</button>
           </div>
-          <button type="button" class="svc-order-cart-btn product-add-to-cart" data-id="<?= $id ?>">Добавить в корзину</button>
-          <a href="/order" class="svc-order-link" title="Перейти к оформлению заказа">Заказать услугу →</a>
+          <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_<?= $slug ?>_hero" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg svc-order-tg--primary" data-tg="svc_<?= $slug ?>_hero" title="Заказать в Telegram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
+              В Telegram — 5 мин
+            </a>
+          <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_\<?= $slug \?\>_order" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg" data-tg="svc_\<?= $slug \?\>_order" title="Заказать в Telegram">Заказать → Telegram</a>
         </div>
       </div>
     </div>

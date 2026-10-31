@@ -3,7 +3,7 @@
       <div class="footer-grid">
         <div class="footer-col footer-col--brand">
           <a href="/" class="footer-logo">
-            <img src="/public/assets/images/favicon_full_white.svg" alt="MANDO MEMORI" class="footer-logo-img" width="90" height="52">
+            <img src="/public/assets/images/favicon_full_white.svg" alt="MANDO MEMORI" class="footer-logo-img" width="90" height="52" style="background: transparent !important;">
           </a>
           <p class="footer-brand-desc" itemprop="description">Премиальная мастерская по химчистке и реставрации обуви в Москве. Loro Piana, Hermès, Berluti. Ручная работа. <?= htmlspecialchars(\Setting\Route\Function\Functions::deliveryNote()) ?>.</p>
           <div class="footer-social">
@@ -159,7 +159,6 @@
 
   <?php require __DIR__ . '/telegram-widget.php'; ?>
   <script src="/public/assets/js/mandomemori/main.js" defer></script>
-  <script src="/public/assets/js/mandomemori/cart.js" defer></script>
   <script>
   (function(){
     // Telegram CRO analytics
