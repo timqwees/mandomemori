@@ -86,12 +86,13 @@ if ($featured) {
       <div class="blog-layout">
         <div class="blog-main">
           <div class="blog-filters">
-            <a href="/blog" class="blog-filter <?= ($filterCat==='all'||$filterCat==='')?'active':'' ?>" data-filter="all">Все статьи <span class="blog-filter__count"><?= array_sum($fullCounts) ?></span></a>
             <?php
               $catCounts = array_count_values(array_column($articlesJson, 'category'));
               // keep original full list for counts
               $allCatsJson = json_decode(file_get_contents(__DIR__ . '/data/articles.json'), true) ?: [];
               $fullCounts = array_count_values(array_column($allCatsJson, 'category'));
+            ?>
+            <a href="/blog" class="blog-filter <?= ($filterCat==='all'||$filterCat==='')?'active':'' ?>" data-filter="all">Все статьи <span class="blog-filter__count"><?= array_sum($fullCounts) ?></span></a>
               foreach ($categories as $cat):
                 $cnt = $fullCounts[$cat] ?? 0;
             ?>
