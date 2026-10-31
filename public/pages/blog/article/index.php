@@ -27,7 +27,7 @@ if (!$currentArticle) {
 }
 
 $articleId = $currentArticle['id'];
-$contentFile = __DIR__ . '/article/content/' . $articleId . '.php';
+$contentFile = __DIR__ . '/content/' . $articleId . '.php';
 $pageTitle = $currentArticle['title'];
 $pageDesc = $currentArticle['meta_description'];
 $pageKeywords = $currentArticle['tags'];
@@ -134,7 +134,7 @@ if ($contentFile && file_exists($contentFile)) {
     echo '<section><h2>Контент статьи недоступен</h2></section>';
 }
 
-require __DIR__ . '/../../partials/header.php';
+require __DIR__ . '/../../../partials/header.php';
 
 // TL;DR блок
 if ($tlDrText) {
@@ -199,4 +199,4 @@ if (!empty($relatedArticles)) {
     echo '</div></div></section>';
 }
 
-require __DIR__ . '/../../partials/footer.php';
+require __DIR__ . '/../../../partials/footer.php';
