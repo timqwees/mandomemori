@@ -43,15 +43,11 @@ foreach ($articlesJson as $a) {
   if (!$nextArticle || (int)$a['id'] > (int)$article['id']) $nextArticle = $a;
 }
 
-// ── JSON-LD: BlogPosting + BreadcrumbList + FAQPage ──
-$faqItems = [];
-foreach (explode(',', $article['tags']) as $t) {
-  $t = trim($t);
-  if ($t) $faqItems[] = ['question' => $t, 'answer' => 'См. статью: ' . $article['title']];
-}
-$faqItems[] = ['question' => 'Как чистить ' . strtolower($article['title']), 'answer' => 'Используйте щадящие средства: микрофибру, специализированные очистители и кондиционеры. Избегайте агрессивных растворителей, воды, сушки на батарее.'];
-$faqItems[] = ['question' => 'Можно ли чистить ' . strtolower($article['title']) . ' дома?', 'answer' => 'Да, но только с щадящими составами. Для глубокого очищения рекомендуется профессиональная чистка в MANDO MEMORI.'];
+// ── FAQ Templates ──
+require_once __DIR__ . '/faq-templates.php';
+$faqItems = buildArticleFaq($article, $faqTemplates, $categoryFaqMap);
 
+// ── JSON-LD: BlogPosting + BreadcrumbList + FAQPage ──
 $jsonLd = [
   '@context' => 'https://schema.org',
   '@graph' => [
@@ -76,7 +72,6 @@ $jsonLd = [
       'articleSection' => $article['category'],
       'keywords' => $article['tags'],
       'abstract' => mb_substr($article['content'], 0, 150),
-      'author' => ['@type' => 'Person', 'name' => $article['author'] ?? 'MANDO MEMORI'],
     ],
     [
       '@type' => 'BreadcrumbList',
