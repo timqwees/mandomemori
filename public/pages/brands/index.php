@@ -38,14 +38,14 @@ $brands = require __DIR__ . '/data.php';
               <p style="color:rgba(255,255,255,.7);font-size:.85rem;line-height:1.6;margin:8px 0 0"><?= htmlspecialchars($b['subtitle']) ?></p>
             </div>
             <div class="product-card-action">
-              <a href="/brands/<?= $slug ?>" class="product-card-btn product-card-btn-detail" itemprop="url">Открыть →</a>
-              <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=brands_<?= $slug ?>" target="_blank" rel="external nofollow noopener noreferrer" class="product-card-btn product-card-btn-tg" data-tg="brands_<?= $slug ?>">Оценить по фото</a>
+              <a href="/brands/<?= $slug ?>" class="product-card-btn product-card-btn-detail" itemprop="url" title="<?= htmlspecialchars($b['name']) ?> — подробнее">Открыть →</a>
+              <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=brands_<?= $slug ?>" target="_blank" rel="external nofollow noopener noreferrer" class="product-card-btn product-card-btn-tg" data-tg="brands_<?= $slug ?>" title="Оценить <?= htmlspecialchars($b['name']) ?> по фото в Telegram">Оценить по фото</a>
             </div>
           </div>
         </article>
         <?php endforeach; ?>
       </div>
-      <p style="text-align:center;color:#777;font-size:.85rem;margin-top:20px">Не нашли бренд? Мы работаем с любым премиумом — <a href="https://t.me/maksim1144" target="_blank" rel="external nofollow noopener noreferrer" style="color:#D4562A;font-weight:700">пришлите фото в Telegram →</a></p>
+      <p style="text-align:center;color:#777;font-size:.85rem;margin-top:20px">Не нашли бренд? Мы работаем с любым премиумом — <a href="https://t.me/maksim1144" target="_blank" rel="external nofollow noopener noreferrer" style="color:#D4562A;font-weight:700" title="Прислать фото в Telegram для оценки">пришлите фото в Telegram →</a></p>
     </div>
   </section>
 </main>

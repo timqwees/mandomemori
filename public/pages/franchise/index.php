@@ -129,7 +129,7 @@ require __DIR__ . '/../../partials/header.php';
         <div style="text-align:center;margin-top:20px">
           <label style="display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;margin-bottom:16px;font-size:13px;color:rgba(255,255,255,0.7)">
             <input type="checkbox" name="consent" required style="width:16px;height:16px;accent-color:#C8A46F">
-            <span>Я даю согласие на <a href="/privacy-policy" target="_blank" style="color:#C8A46F">обработку персональных данных</a></span>
+            <span>Я даю согласие на <a href="/privacy-policy" target="_blank" style="color:#C8A46F" title="Политика конфиденциальности">обработку персональных данных</a></span>
           </label>
           <button type="submit" class="btn-franchise-submit">Отправить заявку</button>
         </div>

@@ -46,8 +46,8 @@ $brandsAll = $all;
       <p class="svc-hero-desc" itemprop="description"><?= htmlspecialchars($b['intro']) ?></p>
       <div class="svc-hero-actions">
         <span class="svc-hero-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="RUB"><meta itemprop="price" content="5990"><meta itemprop="availability" content="https://schema.org/InStock">от <?= htmlspecialchars($b['price_from']) ?> ₽ <small>за пару</small></span>
-        <a href="/order" class="svc-hero-btn svc-hero-btn--pulse">Вызвать курьера</a>
-        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=brand_<?= $slug ?>_hero" target="_blank" rel="external nofollow noopener noreferrer" class="svc-hero-tg" data-tg="brand_<?= $slug ?>_hero">Пришлите фото <?= htmlspecialchars($b['name']) ?> — 5 мин</a>
+        <a href="/order" class="svc-hero-btn svc-hero-btn--pulse" title="Вызвать курьера для доставки обуви">Вызвать курьера</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=brand_<?= $slug ?>_hero" target="_blank" rel="external nofollow noopener noreferrer" class="svc-hero-tg" data-tg="brand_<?= $slug ?>_hero" title="Прислать фото <?= htmlspecialchars($b['name']) ?> в Telegram — оценка 5 мин">Пришлите фото <?= htmlspecialchars($b['name']) ?> — 5 мин</a>
       </div>
       <p class="svc-hero-trust">★ 4.9 · <?= htmlspecialchars($b['duration']) ?> · оплата после работы · <?= htmlspecialchars($delivery) ?></p>
     </div>
@@ -89,8 +89,8 @@ $brandsAll = $all;
         <div class="svc-step-v" itemprop="step" itemscope itemtype="https://schema.org/HowToStep"><span class="svc-step-v__num">06</span><h3 itemprop="name">Контроль</h3><p itemprop="text">Проверяем пару по чек-листу перед выдачей. Оплата — только после работы.</p></div>
       </div>
       <div class="svc-steps-visual__cta">
-        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=brand_<?= $slug ?>_steps" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg" data-tg="brand_<?= $slug ?>_steps">Прислать фото — оценка 5 мин</a>
-        <a href="tel:+79161829272" class="svc-order-phone">+7 (916) 182-92-72</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=brand_<?= $slug ?>_steps" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg" data-tg="brand_<?= $slug ?>_steps" title="Прислать фото в Telegram — оценка 5 мин">Прислать фото — оценка 5 мин</a>
+        <a href="tel:+79161829272" class="svc-order-phone" title="Позвонить">+7 (916) 182-92-72</a>
       </div>
     </div>
   </section>
@@ -99,22 +99,22 @@ $brandsAll = $all;
     <div class="container">
       <h2 class="svc-section-title">Услуги и цены для <?= htmlspecialchars($b['name']) ?></h2>
       <div class="svc-tags">
-        <a class="svc-tag" href="/product/cleaning">Химчистка — от 5 990 ₽</a>
-        <a class="svc-tag" href="/product/restoration">Реставрация — от 6 490 ₽</a>
-        <a class="svc-tag" href="/product/whitening">Отбеливание подошвы — от 10 990 ₽</a>
-        <a class="svc-tag" href="/product/replacement">Замена подошвы — от 18 990 ₽</a>
-        <a class="svc-tag" href="/product/bag-restoration">Сумки — от 7 990 ₽</a>
-        <a class="svc-tag" href="/product/prevention">Профилактика — от 3 490 ₽</a>
+        <a class="svc-tag" href="/product/cleaning" title="Химчистка обуви — от 5 990 ₽">Химчистка — от 5 990 ₽</a>
+        <a class="svc-tag" href="/product/restoration" title="Реставрация обуви — от 6 490 ₽">Реставрация — от 6 490 ₽</a>
+        <a class="svc-tag" href="/product/whitening" title="Отбеливание подошвы — от 10 990 ₽">Отбеливание подошвы — от 10 990 ₽</a>
+        <a class="svc-tag" href="/product/replacement" title="Замена подошвы — от 18 990 ₽">Замена подошвы — от 18 990 ₽</a>
+        <a class="svc-tag" href="/product/bag-restoration" title="Реставрация сумок — от 7 990 ₽">Сумки — от 7 990 ₽</a>
+        <a class="svc-tag" href="/product/prevention" title="Профилактика обуви — от 3 490 ₽">Профилактика — от 3 490 ₽</a>
       </div>
       <?php if (!empty($b['blog'])): ?>
       <h2 class="svc-section-title" style="margin-top:32px">Гайды по <?= htmlspecialchars($b['name']) ?> — блог</h2>
       <div class="svc-tags">
-        <?php foreach ($b['blog'] as $art): ?><a class="svc-tag" href="/blog/<?= htmlspecialchars($art) ?>"><?= htmlspecialchars($art) ?> →</a><?php endforeach; ?>
+        <?php foreach ($b['blog'] as $art): ?><a class="svc-tag" href="/blog/<?= htmlspecialchars($art) ?>" title="<?= htmlspecialchars($art) ?> →"><?= htmlspecialchars($art) ?> →</a><?php endforeach; ?>
       </div>
       <?php endif; ?>
       <h2 class="svc-section-title" style="margin-top:32px">Другие бренды</h2>
       <div class="svc-tags">
-        <?php foreach ($brandsAll as $s2 => $b2): if ($s2 === $slug) continue; ?><a class="svc-tag" href="/brands/<?= $s2 ?>"><?= htmlspecialchars($b2['name']) ?></a><?php endforeach; ?>
+        <?php foreach ($brandsAll as $s2 => $b2): if ($s2 === $slug) continue; ?><a class="svc-tag" href="/brands/<?= $s2 ?>" title="<?= htmlspecialchars($b2['name']) ?>"><?= htmlspecialchars($b2['name']) ?></a><?php endforeach; ?>
       </div>
     </div>
   </section>
@@ -138,9 +138,9 @@ $brandsAll = $all;
       <h2><?= htmlspecialchars($b['h1']) ?> — отдайте пару экспертам</h2>
       <p>Пришлите фото в Telegram — оценим за 5 минут. Или вызовите курьера. Оплата после работы.</p>
       <div class="svc-cta-row">
-        <a href="/order" class="svc-cta-btn">Вызвать курьера</a>
-        <a href="tel:+79161829272" class="svc-cta-phone">Позвонить</a>
-        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=brand_<?= $slug ?>_cta" target="_blank" rel="external nofollow noopener noreferrer" class="svc-cta-tg" data-tg="brand_<?= $slug ?>_cta">Пришлите фото в Telegram</a>
+        <a href="/order" class="svc-cta-btn" title="Вызвать курьера для доставки обуви">Вызвать курьера</a>
+        <a href="tel:+79161829272" class="svc-cta-phone" title="Позвонить">Позвонить</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=brand_<?= $slug ?>_cta" target="_blank" rel="external nofollow noopener noreferrer" class="svc-cta-tg" data-tg="brand_<?= $slug ?>_cta" title="Прислать фото в Telegram">Пришлите фото в Telegram</a>
       </div>
     </div>
   </section>

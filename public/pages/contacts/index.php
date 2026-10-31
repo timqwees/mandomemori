@@ -105,15 +105,15 @@ require __DIR__ . '/../../partials/header.php';
                 </div>-->
                 <div class="contacts-duo-link">
                   <span>Telegram</span>
-                  <a href="https://t.me/maksim1144" target="_blank">maksim1144</a>
+                  <a href="https://t.me/maksim1144" target="_blank" rel="external nofollow noopener noreferrer" title="Написать в Telegram">maksim1144</a>
                 </div>
                 <div class="contacts-duo-link">
                   <span>Почта</span>
-                  <a href="mailto:info@mmclean.ru" itemprop="email">info@mmclean.ru</a>
+                  <a href="mailto:info@mmclean.ru" itemprop="email" title="Написать на email">info@mmclean.ru</a>
                 </div>
                 <div class="contacts-duo-link">
                   <span>Номер</span>
-                  <a href="tel:+79161829272" itemprop="telephone">+7 (916) 182-92-72</a>
+                  <a href="tel:+79161829272" itemprop="telephone" title="Позвонить">+7 (916) 182-92-72</a>
                 </div>
             </div>
           </div>

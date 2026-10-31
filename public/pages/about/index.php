@@ -732,7 +732,7 @@ html, body { background: #121212; margin: 0; }
         <div class="anp-cta__inner">
           <h2 class="anp-cta__title" data-blur-title>Готовы попробовать?</h2>
           <p class="anp-cta__desc" data-blur-content>Оставьте онлайн-заявку и получите скидку 15% на первый заказ</p>
-          <a href="/order" class="anp-cta__btn">Оставить заявку</a>
+          <a href="/order" class="anp-cta__btn" title="Оставить заявку на химчистку и получить скидку 15%">Оставить заявку</a>
         </div>
       </section>
 

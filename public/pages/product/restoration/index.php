@@ -52,7 +52,7 @@ require __DIR__ . '/../../../partials/header.php';
       <p class="svc-hero-desc" itemprop="description"><?= $svc['desc'] ?></p>
       <div class="svc-hero-actions">
         <span class="svc-hero-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="RUB"><meta itemprop="url" content="https://mmclean.ru/product/restoration"><span itemprop="price"><?= $priceRaw ?></span> ₽ <small>за пару</small><meta itemprop="availability" content="https://schema.org/InStock"><span itemprop="hasMerchantReturnPolicy" itemscope itemtype="https://schema.org/MerchantReturnPolicy"><meta itemprop="applicableCountry" content="RU"><meta itemprop="returnPolicyCategory" content="https://schema.org/MerchantReturnFiniteReturnWindow"><meta itemprop="merchantReturnDays" content="14"><meta itemprop="returnMethod" content="https://schema.org/ReturnByMail"><meta itemprop="returnFees" content="https://schema.org/FreeReturn"></span><span itemprop="shippingDetails" itemscope itemtype="https://schema.org/OfferShippingDetails"><span itemprop="shippingDestination" itemscope itemtype="https://schema.org/DefinedRegion"><meta itemprop="addressCountry" content="RU"></span><span itemprop="shippingRate" itemscope itemtype="https://schema.org/MonetaryAmount"><meta itemprop="value" content="0"><meta itemprop="currency" content="RUB"></span><span itemprop="deliveryTime" itemscope itemtype="https://schema.org/ShippingDeliveryTime"><span itemprop="handlingTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="0"><meta itemprop="maxValue" content="1"><meta itemprop="unitCode" content="DAY"></span><span itemprop="transitTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="1"><meta itemprop="maxValue" content="2"><meta itemprop="unitCode" content="DAY"></span></span><meta itemprop="shippingOrigin" content="RU"></span></span>
-        <a href="#svc-order" class="svc-hero-btn">Заказать услугу</a>
+        <a href="#svc-order" class="svc-hero-btn" title="Заказать реставрацию обуви">Заказать услугу</a>
       </div>
     </div>
   </section>
@@ -76,13 +76,10 @@ require __DIR__ . '/../../../partials/header.php';
           </div>
           <button type="button" class="svc-order-cart-btn product-add-to-cart" data-id="<?= $id ?>">Добавить в корзину</button>
           <div class="svc-order-contacts">
-            <a href="tel:+79161829272" class="svc-order-phone">Позвонить: +7 (916) 182-92-72</a>
-            <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_<?= $slug ?>" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg" data-tg="svc_<?= $slug ?>">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
-              Заказать в Telegram
-            </a>
+            <a href="tel:+79161829272" class="svc-order-phone" title="Позвонить">Позвонить: +7 (916) 182-92-72</a>
+            <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_<?= $slug ?>" target="_blank" rel="external nofollow noopener noreferrer" class="svc-order-tg" data-tg="svc_<?= $slug ?>" title="Заказать реставрацию в Telegram">Заказать в Telegram</a>
           </div>
-          <a href="/order" class="svc-order-link">Заказать услугу →</a>
+          <a href="/order" class="svc-order-link" title="Перейти к оформлению заказа">Заказать услугу →</a>
         </div>
       </div>
     </div>
@@ -148,9 +145,9 @@ require __DIR__ . '/../../../partials/header.php';
       <h2>🔥 Царапины и потёртости? Реставрация — хит!</h2>
       <p>Пришлите фото обуви в Telegram — оценим повреждения и назовём цену за 5 минут. Или позвоните — проконсультируем сразу.</p>
       <div class="svc-cta-row">
-        <a href="/order" class="svc-cta-btn">Передать обувь</a>
-        <a href="tel:+79161829272" class="svc-cta-phone">Позвонить</a>
-        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_cta_<?= $slug ?>" target="_blank" rel="external nofollow noopener noreferrer" class="svc-cta-tg" data-tg="svc_cta_<?= $slug ?>">Пришлите фото в Telegram</a>
+        <a href="/order" class="svc-cta-btn" title="Передать обувь на реставрацию">Передать обувь</a>
+        <a href="tel:+79161829272" class="svc-cta-phone" title="Позвонить">Позвонить</a>
+        <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=svc_cta_<?= $slug ?>" target="_blank" rel="external nofollow noopener noreferrer" class="svc-cta-tg" data-tg="svc_cta_<?= $slug ?>" title="Прислать фото в Telegram">Пришлите фото в Telegram</a>
       </div>
     </div>
   </section>

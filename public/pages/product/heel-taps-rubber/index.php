@@ -51,7 +51,7 @@ require __DIR__ . '/../../../partials/header.php';
       <p class="svc-hero-desc" itemprop="description"><?= $svc['desc'] ?></p>
       <div class="svc-hero-actions">
         <span class="svc-hero-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><meta itemprop="priceCurrency" content="RUB"><meta itemprop="url" content="https://mmclean.ru/product/heel-taps-rubber"><span itemprop="price"><?= $priceRaw ?></span> ₽ <small>за пару</small><meta itemprop="availability" content="https://schema.org/InStock"><span itemprop="hasMerchantReturnPolicy" itemscope itemtype="https://schema.org/MerchantReturnPolicy"><meta itemprop="applicableCountry" content="RU"><meta itemprop="returnPolicyCategory" content="https://schema.org/MerchantReturnFiniteReturnWindow"><meta itemprop="merchantReturnDays" content="14"><meta itemprop="returnMethod" content="https://schema.org/ReturnByMail"><meta itemprop="returnFees" content="https://schema.org/FreeReturn"></span><span itemprop="shippingDetails" itemscope itemtype="https://schema.org/OfferShippingDetails"><span itemprop="shippingDestination" itemscope itemtype="https://schema.org/DefinedRegion"><meta itemprop="addressCountry" content="RU"></span><span itemprop="shippingRate" itemscope itemtype="https://schema.org/MonetaryAmount"><meta itemprop="value" content="0"><meta itemprop="currency" content="RUB"></span><span itemprop="deliveryTime" itemscope itemtype="https://schema.org/ShippingDeliveryTime"><span itemprop="handlingTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="0"><meta itemprop="maxValue" content="1"><meta itemprop="unitCode" content="DAY"></span><span itemprop="transitTime" itemscope itemtype="https://schema.org/QuantitativeValue"><meta itemprop="minValue" content="1"><meta itemprop="maxValue" content="2"><meta itemprop="unitCode" content="DAY"></span></span><meta itemprop="shippingOrigin" content="RU"></span></span>
-        <a href="#svc-order" class="svc-hero-btn">Заказать услугу</a>
+        <a href="#svc-order" class="svc-hero-btn" title="Заказать услугу">Заказать услугу</a>
       </div>
     </div>
   </section>
@@ -74,7 +74,7 @@ require __DIR__ . '/../../../partials/header.php';
             <button type="button" class="product-qty-btn" data-id="<?= $id ?>" data-action="inc">+</button>
           </div>
           <button type="button" class="svc-order-cart-btn product-add-to-cart" data-id="<?= $id ?>">Добавить в корзину</button>
-          <a href="/order" class="svc-order-link">Заказать услугу →</a>
+          <a href="/order" class="svc-order-link" title="Перейти к оформлению заказа">Заказать услугу →</a>
         </div>
       </div>
     </div>
@@ -132,7 +132,7 @@ require __DIR__ . '/../../../partials/header.php';
     <div class="container">
       <h2>Готовы доверить обувь профессионалам?</h2>
       <p>Оставьте заявку, и мы свяжемся с вами в ближайшее время</p>
-      <a href="/order" class="svc-cta-btn">Передать обувь</a>
+      <a href="/order" class="svc-cta-btn" title="Передать обувь на услугу">Передать обувь</a>
     </div>
   </section>
 </main>

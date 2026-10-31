@@ -72,7 +72,7 @@ require __DIR__ . '/../../partials/header.php';
     <div class="container">
       <h1 class="contacts-title">Услуги обуви в Москве — чистка, ремонт, реставрация</h1>
       <p class="contacts-subtitle">Чистка обуви от 5 990 ₽ · Ремонт обуви от 1 990 ₽ · Реставрация обуви от 6 490 ₽ · Отбеливание подошвы от 10 990 ₽ · Замена подошвы от 18 990 ₽ · Реставрация сумок от 7 990 ₽. Loro Piana, Hermès, Berluti, Gucci, Louis Vuitton. Масс-маркет не обслуживаем</p>
-      <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=products_top" target="_blank" rel="external nofollow noopener noreferrer" class="btn-tg" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:12px 22px;background:var(--tg);color:#fff;border-radius:980px;font-weight:600;text-decoration:none" data-tg="products_top">Оценить по фото — 5 мин →</a>
+      <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=products_top" target="_blank" rel="external nofollow noopener noreferrer" class="btn-tg" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:12px 22px;background:var(--tg);color:#fff;border-radius:980px;font-weight:600;text-decoration:none" data-tg="products_top" title="Оценить стоимость по фото в Telegram">Оценить по фото — 5 мин →</a>
     </div>
   </section>
 
@@ -98,8 +98,8 @@ require __DIR__ . '/../../partials/header.php';
             <img src="/public/assets/images/<?= $svc['img'] ?>" alt="<?= $svc['title'] ?>" loading="lazy" itemprop="contentUrl">
           </div>
           <div class="product-card-action">
-            <a href="/product/<?= $svc['slug'] ?>" class="product-card-btn product-card-btn-detail" itemprop="url">Подробнее</a>
-            <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=products_<?= $svc['slug'] ?>" target="_blank" rel="external nofollow noopener noreferrer" class="product-card-btn product-card-btn-tg" data-tg="products_<?= $svc['slug'] ?>">Заказать через Телеграм</a>
+            <a href="/product/<?= $svc['slug'] ?>" class="product-card-btn product-card-btn-detail" itemprop="url" title="<?= htmlspecialchars($svc['title']) ?> — подробнее">Подробнее</a>
+            <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=products_<?= $svc['slug'] ?>" target="_blank" rel="external nofollow noopener noreferrer" class="product-card-btn product-card-btn-tg" data-tg="products_<?= $svc['slug'] ?>" title="Заказать <?= htmlspecialchars($svc['title']) ?> через Telegram">Заказать через Телеграм</a>
           </div>
           </div>
         </article>

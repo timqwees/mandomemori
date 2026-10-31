@@ -559,7 +559,7 @@ html, body { background: #121212; margin: 0; }
           <?php endif; ?>
           <label class="courier-form-consent">
             <input type="checkbox" name="consent" required>
-            <span>Я даю согласие на <a href="/privacy-policy" target="_blank">обработку персональных данных</a></span>
+            <span>Я даю согласие на <a href="/privacy-policy" target="_blank" title="Политика конфиденциальности">обработку персональных данных</a></span>
           </label>
           <button type="submit" class="courier-form-submit">Заказать курьера</button>
         </form>
