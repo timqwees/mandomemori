@@ -33,10 +33,76 @@ $pageKeywords = $article['tags'];
 $robots = 'index, follow';
 $canonical = '/blog/' . $article['url'];
 $ogImage = $article['image'];
+
+// ── Prev / Next ──
+$prevArticle = null;
+$nextArticle = null;
+foreach ($articlesJson as $a) {
+  if ((int)$a['id'] === (int)$article['id']) continue;
+  if (!$prevArticle || (int)$a['id'] < (int)$article['id']) $prevArticle = $a;
+  if (!$nextArticle || (int)$a['id'] > (int)$article['id']) $nextArticle = $a;
+}
+
+// ── JSON-LD: BlogPosting + BreadcrumbList + FAQPage ──
+$faqItems = [];
+foreach (explode(',', $article['tags']) as $t) {
+  $t = trim($t);
+  if ($t) $faqItems[] = ['question' => $t, 'answer' => 'См. статью: ' . $article['title']];
+}
+$faqItems[] = ['question' => 'Как чистить ' . strtolower($article['title']), 'answer' => 'Используйте щадящие средства: микрофибру, специализированные очистители и кондиционеры. Избегайте агрессивных растворителей, воды, сушки на батарее.'];
+$faqItems[] = ['question' => 'Можно ли чистить ' . strtolower($article['title']) . ' дома?', 'answer' => 'Да, но только с щадящими составами. Для глубокого очищения рекомендуется профессиональная чистка в MANDO MEMORI.'];
+
+$jsonLd = [
+  '@context' => 'https://schema.org',
+  '@graph' => [
+    [
+      '@type' => 'BlogPosting',
+      '@id' => $articleUrl . '/#blogpost',
+      'headline' => $article['title'],
+      'description' => $article['meta_description'],
+      'author' => ['@type' => 'Person', 'name' => $article['author'] ?? 'MANDO MEMORI', 'url' => $siteURL . '/'],
+      'publisher' => [
+        '@type' => 'Organization',
+        'name' => 'MANDO MEMORI',
+        'url' => $siteURL,
+        'logo' => ['@type' => 'ImageObject', 'url' => $siteURL . '/public/assets/images/favicon_full_black.svg'],
+      ],
+      'datePublished' => date('c', strtotime($article['created_at'])),
+      'dateModified' => date('c', strtotime($article['updated_at'] ?? $article['created_at'])),
+      'image' => $articleImage,
+      'url' => $articleUrl,
+      'mainEntityOfPage' => $articleUrl,
+      'inLanguage' => 'ru-RU',
+      'articleSection' => $article['category'],
+      'keywords' => $article['tags'],
+      'abstract' => mb_substr($article['content'], 0, 150),
+      'author' => ['@type' => 'Person', 'name' => $article['author'] ?? 'MANDO MEMORI'],
+    ],
+    [
+      '@type' => 'BreadcrumbList',
+      'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Главная', 'item' => $siteURL . '/'],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Блог', 'item' => $siteURL . '/blog'],
+        ['@type' => 'ListItem', 'position' => 3, 'name' => $article['title'], 'item' => $articleUrl],
+      ],
+    ],
+    [
+      '@type' => 'FAQPage',
+      '@id' => $articleUrl . '/#faq',
+      'mainEntity' => array_map(function($q) {
+        return ['@type' => 'Question', 'name' => $q['question'], 'acceptedAnswer' => ['@type' => 'Answer', 'text' => $q['answer']]];
+      }, $faqItems),
+    ],
+  ],
+];
+
 require __DIR__ . '/../../../partials/header.php';
 
 $tops = array_filter($articlesJson, fn($a) => (int)$a['id'] !== (int)$article['id']);
 $tops = array_slice(array_values($tops), 0, 5);
+
+// ── TL;DR ──
+$tlDrText = mb_substr(strip_tags($article['content'] ?? ''), 0, 150);
 ?>
 <div id="reading-bar"></div>
 <main class="main article-page">
@@ -51,17 +117,27 @@ $tops = array_slice(array_values($tops), 0, 5);
         <div class="article-meta-left">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4562A"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
           <span class="article-author-label">Автор:</span>
-          <span class="article-author-name"><?= htmlspecialchars($article['author']) ?></span>
+          <a href="/" rel="author" class="article-author-name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name"><?= htmlspecialchars($article['author'] ?? 'MANDO MEMORI') ?></span></a>
         </div>
         <div class="article-meta-right">
-          <span class="article-cat"><?= htmlspecialchars($article['category']) ?></span>
-          <span class="article-date"><time datetime="<?= date('c', strtotime($article['created_at'])) ?>"><?= date('d.m.Y', strtotime($article['created_at'])) ?></time></span>
+          <span class="article-cat" itemprop="articleSection"><?= htmlspecialchars($article['category']) ?></span>
+          <span class="article-date"><time itemprop="datePublished" datetime="<?= date('c', strtotime($article['created_at'])) ?>"><?= date('d.m.Y', strtotime($article['created_at'])) ?></time></span>
         </div>
       </div>
       <h1 class="article-title" itemprop="headline"><?= htmlspecialchars($article['title']) ?></h1>
       <p class="article-desc" itemprop="description"><?= htmlspecialchars($article['meta_description']) ?></p>
     </div>
   </section>
+
+  <?php if ($tlDrText): ?>
+  <section class="tldr-block">
+    <div class="container">
+      <h3>TL;DR — краткое содержание</h3>
+      <p itemprop="abstract"><?= htmlspecialchars($tlDrText) ?>...</p>
+      <p><a href="#article-body">Читать полностью →</a></p>
+    </div>
+  </section>
+  <?php endif; ?>
 
   <section class="article-body-wrap">
     <div class="container">
@@ -97,7 +173,7 @@ $tops = array_slice(array_values($tops), 0, 5);
             </ol>
             <div class="article-expert__btns">
               <a href="tel:+79161829272" class="article-expert__btn article-expert__btn--phone">Позвонить: +7 (916) 182-92-72</a>
-              <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=blog_expert_<?= htmlspecialchars($article['url']) ?>" target="_blank" rel="noopener" class="article-expert__btn article-expert__btn--tg" data-tg="blog_expert">Прислать фото в Telegram — 5 мин</a>
+              <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=blog_expert_<?= htmlspecialchars($article['url']) ?>" target="_blank" rel="external nofollow noopener noreferrer" class="article-expert__btn article-expert__btn--tg" data-tg="blog_expert">Прислать фото в Telegram — 5 мин</a>
               <a href="/order" class="article-expert__btn article-expert__btn--order">Заказать экспертизу →</a>
             </div>
             <p class="article-expert__note">Оплата только после работы · <?= htmlspecialchars(\Setting\Route\Function\Functions::deliveryNote()) ?> · Loro Piana, Hermès, Berluti, Chanel, LV</p>
@@ -105,7 +181,7 @@ $tops = array_slice(array_values($tops), 0, 5);
 
           <div class="article-tags">
             <?php foreach (explode(',', $article['tags']) as $tag): ?>
-            <span class="article-tag"><?= htmlspecialchars(trim($tag)) ?></span>
+            <a href="/blog" class="article-tag" rel="tag" title="Тег: <?= htmlspecialchars(trim($tag)) ?>"><?= htmlspecialchars(trim($tag)) ?></a>
             <?php endforeach; ?>
           </div>
 
@@ -114,7 +190,7 @@ $tops = array_slice(array_values($tops), 0, 5);
             <p class="article-cta-desc">Пришлите фото проблемы или позвоните — решим вопрос быстрее, чем ручная попытка. Ответ за 5 минут, бесплатно.</p>
             <div class="article-cta-btns">
               <a href="tel:+79161829272" class="article-cta-btn article-cta-btn--phone">Позвонить</a>
-              <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=blog_cta_<?= htmlspecialchars($article['url']) ?>" target="_blank" rel="noopener" class="article-cta-btn article-cta-btn--tg" data-tg="blog_cta">Telegram — 5 мин</a>
+              <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=blog_cta_<?= htmlspecialchars($article['url']) ?>" target="_blank" rel="external nofollow noopener noreferrer" class="article-cta-btn article-cta-btn--tg" data-tg="blog_cta">Telegram — 5 мин</a>
               <a href="/order" class="article-cta-btn">Заказать экспертизу</a>
               <a href="/products" class="article-cta-btn article-cta-btn--outline">Посмотреть услуги</a>
             </div>
@@ -126,7 +202,7 @@ $tops = array_slice(array_values($tops), 0, 5);
             <div class="article-sidebar-header">Читайте также</div>
             <div class="article-sidebar-body">
               <?php foreach ($tops as $item): ?>
-              <a class="article-popular-item" href="/blog/<?= $item['url'] ?>">
+              <a class="article-popular-item" rel="bookmark" href="/blog/<?= $item['url'] ?>">
                 <div class="article-popular-img" style="background-image:url('<?= htmlspecialchars($item['image']) ?>')"></div>
                 <div class="article-popular-body">
                   <span class="article-popular-title"><?= htmlspecialchars($item['title']) ?></span>
@@ -142,7 +218,7 @@ $tops = array_slice(array_values($tops), 0, 5);
               <h4 style="margin:0 0 8px;font-size:16px;color:#000;font-family:var(--font-heading)">⚠️ Не чините сами</h4>
               <p style="margin:0 0 16px;font-size:13px;color:#666;line-height:1.5">Пришлите фото — эксперт оценит за 5 минут, бесплатно. Это быстрее и дешевле самоделки.</p>
               <a href="tel:+79161829272" style="display:flex;align-items:center;justify-content:center;min-height:38px;padding:8px 20px;border-radius:6px;background:#1a1a1a;color:#fff;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:8px">+7 (916) 182-92-72</a>
-               <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=blog_sidebar" target="_blank" rel="noopener" data-tg="blog_sidebar" style="display:flex;align-items:center;justify-content:center;min-height:38px;padding:8px 20px;border-radius:6px;background:#229ED9;color:#fff;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:8px">Пришлите фото в Telegram</a>
+               <a href="https://t.me/maksim1144?utm_source=site&utm_medium=telegram&utm_campaign=blog_sidebar" target="_blank" rel="external nofollow noopener noreferrer" data-tg="blog_sidebar" style="display:flex;align-items:center;justify-content:center;min-height:38px;padding:8px 20px;border-radius:6px;background:#229ED9;color:#fff;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:8px">Пришлите фото в Telegram</a>
               <a href="/order" style="display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 20px;border-radius:6px;background:var(--accent,#D4562A);color:#fff;font-size:13px;font-weight:600;text-decoration:none">Заказать экспертизу</a>
             </div>
           </div>
@@ -272,6 +348,28 @@ $tops = array_slice(array_values($tops), 0, 5);
 .article-popular-body { flex: 1; min-width: 0; }
 .article-popular-title { font-size: 13px; font-weight: 600; color: #000; line-height: 17px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .article-popular-date { font-size: 11px; color: #999; margin-top: 2px; display: block; }
+
+/* TL;DR */
+.tldr-block { background: #fafafa; border: 1px solid var(--blog-border); border-radius: 12px; padding: clamp(20px,3vw,32px); margin-bottom: clamp(1.5rem,3vw,2rem); }
+.tldr-block h3 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; margin: 0 0 12px; color: #000; }
+.tldr-block p { margin: 0 0 12px; color: var(--blog-muted); line-height: 1.6; }
+.tldr-block a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.tldr-block a:hover { text-decoration: underline; }
+
+/* Prev/Next */
+.article-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--blog-border); flex-wrap: wrap; }
+.article-nav a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: #f7f7f7; border-radius: 8px; color: var(--blog-text); text-decoration: none; font-size: 14px; font-weight: 500; transition: all .2s; }
+.article-nav a:hover { background: var(--accent); color: #fff; }
+
+/* FAQ */
+.faq-block { margin-top: clamp(2rem,4vw,3rem); }
+.faq-block h2 { font-family: var(--font-heading); font-size: clamp(1.3rem,2.5vw,1.6rem); font-weight: 700; margin: 0 0 20px; color: #000; }
+.faq-item { border: 1px solid var(--blog-border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+.faq-question { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; cursor: pointer; font-weight: 600; font-size: 15px; color: #000; }
+.faq-question::after { content: '+'; font-size: 20px; font-weight: 700; color: var(--accent); transition: transform .2s; }
+.faq-item.open .faq-question::after { content: '−'; }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height .3s; padding: 0 20px; }
+.faq-item.open .faq-answer { max-height: 500px; padding: 0 20px 16px; color: var(--blog-muted); line-height: 1.6; }
 #back-top { position:fixed; bottom:24px; right:24px; z-index:999; width:40px; height:40px; border-radius:8px; background:#fff; border:1px solid var(--blog-border); color:#666; display:flex; align-items:center; justify-content:center; cursor:pointer; opacity:0; pointer-events:none; transition:opacity .2s, transform .2s; transform:translateY(8px); box-shadow:0 2px 12px rgba(0,0,0,0.06); }
 #back-top.show { opacity:1; pointer-events:auto; transform:translateY(0); }
 #back-top:hover { background:#f5f5f5; color:var(--accent); }
@@ -299,7 +397,36 @@ document.addEventListener('DOMContentLoaded', function(){
     }); }
     ticking = true;
   });
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(function(q){
+    q.addEventListener('click', function(){ q.parentElement.classList.toggle('open'); });
+  });
 });
 </script>
+
+<!-- Prev / Next -->
+<?php if ($prevArticle || $nextArticle): ?>
+<nav class="article-nav">
+  <?php if ($prevArticle): ?>
+  <a href="/blog/<?= htmlspecialchars($prevArticle['url']) ?>" rel="prev" class="nav-prev">← <?= htmlspecialchars($prevArticle['title']) ?></a>
+  <?php endif; ?>
+  <?php if ($nextArticle): ?>
+  <a href="/blog/<?= htmlspecialchars($nextArticle['url']) ?>" rel="next" class="nav-next"><?= htmlspecialchars($nextArticle['title']) ?> →</a>
+  <?php endif; ?>
+</nav>
+<?php endif; ?>
+
+<!-- FAQ -->
+<?php if (!empty($faqItems)): ?>
+<section class="faq-block">
+  <h2>Частые вопросы</h2>
+  <?php foreach ($faqItems as $fi => $fq): ?>
+  <div class="faq-item">
+    <div class="faq-question"><?= htmlspecialchars($fq['question']) ?></div>
+    <div class="faq-answer"><?= nl2br(htmlspecialchars($fq['answer'])) ?></div>
+  </div>
+  <?php endforeach; ?>
+</section>
+<?php endif; ?>
 
 <?php require __DIR__ . '/../../../partials/footer.php'; ?>
