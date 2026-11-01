@@ -86,7 +86,7 @@
       </div>
     </div>
   </footer>
-  <script>
+<script>
     (function() {
       var btn = document.getElementById('burger-btn');
       var nav = document.getElementById('main-nav');
@@ -106,14 +106,6 @@
 
     })();
   </script>
-  <div id="cart-toast" class="cart-toast" aria-live="polite" style="display:none">
-    <div class="cart-toast-img" id="cart-toast-img"></div>
-    <div class="cart-toast-body">
-      <span class="cart-toast-label">добавлен в корзину</span>
-      <span class="cart-toast-name" id="cart-toast-name"></span>
-    </div>
-  </div>
-
   <div class="cookie-banner" id="cookie-banner" style="display:none">
     <div class="cookie-banner-inner">
       <p class="cookie-banner-text">Мы используем файлы cookie для корректной работы сайта и улучшения качества обслуживания. Продолжая использовать сайт, вы соглашаетесь на обработку cookie. <a href="/privacy-policy">Подробнее</a></p>

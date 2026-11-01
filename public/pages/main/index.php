@@ -120,7 +120,7 @@ require __DIR__ . '/../../partials/header.php';
           <span class="about-step__num" itemprop="position">1</span>
           <div class="about-step__body">
             <h3 class="about-step__title" itemprop="name">Собираете заказ</h3>
-            <p class="about-step__desc" itemprop="text">Выбираете услуги, указываете количество пар — добавляете в корзину на сайте.</p>
+            <p class="about-step__desc" itemprop="text">Выбираете услуги, указываете количество пар — отправляете фото в Telegram для бесплатной экспертизы.</p>
           </div>
         </div>
         <div class="about-step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
