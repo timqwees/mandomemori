@@ -14,6 +14,13 @@ if [[ ! -f "$KEY_FILE" ]]; then
     echo "$KEY" > "$KEY_FILE"
 fi
 
+# Also copy to project root for direct access at /{KEY}.txt
+ROOT_KEY_FILE="${KEY}.txt"
+if [[ ! -f "$ROOT_KEY_FILE" ]]; then
+    echo "Copying key file to project root: $ROOT_KEY_FILE"
+    cp "$KEY_FILE" "$ROOT_KEY_FILE"
+fi
+
 echo "=== IndexNow Submission for $HOST ==="
 echo "Key: $KEY"
 echo "Key file: https://$HOST/$KEY.txt"
